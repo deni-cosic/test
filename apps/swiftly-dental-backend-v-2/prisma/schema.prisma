@@ -1,0 +1,336 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  createdAt DateTime @default(now())
+  email     String?  @unique
+  firstName String?
+  id        String   @id @default(cuid())
+  lastName  String?
+  password  String
+  roles     Json
+  updatedAt DateTime @updatedAt
+  username  String   @unique
+}
+
+model SubscriptionPlansStripeProduct {
+  id                 String           @id @default(uuid())
+  name               String
+  priceAmount        String
+  priceId            String
+  quantity           Int
+  subscriptionPlan   SubscriptionPlan @relation(fields: [subscriptionPlanId], references: [id])
+  subscriptionPlanId String
+
+  @@map("subscription_plans_stripe_products")
+}
+
+model FeaturePermission {
+  analytics           Boolean
+  createdAt           DateTime   @default(now())
+  dentalAdviceLink    Boolean
+  dentalSubscriptions Boolean
+  form                Boolean
+  id                  String     @id @default(uuid())
+  leads               Boolean?
+  messageTemplate     Boolean
+  practiceInfoLink    Boolean
+  practices           Practice[]
+  requestFeedback     Boolean
+  requestPayment      Boolean
+  sendDocument        Boolean
+  sendMessageToMany   Boolean?
+  updatedAt           DateTime   @updatedAt
+  videoCall           Boolean
+  workflows           Boolean?
+
+  @@map("feature_permissions")
+}
+
+model FormLink {
+  createdAt   DateTime           @default(now())
+  displayName String
+  enabled     Boolean
+  id          String             @id @default(uuid())
+  message     String
+  sector      EnumFormLinkSector
+  updatedAt   DateTime           @updatedAt
+  url         String
+
+  @@map("form_links")
+}
+
+model FormSubmission {
+  createdAt     DateTime  @default(now())
+  formId        String?
+  formTitle     String
+  id            String    @id @default(uuid())
+  patient       Patient?  @relation(fields: [patientId], references: [id])
+  patientId     String?
+  practice      Practice  @relation(fields: [practiceId], references: [id])
+  practiceId    String
+  receivedAt    DateTime?
+  requestedBy   String?
+  requestSentId String?
+  seen          Boolean?
+  submissionId  String?
+  updatedAt     DateTime  @updatedAt
+
+  @@index([submissionId], map: "submissionId_1")
+  @@map("form_submissions")
+}
+
+model HelpLink {
+  category    String
+  createdAt   DateTime @default(now())
+  displayName String
+  id          String   @id @default(uuid())
+  updatedAt   DateTime @updatedAt
+  url         String
+
+  @@map("help_links")
+}
+
+model LeadFormLink {
+  createdAt DateTime               @default(now())
+  id        String                 @id @default(uuid())
+  name      String
+  sector    EnumLeadFormLinkSector
+  updatedAt DateTime               @updatedAt
+  url       String
+
+  @@map("lead_form_links")
+}
+
+model LeadFormSubmission {
+  createdAt              DateTime @default(now())
+  email                  String
+  emailConsented         Boolean
+  firstName              String
+  id                     String   @id @default(uuid())
+  interests              Json?
+  lastName               String
+  marketingConsented     Boolean
+  mobileNumber           String
+  onlyInterestsConsented Boolean
+  pracitice              Practice @relation(fields: [practiceId], references: [id])
+  practiceId             String
+  smsConsented           Boolean
+  updatedAt              DateTime @updatedAt
+
+  @@map("lead_form_submissions")
+}
+
+model Lead {
+  contacted              Boolean
+  convertedClientId      String?
+  createdAt              DateTime  @default(now())
+  dateOfBirth            String
+  email                  String
+  emailConsented         Boolean?
+  firstName              String
+  id                     String    @id @default(uuid())
+  interests              String
+  lastName               String
+  marketingConsented     Boolean
+  meetingDate            DateTime?
+  mobileNumber           String
+  onlyInterestsConsented Boolean?
+  otherFields            Json?
+  platformSource         String
+  practice               Practice  @relation(fields: [practiceId], references: [id])
+  practiceId             String
+  smsConsented           Boolean?
+  updatedAt              DateTime  @updatedAt
+
+  @@map("leads")
+}
+
+model Link {
+  category    String?
+  createdAt   DateTime       @default(now())
+  displayName String
+  enabled     Boolean
+  id          String         @id @default(uuid())
+  sector      EnumLinkSector
+  updatedAt   DateTime       @updatedAt
+  url         String
+
+  @@map("links")
+}
+
+model Patient {
+  createdAt        DateTime         @default(now())
+  dateOfBirth      String
+  firstName        String
+  formSubmissions  FormSubmission[]
+  id               String           @id @default(uuid())
+  lastName         String
+  mobileNumber     String
+  nhsNumber        String?
+  practice         Practice?        @relation(fields: [practiceId], references: [id])
+  practiceId       String?
+  stripeCustomerId String?
+  updatedAt        DateTime         @updatedAt
+  workflows        Workflow[]
+
+  @@unique([practiceId, firstName, lastName, dateOfBirth])
+  @@map("patients")
+}
+
+model PracticeInfoLink {
+  category    String
+  createdAt   DateTime  @default(now())
+  displayName String
+  id          String    @id @default(uuid())
+  message     String?
+  practice    Practice? @relation(fields: [practiceId], references: [id])
+  practiceId  String?
+  updatedAt   DateTime  @updatedAt
+  url         String?
+
+  @@map("practice_info_links")
+}
+
+model Practice {
+  addressLine1             String?
+  addressLine2             String?
+  addressLine3             String?
+  createdAt                DateTime             @default(now())
+  featurePermission        FeaturePermission?   @relation(fields: [featurePermissionId], references: [id])
+  featurePermissionId      String?
+  formSubmissions          FormSubmission[]
+  googlePlaceId            String?
+  id                       String               @id @default(uuid())
+  leadFormSubmissions      LeadFormSubmission[]
+  leads                    Lead[]
+  name                     String
+  nhsReviewUrl             String?
+  odsCode                  String               @unique
+  patients                 Patient[]
+  phoneNumber              String?
+  postcode                 String?
+  practiceInfoLinks        PracticeInfoLink[]
+  remindAfter              Int
+  remindedAt               DateTime?
+  remindEvery              Int
+  sector                   EnumPracticeSector
+  senderId                 String?
+  stripeConnectedAccountId String?
+  updatedAt                DateTime             @updatedAt
+  website                  String?
+  workflowTemplates        WorkflowTemplate[]
+
+  @@map("practices")
+}
+
+model SubscriptionPlan {
+  createdAt      DateTime                         @default(now())
+  id             String                           @id @default(uuid())
+  name           String
+  practice       String
+  stripeProducts SubscriptionPlansStripeProduct[]
+  updatedAt      DateTime                         @updatedAt
+
+  @@map("subscription_plans")
+}
+
+model Template {
+  category    String?
+  createdAt   DateTime           @default(now())
+  displayName String
+  enabled     Boolean
+  id          String             @id @default(uuid())
+  sector      EnumTemplateSector
+  text        String
+  updatedAt   DateTime           @updatedAt
+
+  @@map("templates")
+}
+
+model WorkflowStep {
+  createdAt     DateTime  @default(now())
+  executedOn    DateTime?
+  executionDate DateTime
+  id            String    @id @default(uuid())
+  message       String
+  updatedAt     DateTime  @updatedAt
+  workflow      Workflow  @relation(fields: [workflowId], references: [id])
+  workflowId    String
+
+  @@map("workflow_steps")
+}
+
+model WorkflowTemplateStep {
+  createdAt           DateTime         @default(now())
+  id                  String           @id @default(uuid())
+  message             String
+  timeOffsetInSeconds Int
+  updatedAt           DateTime         @updatedAt
+  workflowTemplate    WorkflowTemplate @relation(fields: [workflowTemplateId], references: [id])
+  workflowTemplateId  String
+
+  @@map("workflow_template_steps")
+}
+
+model WorkflowTemplate {
+  createdAt             DateTime                   @default(now())
+  id                    String                     @id @default(uuid())
+  name                  String
+  practice              Practice                   @relation(fields: [praciceId], references: [id])
+  praciceId             String
+  sector                EnumWorkflowTemplateSector
+  updatedAt             DateTime                   @updatedAt
+  workflowTemplateSteps WorkflowTemplateStep[]
+
+  @@map("workflow_templates")
+}
+
+model Workflow {
+  anchorDate    DateTime?
+  createdAt     DateTime       @default(now())
+  id            String         @id @default(uuid())
+  name          String
+  patient       Patient        @relation(fields: [patientId], references: [id])
+  patientId     String
+  updatedAt     DateTime       @updatedAt
+  workflowSteps WorkflowStep[]
+
+  @@map("workflows")
+}
+
+enum EnumFormLinkSector {
+  Dental
+  GP
+}
+
+enum EnumLeadFormLinkSector {
+  Dental
+  GP
+}
+
+enum EnumLinkSector {
+  Dental
+  GP
+}
+
+enum EnumPracticeSector {
+  Dental
+  GP
+}
+
+enum EnumTemplateSector {
+  Dental
+  GP
+}
+
+enum EnumWorkflowTemplateSector {
+  Dental
+  GP
+}

@@ -1,0 +1,33 @@
+import { FeaturePermissionWhereUniqueInput } from "../featurePermission/FeaturePermissionWhereUniqueInput";
+import { FormSubmissionCreateNestedManyWithoutPracticesInput } from "./FormSubmissionCreateNestedManyWithoutPracticesInput";
+import { LeadFormSubmissionCreateNestedManyWithoutPracticesInput } from "./LeadFormSubmissionCreateNestedManyWithoutPracticesInput";
+import { LeadCreateNestedManyWithoutPracticesInput } from "./LeadCreateNestedManyWithoutPracticesInput";
+import { PatientCreateNestedManyWithoutPracticesInput } from "./PatientCreateNestedManyWithoutPracticesInput";
+import { PracticeInfoLinkCreateNestedManyWithoutPracticesInput } from "./PracticeInfoLinkCreateNestedManyWithoutPracticesInput";
+import { WorkflowTemplateCreateNestedManyWithoutPracticesInput } from "./WorkflowTemplateCreateNestedManyWithoutPracticesInput";
+
+export type PracticeCreateInput = {
+  addressLine1?: string | null;
+  addressLine2?: string | null;
+  addressLine3?: string | null;
+  featurePermission?: FeaturePermissionWhereUniqueInput | null;
+  formSubmissions?: FormSubmissionCreateNestedManyWithoutPracticesInput;
+  googlePlaceId?: string | null;
+  leadFormSubmissions?: LeadFormSubmissionCreateNestedManyWithoutPracticesInput;
+  leads?: LeadCreateNestedManyWithoutPracticesInput;
+  name: string;
+  nhsReviewUrl?: string | null;
+  odsCode: string;
+  patients?: PatientCreateNestedManyWithoutPracticesInput;
+  phoneNumber?: string | null;
+  postcode?: string | null;
+  practiceInfoLinks?: PracticeInfoLinkCreateNestedManyWithoutPracticesInput;
+  remindAfter: number;
+  remindedAt?: Date | null;
+  remindEvery: number;
+  sector: "Dental" | "GP";
+  senderId?: string | null;
+  stripeConnectedAccountId?: string | null;
+  website?: string | null;
+  workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutPracticesInput;
+};

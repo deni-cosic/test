@@ -1,0 +1,36 @@
+import { FeaturePermission } from "../featurePermission/FeaturePermission";
+import { FormSubmission } from "../formSubmission/FormSubmission";
+import { LeadFormSubmission } from "../leadFormSubmission/LeadFormSubmission";
+import { Lead } from "../lead/Lead";
+import { Patient } from "../patient/Patient";
+import { PracticeInfoLink } from "../practiceInfoLink/PracticeInfoLink";
+import { WorkflowTemplate } from "../workflowTemplate/WorkflowTemplate";
+
+export type Practice = {
+  addressLine1: string | null;
+  addressLine2: string | null;
+  addressLine3: string | null;
+  createdAt: Date;
+  featurePermission?: FeaturePermission | null;
+  formSubmissions?: Array<FormSubmission>;
+  googlePlaceId: string | null;
+  id: string;
+  leadFormSubmissions?: Array<LeadFormSubmission>;
+  leads?: Array<Lead>;
+  name: string;
+  nhsReviewUrl: string | null;
+  odsCode: string;
+  patients?: Array<Patient>;
+  phoneNumber: string | null;
+  postcode: string | null;
+  practiceInfoLinks?: Array<PracticeInfoLink>;
+  remindAfter: number;
+  remindedAt: Date | null;
+  remindEvery: number;
+  sector?: "Dental" | "GP";
+  senderId: string | null;
+  stripeConnectedAccountId: string | null;
+  updatedAt: Date;
+  website: string | null;
+  workflowTemplates?: Array<WorkflowTemplate>;
+};
