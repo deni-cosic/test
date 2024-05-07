@@ -45,6 +45,9 @@ export class LeadFormLinkControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: LeadFormLinkCreateInput,
+  })
   async createLeadFormLink(
     @common.Body() data: LeadFormLinkCreateInput
   ): Promise<LeadFormLink> {
@@ -133,6 +136,9 @@ export class LeadFormLinkControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: LeadFormLinkUpdateInput,
   })
   async updateLeadFormLink(
     @common.Param() params: LeadFormLinkWhereUniqueInput,

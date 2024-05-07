@@ -48,6 +48,9 @@ export class FeaturePermissionControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: FeaturePermissionCreateInput,
+  })
   async createFeaturePermission(
     @common.Body() data: FeaturePermissionCreateInput
   ): Promise<FeaturePermission> {
@@ -168,6 +171,9 @@ export class FeaturePermissionControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: FeaturePermissionUpdateInput,
   })
   async updateFeaturePermission(
     @common.Param() params: FeaturePermissionWhereUniqueInput,

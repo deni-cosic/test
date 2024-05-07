@@ -45,6 +45,9 @@ export class LeadFormSubmissionControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: LeadFormSubmissionCreateInput,
+  })
   async createLeadFormSubmission(
     @common.Body() data: LeadFormSubmissionCreateInput
   ): Promise<LeadFormSubmission> {
@@ -180,6 +183,9 @@ export class LeadFormSubmissionControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: LeadFormSubmissionUpdateInput,
   })
   async updateLeadFormSubmission(
     @common.Param() params: LeadFormSubmissionWhereUniqueInput,

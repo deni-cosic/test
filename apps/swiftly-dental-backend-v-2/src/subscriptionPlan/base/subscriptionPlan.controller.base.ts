@@ -48,6 +48,9 @@ export class SubscriptionPlanControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: SubscriptionPlanCreateInput,
+  })
   async createSubscriptionPlan(
     @common.Body() data: SubscriptionPlanCreateInput
   ): Promise<SubscriptionPlan> {
@@ -135,6 +138,9 @@ export class SubscriptionPlanControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: SubscriptionPlanUpdateInput,
   })
   async updateSubscriptionPlan(
     @common.Param() params: SubscriptionPlanWhereUniqueInput,

@@ -45,6 +45,9 @@ export class LinkControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: LinkCreateInput,
+  })
   async createLink(@common.Body() data: LinkCreateInput): Promise<Link> {
     return await this.service.createLink({
       data: data,
@@ -137,6 +140,9 @@ export class LinkControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: LinkUpdateInput,
   })
   async updateLink(
     @common.Param() params: LinkWhereUniqueInput,

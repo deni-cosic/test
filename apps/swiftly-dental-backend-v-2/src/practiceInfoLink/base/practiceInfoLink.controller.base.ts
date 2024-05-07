@@ -45,6 +45,9 @@ export class PracticeInfoLinkControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: PracticeInfoLinkCreateInput,
+  })
   async createPracticeInfoLink(
     @common.Body() data: PracticeInfoLinkCreateInput
   ): Promise<PracticeInfoLink> {
@@ -167,6 +170,9 @@ export class PracticeInfoLinkControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: PracticeInfoLinkUpdateInput,
   })
   async updatePracticeInfoLink(
     @common.Param() params: PracticeInfoLinkWhereUniqueInput,

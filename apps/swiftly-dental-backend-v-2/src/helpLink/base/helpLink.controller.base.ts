@@ -45,6 +45,9 @@ export class HelpLinkControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: HelpLinkCreateInput,
+  })
   async createHelpLink(
     @common.Body() data: HelpLinkCreateInput
   ): Promise<HelpLink> {
@@ -133,6 +136,9 @@ export class HelpLinkControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: HelpLinkUpdateInput,
   })
   async updateHelpLink(
     @common.Param() params: HelpLinkWhereUniqueInput,

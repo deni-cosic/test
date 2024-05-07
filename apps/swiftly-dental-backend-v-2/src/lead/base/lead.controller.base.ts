@@ -45,6 +45,9 @@ export class LeadControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: LeadCreateInput,
+  })
   async createLead(@common.Body() data: LeadCreateInput): Promise<Lead> {
     return await this.service.createLead({
       data: {
@@ -194,6 +197,9 @@ export class LeadControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: LeadUpdateInput,
   })
   async updateLead(
     @common.Param() params: LeadWhereUniqueInput,

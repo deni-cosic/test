@@ -45,6 +45,9 @@ export class WorkflowStepControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: WorkflowStepCreateInput,
+  })
   async createWorkflowStep(
     @common.Body() data: WorkflowStepCreateInput
   ): Promise<WorkflowStep> {
@@ -157,6 +160,9 @@ export class WorkflowStepControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: WorkflowStepUpdateInput,
   })
   async updateWorkflowStep(
     @common.Param() params: WorkflowStepWhereUniqueInput,
