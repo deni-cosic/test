@@ -1,18 +1,18 @@
 [
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "User",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "User",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "User",
     "action": "read:own",
     "attributes": "*"
@@ -24,19 +24,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "User",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "User",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "User",
     "action": "create:any",
     "attributes": "*"
@@ -48,19 +48,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "User",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "User",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "User",
     "action": "update:any",
     "attributes": "*"
@@ -72,19 +72,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "User",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "User",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "User",
     "action": "delete:any",
     "attributes": "*"
@@ -96,19 +96,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "User",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "User",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "User",
     "action": "read:any",
     "attributes": "*"
@@ -120,19 +120,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "SubscriptionPlansStripeProduct",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "SubscriptionPlansStripeProduct",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "SubscriptionPlansStripeProduct",
     "action": "read:own",
     "attributes": "*"
@@ -144,19 +144,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "SubscriptionPlansStripeProduct",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "SubscriptionPlansStripeProduct",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "SubscriptionPlansStripeProduct",
     "action": "create:any",
     "attributes": "*"
@@ -168,19 +168,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "SubscriptionPlansStripeProduct",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "SubscriptionPlansStripeProduct",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "SubscriptionPlansStripeProduct",
     "action": "update:any",
     "attributes": "*"
@@ -192,19 +192,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "SubscriptionPlansStripeProduct",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "SubscriptionPlansStripeProduct",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "SubscriptionPlansStripeProduct",
     "action": "delete:any",
     "attributes": "*"
@@ -216,19 +216,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "SubscriptionPlansStripeProduct",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "SubscriptionPlansStripeProduct",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "SubscriptionPlansStripeProduct",
     "action": "read:any",
     "attributes": "*"
@@ -240,19 +240,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "FeaturePermission",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "FeaturePermission",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "FeaturePermission",
     "action": "read:own",
     "attributes": "*"
@@ -264,19 +264,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "FeaturePermission",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "FeaturePermission",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "FeaturePermission",
     "action": "create:any",
     "attributes": "*"
@@ -288,19 +288,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "FeaturePermission",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "FeaturePermission",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "FeaturePermission",
     "action": "update:any",
     "attributes": "*"
@@ -312,19 +312,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "FeaturePermission",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "FeaturePermission",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "FeaturePermission",
     "action": "delete:any",
     "attributes": "*"
@@ -336,19 +336,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "FeaturePermission",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "FeaturePermission",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "FeaturePermission",
     "action": "read:any",
     "attributes": "*"
@@ -360,19 +360,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "FormLink",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "FormLink",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "FormLink",
     "action": "read:own",
     "attributes": "*"
@@ -384,19 +384,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "FormLink",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "FormLink",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "FormLink",
     "action": "create:any",
     "attributes": "*"
@@ -408,19 +408,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "FormLink",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "FormLink",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "FormLink",
     "action": "update:any",
     "attributes": "*"
@@ -432,19 +432,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "FormLink",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "FormLink",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "FormLink",
     "action": "delete:any",
     "attributes": "*"
@@ -456,19 +456,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "FormLink",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "FormLink",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "FormLink",
     "action": "read:any",
     "attributes": "*"
@@ -480,19 +480,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "FormSubmission",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "FormSubmission",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "FormSubmission",
     "action": "read:own",
     "attributes": "*"
@@ -504,19 +504,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "FormSubmission",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "FormSubmission",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "FormSubmission",
     "action": "create:any",
     "attributes": "*"
@@ -528,19 +528,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "FormSubmission",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "FormSubmission",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "FormSubmission",
     "action": "update:any",
     "attributes": "*"
@@ -552,19 +552,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "FormSubmission",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "FormSubmission",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "FormSubmission",
     "action": "delete:any",
     "attributes": "*"
@@ -576,19 +576,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "FormSubmission",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "FormSubmission",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "FormSubmission",
     "action": "read:any",
     "attributes": "*"
@@ -600,19 +600,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "HelpLink",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "HelpLink",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "HelpLink",
     "action": "read:own",
     "attributes": "*"
@@ -624,19 +624,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "HelpLink",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "HelpLink",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "HelpLink",
     "action": "create:any",
     "attributes": "*"
@@ -648,19 +648,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "HelpLink",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "HelpLink",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "HelpLink",
     "action": "update:any",
     "attributes": "*"
@@ -672,19 +672,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "HelpLink",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "HelpLink",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "HelpLink",
     "action": "delete:any",
     "attributes": "*"
@@ -696,19 +696,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "HelpLink",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "HelpLink",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "HelpLink",
     "action": "read:any",
     "attributes": "*"
@@ -720,19 +720,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "LeadFormLink",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "LeadFormLink",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "LeadFormLink",
     "action": "read:own",
     "attributes": "*"
@@ -744,19 +744,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "LeadFormLink",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "LeadFormLink",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "LeadFormLink",
     "action": "create:any",
     "attributes": "*"
@@ -768,19 +768,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "LeadFormLink",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "LeadFormLink",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "LeadFormLink",
     "action": "update:any",
     "attributes": "*"
@@ -792,19 +792,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "LeadFormLink",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "LeadFormLink",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "LeadFormLink",
     "action": "delete:any",
     "attributes": "*"
@@ -816,19 +816,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "LeadFormLink",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "LeadFormLink",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "LeadFormLink",
     "action": "read:any",
     "attributes": "*"
@@ -840,19 +840,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "LeadFormSubmission",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "LeadFormSubmission",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "LeadFormSubmission",
     "action": "read:own",
     "attributes": "*"
@@ -864,19 +864,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "LeadFormSubmission",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "LeadFormSubmission",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "LeadFormSubmission",
     "action": "create:any",
     "attributes": "*"
@@ -888,19 +888,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "LeadFormSubmission",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "LeadFormSubmission",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "LeadFormSubmission",
     "action": "update:any",
     "attributes": "*"
@@ -912,19 +912,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "LeadFormSubmission",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "LeadFormSubmission",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "LeadFormSubmission",
     "action": "delete:any",
     "attributes": "*"
@@ -936,19 +936,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "LeadFormSubmission",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "LeadFormSubmission",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "LeadFormSubmission",
     "action": "read:any",
     "attributes": "*"
@@ -960,19 +960,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Lead",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Lead",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Lead",
     "action": "read:own",
     "attributes": "*"
@@ -984,19 +984,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Lead",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Lead",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Lead",
     "action": "create:any",
     "attributes": "*"
@@ -1008,19 +1008,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Lead",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Lead",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Lead",
     "action": "update:any",
     "attributes": "*"
@@ -1032,19 +1032,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Lead",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Lead",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Lead",
     "action": "delete:any",
     "attributes": "*"
@@ -1056,19 +1056,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Lead",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Lead",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Lead",
     "action": "read:any",
     "attributes": "*"
@@ -1080,19 +1080,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Link",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Link",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Link",
     "action": "read:own",
     "attributes": "*"
@@ -1104,19 +1104,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Link",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Link",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Link",
     "action": "create:any",
     "attributes": "*"
@@ -1128,19 +1128,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Link",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Link",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Link",
     "action": "update:any",
     "attributes": "*"
@@ -1152,19 +1152,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Link",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Link",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Link",
     "action": "delete:any",
     "attributes": "*"
@@ -1176,19 +1176,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Link",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Link",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Link",
     "action": "read:any",
     "attributes": "*"
@@ -1200,19 +1200,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Patient",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Patient",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Patient",
     "action": "read:own",
     "attributes": "*"
@@ -1224,19 +1224,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Patient",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Patient",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Patient",
     "action": "create:any",
     "attributes": "*"
@@ -1248,19 +1248,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Patient",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Patient",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Patient",
     "action": "update:any",
     "attributes": "*"
@@ -1272,19 +1272,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Patient",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Patient",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Patient",
     "action": "delete:any",
     "attributes": "*"
@@ -1296,19 +1296,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Patient",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Patient",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Patient",
     "action": "read:any",
     "attributes": "*"
@@ -1320,19 +1320,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "PracticeInfoLink",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "PracticeInfoLink",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "PracticeInfoLink",
     "action": "read:own",
     "attributes": "*"
@@ -1344,19 +1344,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "PracticeInfoLink",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "PracticeInfoLink",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "PracticeInfoLink",
     "action": "create:any",
     "attributes": "*"
@@ -1368,19 +1368,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "PracticeInfoLink",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "PracticeInfoLink",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "PracticeInfoLink",
     "action": "update:any",
     "attributes": "*"
@@ -1392,19 +1392,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "PracticeInfoLink",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "PracticeInfoLink",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "PracticeInfoLink",
     "action": "delete:any",
     "attributes": "*"
@@ -1416,19 +1416,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "PracticeInfoLink",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "PracticeInfoLink",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "PracticeInfoLink",
     "action": "read:any",
     "attributes": "*"
@@ -1440,19 +1440,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Practice",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Practice",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Practice",
     "action": "read:own",
     "attributes": "*"
@@ -1464,19 +1464,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Practice",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Practice",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Practice",
     "action": "create:any",
     "attributes": "*"
@@ -1488,19 +1488,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Practice",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Practice",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Practice",
     "action": "update:any",
     "attributes": "*"
@@ -1512,19 +1512,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Practice",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Practice",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Practice",
     "action": "delete:any",
     "attributes": "*"
@@ -1536,19 +1536,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Practice",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Practice",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Practice",
     "action": "read:any",
     "attributes": "*"
@@ -1560,19 +1560,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "SubscriptionPlan",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "SubscriptionPlan",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "SubscriptionPlan",
     "action": "read:own",
     "attributes": "*"
@@ -1584,19 +1584,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "SubscriptionPlan",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "SubscriptionPlan",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "SubscriptionPlan",
     "action": "create:any",
     "attributes": "*"
@@ -1608,19 +1608,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "SubscriptionPlan",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "SubscriptionPlan",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "SubscriptionPlan",
     "action": "update:any",
     "attributes": "*"
@@ -1632,19 +1632,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "SubscriptionPlan",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "SubscriptionPlan",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "SubscriptionPlan",
     "action": "delete:any",
     "attributes": "*"
@@ -1656,19 +1656,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "SubscriptionPlan",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "SubscriptionPlan",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "SubscriptionPlan",
     "action": "read:any",
     "attributes": "*"
@@ -1680,19 +1680,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Template",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Template",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Template",
     "action": "read:own",
     "attributes": "*"
@@ -1704,19 +1704,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Template",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Template",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Template",
     "action": "create:any",
     "attributes": "*"
@@ -1728,19 +1728,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Template",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Template",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Template",
     "action": "update:any",
     "attributes": "*"
@@ -1752,19 +1752,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Template",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Template",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Template",
     "action": "delete:any",
     "attributes": "*"
@@ -1776,19 +1776,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Template",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Template",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Template",
     "action": "read:any",
     "attributes": "*"
@@ -1800,19 +1800,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "WorkflowStep",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "WorkflowStep",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "WorkflowStep",
     "action": "read:own",
     "attributes": "*"
@@ -1824,19 +1824,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "WorkflowStep",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "WorkflowStep",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "WorkflowStep",
     "action": "create:any",
     "attributes": "*"
@@ -1848,19 +1848,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "WorkflowStep",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "WorkflowStep",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "WorkflowStep",
     "action": "update:any",
     "attributes": "*"
@@ -1872,19 +1872,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "WorkflowStep",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "WorkflowStep",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "WorkflowStep",
     "action": "delete:any",
     "attributes": "*"
@@ -1896,19 +1896,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "WorkflowStep",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "WorkflowStep",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "WorkflowStep",
     "action": "read:any",
     "attributes": "*"
@@ -1920,19 +1920,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "WorkflowTemplateStep",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "WorkflowTemplateStep",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "WorkflowTemplateStep",
     "action": "read:own",
     "attributes": "*"
@@ -1944,19 +1944,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "WorkflowTemplateStep",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "WorkflowTemplateStep",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "WorkflowTemplateStep",
     "action": "create:any",
     "attributes": "*"
@@ -1968,19 +1968,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "WorkflowTemplateStep",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "WorkflowTemplateStep",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "WorkflowTemplateStep",
     "action": "update:any",
     "attributes": "*"
@@ -1992,19 +1992,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "WorkflowTemplateStep",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "WorkflowTemplateStep",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "WorkflowTemplateStep",
     "action": "delete:any",
     "attributes": "*"
@@ -2016,19 +2016,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "WorkflowTemplateStep",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "WorkflowTemplateStep",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "WorkflowTemplateStep",
     "action": "read:any",
     "attributes": "*"
@@ -2040,19 +2040,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "WorkflowTemplate",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "WorkflowTemplate",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "WorkflowTemplate",
     "action": "read:own",
     "attributes": "*"
@@ -2064,19 +2064,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "WorkflowTemplate",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "WorkflowTemplate",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "WorkflowTemplate",
     "action": "create:any",
     "attributes": "*"
@@ -2088,19 +2088,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "WorkflowTemplate",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "WorkflowTemplate",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "WorkflowTemplate",
     "action": "update:any",
     "attributes": "*"
@@ -2112,19 +2112,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "WorkflowTemplate",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "WorkflowTemplate",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "WorkflowTemplate",
     "action": "delete:any",
     "attributes": "*"
@@ -2136,19 +2136,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "WorkflowTemplate",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "WorkflowTemplate",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "WorkflowTemplate",
     "action": "read:any",
     "attributes": "*"
@@ -2160,19 +2160,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Workflow",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Workflow",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Workflow",
     "action": "read:own",
     "attributes": "*"
@@ -2184,19 +2184,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Workflow",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Workflow",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Workflow",
     "action": "create:any",
     "attributes": "*"
@@ -2208,19 +2208,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Workflow",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Workflow",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Workflow",
     "action": "update:any",
     "attributes": "*"
@@ -2232,19 +2232,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Workflow",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Workflow",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Workflow",
     "action": "delete:any",
     "attributes": "*"
@@ -2256,19 +2256,19 @@
     "attributes": "*"
   },
   {
-    "role": "practiceManager",
+    "role": "authenticated",
     "resource": "Workflow",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceOwner",
+    "role": "manager",
     "resource": "Workflow",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "practiceUser",
+    "role": "practice_owner",
     "resource": "Workflow",
     "action": "read:any",
     "attributes": "*"
