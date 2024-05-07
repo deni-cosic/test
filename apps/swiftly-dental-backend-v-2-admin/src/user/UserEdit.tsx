@@ -1,12 +1,16 @@
 import * as React from "react";
+
 import {
   Edit,
   SimpleForm,
   EditProps,
   TextInput,
   PasswordInput,
+  ReferenceArrayInput,
   SelectArrayInput,
 } from "react-admin";
+
+import { PracticeTitle } from "../practice/PracticeTitle";
 import { ROLES_OPTIONS } from "../user/RolesOptions";
 
 export const UserEdit = (props: EditProps): React.ReactElement => {
@@ -17,6 +21,14 @@ export const UserEdit = (props: EditProps): React.ReactElement => {
         <TextInput label="First Name" source="firstName" />
         <TextInput label="Last Name" source="lastName" />
         <PasswordInput label="Password" source="password" />
+        <ReferenceArrayInput
+          source="practices"
+          reference="Practice"
+          parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+          format={(value: any) => value && value.map((v: any) => v.id)}
+        >
+          <SelectArrayInput optionText={PracticeTitle} />
+        </ReferenceArrayInput>
         <SelectArrayInput
           source="roles"
           choices={ROLES_OPTIONS}

@@ -36,6 +36,8 @@ import { PatientFindManyArgs } from "../../patient/base/PatientFindManyArgs";
 import { Patient } from "../../patient/base/Patient";
 import { PracticeInfoLinkFindManyArgs } from "../../practiceInfoLink/base/PracticeInfoLinkFindManyArgs";
 import { PracticeInfoLink } from "../../practiceInfoLink/base/PracticeInfoLink";
+import { UserFindManyArgs } from "../../user/base/UserFindManyArgs";
+import { User } from "../../user/base/User";
 import { WorkflowTemplateFindManyArgs } from "../../workflowTemplate/base/WorkflowTemplateFindManyArgs";
 import { WorkflowTemplate } from "../../workflowTemplate/base/WorkflowTemplate";
 import { FeaturePermission } from "../../featurePermission/base/FeaturePermission";
@@ -265,6 +267,26 @@ export class PracticeResolverBase {
     @graphql.Args() args: PracticeInfoLinkFindManyArgs
   ): Promise<PracticeInfoLink[]> {
     const results = await this.service.findPracticeInfoLinks(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [User], { name: "users" })
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "read",
+    possession: "any",
+  })
+  async findUsers(
+    @graphql.Parent() parent: Practice,
+    @graphql.Args() args: UserFindManyArgs
+  ): Promise<User[]> {
+    const results = await this.service.findUsers(parent.id, args);
 
     if (!results) {
       return [];

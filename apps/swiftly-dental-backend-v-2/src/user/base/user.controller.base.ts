@@ -26,6 +26,9 @@ import { User } from "./User";
 import { UserFindManyArgs } from "./UserFindManyArgs";
 import { UserWhereUniqueInput } from "./UserWhereUniqueInput";
 import { UserUpdateInput } from "./UserUpdateInput";
+import { PracticeFindManyArgs } from "../../practice/base/PracticeFindManyArgs";
+import { Practice } from "../../practice/base/Practice";
+import { PracticeWhereUniqueInput } from "../../practice/base/PracticeWhereUniqueInput";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
@@ -203,5 +206,123 @@ export class UserControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/practices")
+  @ApiNestedQuery(PracticeFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "Practice",
+    action: "read",
+    possession: "any",
+  })
+  async findPractices(
+    @common.Req() request: Request,
+    @common.Param() params: UserWhereUniqueInput
+  ): Promise<Practice[]> {
+    const query = plainToClass(PracticeFindManyArgs, request.query);
+    const results = await this.service.findPractices(params.id, {
+      ...query,
+      select: {
+        addressLine1: true,
+        addressLine2: true,
+        addressLine3: true,
+        createdAt: true,
+
+        featurePermission: {
+          select: {
+            id: true,
+          },
+        },
+
+        googlePlaceId: true,
+        id: true,
+        name: true,
+        nhsReviewUrl: true,
+        odsCode: true,
+        phoneNumber: true,
+        postcode: true,
+        remindAfter: true,
+        remindedAt: true,
+        remindEvery: true,
+        sector: true,
+        senderId: true,
+        stripeConnectedAccountId: true,
+        updatedAt: true,
+        website: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/practices")
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "update",
+    possession: "any",
+  })
+  async connectPractices(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: PracticeWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      practices: {
+        connect: body,
+      },
+    };
+    await this.service.updateUser({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/practices")
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "update",
+    possession: "any",
+  })
+  async updatePractices(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: PracticeWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      practices: {
+        set: body,
+      },
+    };
+    await this.service.updateUser({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/practices")
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectPractices(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: PracticeWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      practices: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateUser({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

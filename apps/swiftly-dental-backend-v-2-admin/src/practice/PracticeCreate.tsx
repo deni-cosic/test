@@ -19,6 +19,7 @@ import { LeadFormSubmissionTitle } from "../leadFormSubmission/LeadFormSubmissio
 import { LeadTitle } from "../lead/LeadTitle";
 import { PatientTitle } from "../patient/PatientTitle";
 import { PracticeInfoLinkTitle } from "../practiceInfoLink/PracticeInfoLinkTitle";
+import { UserTitle } from "../user/UserTitle";
 import { WorkflowTemplateTitle } from "../workflowTemplate/WorkflowTemplateTitle";
 
 export const PracticeCreate = (props: CreateProps): React.ReactElement => {
@@ -99,6 +100,14 @@ export const PracticeCreate = (props: CreateProps): React.ReactElement => {
           label="Stripe Connected Account Id"
           source="stripeConnectedAccountId"
         />
+        <ReferenceArrayInput
+          source="users"
+          reference="User"
+          parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+          format={(value: any) => value && value.map((v: any) => v.id)}
+        >
+          <SelectArrayInput optionText={UserTitle} />
+        </ReferenceArrayInput>
         <TextInput label="Website" source="website" />
         <ReferenceArrayInput
           source="workflowTemplates"

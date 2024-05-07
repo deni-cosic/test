@@ -1,3 +1,4 @@
+import { PracticeCreateNestedManyWithoutUsersInput } from "./PracticeCreateNestedManyWithoutUsersInput";
 import { InputJsonValue } from "../../types";
 
 export type UserCreateInput = {
@@ -5,6 +6,7 @@ export type UserCreateInput = {
   firstName?: string | null;
   lastName?: string | null;
   password: string;
+  practices?: PracticeCreateNestedManyWithoutUsersInput;
   roles: InputJsonValue;
   username: string;
 };

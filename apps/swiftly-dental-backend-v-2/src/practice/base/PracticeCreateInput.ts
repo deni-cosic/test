@@ -27,6 +27,7 @@ import { LeadCreateNestedManyWithoutPracticesInput } from "./LeadCreateNestedMan
 import { PatientCreateNestedManyWithoutPracticesInput } from "./PatientCreateNestedManyWithoutPracticesInput";
 import { PracticeInfoLinkCreateNestedManyWithoutPracticesInput } from "./PracticeInfoLinkCreateNestedManyWithoutPracticesInput";
 import { EnumPracticeSector } from "./EnumPracticeSector";
+import { UserCreateNestedManyWithoutPracticesInput } from "./UserCreateNestedManyWithoutPracticesInput";
 import { WorkflowTemplateCreateNestedManyWithoutPracticesInput } from "./WorkflowTemplateCreateNestedManyWithoutPracticesInput";
 
 @InputType()
@@ -252,6 +253,18 @@ class PracticeCreateInput {
     nullable: true,
   })
   stripeConnectedAccountId?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => UserCreateNestedManyWithoutPracticesInput,
+  })
+  @ValidateNested()
+  @Type(() => UserCreateNestedManyWithoutPracticesInput)
+  @IsOptional()
+  @Field(() => UserCreateNestedManyWithoutPracticesInput, {
+    nullable: true,
+  })
+  users?: UserCreateNestedManyWithoutPracticesInput;
 
   @ApiProperty({
     required: false,
