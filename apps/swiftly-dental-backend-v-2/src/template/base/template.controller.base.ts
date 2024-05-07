@@ -45,6 +45,9 @@ export class TemplateControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: TemplateCreateInput,
+  })
   async createTemplate(
     @common.Body() data: TemplateCreateInput
   ): Promise<Template> {
@@ -139,6 +142,9 @@ export class TemplateControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: TemplateUpdateInput,
   })
   async updateTemplate(
     @common.Param() params: TemplateWhereUniqueInput,

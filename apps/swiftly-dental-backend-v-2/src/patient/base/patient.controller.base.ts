@@ -51,6 +51,9 @@ export class PatientControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: PatientCreateInput,
+  })
   async createPatient(
     @common.Body() data: PatientCreateInput
   ): Promise<Patient> {
@@ -177,6 +180,9 @@ export class PatientControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: PatientUpdateInput,
   })
   async updatePatient(
     @common.Param() params: PatientWhereUniqueInput,

@@ -45,6 +45,9 @@ export class FormLinkControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: FormLinkCreateInput,
+  })
   async createFormLink(
     @common.Body() data: FormLinkCreateInput
   ): Promise<FormLink> {
@@ -139,6 +142,9 @@ export class FormLinkControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: FormLinkUpdateInput,
   })
   async updateFormLink(
     @common.Param() params: FormLinkWhereUniqueInput,

@@ -45,6 +45,9 @@ export class SubscriptionPlansStripeProductControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: SubscriptionPlansStripeProductCreateInput,
+  })
   async createSubscriptionPlansStripeProduct(
     @common.Body() data: SubscriptionPlansStripeProductCreateInput
   ): Promise<SubscriptionPlansStripeProduct> {
@@ -159,6 +162,9 @@ export class SubscriptionPlansStripeProductControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: SubscriptionPlansStripeProductUpdateInput,
   })
   async updateSubscriptionPlansStripeProduct(
     @common.Param() params: SubscriptionPlansStripeProductWhereUniqueInput,

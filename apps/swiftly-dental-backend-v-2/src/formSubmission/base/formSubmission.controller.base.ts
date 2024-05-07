@@ -45,6 +45,9 @@ export class FormSubmissionControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: FormSubmissionCreateInput,
+  })
   async createFormSubmission(
     @common.Body() data: FormSubmissionCreateInput
   ): Promise<FormSubmission> {
@@ -198,6 +201,9 @@ export class FormSubmissionControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: FormSubmissionUpdateInput,
   })
   async updateFormSubmission(
     @common.Param() params: FormSubmissionWhereUniqueInput,

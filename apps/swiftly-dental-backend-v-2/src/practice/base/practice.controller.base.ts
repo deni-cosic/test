@@ -66,6 +66,9 @@ export class PracticeControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
+  @swagger.ApiBody({
+    type: PracticeCreateInput,
+  })
   async createPractice(
     @common.Body() data: PracticeCreateInput
   ): Promise<Practice> {
@@ -222,6 +225,9 @@ export class PracticeControllerBase {
   })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: PracticeUpdateInput,
   })
   async updatePractice(
     @common.Param() params: PracticeWhereUniqueInput,
