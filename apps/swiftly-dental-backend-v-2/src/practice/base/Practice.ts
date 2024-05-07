@@ -27,6 +27,7 @@ import { Lead } from "../../lead/base/Lead";
 import { Patient } from "../../patient/base/Patient";
 import { PracticeInfoLink } from "../../practiceInfoLink/base/PracticeInfoLink";
 import { EnumPracticeSector } from "./EnumPracticeSector";
+import { User } from "../../user/base/User";
 import { WorkflowTemplate } from "../../workflowTemplate/base/WorkflowTemplate";
 
 @ObjectType()
@@ -260,6 +261,15 @@ class Practice {
   @Type(() => Date)
   @Field(() => Date)
   updatedAt!: Date;
+
+  @ApiProperty({
+    required: false,
+    type: () => [User],
+  })
+  @ValidateNested()
+  @Type(() => User)
+  @IsOptional()
+  users?: Array<User>;
 
   @ApiProperty({
     required: false,

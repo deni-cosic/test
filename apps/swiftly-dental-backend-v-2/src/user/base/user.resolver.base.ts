@@ -26,6 +26,8 @@ import { UserFindUniqueArgs } from "./UserFindUniqueArgs";
 import { CreateUserArgs } from "./CreateUserArgs";
 import { UpdateUserArgs } from "./UpdateUserArgs";
 import { DeleteUserArgs } from "./DeleteUserArgs";
+import { PracticeFindManyArgs } from "../../practice/base/PracticeFindManyArgs";
+import { Practice } from "../../practice/base/Practice";
 import { UserService } from "../user.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => User)
@@ -130,5 +132,25 @@ export class UserResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [Practice], { name: "practices" })
+  @nestAccessControl.UseRoles({
+    resource: "Practice",
+    action: "read",
+    possession: "any",
+  })
+  async findPractices(
+    @graphql.Parent() parent: User,
+    @graphql.Args() args: PracticeFindManyArgs
+  ): Promise<Practice[]> {
+    const results = await this.service.findPractices(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
   }
 }

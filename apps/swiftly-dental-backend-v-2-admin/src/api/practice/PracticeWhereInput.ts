@@ -9,6 +9,7 @@ import { PatientListRelationFilter } from "../patient/PatientListRelationFilter"
 import { PracticeInfoLinkListRelationFilter } from "../practiceInfoLink/PracticeInfoLinkListRelationFilter";
 import { IntFilter } from "../../util/IntFilter";
 import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { UserListRelationFilter } from "../user/UserListRelationFilter";
 import { WorkflowTemplateListRelationFilter } from "../workflowTemplate/WorkflowTemplateListRelationFilter";
 
 export type PracticeWhereInput = {
@@ -36,6 +37,7 @@ export type PracticeWhereInput = {
   senderId?: StringNullableFilter;
   stripeConnectedAccountId?: StringNullableFilter;
   updatedAt?: DateTimeFilter;
+  users?: UserListRelationFilter;
   website?: StringNullableFilter;
   workflowTemplates?: WorkflowTemplateListRelationFilter;
 };

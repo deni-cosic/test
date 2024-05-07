@@ -8,15 +8,16 @@ generator client {
 }
 
 model User {
-  createdAt DateTime @default(now())
-  email     String?  @unique
+  createdAt DateTime   @default(now())
+  email     String?    @unique
   firstName String?
-  id        String   @id @default(cuid())
+  id        String     @id @default(cuid())
   lastName  String?
   password  String
+  practices Practice[]
   roles     Json
-  updatedAt DateTime @updatedAt
-  username  String   @unique
+  updatedAt DateTime   @updatedAt
+  username  String     @unique
 }
 
 model SubscriptionPlansStripeProduct {
@@ -224,6 +225,7 @@ model Practice {
   senderId                 String?
   stripeConnectedAccountId String?
   updatedAt                DateTime             @updatedAt
+  users                    User[]
   website                  String?
   workflowTemplates        WorkflowTemplate[]
 

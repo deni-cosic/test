@@ -27,6 +27,7 @@ import { LeadUpdateManyWithoutPracticesInput } from "./LeadUpdateManyWithoutPrac
 import { PatientUpdateManyWithoutPracticesInput } from "./PatientUpdateManyWithoutPracticesInput";
 import { PracticeInfoLinkUpdateManyWithoutPracticesInput } from "./PracticeInfoLinkUpdateManyWithoutPracticesInput";
 import { EnumPracticeSector } from "./EnumPracticeSector";
+import { UserUpdateManyWithoutPracticesInput } from "./UserUpdateManyWithoutPracticesInput";
 import { WorkflowTemplateUpdateManyWithoutPracticesInput } from "./WorkflowTemplateUpdateManyWithoutPracticesInput";
 
 @InputType()
@@ -267,6 +268,18 @@ class PracticeUpdateInput {
     nullable: true,
   })
   stripeConnectedAccountId?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => UserUpdateManyWithoutPracticesInput,
+  })
+  @ValidateNested()
+  @Type(() => UserUpdateManyWithoutPracticesInput)
+  @IsOptional()
+  @Field(() => UserUpdateManyWithoutPracticesInput, {
+    nullable: true,
+  })
+  users?: UserUpdateManyWithoutPracticesInput;
 
   @ApiProperty({
     required: false,

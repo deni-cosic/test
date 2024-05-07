@@ -4,6 +4,7 @@ import { LeadFormSubmissionCreateNestedManyWithoutPracticesInput } from "./LeadF
 import { LeadCreateNestedManyWithoutPracticesInput } from "./LeadCreateNestedManyWithoutPracticesInput";
 import { PatientCreateNestedManyWithoutPracticesInput } from "./PatientCreateNestedManyWithoutPracticesInput";
 import { PracticeInfoLinkCreateNestedManyWithoutPracticesInput } from "./PracticeInfoLinkCreateNestedManyWithoutPracticesInput";
+import { UserCreateNestedManyWithoutPracticesInput } from "./UserCreateNestedManyWithoutPracticesInput";
 import { WorkflowTemplateCreateNestedManyWithoutPracticesInput } from "./WorkflowTemplateCreateNestedManyWithoutPracticesInput";
 
 export type PracticeCreateInput = {
@@ -28,6 +29,7 @@ export type PracticeCreateInput = {
   sector: "Dental" | "GP";
   senderId?: string | null;
   stripeConnectedAccountId?: string | null;
+  users?: UserCreateNestedManyWithoutPracticesInput;
   website?: string | null;
   workflowTemplates?: WorkflowTemplateCreateNestedManyWithoutPracticesInput;
 };

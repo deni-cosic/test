@@ -25,6 +25,7 @@ import { PracticeInfoLinkListRelationFilter } from "../../practiceInfoLink/base/
 import { IntFilter } from "../../util/IntFilter";
 import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 import { EnumPracticeSector } from "./EnumPracticeSector";
+import { UserListRelationFilter } from "../../user/base/UserListRelationFilter";
 import { WorkflowTemplateListRelationFilter } from "../../workflowTemplate/base/WorkflowTemplateListRelationFilter";
 
 @InputType()
@@ -298,6 +299,18 @@ class PracticeWhereInput {
     nullable: true,
   })
   updatedAt?: DateTimeFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => UserListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => UserListRelationFilter)
+  @IsOptional()
+  @Field(() => UserListRelationFilter, {
+    nullable: true,
+  })
+  users?: UserListRelationFilter;
 
   @ApiProperty({
     required: false,

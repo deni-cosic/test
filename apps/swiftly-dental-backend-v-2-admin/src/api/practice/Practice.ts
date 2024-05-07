@@ -4,6 +4,7 @@ import { LeadFormSubmission } from "../leadFormSubmission/LeadFormSubmission";
 import { Lead } from "../lead/Lead";
 import { Patient } from "../patient/Patient";
 import { PracticeInfoLink } from "../practiceInfoLink/PracticeInfoLink";
+import { User } from "../user/User";
 import { WorkflowTemplate } from "../workflowTemplate/WorkflowTemplate";
 
 export type Practice = {
@@ -31,6 +32,7 @@ export type Practice = {
   senderId: string | null;
   stripeConnectedAccountId: string | null;
   updatedAt: Date;
+  users?: Array<User>;
   website: string | null;
   workflowTemplates?: Array<WorkflowTemplate>;
 };

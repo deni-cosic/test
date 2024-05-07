@@ -4,6 +4,7 @@ import { LeadFormSubmissionUpdateManyWithoutPracticesInput } from "./LeadFormSub
 import { LeadUpdateManyWithoutPracticesInput } from "./LeadUpdateManyWithoutPracticesInput";
 import { PatientUpdateManyWithoutPracticesInput } from "./PatientUpdateManyWithoutPracticesInput";
 import { PracticeInfoLinkUpdateManyWithoutPracticesInput } from "./PracticeInfoLinkUpdateManyWithoutPracticesInput";
+import { UserUpdateManyWithoutPracticesInput } from "./UserUpdateManyWithoutPracticesInput";
 import { WorkflowTemplateUpdateManyWithoutPracticesInput } from "./WorkflowTemplateUpdateManyWithoutPracticesInput";
 
 export type PracticeUpdateInput = {
@@ -28,6 +29,7 @@ export type PracticeUpdateInput = {
   sector?: "Dental" | "GP";
   senderId?: string | null;
   stripeConnectedAccountId?: string | null;
+  users?: UserUpdateManyWithoutPracticesInput;
   website?: string | null;
   workflowTemplates?: WorkflowTemplateUpdateManyWithoutPracticesInput;
 };

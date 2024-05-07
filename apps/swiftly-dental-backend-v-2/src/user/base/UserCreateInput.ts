@@ -11,7 +11,9 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, IsOptional } from "class-validator";
+import { IsString, IsOptional, ValidateNested } from "class-validator";
+import { PracticeCreateNestedManyWithoutUsersInput } from "./PracticeCreateNestedManyWithoutUsersInput";
+import { Type } from "class-transformer";
 import { IsJSONValue } from "../../validators";
 import { GraphQLJSON } from "graphql-type-json";
 import { InputJsonValue } from "../../types";
@@ -58,6 +60,18 @@ class UserCreateInput {
   @IsString()
   @Field(() => String)
   password!: string;
+
+  @ApiProperty({
+    required: false,
+    type: () => PracticeCreateNestedManyWithoutUsersInput,
+  })
+  @ValidateNested()
+  @Type(() => PracticeCreateNestedManyWithoutUsersInput)
+  @IsOptional()
+  @Field(() => PracticeCreateNestedManyWithoutUsersInput, {
+    nullable: true,
+  })
+  practices?: PracticeCreateNestedManyWithoutUsersInput;
 
   @ApiProperty({
     required: true,
