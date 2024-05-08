@@ -12,7 +12,7 @@ model User {
   confirmed Boolean?
   createdAt DateTime   @default(now())
   email     String?    @unique
-  id        String     @id @default(cuid())
+  id        String     @id @default(uuid())
   name      String?
   password  String
   practices Practice[]
@@ -20,6 +20,8 @@ model User {
   roles     Json
   updatedAt DateTime   @updatedAt
   username  String     @unique
+
+  @@map("users")
 }
 
 model FeaturePermission {
