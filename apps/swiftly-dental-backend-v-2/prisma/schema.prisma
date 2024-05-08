@@ -240,14 +240,14 @@ model WorkflowTemplateStep {
 }
 
 model WorkflowTemplate {
-  createdAt DateTime                   @default(now())
-  id        String                     @id @default(uuid())
-  name      String
-  practice  Practice                   @relation(fields: [praciceId], references: [id])
-  praciceId String
-  sector    EnumWorkflowTemplateSector
-  steps     WorkflowTemplateStep[]
-  updatedAt DateTime                   @updatedAt
+  createdAt  DateTime                   @default(now())
+  id         String                     @id @default(uuid())
+  name       String
+  practice   Practice?                  @relation(fields: [practiceId], references: [id])
+  practiceId String?
+  sector     EnumWorkflowTemplateSector
+  steps      WorkflowTemplateStep[]
+  updatedAt  DateTime                   @updatedAt
 
   @@map("workflow_templates")
 }

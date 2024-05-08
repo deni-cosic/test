@@ -98,9 +98,11 @@ export class WorkflowTemplateResolverBase {
       data: {
         ...args.data,
 
-        practice: {
-          connect: args.data.practice,
-        },
+        practice: args.data.practice
+          ? {
+              connect: args.data.practice,
+            }
+          : undefined,
       },
     });
   }
@@ -121,9 +123,11 @@ export class WorkflowTemplateResolverBase {
         data: {
           ...args.data,
 
-          practice: {
-            connect: args.data.practice,
-          },
+          practice: args.data.practice
+            ? {
+                connect: args.data.practice,
+              }
+            : undefined,
         },
       });
     } catch (error) {

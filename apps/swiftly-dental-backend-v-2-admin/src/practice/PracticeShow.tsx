@@ -163,7 +163,7 @@ export const PracticeShow = (props: ShowProps): React.ReactElement => {
         </ReferenceManyField>
         <ReferenceManyField
           reference="WorkflowTemplate"
-          target="praciceId"
+          target="practiceId"
           label="WorkflowTemplates"
         >
           <Datagrid rowClick="show">

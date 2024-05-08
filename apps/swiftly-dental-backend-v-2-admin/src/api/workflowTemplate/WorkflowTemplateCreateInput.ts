@@ -3,7 +3,7 @@ import { WorkflowTemplateStepCreateNestedManyWithoutWorkflowTemplatesInput } fro
 
 export type WorkflowTemplateCreateInput = {
   name: string;
-  practice: PracticeWhereUniqueInput;
+  practice?: PracticeWhereUniqueInput | null;
   sector: "Dental" | "GP";
   steps?: WorkflowTemplateStepCreateNestedManyWithoutWorkflowTemplatesInput;
 };

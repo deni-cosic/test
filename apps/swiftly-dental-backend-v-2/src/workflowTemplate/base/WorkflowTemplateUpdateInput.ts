@@ -40,7 +40,7 @@ class WorkflowTemplateUpdateInput {
   @Field(() => PracticeWhereUniqueInput, {
     nullable: true,
   })
-  practice?: PracticeWhereUniqueInput;
+  practice?: PracticeWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,
