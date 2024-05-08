@@ -189,7 +189,7 @@ model Practice {
   practiceInfoLinks        PracticeInfoLink[]
   remindAfter              Int                @default(10)
   remindedAt               DateTime?
-  remindEvery Int @default(3
+  remindEvery              Int                @default(3)
   sector                   EnumPracticeSector
   senderId                 String?
   stripeConnectedAccountId String?
