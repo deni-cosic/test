@@ -58,9 +58,11 @@ export class WorkflowTemplateControllerBase {
       data: {
         ...data,
 
-        practice: {
-          connect: data.practice,
-        },
+        practice: data.practice
+          ? {
+              connect: data.practice,
+            }
+          : undefined,
       },
       select: {
         createdAt: true,
@@ -179,9 +181,11 @@ export class WorkflowTemplateControllerBase {
         data: {
           ...data,
 
-          practice: {
-            connect: data.practice,
-          },
+          practice: data.practice
+            ? {
+                connect: data.practice,
+              }
+            : undefined,
         },
         select: {
           createdAt: true,

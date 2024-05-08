@@ -3,7 +3,7 @@ import { WorkflowTemplateStepUpdateManyWithoutWorkflowTemplatesInput } from "./W
 
 export type WorkflowTemplateUpdateInput = {
   name?: string;
-  practice?: PracticeWhereUniqueInput;
+  practice?: PracticeWhereUniqueInput | null;
   sector?: "Dental" | "GP";
   steps?: WorkflowTemplateStepUpdateManyWithoutWorkflowTemplatesInput;
 };

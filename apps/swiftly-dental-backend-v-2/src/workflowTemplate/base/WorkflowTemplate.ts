@@ -15,8 +15,8 @@ import {
   IsDate,
   IsString,
   ValidateNested,
-  IsEnum,
   IsOptional,
+  IsEnum,
 } from "class-validator";
 import { Type } from "class-transformer";
 import { Practice } from "../../practice/base/Practice";
@@ -50,12 +50,13 @@ class WorkflowTemplate {
   name!: string;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: () => Practice,
   })
   @ValidateNested()
   @Type(() => Practice)
-  practice?: Practice;
+  @IsOptional()
+  practice?: Practice | null;
 
   @ApiProperty({
     required: true,
