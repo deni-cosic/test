@@ -19,6 +19,7 @@ import {
 } from "class-validator";
 import { PracticeUpdateManyWithoutUsersInput } from "./PracticeUpdateManyWithoutUsersInput";
 import { Type } from "class-transformer";
+import { PracticeToUserUpdateManyWithoutUsersInput } from "./PracticeToUserUpdateManyWithoutUsersInput";
 import { IsJSONValue } from "../../validators";
 import { GraphQLJSON } from "graphql-type-json";
 import { InputJsonValue } from "../../types";
@@ -91,6 +92,18 @@ class UserUpdateInput {
     nullable: true,
   })
   practices?: PracticeUpdateManyWithoutUsersInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => PracticeToUserUpdateManyWithoutUsersInput,
+  })
+  @ValidateNested()
+  @Type(() => PracticeToUserUpdateManyWithoutUsersInput)
+  @IsOptional()
+  @Field(() => PracticeToUserUpdateManyWithoutUsersInput, {
+    nullable: true,
+  })
+  practiceToUsers?: PracticeToUserUpdateManyWithoutUsersInput;
 
   @ApiProperty({
     required: false,

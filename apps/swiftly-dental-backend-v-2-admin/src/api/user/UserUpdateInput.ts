@@ -1,4 +1,5 @@
 import { PracticeUpdateManyWithoutUsersInput } from "./PracticeUpdateManyWithoutUsersInput";
+import { PracticeToUserUpdateManyWithoutUsersInput } from "./PracticeToUserUpdateManyWithoutUsersInput";
 import { InputJsonValue } from "../../types";
 
 export type UserUpdateInput = {
@@ -8,6 +9,7 @@ export type UserUpdateInput = {
   name?: string | null;
   password?: string;
   practices?: PracticeUpdateManyWithoutUsersInput;
+  practiceToUsers?: PracticeToUserUpdateManyWithoutUsersInput;
   provider?: string | null;
   roles?: InputJsonValue;
   username?: string;

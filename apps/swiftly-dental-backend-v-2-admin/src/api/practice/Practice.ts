@@ -3,6 +3,7 @@ import { FormSubmission } from "../formSubmission/FormSubmission";
 import { Lead } from "../lead/Lead";
 import { Patient } from "../patient/Patient";
 import { PracticeInfoLink } from "../practiceInfoLink/PracticeInfoLink";
+import { PracticeToUser } from "../practiceToUser/PracticeToUser";
 import { User } from "../user/User";
 import { WorkflowTemplate } from "../workflowTemplate/WorkflowTemplate";
 
@@ -23,6 +24,7 @@ export type Practice = {
   phoneNumber: string | null;
   postcode: string | null;
   practiceInfoLinks?: Array<PracticeInfoLink>;
+  practiceToUsers?: Array<PracticeToUser>;
   remindAfter: number;
   remindedAt: Date | null;
   remindEvery: number;

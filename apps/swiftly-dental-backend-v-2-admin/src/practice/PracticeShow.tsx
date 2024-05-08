@@ -14,6 +14,7 @@ import {
 
 import { PATIENT_TITLE_FIELD } from "../patient/PatientTitle";
 import { PRACTICE_TITLE_FIELD } from "./PracticeTitle";
+import { USER_TITLE_FIELD } from "../user/UserTitle";
 import { FEATUREPERMISSION_TITLE_FIELD } from "../featurePermission/FeaturePermissionTitle";
 
 export const PracticeShow = (props: ShowProps): React.ReactElement => {
@@ -159,6 +160,25 @@ export const PracticeShow = (props: ShowProps): React.ReactElement => {
             </ReferenceField>
             <DateField source="updatedAt" label="Updated At" />
             <TextField label="Url" source="url" />
+          </Datagrid>
+        </ReferenceManyField>
+        <ReferenceManyField
+          reference="PracticeToUser"
+          target="practiceId"
+          label="Practice To Users"
+        >
+          <Datagrid rowClick="show">
+            <TextField label="ID" source="id" />
+            <ReferenceField
+              label="Practice"
+              source="practice.id"
+              reference="Practice"
+            >
+              <TextField source={PRACTICE_TITLE_FIELD} />
+            </ReferenceField>
+            <ReferenceField label="User" source="user.id" reference="User">
+              <TextField source={USER_TITLE_FIELD} />
+            </ReferenceField>
           </Datagrid>
         </ReferenceManyField>
         <ReferenceManyField

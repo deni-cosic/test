@@ -25,6 +25,7 @@ import { FormSubmissionCreateNestedManyWithoutPracticesInput } from "./FormSubmi
 import { LeadCreateNestedManyWithoutPracticesInput } from "./LeadCreateNestedManyWithoutPracticesInput";
 import { PatientCreateNestedManyWithoutPracticesInput } from "./PatientCreateNestedManyWithoutPracticesInput";
 import { PracticeInfoLinkCreateNestedManyWithoutPracticesInput } from "./PracticeInfoLinkCreateNestedManyWithoutPracticesInput";
+import { PracticeToUserCreateNestedManyWithoutPracticesInput } from "./PracticeToUserCreateNestedManyWithoutPracticesInput";
 import { EnumPracticeSector } from "./EnumPracticeSector";
 import { UserCreateNestedManyWithoutPracticesInput } from "./UserCreateNestedManyWithoutPracticesInput";
 import { WorkflowTemplateCreateNestedManyWithoutPracticesInput } from "./WorkflowTemplateCreateNestedManyWithoutPracticesInput";
@@ -183,6 +184,18 @@ class PracticeCreateInput {
     nullable: true,
   })
   practiceInfoLinks?: PracticeInfoLinkCreateNestedManyWithoutPracticesInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => PracticeToUserCreateNestedManyWithoutPracticesInput,
+  })
+  @ValidateNested()
+  @Type(() => PracticeToUserCreateNestedManyWithoutPracticesInput)
+  @IsOptional()
+  @Field(() => PracticeToUserCreateNestedManyWithoutPracticesInput, {
+    nullable: true,
+  })
+  practiceToUsers?: PracticeToUserCreateNestedManyWithoutPracticesInput;
 
   @ApiProperty({
     required: true,

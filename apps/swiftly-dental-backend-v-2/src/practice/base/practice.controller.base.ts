@@ -38,6 +38,9 @@ import { PatientWhereUniqueInput } from "../../patient/base/PatientWhereUniqueIn
 import { PracticeInfoLinkFindManyArgs } from "../../practiceInfoLink/base/PracticeInfoLinkFindManyArgs";
 import { PracticeInfoLink } from "../../practiceInfoLink/base/PracticeInfoLink";
 import { PracticeInfoLinkWhereUniqueInput } from "../../practiceInfoLink/base/PracticeInfoLinkWhereUniqueInput";
+import { PracticeToUserFindManyArgs } from "../../practiceToUser/base/PracticeToUserFindManyArgs";
+import { PracticeToUser } from "../../practiceToUser/base/PracticeToUser";
+import { PracticeToUserWhereUniqueInput } from "../../practiceToUser/base/PracticeToUserWhereUniqueInput";
 import { UserFindManyArgs } from "../../user/base/UserFindManyArgs";
 import { User } from "../../user/base/User";
 import { UserWhereUniqueInput } from "../../user/base/UserWhereUniqueInput";
@@ -772,6 +775,111 @@ export class PracticeControllerBase {
   ): Promise<void> {
     const data = {
       practiceInfoLinks: {
+        disconnect: body,
+      },
+    };
+    await this.service.updatePractice({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/practiceToUsers")
+  @ApiNestedQuery(PracticeToUserFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "PracticeToUser",
+    action: "read",
+    possession: "any",
+  })
+  async findPracticeToUsers(
+    @common.Req() request: Request,
+    @common.Param() params: PracticeWhereUniqueInput
+  ): Promise<PracticeToUser[]> {
+    const query = plainToClass(PracticeToUserFindManyArgs, request.query);
+    const results = await this.service.findPracticeToUsers(params.id, {
+      ...query,
+      select: {
+        id: true,
+
+        practice: {
+          select: {
+            id: true,
+          },
+        },
+
+        user: {
+          select: {
+            id: true,
+          },
+        },
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/practiceToUsers")
+  @nestAccessControl.UseRoles({
+    resource: "Practice",
+    action: "update",
+    possession: "any",
+  })
+  async connectPracticeToUsers(
+    @common.Param() params: PracticeWhereUniqueInput,
+    @common.Body() body: PracticeToUserWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      practiceToUsers: {
+        connect: body,
+      },
+    };
+    await this.service.updatePractice({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/practiceToUsers")
+  @nestAccessControl.UseRoles({
+    resource: "Practice",
+    action: "update",
+    possession: "any",
+  })
+  async updatePracticeToUsers(
+    @common.Param() params: PracticeWhereUniqueInput,
+    @common.Body() body: PracticeToUserWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      practiceToUsers: {
+        set: body,
+      },
+    };
+    await this.service.updatePractice({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/practiceToUsers")
+  @nestAccessControl.UseRoles({
+    resource: "Practice",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectPracticeToUsers(
+    @common.Param() params: PracticeWhereUniqueInput,
+    @common.Body() body: PracticeToUserWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      practiceToUsers: {
         disconnect: body,
       },
     };

@@ -25,6 +25,7 @@ import { FormSubmission } from "../../formSubmission/base/FormSubmission";
 import { Lead } from "../../lead/base/Lead";
 import { Patient } from "../../patient/base/Patient";
 import { PracticeInfoLink } from "../../practiceInfoLink/base/PracticeInfoLink";
+import { PracticeToUser } from "../../practiceToUser/base/PracticeToUser";
 import { EnumPracticeSector } from "./EnumPracticeSector";
 import { User } from "../../user/base/User";
 import { WorkflowTemplate } from "../../workflowTemplate/base/WorkflowTemplate";
@@ -184,6 +185,15 @@ class Practice {
   @Type(() => PracticeInfoLink)
   @IsOptional()
   practiceInfoLinks?: Array<PracticeInfoLink>;
+
+  @ApiProperty({
+    required: false,
+    type: () => [PracticeToUser],
+  })
+  @ValidateNested()
+  @Type(() => PracticeToUser)
+  @IsOptional()
+  practiceToUsers?: Array<PracticeToUser>;
 
   @ApiProperty({
     required: true,

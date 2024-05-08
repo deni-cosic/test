@@ -18,6 +18,7 @@ import { FormSubmissionTitle } from "../formSubmission/FormSubmissionTitle";
 import { LeadTitle } from "../lead/LeadTitle";
 import { PatientTitle } from "../patient/PatientTitle";
 import { PracticeInfoLinkTitle } from "../practiceInfoLink/PracticeInfoLinkTitle";
+import { PracticeToUserTitle } from "../practiceToUser/PracticeToUserTitle";
 import { UserTitle } from "../user/UserTitle";
 import { WorkflowTemplateTitle } from "../workflowTemplate/WorkflowTemplateTitle";
 
@@ -72,6 +73,14 @@ export const PracticeEdit = (props: EditProps): React.ReactElement => {
           format={(value: any) => value && value.map((v: any) => v.id)}
         >
           <SelectArrayInput optionText={PracticeInfoLinkTitle} />
+        </ReferenceArrayInput>
+        <ReferenceArrayInput
+          source="practiceToUsers"
+          reference="PracticeToUser"
+          parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+          format={(value: any) => value && value.map((v: any) => v.id)}
+        >
+          <SelectArrayInput optionText={PracticeToUserTitle} />
         </ReferenceArrayInput>
         <NumberInput step={1} label="Remind After" source="remindAfter" />
         <DateTimeInput label="Reminded At" source="remindedAt" />

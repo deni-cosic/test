@@ -3,6 +3,7 @@ import { FormSubmissionCreateNestedManyWithoutPracticesInput } from "./FormSubmi
 import { LeadCreateNestedManyWithoutPracticesInput } from "./LeadCreateNestedManyWithoutPracticesInput";
 import { PatientCreateNestedManyWithoutPracticesInput } from "./PatientCreateNestedManyWithoutPracticesInput";
 import { PracticeInfoLinkCreateNestedManyWithoutPracticesInput } from "./PracticeInfoLinkCreateNestedManyWithoutPracticesInput";
+import { PracticeToUserCreateNestedManyWithoutPracticesInput } from "./PracticeToUserCreateNestedManyWithoutPracticesInput";
 import { UserCreateNestedManyWithoutPracticesInput } from "./UserCreateNestedManyWithoutPracticesInput";
 import { WorkflowTemplateCreateNestedManyWithoutPracticesInput } from "./WorkflowTemplateCreateNestedManyWithoutPracticesInput";
 
@@ -21,6 +22,7 @@ export type PracticeCreateInput = {
   phoneNumber?: string | null;
   postcode?: string | null;
   practiceInfoLinks?: PracticeInfoLinkCreateNestedManyWithoutPracticesInput;
+  practiceToUsers?: PracticeToUserCreateNestedManyWithoutPracticesInput;
   remindAfter: number;
   remindedAt?: Date | null;
   remindEvery: number;

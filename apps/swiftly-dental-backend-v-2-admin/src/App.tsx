@@ -69,6 +69,10 @@ import { WorkflowList } from "./workflow/WorkflowList";
 import { WorkflowCreate } from "./workflow/WorkflowCreate";
 import { WorkflowEdit } from "./workflow/WorkflowEdit";
 import { WorkflowShow } from "./workflow/WorkflowShow";
+import { PracticeToUserList } from "./practiceToUser/PracticeToUserList";
+import { PracticeToUserCreate } from "./practiceToUser/PracticeToUserCreate";
+import { PracticeToUserEdit } from "./practiceToUser/PracticeToUserEdit";
+import { PracticeToUserShow } from "./practiceToUser/PracticeToUserShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -206,6 +210,13 @@ const App = (): React.ReactElement => {
           edit={WorkflowEdit}
           create={WorkflowCreate}
           show={WorkflowShow}
+        />
+        <Resource
+          name="PracticeToUser"
+          list={PracticeToUserList}
+          edit={PracticeToUserEdit}
+          create={PracticeToUserCreate}
+          show={PracticeToUserShow}
         />
       </Admin>
     </div>

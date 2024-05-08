@@ -1,4 +1,5 @@
 import { Practice } from "../practice/Practice";
+import { PracticeToUser } from "../practiceToUser/PracticeToUser";
 import { JsonValue } from "type-fest";
 
 export type User = {
@@ -9,6 +10,7 @@ export type User = {
   id: string;
   name: string | null;
   practices?: Array<Practice>;
+  practiceToUsers?: Array<PracticeToUser>;
   provider: string | null;
   roles: JsonValue;
   updatedAt: Date;

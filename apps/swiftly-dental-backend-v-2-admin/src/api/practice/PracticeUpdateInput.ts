@@ -3,6 +3,7 @@ import { FormSubmissionUpdateManyWithoutPracticesInput } from "./FormSubmissionU
 import { LeadUpdateManyWithoutPracticesInput } from "./LeadUpdateManyWithoutPracticesInput";
 import { PatientUpdateManyWithoutPracticesInput } from "./PatientUpdateManyWithoutPracticesInput";
 import { PracticeInfoLinkUpdateManyWithoutPracticesInput } from "./PracticeInfoLinkUpdateManyWithoutPracticesInput";
+import { PracticeToUserUpdateManyWithoutPracticesInput } from "./PracticeToUserUpdateManyWithoutPracticesInput";
 import { UserUpdateManyWithoutPracticesInput } from "./UserUpdateManyWithoutPracticesInput";
 import { WorkflowTemplateUpdateManyWithoutPracticesInput } from "./WorkflowTemplateUpdateManyWithoutPracticesInput";
 
@@ -21,6 +22,7 @@ export type PracticeUpdateInput = {
   phoneNumber?: string | null;
   postcode?: string | null;
   practiceInfoLinks?: PracticeInfoLinkUpdateManyWithoutPracticesInput;
+  practiceToUsers?: PracticeToUserUpdateManyWithoutPracticesInput;
   remindAfter?: number;
   remindedAt?: Date | null;
   remindEvery?: number;

@@ -1,4 +1,5 @@
 import { PracticeCreateNestedManyWithoutUsersInput } from "./PracticeCreateNestedManyWithoutUsersInput";
+import { PracticeToUserCreateNestedManyWithoutUsersInput } from "./PracticeToUserCreateNestedManyWithoutUsersInput";
 import { InputJsonValue } from "../../types";
 
 export type UserCreateInput = {
@@ -8,6 +9,7 @@ export type UserCreateInput = {
   name?: string | null;
   password: string;
   practices?: PracticeCreateNestedManyWithoutUsersInput;
+  practiceToUsers?: PracticeToUserCreateNestedManyWithoutUsersInput;
   provider?: string | null;
   roles: InputJsonValue;
   username: string;

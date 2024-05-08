@@ -20,6 +20,7 @@ import {
 } from "class-validator";
 import { Type } from "class-transformer";
 import { Practice } from "../../practice/base/Practice";
+import { PracticeToUser } from "../../practiceToUser/base/PracticeToUser";
 import { IsJSONValue } from "../../validators";
 import { GraphQLJSON } from "graphql-type-json";
 import { JsonValue } from "type-fest";
@@ -94,6 +95,15 @@ class User {
   @Type(() => Practice)
   @IsOptional()
   practices?: Array<Practice>;
+
+  @ApiProperty({
+    required: false,
+    type: () => [PracticeToUser],
+  })
+  @ValidateNested()
+  @Type(() => PracticeToUser)
+  @IsOptional()
+  practiceToUsers?: Array<PracticeToUser>;
 
   @ApiProperty({
     required: false,

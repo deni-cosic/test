@@ -19,6 +19,7 @@ import {
 } from "class-validator";
 import { PracticeCreateNestedManyWithoutUsersInput } from "./PracticeCreateNestedManyWithoutUsersInput";
 import { Type } from "class-transformer";
+import { PracticeToUserCreateNestedManyWithoutUsersInput } from "./PracticeToUserCreateNestedManyWithoutUsersInput";
 import { IsJSONValue } from "../../validators";
 import { GraphQLJSON } from "graphql-type-json";
 import { InputJsonValue } from "../../types";
@@ -88,6 +89,18 @@ class UserCreateInput {
     nullable: true,
   })
   practices?: PracticeCreateNestedManyWithoutUsersInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => PracticeToUserCreateNestedManyWithoutUsersInput,
+  })
+  @ValidateNested()
+  @Type(() => PracticeToUserCreateNestedManyWithoutUsersInput)
+  @IsOptional()
+  @Field(() => PracticeToUserCreateNestedManyWithoutUsersInput, {
+    nullable: true,
+  })
+  practiceToUsers?: PracticeToUserCreateNestedManyWithoutUsersInput;
 
   @ApiProperty({
     required: false,

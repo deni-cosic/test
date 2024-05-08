@@ -1918,5 +1918,125 @@
     "resource": "Workflow",
     "action": "read:any",
     "attributes": "*"
+  },
+  {
+    "role": "authenticated",
+    "resource": "PracticeToUser",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "manager",
+    "resource": "PracticeToUser",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "practice_owner",
+    "resource": "PracticeToUser",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "public",
+    "resource": "PracticeToUser",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "authenticated",
+    "resource": "PracticeToUser",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "manager",
+    "resource": "PracticeToUser",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "practice_owner",
+    "resource": "PracticeToUser",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "public",
+    "resource": "PracticeToUser",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "authenticated",
+    "resource": "PracticeToUser",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "manager",
+    "resource": "PracticeToUser",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "practice_owner",
+    "resource": "PracticeToUser",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "public",
+    "resource": "PracticeToUser",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "authenticated",
+    "resource": "PracticeToUser",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "manager",
+    "resource": "PracticeToUser",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "practice_owner",
+    "resource": "PracticeToUser",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "public",
+    "resource": "PracticeToUser",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "authenticated",
+    "resource": "PracticeToUser",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "manager",
+    "resource": "PracticeToUser",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "practice_owner",
+    "resource": "PracticeToUser",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "public",
+    "resource": "PracticeToUser",
+    "action": "read:any",
+    "attributes": "*"
   }
 ]

@@ -2,6 +2,7 @@ import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
 import { PracticeListRelationFilter } from "../practice/PracticeListRelationFilter";
+import { PracticeToUserListRelationFilter } from "../practiceToUser/PracticeToUserListRelationFilter";
 
 export type UserWhereInput = {
   blocked?: BooleanNullableFilter;
@@ -10,6 +11,7 @@ export type UserWhereInput = {
   id?: StringFilter;
   name?: StringNullableFilter;
   practices?: PracticeListRelationFilter;
+  practiceToUsers?: PracticeToUserListRelationFilter;
   provider?: StringNullableFilter;
   username?: StringFilter;
 };
