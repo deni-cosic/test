@@ -21,7 +21,6 @@ import { StringFilter } from "../../util/StringFilter";
 import { LeadListRelationFilter } from "../../lead/base/LeadListRelationFilter";
 import { PatientListRelationFilter } from "../../patient/base/PatientListRelationFilter";
 import { PracticeInfoLinkListRelationFilter } from "../../practiceInfoLink/base/PracticeInfoLinkListRelationFilter";
-import { PracticeToUserListRelationFilter } from "../../practiceToUser/base/PracticeToUserListRelationFilter";
 import { IntFilter } from "../../util/IntFilter";
 import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 import { EnumPracticeSector } from "./EnumPracticeSector";
@@ -210,18 +209,6 @@ class PracticeWhereInput {
     nullable: true,
   })
   practiceInfoLinks?: PracticeInfoLinkListRelationFilter;
-
-  @ApiProperty({
-    required: false,
-    type: () => PracticeToUserListRelationFilter,
-  })
-  @ValidateNested()
-  @Type(() => PracticeToUserListRelationFilter)
-  @IsOptional()
-  @Field(() => PracticeToUserListRelationFilter, {
-    nullable: true,
-  })
-  practiceToUsers?: PracticeToUserListRelationFilter;
 
   @ApiProperty({
     required: false,

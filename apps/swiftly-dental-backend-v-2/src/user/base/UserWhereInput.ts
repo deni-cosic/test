@@ -17,7 +17,6 @@ import { IsOptional, ValidateNested } from "class-validator";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
 import { PracticeListRelationFilter } from "../../practice/base/PracticeListRelationFilter";
-import { PracticeToUserListRelationFilter } from "../../practiceToUser/base/PracticeToUserListRelationFilter";
 
 @InputType()
 class UserWhereInput {
@@ -87,18 +86,6 @@ class UserWhereInput {
     nullable: true,
   })
   practices?: PracticeListRelationFilter;
-
-  @ApiProperty({
-    required: false,
-    type: () => PracticeToUserListRelationFilter,
-  })
-  @ValidateNested()
-  @Type(() => PracticeToUserListRelationFilter)
-  @IsOptional()
-  @Field(() => PracticeToUserListRelationFilter, {
-    nullable: true,
-  })
-  practiceToUsers?: PracticeToUserListRelationFilter;
 
   @ApiProperty({
     required: false,

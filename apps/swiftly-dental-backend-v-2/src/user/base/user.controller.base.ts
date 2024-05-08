@@ -29,9 +29,6 @@ import { UserUpdateInput } from "./UserUpdateInput";
 import { PracticeFindManyArgs } from "../../practice/base/PracticeFindManyArgs";
 import { Practice } from "../../practice/base/Practice";
 import { PracticeWhereUniqueInput } from "../../practice/base/PracticeWhereUniqueInput";
-import { PracticeToUserFindManyArgs } from "../../practiceToUser/base/PracticeToUserFindManyArgs";
-import { PracticeToUser } from "../../practiceToUser/base/PracticeToUser";
-import { PracticeToUserWhereUniqueInput } from "../../practiceToUser/base/PracticeToUserWhereUniqueInput";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
@@ -335,111 +332,6 @@ export class UserControllerBase {
   ): Promise<void> {
     const data = {
       practices: {
-        disconnect: body,
-      },
-    };
-    await this.service.updateUser({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.UseInterceptors(AclFilterResponseInterceptor)
-  @common.Get("/:id/practiceToUsers")
-  @ApiNestedQuery(PracticeToUserFindManyArgs)
-  @nestAccessControl.UseRoles({
-    resource: "PracticeToUser",
-    action: "read",
-    possession: "any",
-  })
-  async findPracticeToUsers(
-    @common.Req() request: Request,
-    @common.Param() params: UserWhereUniqueInput
-  ): Promise<PracticeToUser[]> {
-    const query = plainToClass(PracticeToUserFindManyArgs, request.query);
-    const results = await this.service.findPracticeToUsers(params.id, {
-      ...query,
-      select: {
-        id: true,
-
-        practice: {
-          select: {
-            id: true,
-          },
-        },
-
-        user: {
-          select: {
-            id: true,
-          },
-        },
-      },
-    });
-    if (results === null) {
-      throw new errors.NotFoundException(
-        `No resource was found for ${JSON.stringify(params)}`
-      );
-    }
-    return results;
-  }
-
-  @common.Post("/:id/practiceToUsers")
-  @nestAccessControl.UseRoles({
-    resource: "User",
-    action: "update",
-    possession: "any",
-  })
-  async connectPracticeToUsers(
-    @common.Param() params: UserWhereUniqueInput,
-    @common.Body() body: PracticeToUserWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      practiceToUsers: {
-        connect: body,
-      },
-    };
-    await this.service.updateUser({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Patch("/:id/practiceToUsers")
-  @nestAccessControl.UseRoles({
-    resource: "User",
-    action: "update",
-    possession: "any",
-  })
-  async updatePracticeToUsers(
-    @common.Param() params: UserWhereUniqueInput,
-    @common.Body() body: PracticeToUserWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      practiceToUsers: {
-        set: body,
-      },
-    };
-    await this.service.updateUser({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Delete("/:id/practiceToUsers")
-  @nestAccessControl.UseRoles({
-    resource: "User",
-    action: "update",
-    possession: "any",
-  })
-  async disconnectPracticeToUsers(
-    @common.Param() params: UserWhereUniqueInput,
-    @common.Body() body: PracticeToUserWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      practiceToUsers: {
         disconnect: body,
       },
     };

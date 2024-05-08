@@ -18,7 +18,6 @@ import {
   Lead as PrismaLead,
   Patient as PrismaPatient,
   PracticeInfoLink as PrismaPracticeInfoLink,
-  PracticeToUser as PrismaPracticeToUser,
   User as PrismaUser,
   WorkflowTemplate as PrismaWorkflowTemplate,
   FeaturePermission as PrismaFeaturePermission,
@@ -99,17 +98,6 @@ export class PracticeServiceBase {
         where: { id: parentId },
       })
       .practiceInfoLinks(args);
-  }
-
-  async findPracticeToUsers(
-    parentId: string,
-    args: Prisma.PracticeToUserFindManyArgs
-  ): Promise<PrismaPracticeToUser[]> {
-    return this.prisma.practice
-      .findUniqueOrThrow({
-        where: { id: parentId },
-      })
-      .practiceToUsers(args);
   }
 
   async findUsers(

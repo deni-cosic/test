@@ -10,14 +10,11 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
-
 import {
   Prisma,
   User as PrismaUser,
   Practice as PrismaPractice,
-  PracticeToUser as PrismaPracticeToUser,
 } from "@prisma/client";
-
 import { PasswordService } from "../../auth/password.service";
 import { transformStringFieldUpdateInput } from "../../prisma.util";
 
@@ -86,16 +83,5 @@ export class UserServiceBase {
         where: { id: parentId },
       })
       .practices(args);
-  }
-
-  async findPracticeToUsers(
-    parentId: string,
-    args: Prisma.PracticeToUserFindManyArgs
-  ): Promise<PrismaPracticeToUser[]> {
-    return this.prisma.user
-      .findUniqueOrThrow({
-        where: { id: parentId },
-      })
-      .practiceToUsers(args);
   }
 }

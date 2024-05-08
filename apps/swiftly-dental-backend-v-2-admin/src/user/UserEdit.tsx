@@ -12,7 +12,6 @@ import {
 } from "react-admin";
 
 import { PracticeTitle } from "../practice/PracticeTitle";
-import { PracticeToUserTitle } from "../practiceToUser/PracticeToUserTitle";
 import { ROLES_OPTIONS } from "../user/RolesOptions";
 
 export const UserEdit = (props: EditProps): React.ReactElement => {
@@ -31,14 +30,6 @@ export const UserEdit = (props: EditProps): React.ReactElement => {
           format={(value: any) => value && value.map((v: any) => v.id)}
         >
           <SelectArrayInput optionText={PracticeTitle} />
-        </ReferenceArrayInput>
-        <ReferenceArrayInput
-          source="practiceToUsers"
-          reference="PracticeToUser"
-          parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
-          format={(value: any) => value && value.map((v: any) => v.id)}
-        >
-          <SelectArrayInput optionText={PracticeToUserTitle} />
         </ReferenceArrayInput>
         <TextInput label="Provider" source="provider" />
         <SelectArrayInput

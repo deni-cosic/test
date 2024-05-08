@@ -25,7 +25,6 @@ import { FormSubmissionUpdateManyWithoutPracticesInput } from "./FormSubmissionU
 import { LeadUpdateManyWithoutPracticesInput } from "./LeadUpdateManyWithoutPracticesInput";
 import { PatientUpdateManyWithoutPracticesInput } from "./PatientUpdateManyWithoutPracticesInput";
 import { PracticeInfoLinkUpdateManyWithoutPracticesInput } from "./PracticeInfoLinkUpdateManyWithoutPracticesInput";
-import { PracticeToUserUpdateManyWithoutPracticesInput } from "./PracticeToUserUpdateManyWithoutPracticesInput";
 import { EnumPracticeSector } from "./EnumPracticeSector";
 import { UserUpdateManyWithoutPracticesInput } from "./UserUpdateManyWithoutPracticesInput";
 import { WorkflowTemplateUpdateManyWithoutPracticesInput } from "./WorkflowTemplateUpdateManyWithoutPracticesInput";
@@ -190,18 +189,6 @@ class PracticeUpdateInput {
     nullable: true,
   })
   practiceInfoLinks?: PracticeInfoLinkUpdateManyWithoutPracticesInput;
-
-  @ApiProperty({
-    required: false,
-    type: () => PracticeToUserUpdateManyWithoutPracticesInput,
-  })
-  @ValidateNested()
-  @Type(() => PracticeToUserUpdateManyWithoutPracticesInput)
-  @IsOptional()
-  @Field(() => PracticeToUserUpdateManyWithoutPracticesInput, {
-    nullable: true,
-  })
-  practiceToUsers?: PracticeToUserUpdateManyWithoutPracticesInput;
 
   @ApiProperty({
     required: false,

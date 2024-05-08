@@ -6,7 +6,6 @@ import { StringFilter } from "../../util/StringFilter";
 import { LeadListRelationFilter } from "../lead/LeadListRelationFilter";
 import { PatientListRelationFilter } from "../patient/PatientListRelationFilter";
 import { PracticeInfoLinkListRelationFilter } from "../practiceInfoLink/PracticeInfoLinkListRelationFilter";
-import { PracticeToUserListRelationFilter } from "../practiceToUser/PracticeToUserListRelationFilter";
 import { IntFilter } from "../../util/IntFilter";
 import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 import { UserListRelationFilter } from "../user/UserListRelationFilter";
@@ -29,7 +28,6 @@ export type PracticeWhereInput = {
   phoneNumber?: StringNullableFilter;
   postcode?: StringNullableFilter;
   practiceInfoLinks?: PracticeInfoLinkListRelationFilter;
-  practiceToUsers?: PracticeToUserListRelationFilter;
   remindAfter?: IntFilter;
   remindedAt?: DateTimeNullableFilter;
   remindEvery?: IntFilter;

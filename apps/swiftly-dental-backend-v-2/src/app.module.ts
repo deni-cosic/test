@@ -15,7 +15,6 @@ import { WorkflowStepModule } from "./workflowStep/workflowStep.module";
 import { WorkflowTemplateStepModule } from "./workflowTemplateStep/workflowTemplateStep.module";
 import { WorkflowTemplateModule } from "./workflowTemplate/workflowTemplate.module";
 import { WorkflowModule } from "./workflow/workflow.module";
-import { PracticeToUserModule } from "./practiceToUser/practiceToUser.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -49,7 +48,6 @@ import { AuthModule } from "./auth/auth.module";
     WorkflowTemplateStepModule,
     WorkflowTemplateModule,
     WorkflowModule,
-    PracticeToUserModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
