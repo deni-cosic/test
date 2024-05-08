@@ -5,5 +5,5 @@ export type WorkflowTemplateUpdateInput = {
   name?: string;
   practice?: PracticeWhereUniqueInput;
   sector?: "Dental" | "GP";
-  workflowTemplateSteps?: WorkflowTemplateStepUpdateManyWithoutWorkflowTemplatesInput;
+  steps?: WorkflowTemplateStepUpdateManyWithoutWorkflowTemplatesInput;
 };

@@ -19,7 +19,7 @@ const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
   createdAt: new Date(),
-  dateOfBirth: "exampleDateOfBirth",
+  dateOfBirth: new Date(),
   firstName: "exampleFirstName",
   id: "exampleId",
   lastName: "exampleLastName",
@@ -30,7 +30,7 @@ const CREATE_INPUT = {
 };
 const CREATE_RESULT = {
   createdAt: new Date(),
-  dateOfBirth: "exampleDateOfBirth",
+  dateOfBirth: new Date(),
   firstName: "exampleFirstName",
   id: "exampleId",
   lastName: "exampleLastName",
@@ -42,7 +42,7 @@ const CREATE_RESULT = {
 const FIND_MANY_RESULT = [
   {
     createdAt: new Date(),
-    dateOfBirth: "exampleDateOfBirth",
+    dateOfBirth: new Date(),
     firstName: "exampleFirstName",
     id: "exampleId",
     lastName: "exampleLastName",
@@ -54,7 +54,7 @@ const FIND_MANY_RESULT = [
 ];
 const FIND_ONE_RESULT = {
   createdAt: new Date(),
-  dateOfBirth: "exampleDateOfBirth",
+  dateOfBirth: new Date(),
   firstName: "exampleFirstName",
   id: "exampleId",
   lastName: "exampleLastName",
@@ -147,6 +147,7 @@ describe("Patient", () => {
       .expect({
         ...CREATE_RESULT,
         createdAt: CREATE_RESULT.createdAt.toISOString(),
+        dateOfBirth: CREATE_RESULT.dateOfBirth.toISOString(),
         updatedAt: CREATE_RESULT.updatedAt.toISOString(),
       });
   });
@@ -159,6 +160,7 @@ describe("Patient", () => {
         {
           ...FIND_MANY_RESULT[0],
           createdAt: FIND_MANY_RESULT[0].createdAt.toISOString(),
+          dateOfBirth: FIND_MANY_RESULT[0].dateOfBirth.toISOString(),
           updatedAt: FIND_MANY_RESULT[0].updatedAt.toISOString(),
         },
       ]);
@@ -182,6 +184,7 @@ describe("Patient", () => {
       .expect({
         ...FIND_ONE_RESULT,
         createdAt: FIND_ONE_RESULT.createdAt.toISOString(),
+        dateOfBirth: FIND_ONE_RESULT.dateOfBirth.toISOString(),
         updatedAt: FIND_ONE_RESULT.updatedAt.toISOString(),
       });
   });
@@ -195,6 +198,7 @@ describe("Patient", () => {
       .expect({
         ...CREATE_RESULT,
         createdAt: CREATE_RESULT.createdAt.toISOString(),
+        dateOfBirth: CREATE_RESULT.dateOfBirth.toISOString(),
         updatedAt: CREATE_RESULT.updatedAt.toISOString(),
       })
       .then(function () {

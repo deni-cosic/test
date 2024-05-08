@@ -4,6 +4,7 @@ import {
   Create,
   SimpleForm,
   CreateProps,
+  DateInput,
   TextInput,
   ReferenceArrayInput,
   SelectArrayInput,
@@ -19,7 +20,7 @@ export const PatientCreate = (props: CreateProps): React.ReactElement => {
   return (
     <Create {...props}>
       <SimpleForm>
-        <TextInput label="Date Of Birth" source="dateOfBirth" />
+        <DateInput label="Date Of Birth" source="dateOfBirth" />
         <TextInput label="First Name" source="firstName" />
         <ReferenceArrayInput
           source="formSubmissions"

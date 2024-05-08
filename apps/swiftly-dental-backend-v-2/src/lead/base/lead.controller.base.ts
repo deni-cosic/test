@@ -81,7 +81,6 @@ export class LeadControllerBase {
           },
         },
 
-        smsConsented: true,
         updatedAt: true,
       },
     });
@@ -127,7 +126,6 @@ export class LeadControllerBase {
           },
         },
 
-        smsConsented: true,
         updatedAt: true,
       },
     });
@@ -174,7 +172,6 @@ export class LeadControllerBase {
           },
         },
 
-        smsConsented: true,
         updatedAt: true,
       },
     });
@@ -239,7 +236,6 @@ export class LeadControllerBase {
             },
           },
 
-          smsConsented: true,
           updatedAt: true,
         },
       });
@@ -294,7 +290,6 @@ export class LeadControllerBase {
             },
           },
 
-          smsConsented: true,
           updatedAt: true,
         },
       });

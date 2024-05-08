@@ -1,5 +1,13 @@
 export type LinkCreateInput = {
-  category?: string | null;
+  category?:
+    | "conditions"
+    | "live_well"
+    | "Tools"
+    | "video"
+    | "common_health_questions"
+    | "start_4_life"
+    | "Medicines"
+    | null;
   displayName: string;
   enabled: boolean;
   sector: "Dental" | "GP";

@@ -5,5 +5,5 @@ export type WorkflowUpdateInput = {
   anchorDate?: Date | null;
   name?: string;
   patient?: PatientWhereUniqueInput;
-  workflowSteps?: WorkflowStepUpdateManyWithoutWorkflowsInput;
+  steps?: WorkflowStepUpdateManyWithoutWorkflowsInput;
 };

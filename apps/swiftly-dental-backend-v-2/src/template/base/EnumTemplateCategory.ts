@@ -9,19 +9,16 @@ https://docs.amplication.com/how-to/custom-code
 
 ------------------------------------------------------------------------------
   */
-import { InputType, Field } from "@nestjs/graphql";
-import { ApiProperty } from "@nestjs/swagger";
-import { IsString } from "class-validator";
+import { registerEnumType } from "@nestjs/graphql";
 
-@InputType()
-class SubscriptionPlanWhereUniqueInput {
-  @ApiProperty({
-    required: true,
-    type: String,
-  })
-  @IsString()
-  @Field(() => String)
-  id!: string;
+export enum EnumTemplateCategory {
+  Appointment = "appointment",
+  Prescriptions = "prescriptions",
+  Review = "review",
+  Sample = "sample",
+  TestResults = "test_results",
 }
 
-export { SubscriptionPlanWhereUniqueInput as SubscriptionPlanWhereUniqueInput };
+registerEnumType(EnumTemplateCategory, {
+  name: "EnumTemplateCategory",
+});

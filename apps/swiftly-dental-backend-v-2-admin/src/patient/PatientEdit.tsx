@@ -4,6 +4,7 @@ import {
   Edit,
   SimpleForm,
   EditProps,
+  DateInput,
   TextInput,
   ReferenceArrayInput,
   SelectArrayInput,
@@ -19,7 +20,7 @@ export const PatientEdit = (props: EditProps): React.ReactElement => {
   return (
     <Edit {...props}>
       <SimpleForm>
-        <TextInput label="Date Of Birth" source="dateOfBirth" />
+        <DateInput label="Date Of Birth" source="dateOfBirth" />
         <TextInput label="First Name" source="firstName" />
         <ReferenceArrayInput
           source="formSubmissions"

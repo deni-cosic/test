@@ -1,18 +1,15 @@
 import { Module } from "@nestjs/common";
 import { UserModule } from "./user/user.module";
-import { SubscriptionPlansStripeProductModule } from "./subscriptionPlansStripeProduct/subscriptionPlansStripeProduct.module";
 import { FeaturePermissionModule } from "./featurePermission/featurePermission.module";
 import { FormLinkModule } from "./formLink/formLink.module";
 import { FormSubmissionModule } from "./formSubmission/formSubmission.module";
 import { HelpLinkModule } from "./helpLink/helpLink.module";
 import { LeadFormLinkModule } from "./leadFormLink/leadFormLink.module";
-import { LeadFormSubmissionModule } from "./leadFormSubmission/leadFormSubmission.module";
 import { LeadModule } from "./lead/lead.module";
 import { LinkModule } from "./link/link.module";
 import { PatientModule } from "./patient/patient.module";
 import { PracticeInfoLinkModule } from "./practiceInfoLink/practiceInfoLink.module";
 import { PracticeModule } from "./practice/practice.module";
-import { SubscriptionPlanModule } from "./subscriptionPlan/subscriptionPlan.module";
 import { TemplateModule } from "./template/template.module";
 import { WorkflowStepModule } from "./workflowStep/workflowStep.module";
 import { WorkflowTemplateStepModule } from "./workflowTemplateStep/workflowTemplateStep.module";
@@ -36,19 +33,16 @@ import { AuthModule } from "./auth/auth.module";
     ACLModule,
     AuthModule,
     UserModule,
-    SubscriptionPlansStripeProductModule,
     FeaturePermissionModule,
     FormLinkModule,
     FormSubmissionModule,
     HelpLinkModule,
     LeadFormLinkModule,
-    LeadFormSubmissionModule,
     LeadModule,
     LinkModule,
     PatientModule,
     PracticeInfoLinkModule,
     PracticeModule,
-    SubscriptionPlanModule,
     TemplateModule,
     WorkflowStepModule,
     WorkflowTemplateStepModule,

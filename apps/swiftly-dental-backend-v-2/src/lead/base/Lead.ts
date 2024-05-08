@@ -55,11 +55,11 @@ class Lead {
 
   @ApiProperty({
     required: true,
-    type: String,
   })
-  @IsString()
-  @Field(() => String)
-  dateOfBirth!: string;
+  @IsDate()
+  @Type(() => Date)
+  @Field(() => Date)
+  dateOfBirth!: Date;
 
   @ApiProperty({
     required: true,
@@ -98,11 +98,10 @@ class Lead {
 
   @ApiProperty({
     required: true,
-    type: String,
   })
-  @IsString()
-  @Field(() => String)
-  interests!: string;
+  @IsJSONValue()
+  @Field(() => GraphQLJSON)
+  interests!: JsonValue;
 
   @ApiProperty({
     required: true,
@@ -175,17 +174,6 @@ class Lead {
   @ValidateNested()
   @Type(() => Practice)
   practice?: Practice;
-
-  @ApiProperty({
-    required: false,
-    type: Boolean,
-  })
-  @IsBoolean()
-  @IsOptional()
-  @Field(() => Boolean, {
-    nullable: true,
-  })
-  smsConsented!: boolean | null;
 
   @ApiProperty({
     required: true,

@@ -1,5 +1,7 @@
 export type Template = {
-  category: string | null;
+  category?: Array<
+    "appointment" | "prescriptions" | "review" | "sample" | "test_results"
+  >;
   createdAt: Date;
   displayName: string;
   enabled: boolean;

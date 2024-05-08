@@ -18,8 +18,8 @@ import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { DateTimeFilter } from "../../util/DateTimeFilter";
 import { StringFilter } from "../../util/StringFilter";
 import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
-import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 import { JsonFilter } from "../../util/JsonFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 import { PracticeWhereUniqueInput } from "../../practice/base/PracticeWhereUniqueInput";
 
 @InputType()
@@ -59,14 +59,14 @@ class LeadWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringFilter,
+    type: DateTimeFilter,
   })
-  @Type(() => StringFilter)
+  @Type(() => DateTimeFilter)
   @IsOptional()
-  @Field(() => StringFilter, {
+  @Field(() => DateTimeFilter, {
     nullable: true,
   })
-  dateOfBirth?: StringFilter;
+  dateOfBirth?: DateTimeFilter;
 
   @ApiProperty({
     required: false,
@@ -114,14 +114,14 @@ class LeadWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringFilter,
+    type: JsonFilter,
   })
-  @Type(() => StringFilter)
+  @Type(() => JsonFilter)
   @IsOptional()
-  @Field(() => StringFilter, {
+  @Field(() => JsonFilter, {
     nullable: true,
   })
-  interests?: StringFilter;
+  interests?: JsonFilter;
 
   @ApiProperty({
     required: false,
@@ -211,17 +211,6 @@ class LeadWhereInput {
     nullable: true,
   })
   practice?: PracticeWhereUniqueInput;
-
-  @ApiProperty({
-    required: false,
-    type: BooleanNullableFilter,
-  })
-  @Type(() => BooleanNullableFilter)
-  @IsOptional()
-  @Field(() => BooleanNullableFilter, {
-    nullable: true,
-  })
-  smsConsented?: BooleanNullableFilter;
 
   @ApiProperty({
     required: false,

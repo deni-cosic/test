@@ -58,7 +58,7 @@ class WorkflowTemplateCreateInput {
       nullable: true,
     }
   )
-  workflowTemplateSteps?: WorkflowTemplateStepCreateNestedManyWithoutWorkflowTemplatesInput;
+  steps?: WorkflowTemplateStepCreateNestedManyWithoutWorkflowTemplatesInput;
 }
 
 export { WorkflowTemplateCreateInput as WorkflowTemplateCreateInput };

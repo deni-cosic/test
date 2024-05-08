@@ -11,12 +11,13 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
+import { EnumLinkCategory } from "./EnumLinkCategory";
 import {
-  IsString,
+  IsEnum,
   IsOptional,
   IsDate,
+  IsString,
   IsBoolean,
-  IsEnum,
 } from "class-validator";
 import { Type } from "class-transformer";
 import { EnumLinkSector } from "./EnumLinkSector";
@@ -25,14 +26,22 @@ import { EnumLinkSector } from "./EnumLinkSector";
 class Link {
   @ApiProperty({
     required: false,
-    type: String,
+    enum: EnumLinkCategory,
   })
-  @IsString()
+  @IsEnum(EnumLinkCategory)
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => EnumLinkCategory, {
     nullable: true,
   })
-  category!: string | null;
+  category?:
+    | "conditions"
+    | "live_well"
+    | "Tools"
+    | "video"
+    | "common_health_questions"
+    | "start_4_life"
+    | "Medicines"
+    | null;
 
   @ApiProperty({
     required: true,

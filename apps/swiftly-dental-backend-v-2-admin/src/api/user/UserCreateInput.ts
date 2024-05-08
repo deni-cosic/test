@@ -2,11 +2,13 @@ import { PracticeCreateNestedManyWithoutUsersInput } from "./PracticeCreateNeste
 import { InputJsonValue } from "../../types";
 
 export type UserCreateInput = {
+  blocked?: boolean | null;
+  confirmed?: boolean | null;
   email?: string | null;
-  firstName?: string | null;
-  lastName?: string | null;
+  name?: string | null;
   password: string;
   practices?: PracticeCreateNestedManyWithoutUsersInput;
+  provider?: string | null;
   roles: InputJsonValue;
   username: string;
 };

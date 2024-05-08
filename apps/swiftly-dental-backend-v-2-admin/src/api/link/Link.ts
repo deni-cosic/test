@@ -1,5 +1,13 @@
 export type Link = {
-  category: string | null;
+  category?:
+    | "conditions"
+    | "live_well"
+    | "Tools"
+    | "video"
+    | "common_health_questions"
+    | "start_4_life"
+    | "Medicines"
+    | null;
   createdAt: Date;
   displayName: string;
   enabled: boolean;

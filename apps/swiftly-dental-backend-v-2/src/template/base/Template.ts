@@ -11,12 +11,13 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
+import { EnumTemplateCategory } from "./EnumTemplateCategory";
 import {
-  IsString,
+  IsEnum,
   IsOptional,
   IsDate,
+  IsString,
   IsBoolean,
-  IsEnum,
 } from "class-validator";
 import { Type } from "class-transformer";
 import { EnumTemplateSector } from "./EnumTemplateSector";
@@ -25,14 +26,19 @@ import { EnumTemplateSector } from "./EnumTemplateSector";
 class Template {
   @ApiProperty({
     required: false,
-    type: String,
+    enum: EnumTemplateCategory,
+    isArray: true,
   })
-  @IsString()
+  @IsEnum(EnumTemplateCategory, {
+    each: true,
+  })
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => [EnumTemplateCategory], {
     nullable: true,
   })
-  category!: string | null;
+  category?: Array<
+    "appointment" | "prescriptions" | "review" | "sample" | "test_results"
+  >;
 
   @ApiProperty({
     required: true,

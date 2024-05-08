@@ -29,11 +29,11 @@ class Patient {
 
   @ApiProperty({
     required: true,
-    type: String,
   })
-  @IsString()
-  @Field(() => String)
-  dateOfBirth!: string;
+  @IsDate()
+  @Type(() => Date)
+  @Field(() => Date)
+  dateOfBirth!: Date;
 
   @ApiProperty({
     required: true,

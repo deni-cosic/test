@@ -11,10 +11,10 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
-import { Type } from "class-transformer";
-import { IsOptional, IsEnum } from "class-validator";
+import { EnumLinkCategory } from "./EnumLinkCategory";
+import { IsEnum, IsOptional } from "class-validator";
 import { DateTimeFilter } from "../../util/DateTimeFilter";
+import { Type } from "class-transformer";
 import { StringFilter } from "../../util/StringFilter";
 import { BooleanFilter } from "../../util/BooleanFilter";
 import { EnumLinkSector } from "./EnumLinkSector";
@@ -23,14 +23,21 @@ import { EnumLinkSector } from "./EnumLinkSector";
 class LinkWhereInput {
   @ApiProperty({
     required: false,
-    type: StringNullableFilter,
+    enum: EnumLinkCategory,
   })
-  @Type(() => StringNullableFilter)
+  @IsEnum(EnumLinkCategory)
   @IsOptional()
-  @Field(() => StringNullableFilter, {
+  @Field(() => EnumLinkCategory, {
     nullable: true,
   })
-  category?: StringNullableFilter;
+  category?:
+    | "conditions"
+    | "live_well"
+    | "Tools"
+    | "video"
+    | "common_health_questions"
+    | "start_4_life"
+    | "Medicines";
 
   @ApiProperty({
     required: false,

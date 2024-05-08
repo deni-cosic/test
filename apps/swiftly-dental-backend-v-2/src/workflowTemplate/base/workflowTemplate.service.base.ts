@@ -55,7 +55,7 @@ export class WorkflowTemplateServiceBase {
     return this.prisma.workflowTemplate.delete(args);
   }
 
-  async findWorkflowTemplateSteps(
+  async findSteps(
     parentId: string,
     args: Prisma.WorkflowTemplateStepFindManyArgs
   ): Promise<PrismaWorkflowTemplateStep[]> {
@@ -63,7 +63,7 @@ export class WorkflowTemplateServiceBase {
       .findUniqueOrThrow({
         where: { id: parentId },
       })
-      .workflowTemplateSteps(args);
+      .steps(args);
   }
 
   async getPractice(parentId: string): Promise<PrismaPractice | null> {

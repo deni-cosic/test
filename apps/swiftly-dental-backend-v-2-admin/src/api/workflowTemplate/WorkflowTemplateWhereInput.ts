@@ -9,6 +9,6 @@ export type WorkflowTemplateWhereInput = {
   name?: StringFilter;
   practice?: PracticeWhereUniqueInput;
   sector?: "Dental" | "GP";
+  steps?: WorkflowTemplateStepListRelationFilter;
   updatedAt?: DateTimeFilter;
-  workflowTemplateSteps?: WorkflowTemplateStepListRelationFilter;
 };

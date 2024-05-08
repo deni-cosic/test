@@ -5,5 +5,5 @@ export type WorkflowCreateInput = {
   anchorDate?: Date | null;
   name: string;
   patient: PatientWhereUniqueInput;
-  workflowSteps?: WorkflowStepCreateNestedManyWithoutWorkflowsInput;
+  steps?: WorkflowStepCreateNestedManyWithoutWorkflowsInput;
 };

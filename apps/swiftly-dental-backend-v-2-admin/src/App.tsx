@@ -9,10 +9,6 @@ import { UserList } from "./user/UserList";
 import { UserCreate } from "./user/UserCreate";
 import { UserEdit } from "./user/UserEdit";
 import { UserShow } from "./user/UserShow";
-import { SubscriptionPlansStripeProductList } from "./subscriptionPlansStripeProduct/SubscriptionPlansStripeProductList";
-import { SubscriptionPlansStripeProductCreate } from "./subscriptionPlansStripeProduct/SubscriptionPlansStripeProductCreate";
-import { SubscriptionPlansStripeProductEdit } from "./subscriptionPlansStripeProduct/SubscriptionPlansStripeProductEdit";
-import { SubscriptionPlansStripeProductShow } from "./subscriptionPlansStripeProduct/SubscriptionPlansStripeProductShow";
 import { FeaturePermissionList } from "./featurePermission/FeaturePermissionList";
 import { FeaturePermissionCreate } from "./featurePermission/FeaturePermissionCreate";
 import { FeaturePermissionEdit } from "./featurePermission/FeaturePermissionEdit";
@@ -33,10 +29,6 @@ import { LeadFormLinkList } from "./leadFormLink/LeadFormLinkList";
 import { LeadFormLinkCreate } from "./leadFormLink/LeadFormLinkCreate";
 import { LeadFormLinkEdit } from "./leadFormLink/LeadFormLinkEdit";
 import { LeadFormLinkShow } from "./leadFormLink/LeadFormLinkShow";
-import { LeadFormSubmissionList } from "./leadFormSubmission/LeadFormSubmissionList";
-import { LeadFormSubmissionCreate } from "./leadFormSubmission/LeadFormSubmissionCreate";
-import { LeadFormSubmissionEdit } from "./leadFormSubmission/LeadFormSubmissionEdit";
-import { LeadFormSubmissionShow } from "./leadFormSubmission/LeadFormSubmissionShow";
 import { LeadList } from "./lead/LeadList";
 import { LeadCreate } from "./lead/LeadCreate";
 import { LeadEdit } from "./lead/LeadEdit";
@@ -57,10 +49,6 @@ import { PracticeList } from "./practice/PracticeList";
 import { PracticeCreate } from "./practice/PracticeCreate";
 import { PracticeEdit } from "./practice/PracticeEdit";
 import { PracticeShow } from "./practice/PracticeShow";
-import { SubscriptionPlanList } from "./subscriptionPlan/SubscriptionPlanList";
-import { SubscriptionPlanCreate } from "./subscriptionPlan/SubscriptionPlanCreate";
-import { SubscriptionPlanEdit } from "./subscriptionPlan/SubscriptionPlanEdit";
-import { SubscriptionPlanShow } from "./subscriptionPlan/SubscriptionPlanShow";
 import { TemplateList } from "./template/TemplateList";
 import { TemplateCreate } from "./template/TemplateCreate";
 import { TemplateEdit } from "./template/TemplateEdit";
@@ -115,13 +103,6 @@ const App = (): React.ReactElement => {
           show={UserShow}
         />
         <Resource
-          name="SubscriptionPlansStripeProduct"
-          list={SubscriptionPlansStripeProductList}
-          edit={SubscriptionPlansStripeProductEdit}
-          create={SubscriptionPlansStripeProductCreate}
-          show={SubscriptionPlansStripeProductShow}
-        />
-        <Resource
           name="FeaturePermission"
           list={FeaturePermissionList}
           edit={FeaturePermissionEdit}
@@ -157,13 +138,6 @@ const App = (): React.ReactElement => {
           show={LeadFormLinkShow}
         />
         <Resource
-          name="LeadFormSubmission"
-          list={LeadFormSubmissionList}
-          edit={LeadFormSubmissionEdit}
-          create={LeadFormSubmissionCreate}
-          show={LeadFormSubmissionShow}
-        />
-        <Resource
           name="Lead"
           list={LeadList}
           edit={LeadEdit}
@@ -197,13 +171,6 @@ const App = (): React.ReactElement => {
           edit={PracticeEdit}
           create={PracticeCreate}
           show={PracticeShow}
-        />
-        <Resource
-          name="SubscriptionPlan"
-          list={SubscriptionPlanList}
-          edit={SubscriptionPlanEdit}
-          create={SubscriptionPlanCreate}
-          show={SubscriptionPlanShow}
         />
         <Resource
           name="Template"

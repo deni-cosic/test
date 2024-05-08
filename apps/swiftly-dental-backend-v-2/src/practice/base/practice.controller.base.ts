@@ -29,9 +29,6 @@ import { PracticeUpdateInput } from "./PracticeUpdateInput";
 import { FormSubmissionFindManyArgs } from "../../formSubmission/base/FormSubmissionFindManyArgs";
 import { FormSubmission } from "../../formSubmission/base/FormSubmission";
 import { FormSubmissionWhereUniqueInput } from "../../formSubmission/base/FormSubmissionWhereUniqueInput";
-import { LeadFormSubmissionFindManyArgs } from "../../leadFormSubmission/base/LeadFormSubmissionFindManyArgs";
-import { LeadFormSubmission } from "../../leadFormSubmission/base/LeadFormSubmission";
-import { LeadFormSubmissionWhereUniqueInput } from "../../leadFormSubmission/base/LeadFormSubmissionWhereUniqueInput";
 import { LeadFindManyArgs } from "../../lead/base/LeadFindManyArgs";
 import { Lead } from "../../lead/base/Lead";
 import { LeadWhereUniqueInput } from "../../lead/base/LeadWhereUniqueInput";
@@ -456,117 +453,6 @@ export class PracticeControllerBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
-  @common.Get("/:id/leadFormSubmissions")
-  @ApiNestedQuery(LeadFormSubmissionFindManyArgs)
-  @nestAccessControl.UseRoles({
-    resource: "LeadFormSubmission",
-    action: "read",
-    possession: "any",
-  })
-  async findLeadFormSubmissions(
-    @common.Req() request: Request,
-    @common.Param() params: PracticeWhereUniqueInput
-  ): Promise<LeadFormSubmission[]> {
-    const query = plainToClass(LeadFormSubmissionFindManyArgs, request.query);
-    const results = await this.service.findLeadFormSubmissions(params.id, {
-      ...query,
-      select: {
-        createdAt: true,
-        email: true,
-        emailConsented: true,
-        firstName: true,
-        id: true,
-        interests: true,
-        lastName: true,
-        marketingConsented: true,
-        mobileNumber: true,
-        onlyInterestsConsented: true,
-
-        pracitice: {
-          select: {
-            id: true,
-          },
-        },
-
-        smsConsented: true,
-        updatedAt: true,
-      },
-    });
-    if (results === null) {
-      throw new errors.NotFoundException(
-        `No resource was found for ${JSON.stringify(params)}`
-      );
-    }
-    return results;
-  }
-
-  @common.Post("/:id/leadFormSubmissions")
-  @nestAccessControl.UseRoles({
-    resource: "Practice",
-    action: "update",
-    possession: "any",
-  })
-  async connectLeadFormSubmissions(
-    @common.Param() params: PracticeWhereUniqueInput,
-    @common.Body() body: LeadFormSubmissionWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      leadFormSubmissions: {
-        connect: body,
-      },
-    };
-    await this.service.updatePractice({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Patch("/:id/leadFormSubmissions")
-  @nestAccessControl.UseRoles({
-    resource: "Practice",
-    action: "update",
-    possession: "any",
-  })
-  async updateLeadFormSubmissions(
-    @common.Param() params: PracticeWhereUniqueInput,
-    @common.Body() body: LeadFormSubmissionWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      leadFormSubmissions: {
-        set: body,
-      },
-    };
-    await this.service.updatePractice({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.Delete("/:id/leadFormSubmissions")
-  @nestAccessControl.UseRoles({
-    resource: "Practice",
-    action: "update",
-    possession: "any",
-  })
-  async disconnectLeadFormSubmissions(
-    @common.Param() params: PracticeWhereUniqueInput,
-    @common.Body() body: LeadFormSubmissionWhereUniqueInput[]
-  ): Promise<void> {
-    const data = {
-      leadFormSubmissions: {
-        disconnect: body,
-      },
-    };
-    await this.service.updatePractice({
-      where: params,
-      data,
-      select: { id: true },
-    });
-  }
-
-  @common.UseInterceptors(AclFilterResponseInterceptor)
   @common.Get("/:id/leads")
   @ApiNestedQuery(LeadFindManyArgs)
   @nestAccessControl.UseRoles({
@@ -605,7 +491,6 @@ export class PracticeControllerBase {
           },
         },
 
-        smsConsented: true,
         updatedAt: true,
       },
     });
@@ -913,11 +798,13 @@ export class PracticeControllerBase {
     const results = await this.service.findUsers(params.id, {
       ...query,
       select: {
+        blocked: true,
+        confirmed: true,
         createdAt: true,
         email: true,
-        firstName: true,
         id: true,
-        lastName: true,
+        name: true,
+        provider: true,
         roles: true,
         updatedAt: true,
         username: true,

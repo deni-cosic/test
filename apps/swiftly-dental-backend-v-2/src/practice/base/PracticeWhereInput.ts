@@ -18,7 +18,6 @@ import { DateTimeFilter } from "../../util/DateTimeFilter";
 import { FeaturePermissionWhereUniqueInput } from "../../featurePermission/base/FeaturePermissionWhereUniqueInput";
 import { FormSubmissionListRelationFilter } from "../../formSubmission/base/FormSubmissionListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
-import { LeadFormSubmissionListRelationFilter } from "../../leadFormSubmission/base/LeadFormSubmissionListRelationFilter";
 import { LeadListRelationFilter } from "../../lead/base/LeadListRelationFilter";
 import { PatientListRelationFilter } from "../../patient/base/PatientListRelationFilter";
 import { PracticeInfoLinkListRelationFilter } from "../../practiceInfoLink/base/PracticeInfoLinkListRelationFilter";
@@ -119,18 +118,6 @@ class PracticeWhereInput {
     nullable: true,
   })
   id?: StringFilter;
-
-  @ApiProperty({
-    required: false,
-    type: () => LeadFormSubmissionListRelationFilter,
-  })
-  @ValidateNested()
-  @Type(() => LeadFormSubmissionListRelationFilter)
-  @IsOptional()
-  @Field(() => LeadFormSubmissionListRelationFilter, {
-    nullable: true,
-  })
-  leadFormSubmissions?: LeadFormSubmissionListRelationFilter;
 
   @ApiProperty({
     required: false,

@@ -47,11 +47,11 @@ class LeadCreateInput {
 
   @ApiProperty({
     required: true,
-    type: String,
   })
-  @IsString()
-  @Field(() => String)
-  dateOfBirth!: string;
+  @IsDate()
+  @Type(() => Date)
+  @Field(() => Date)
+  dateOfBirth!: Date;
 
   @ApiProperty({
     required: true,
@@ -82,11 +82,10 @@ class LeadCreateInput {
 
   @ApiProperty({
     required: true,
-    type: String,
   })
-  @IsString()
-  @Field(() => String)
-  interests!: string;
+  @IsJSONValue()
+  @Field(() => GraphQLJSON)
+  interests!: InputJsonValue;
 
   @ApiProperty({
     required: true,
@@ -160,17 +159,6 @@ class LeadCreateInput {
   @Type(() => PracticeWhereUniqueInput)
   @Field(() => PracticeWhereUniqueInput)
   practice!: PracticeWhereUniqueInput;
-
-  @ApiProperty({
-    required: false,
-    type: Boolean,
-  })
-  @IsBoolean()
-  @IsOptional()
-  @Field(() => Boolean, {
-    nullable: true,
-  })
-  smsConsented?: boolean | null;
 }
 
 export { LeadCreateInput as LeadCreateInput };

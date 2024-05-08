@@ -3,16 +3,34 @@ import {
   Create,
   SimpleForm,
   CreateProps,
+  SelectInput,
   TextInput,
   BooleanInput,
-  SelectInput,
 } from "react-admin";
 
 export const LinkCreate = (props: CreateProps): React.ReactElement => {
   return (
     <Create {...props}>
       <SimpleForm>
-        <TextInput label="Category" source="category" />
+        <SelectInput
+          source="category"
+          label="Category"
+          choices={[
+            { label: "Conditions", value: "conditions" },
+            { label: "Live Well", value: "live_well" },
+            { label: "Tools", value: "Tools" },
+            { label: "Video", value: "video" },
+            {
+              label: "Common Health Questions",
+              value: "common_health_questions",
+            },
+            { label: "Start 4 Life", value: "start_4_life" },
+            { label: "medicines", value: "Medicines" },
+          ]}
+          optionText="label"
+          allowEmpty
+          optionValue="value"
+        />
         <TextInput label="Display Name" source="displayName" />
         <BooleanInput label="Enabled" source="enabled" />
         <SelectInput

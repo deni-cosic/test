@@ -11,21 +11,30 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, IsOptional, IsBoolean, IsEnum } from "class-validator";
+import { EnumLinkCategory } from "./EnumLinkCategory";
+import { IsEnum, IsOptional, IsString, IsBoolean } from "class-validator";
 import { EnumLinkSector } from "./EnumLinkSector";
 
 @InputType()
 class LinkCreateInput {
   @ApiProperty({
     required: false,
-    type: String,
+    enum: EnumLinkCategory,
   })
-  @IsString()
+  @IsEnum(EnumLinkCategory)
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => EnumLinkCategory, {
     nullable: true,
   })
-  category?: string | null;
+  category?:
+    | "conditions"
+    | "live_well"
+    | "Tools"
+    | "video"
+    | "common_health_questions"
+    | "start_4_life"
+    | "Medicines"
+    | null;
 
   @ApiProperty({
     required: true,

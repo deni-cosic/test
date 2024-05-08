@@ -10,6 +10,6 @@ export type WorkflowWhereInput = {
   id?: StringFilter;
   name?: StringFilter;
   patient?: PatientWhereUniqueInput;
+  steps?: WorkflowStepListRelationFilter;
   updatedAt?: DateTimeFilter;
-  workflowSteps?: WorkflowStepListRelationFilter;
 };

@@ -8,28 +8,18 @@ generator client {
 }
 
 model User {
+  blocked   Boolean?
+  confirmed Boolean?
   createdAt DateTime   @default(now())
   email     String?    @unique
-  firstName String?
   id        String     @id @default(cuid())
-  lastName  String?
+  name      String?
   password  String
   practices Practice[]
+  provider  String?
   roles     Json
   updatedAt DateTime   @updatedAt
   username  String     @unique
-}
-
-model SubscriptionPlansStripeProduct {
-  id                 String           @id @default(uuid())
-  name               String
-  priceAmount        String
-  priceId            String
-  quantity           Int
-  subscriptionPlan   SubscriptionPlan @relation(fields: [subscriptionPlanId], references: [id])
-  subscriptionPlanId String
-
-  @@map("subscription_plans_stripe_products")
 }
 
 model FeaturePermission {
@@ -109,35 +99,16 @@ model LeadFormLink {
   @@map("lead_form_links")
 }
 
-model LeadFormSubmission {
-  createdAt              DateTime @default(now())
-  email                  String
-  emailConsented         Boolean
-  firstName              String
-  id                     String   @id @default(uuid())
-  interests              Json?
-  lastName               String
-  marketingConsented     Boolean
-  mobileNumber           String
-  onlyInterestsConsented Boolean
-  pracitice              Practice @relation(fields: [practiceId], references: [id])
-  practiceId             String
-  smsConsented           Boolean
-  updatedAt              DateTime @updatedAt
-
-  @@map("lead_form_submissions")
-}
-
 model Lead {
   contacted              Boolean
   convertedClientId      String?
   createdAt              DateTime  @default(now())
-  dateOfBirth            String
+  dateOfBirth            DateTime
   email                  String
   emailConsented         Boolean?
   firstName              String
   id                     String    @id @default(uuid())
-  interests              String
+  interests              Json
   lastName               String
   marketingConsented     Boolean
   meetingDate            DateTime?
@@ -147,20 +118,19 @@ model Lead {
   platformSource         String
   practice               Practice  @relation(fields: [practiceId], references: [id])
   practiceId             String
-  smsConsented           Boolean?
   updatedAt              DateTime  @updatedAt
 
   @@map("leads")
 }
 
 model Link {
-  category    String?
-  createdAt   DateTime       @default(now())
+  category    EnumLinkCategory?
+  createdAt   DateTime          @default(now())
   displayName String
   enabled     Boolean
-  id          String         @id @default(uuid())
+  id          String            @id @default(uuid())
   sector      EnumLinkSector
-  updatedAt   DateTime       @updatedAt
+  updatedAt   DateTime          @updatedAt
   url         String
 
   @@map("links")
@@ -168,7 +138,7 @@ model Link {
 
 model Patient {
   createdAt        DateTime         @default(now())
-  dateOfBirth      String
+  dateOfBirth      DateTime
   firstName        String
   formSubmissions  FormSubmission[]
   id               String           @id @default(uuid())
@@ -203,28 +173,27 @@ model Practice {
   addressLine1             String?
   addressLine2             String?
   addressLine3             String?
-  createdAt                DateTime             @default(now())
-  featurePermission        FeaturePermission?   @relation(fields: [featurePermissionId], references: [id])
+  createdAt                DateTime           @default(now())
+  featurePermission        FeaturePermission? @relation(fields: [featurePermissionId], references: [id])
   featurePermissionId      String?
   formSubmissions          FormSubmission[]
   googlePlaceId            String?
-  id                       String               @id @default(uuid())
-  leadFormSubmissions      LeadFormSubmission[]
+  id                       String             @id @default(uuid())
   leads                    Lead[]
   name                     String
   nhsReviewUrl             String?
-  odsCode                  String               @unique
+  odsCode                  String             @unique
   patients                 Patient[]
   phoneNumber              String?
   postcode                 String?
   practiceInfoLinks        PracticeInfoLink[]
-  remindAfter              Int
+  remindAfter              Int                @default(10)
   remindedAt               DateTime?
-  remindEvery              Int
+  remindEvery Int @default(3
   sector                   EnumPracticeSector
   senderId                 String?
   stripeConnectedAccountId String?
-  updatedAt                DateTime             @updatedAt
+  updatedAt                DateTime           @updatedAt
   users                    User[]
   website                  String?
   workflowTemplates        WorkflowTemplate[]
@@ -232,26 +201,15 @@ model Practice {
   @@map("practices")
 }
 
-model SubscriptionPlan {
-  createdAt      DateTime                         @default(now())
-  id             String                           @id @default(uuid())
-  name           String
-  practice       String
-  stripeProducts SubscriptionPlansStripeProduct[]
-  updatedAt      DateTime                         @updatedAt
-
-  @@map("subscription_plans")
-}
-
 model Template {
-  category    String?
-  createdAt   DateTime           @default(now())
+  category    EnumTemplateCategory[]
+  createdAt   DateTime               @default(now())
   displayName String
   enabled     Boolean
-  id          String             @id @default(uuid())
+  id          String                 @id @default(uuid())
   sector      EnumTemplateSector
   text        String
-  updatedAt   DateTime           @updatedAt
+  updatedAt   DateTime               @updatedAt
 
   @@map("templates")
 }
@@ -282,27 +240,27 @@ model WorkflowTemplateStep {
 }
 
 model WorkflowTemplate {
-  createdAt             DateTime                   @default(now())
-  id                    String                     @id @default(uuid())
-  name                  String
-  practice              Practice                   @relation(fields: [praciceId], references: [id])
-  praciceId             String
-  sector                EnumWorkflowTemplateSector
-  updatedAt             DateTime                   @updatedAt
-  workflowTemplateSteps WorkflowTemplateStep[]
+  createdAt DateTime                   @default(now())
+  id        String                     @id @default(uuid())
+  name      String
+  practice  Practice                   @relation(fields: [praciceId], references: [id])
+  praciceId String
+  sector    EnumWorkflowTemplateSector
+  steps     WorkflowTemplateStep[]
+  updatedAt DateTime                   @updatedAt
 
   @@map("workflow_templates")
 }
 
 model Workflow {
-  anchorDate    DateTime?
-  createdAt     DateTime       @default(now())
-  id            String         @id @default(uuid())
-  name          String
-  patient       Patient        @relation(fields: [patientId], references: [id])
-  patientId     String
-  updatedAt     DateTime       @updatedAt
-  workflowSteps WorkflowStep[]
+  anchorDate DateTime?
+  createdAt  DateTime       @default(now())
+  id         String         @id @default(uuid())
+  name       String
+  patient    Patient        @relation(fields: [patientId], references: [id])
+  patientId  String
+  steps      WorkflowStep[]
+  updatedAt  DateTime       @updatedAt
 
   @@map("workflows")
 }
@@ -317,6 +275,16 @@ enum EnumLeadFormLinkSector {
   GP
 }
 
+enum EnumLinkCategory {
+  conditions
+  live_well
+  Tools
+  video
+  common_health_questions
+  start_4_life
+  Medicines
+}
+
 enum EnumLinkSector {
   Dental
   GP
@@ -325,6 +293,14 @@ enum EnumLinkSector {
 enum EnumPracticeSector {
   Dental
   GP
+}
+
+enum EnumTemplateCategory {
+  appointment
+  prescriptions
+  review
+  sample
+  test_results
 }
 
 enum EnumTemplateSector {

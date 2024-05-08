@@ -62,21 +62,21 @@ class Workflow {
   patient?: Patient;
 
   @ApiProperty({
-    required: true,
-  })
-  @IsDate()
-  @Type(() => Date)
-  @Field(() => Date)
-  updatedAt!: Date;
-
-  @ApiProperty({
     required: false,
     type: () => [WorkflowStep],
   })
   @ValidateNested()
   @Type(() => WorkflowStep)
   @IsOptional()
-  workflowSteps?: Array<WorkflowStep>;
+  steps?: Array<WorkflowStep>;
+
+  @ApiProperty({
+    required: true,
+  })
+  @IsDate()
+  @Type(() => Date)
+  @Field(() => Date)
+  updatedAt!: Date;
 }
 
 export { Workflow as Workflow };

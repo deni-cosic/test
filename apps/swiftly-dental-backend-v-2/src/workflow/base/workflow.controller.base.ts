@@ -249,19 +249,19 @@ export class WorkflowControllerBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
-  @common.Get("/:id/workflowSteps")
+  @common.Get("/:id/steps")
   @ApiNestedQuery(WorkflowStepFindManyArgs)
   @nestAccessControl.UseRoles({
     resource: "WorkflowStep",
     action: "read",
     possession: "any",
   })
-  async findWorkflowSteps(
+  async findSteps(
     @common.Req() request: Request,
     @common.Param() params: WorkflowWhereUniqueInput
   ): Promise<WorkflowStep[]> {
     const query = plainToClass(WorkflowStepFindManyArgs, request.query);
-    const results = await this.service.findWorkflowSteps(params.id, {
+    const results = await this.service.findSteps(params.id, {
       ...query,
       select: {
         createdAt: true,
@@ -286,18 +286,18 @@ export class WorkflowControllerBase {
     return results;
   }
 
-  @common.Post("/:id/workflowSteps")
+  @common.Post("/:id/steps")
   @nestAccessControl.UseRoles({
     resource: "Workflow",
     action: "update",
     possession: "any",
   })
-  async connectWorkflowSteps(
+  async connectSteps(
     @common.Param() params: WorkflowWhereUniqueInput,
     @common.Body() body: WorkflowStepWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      workflowSteps: {
+      steps: {
         connect: body,
       },
     };
@@ -308,18 +308,18 @@ export class WorkflowControllerBase {
     });
   }
 
-  @common.Patch("/:id/workflowSteps")
+  @common.Patch("/:id/steps")
   @nestAccessControl.UseRoles({
     resource: "Workflow",
     action: "update",
     possession: "any",
   })
-  async updateWorkflowSteps(
+  async updateSteps(
     @common.Param() params: WorkflowWhereUniqueInput,
     @common.Body() body: WorkflowStepWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      workflowSteps: {
+      steps: {
         set: body,
       },
     };
@@ -330,18 +330,18 @@ export class WorkflowControllerBase {
     });
   }
 
-  @common.Delete("/:id/workflowSteps")
+  @common.Delete("/:id/steps")
   @nestAccessControl.UseRoles({
     resource: "Workflow",
     action: "update",
     possession: "any",
   })
-  async disconnectWorkflowSteps(
+  async disconnectSteps(
     @common.Param() params: WorkflowWhereUniqueInput,
     @common.Body() body: WorkflowStepWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      workflowSteps: {
+      steps: {
         disconnect: body,
       },
     };

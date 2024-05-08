@@ -11,21 +11,27 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, IsOptional, IsBoolean, IsEnum } from "class-validator";
+import { EnumTemplateCategory } from "./EnumTemplateCategory";
+import { IsEnum, IsOptional, IsString, IsBoolean } from "class-validator";
 import { EnumTemplateSector } from "./EnumTemplateSector";
 
 @InputType()
 class TemplateUpdateInput {
   @ApiProperty({
     required: false,
-    type: String,
+    enum: EnumTemplateCategory,
+    isArray: true,
   })
-  @IsString()
+  @IsEnum(EnumTemplateCategory, {
+    each: true,
+  })
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => [EnumTemplateCategory], {
     nullable: true,
   })
-  category?: string | null;
+  category?: Array<
+    "appointment" | "prescriptions" | "review" | "sample" | "test_results"
+  >;
 
   @ApiProperty({
     required: false,

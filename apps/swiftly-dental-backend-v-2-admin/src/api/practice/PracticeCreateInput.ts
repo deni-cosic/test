@@ -1,6 +1,5 @@
 import { FeaturePermissionWhereUniqueInput } from "../featurePermission/FeaturePermissionWhereUniqueInput";
 import { FormSubmissionCreateNestedManyWithoutPracticesInput } from "./FormSubmissionCreateNestedManyWithoutPracticesInput";
-import { LeadFormSubmissionCreateNestedManyWithoutPracticesInput } from "./LeadFormSubmissionCreateNestedManyWithoutPracticesInput";
 import { LeadCreateNestedManyWithoutPracticesInput } from "./LeadCreateNestedManyWithoutPracticesInput";
 import { PatientCreateNestedManyWithoutPracticesInput } from "./PatientCreateNestedManyWithoutPracticesInput";
 import { PracticeInfoLinkCreateNestedManyWithoutPracticesInput } from "./PracticeInfoLinkCreateNestedManyWithoutPracticesInput";
@@ -14,7 +13,6 @@ export type PracticeCreateInput = {
   featurePermission?: FeaturePermissionWhereUniqueInput | null;
   formSubmissions?: FormSubmissionCreateNestedManyWithoutPracticesInput;
   googlePlaceId?: string | null;
-  leadFormSubmissions?: LeadFormSubmissionCreateNestedManyWithoutPracticesInput;
   leads?: LeadCreateNestedManyWithoutPracticesInput;
   name: string;
   nhsReviewUrl?: string | null;

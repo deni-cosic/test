@@ -3,7 +3,7 @@ import { PracticeWhereUniqueInput } from "../practice/PracticeWhereUniqueInput";
 import { WorkflowUpdateManyWithoutPatientsInput } from "./WorkflowUpdateManyWithoutPatientsInput";
 
 export type PatientUpdateInput = {
-  dateOfBirth?: string;
+  dateOfBirth?: Date;
   firstName?: string;
   formSubmissions?: FormSubmissionUpdateManyWithoutPatientsInput;
   lastName?: string;

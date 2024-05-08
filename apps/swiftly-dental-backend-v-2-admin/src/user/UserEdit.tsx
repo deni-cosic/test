@@ -4,6 +4,7 @@ import {
   Edit,
   SimpleForm,
   EditProps,
+  BooleanInput,
   TextInput,
   PasswordInput,
   ReferenceArrayInput,
@@ -17,9 +18,10 @@ export const UserEdit = (props: EditProps): React.ReactElement => {
   return (
     <Edit {...props}>
       <SimpleForm>
+        <BooleanInput label="Blocked" source="blocked" />
+        <BooleanInput label="Confirmed" source="confirmed" />
         <TextInput label="Email" source="email" type="email" />
-        <TextInput label="First Name" source="firstName" />
-        <TextInput label="Last Name" source="lastName" />
+        <TextInput label="Name" source="name" />
         <PasswordInput label="Password" source="password" />
         <ReferenceArrayInput
           source="practices"
@@ -29,6 +31,7 @@ export const UserEdit = (props: EditProps): React.ReactElement => {
         >
           <SelectArrayInput optionText={PracticeTitle} />
         </ReferenceArrayInput>
+        <TextInput label="Provider" source="provider" />
         <SelectArrayInput
           source="roles"
           choices={ROLES_OPTIONS}

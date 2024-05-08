@@ -39,7 +39,7 @@ export const WorkflowTemplateCreate = (
           optionValue="value"
         />
         <ReferenceArrayInput
-          source="workflowTemplateSteps"
+          source="steps"
           reference="WorkflowTemplateStep"
           parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
           format={(value: any) => value && value.map((v: any) => v.id)}
