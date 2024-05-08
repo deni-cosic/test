@@ -135,11 +135,7 @@ export class PracticeControllerBase {
         addressLine3: true,
         createdAt: true,
 
-        featurePermission: {
-          select: {
-            id: true,
-          },
-        },
+        featurePermission: true,
 
         googlePlaceId: true,
         id: true,
@@ -183,11 +179,7 @@ export class PracticeControllerBase {
         addressLine3: true,
         createdAt: true,
 
-        featurePermission: {
-          select: {
-            id: true,
-          },
-        },
+        featurePermission: true,
 
         googlePlaceId: true,
         id: true,
