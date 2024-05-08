@@ -42,7 +42,6 @@ export const LeadShow = (props: ShowProps): React.ReactElement => {
         >
           <TextField source={PRACTICE_TITLE_FIELD} />
         </ReferenceField>
-        <BooleanField label="Sms Consented" source="smsConsented" />
         <DateField source="updatedAt" label="Updated At" />
       </SimpleShowLayout>
     </Show>

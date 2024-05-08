@@ -158,17 +158,17 @@ export class WorkflowResolverBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
-  @graphql.ResolveField(() => [WorkflowStep], { name: "workflowSteps" })
+  @graphql.ResolveField(() => [WorkflowStep], { name: "steps" })
   @nestAccessControl.UseRoles({
     resource: "WorkflowStep",
     action: "read",
     possession: "any",
   })
-  async findWorkflowSteps(
+  async findSteps(
     @graphql.Parent() parent: Workflow,
     @graphql.Args() args: WorkflowStepFindManyArgs
   ): Promise<WorkflowStep[]> {
-    const results = await this.service.findWorkflowSteps(parent.id, args);
+    const results = await this.service.findSteps(parent.id, args);
 
     if (!results) {
       return [];

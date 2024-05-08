@@ -56,7 +56,7 @@ class WorkflowCreateInput {
   @Field(() => WorkflowStepCreateNestedManyWithoutWorkflowsInput, {
     nullable: true,
   })
-  workflowSteps?: WorkflowStepCreateNestedManyWithoutWorkflowsInput;
+  steps?: WorkflowStepCreateNestedManyWithoutWorkflowsInput;
 }
 
 export { WorkflowCreateInput as WorkflowCreateInput };

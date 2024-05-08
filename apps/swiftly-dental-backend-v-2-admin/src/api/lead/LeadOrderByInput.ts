@@ -18,6 +18,5 @@ export type LeadOrderByInput = {
   otherFields?: SortOrder;
   platformSource?: SortOrder;
   practiceId?: SortOrder;
-  smsConsented?: SortOrder;
   updatedAt?: SortOrder;
 };

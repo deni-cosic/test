@@ -4,11 +4,11 @@ import { PracticeWhereUniqueInput } from "../practice/PracticeWhereUniqueInput";
 export type LeadUpdateInput = {
   contacted?: boolean;
   convertedClientId?: string | null;
-  dateOfBirth?: string;
+  dateOfBirth?: Date;
   email?: string;
   emailConsented?: boolean | null;
   firstName?: string;
-  interests?: string;
+  interests?: InputJsonValue;
   lastName?: string;
   marketingConsented?: boolean;
   meetingDate?: Date | null;
@@ -17,5 +17,4 @@ export type LeadUpdateInput = {
   otherFields?: InputJsonValue;
   platformSource?: string;
   practice?: PracticeWhereUniqueInput;
-  smsConsented?: boolean | null;
 };

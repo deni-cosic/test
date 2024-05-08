@@ -11,9 +11,9 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, IsOptional, ValidateNested } from "class-validator";
-import { FormSubmissionUpdateManyWithoutPatientsInput } from "./FormSubmissionUpdateManyWithoutPatientsInput";
+import { IsDate, IsOptional, IsString, ValidateNested } from "class-validator";
 import { Type } from "class-transformer";
+import { FormSubmissionUpdateManyWithoutPatientsInput } from "./FormSubmissionUpdateManyWithoutPatientsInput";
 import { PracticeWhereUniqueInput } from "../../practice/base/PracticeWhereUniqueInput";
 import { WorkflowUpdateManyWithoutPatientsInput } from "./WorkflowUpdateManyWithoutPatientsInput";
 
@@ -21,14 +21,14 @@ import { WorkflowUpdateManyWithoutPatientsInput } from "./WorkflowUpdateManyWith
 class PatientUpdateInput {
   @ApiProperty({
     required: false,
-    type: String,
   })
-  @IsString()
+  @IsDate()
+  @Type(() => Date)
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => Date, {
     nullable: true,
   })
-  dateOfBirth?: string;
+  dateOfBirth?: Date;
 
   @ApiProperty({
     required: false,

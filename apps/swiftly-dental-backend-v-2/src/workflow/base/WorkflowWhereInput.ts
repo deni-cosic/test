@@ -79,17 +79,6 @@ class WorkflowWhereInput {
 
   @ApiProperty({
     required: false,
-    type: DateTimeFilter,
-  })
-  @Type(() => DateTimeFilter)
-  @IsOptional()
-  @Field(() => DateTimeFilter, {
-    nullable: true,
-  })
-  updatedAt?: DateTimeFilter;
-
-  @ApiProperty({
-    required: false,
     type: () => WorkflowStepListRelationFilter,
   })
   @ValidateNested()
@@ -98,7 +87,18 @@ class WorkflowWhereInput {
   @Field(() => WorkflowStepListRelationFilter, {
     nullable: true,
   })
-  workflowSteps?: WorkflowStepListRelationFilter;
+  steps?: WorkflowStepListRelationFilter;
+
+  @ApiProperty({
+    required: false,
+    type: DateTimeFilter,
+  })
+  @Type(() => DateTimeFilter)
+  @IsOptional()
+  @Field(() => DateTimeFilter, {
+    nullable: true,
+  })
+  updatedAt?: DateTimeFilter;
 }
 
 export { WorkflowWhereInput as WorkflowWhereInput };

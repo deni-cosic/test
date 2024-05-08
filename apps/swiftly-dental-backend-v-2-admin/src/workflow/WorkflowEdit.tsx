@@ -25,7 +25,7 @@ export const WorkflowEdit = (props: EditProps): React.ReactElement => {
           <SelectInput optionText={PatientTitle} />
         </ReferenceInput>
         <ReferenceArrayInput
-          source="workflowSteps"
+          source="steps"
           reference="WorkflowStep"
           parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
           format={(value: any) => value && value.map((v: any) => v.id)}

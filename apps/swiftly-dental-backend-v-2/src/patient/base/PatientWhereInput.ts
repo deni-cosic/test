@@ -35,14 +35,14 @@ class PatientWhereInput {
 
   @ApiProperty({
     required: false,
-    type: StringFilter,
+    type: DateTimeFilter,
   })
-  @Type(() => StringFilter)
+  @Type(() => DateTimeFilter)
   @IsOptional()
-  @Field(() => StringFilter, {
+  @Field(() => DateTimeFilter, {
     nullable: true,
   })
-  dateOfBirth?: StringFilter;
+  dateOfBirth?: DateTimeFilter;
 
   @ApiProperty({
     required: false,

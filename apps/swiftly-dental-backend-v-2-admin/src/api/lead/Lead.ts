@@ -5,12 +5,12 @@ export type Lead = {
   contacted: boolean;
   convertedClientId: string | null;
   createdAt: Date;
-  dateOfBirth: string;
+  dateOfBirth: Date;
   email: string;
   emailConsented: boolean | null;
   firstName: string;
   id: string;
-  interests: string;
+  interests: JsonValue;
   lastName: string;
   marketingConsented: boolean;
   meetingDate: Date | null;
@@ -19,6 +19,5 @@ export type Lead = {
   otherFields: JsonValue;
   platformSource: string;
   practice?: Practice;
-  smsConsented: boolean | null;
   updatedAt: Date;
 };

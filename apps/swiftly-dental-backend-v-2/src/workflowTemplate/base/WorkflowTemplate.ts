@@ -68,21 +68,21 @@ class WorkflowTemplate {
   sector?: "Dental" | "GP";
 
   @ApiProperty({
-    required: true,
-  })
-  @IsDate()
-  @Type(() => Date)
-  @Field(() => Date)
-  updatedAt!: Date;
-
-  @ApiProperty({
     required: false,
     type: () => [WorkflowTemplateStep],
   })
   @ValidateNested()
   @Type(() => WorkflowTemplateStep)
   @IsOptional()
-  workflowTemplateSteps?: Array<WorkflowTemplateStep>;
+  steps?: Array<WorkflowTemplateStep>;
+
+  @ApiProperty({
+    required: true,
+  })
+  @IsDate()
+  @Type(() => Date)
+  @Field(() => Date)
+  updatedAt!: Date;
 }
 
 export { WorkflowTemplate as WorkflowTemplate };

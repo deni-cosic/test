@@ -7,7 +7,7 @@ import { WorkflowListRelationFilter } from "../workflow/WorkflowListRelationFilt
 
 export type PatientWhereInput = {
   createdAt?: DateTimeFilter;
-  dateOfBirth?: StringFilter;
+  dateOfBirth?: DateTimeFilter;
   firstName?: StringFilter;
   formSubmissions?: FormSubmissionListRelationFilter;
   id?: StringFilter;

@@ -4,7 +4,7 @@ import { Workflow } from "../workflow/Workflow";
 
 export type Patient = {
   createdAt: Date;
-  dateOfBirth: string;
+  dateOfBirth: Date;
   firstName: string;
   formSubmissions?: Array<FormSubmission>;
   id: string;

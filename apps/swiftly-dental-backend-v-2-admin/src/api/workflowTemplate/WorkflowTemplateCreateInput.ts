@@ -5,5 +5,5 @@ export type WorkflowTemplateCreateInput = {
   name: string;
   practice: PracticeWhereUniqueInput;
   sector: "Dental" | "GP";
-  workflowTemplateSteps?: WorkflowTemplateStepCreateNestedManyWithoutWorkflowTemplatesInput;
+  steps?: WorkflowTemplateStepCreateNestedManyWithoutWorkflowTemplatesInput;
 };

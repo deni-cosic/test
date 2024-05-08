@@ -81,39 +81,6 @@ export const PracticeShow = (props: ShowProps): React.ReactElement => {
             <DateField source="updatedAt" label="Updated At" />
           </Datagrid>
         </ReferenceManyField>
-        <ReferenceManyField
-          reference="LeadFormSubmission"
-          target="practiceId"
-          label="LeadFormSubmissions"
-        >
-          <Datagrid rowClick="show">
-            <DateField source="createdAt" label="Created At" />
-            <TextField label="Email" source="email" />
-            <BooleanField label="Email Consented" source="emailConsented" />
-            <TextField label="First Name" source="firstName" />
-            <TextField label="ID" source="id" />
-            <TextField label="Interests" source="interests" />
-            <TextField label="Last Name" source="lastName" />
-            <BooleanField
-              label="Marketing Consented"
-              source="marketingConsented"
-            />
-            <TextField label="Mobile Number" source="mobileNumber" />
-            <BooleanField
-              label="Only Interests Consented"
-              source="onlyInterestsConsented"
-            />
-            <ReferenceField
-              label="Pracitice"
-              source="practice.id"
-              reference="Practice"
-            >
-              <TextField source={PRACTICE_TITLE_FIELD} />
-            </ReferenceField>
-            <BooleanField label="Sms Consented" source="smsConsented" />
-            <DateField source="updatedAt" label="Updated At" />
-          </Datagrid>
-        </ReferenceManyField>
         <ReferenceManyField reference="Lead" target="practiceId" label="Leads">
           <Datagrid rowClick="show">
             <BooleanField label="Contacted" source="contacted" />
@@ -145,7 +112,6 @@ export const PracticeShow = (props: ShowProps): React.ReactElement => {
             >
               <TextField source={PRACTICE_TITLE_FIELD} />
             </ReferenceField>
-            <BooleanField label="Sms Consented" source="smsConsented" />
             <DateField source="updatedAt" label="Updated At" />
           </Datagrid>
         </ReferenceManyField>

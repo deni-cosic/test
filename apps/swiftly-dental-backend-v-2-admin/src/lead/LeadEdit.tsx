@@ -6,6 +6,7 @@ import {
   EditProps,
   BooleanInput,
   TextInput,
+  DateInput,
   DateTimeInput,
   ReferenceInput,
   SelectInput,
@@ -19,11 +20,11 @@ export const LeadEdit = (props: EditProps): React.ReactElement => {
       <SimpleForm>
         <BooleanInput label="Contacted" source="contacted" />
         <TextInput label="Converted Client Id" source="convertedClientId" />
-        <TextInput label="Date Of Birth" source="dateOfBirth" />
-        <TextInput label="Email" source="email" />
+        <DateInput label="Date Of Birth" source="dateOfBirth" />
+        <TextInput label="Email" source="email" type="email" />
         <BooleanInput label="Email Consented" source="emailConsented" />
         <TextInput label="First Name" source="firstName" />
-        <TextInput label="Interests" source="interests" />
+        <div />
         <TextInput label="Last Name" source="lastName" />
         <BooleanInput label="Marketing Consented" source="marketingConsented" />
         <DateTimeInput label="Meeting Date" source="meetingDate" />
@@ -41,7 +42,6 @@ export const LeadEdit = (props: EditProps): React.ReactElement => {
         >
           <SelectInput optionText={PracticeTitle} />
         </ReferenceInput>
-        <BooleanInput label="Sms Consented" source="smsConsented" />
       </SimpleForm>
     </Edit>
   );

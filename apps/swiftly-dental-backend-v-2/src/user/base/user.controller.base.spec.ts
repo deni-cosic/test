@@ -18,44 +18,52 @@ import { UserService } from "../user.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
+  blocked: "true",
+  confirmed: "true",
   createdAt: new Date(),
   email: "exampleEmail",
-  firstName: "exampleFirstName",
   id: "exampleId",
-  lastName: "exampleLastName",
+  name: "exampleName",
   password: "examplePassword",
+  provider: "exampleProvider",
   updatedAt: new Date(),
   username: "exampleUsername",
 };
 const CREATE_RESULT = {
+  blocked: "true",
+  confirmed: "true",
   createdAt: new Date(),
   email: "exampleEmail",
-  firstName: "exampleFirstName",
   id: "exampleId",
-  lastName: "exampleLastName",
+  name: "exampleName",
   password: "examplePassword",
+  provider: "exampleProvider",
   updatedAt: new Date(),
   username: "exampleUsername",
 };
 const FIND_MANY_RESULT = [
   {
+    blocked: "true",
+    confirmed: "true",
     createdAt: new Date(),
     email: "exampleEmail",
-    firstName: "exampleFirstName",
     id: "exampleId",
-    lastName: "exampleLastName",
+    name: "exampleName",
     password: "examplePassword",
+    provider: "exampleProvider",
     updatedAt: new Date(),
     username: "exampleUsername",
   },
 ];
 const FIND_ONE_RESULT = {
+  blocked: "true",
+  confirmed: "true",
   createdAt: new Date(),
   email: "exampleEmail",
-  firstName: "exampleFirstName",
   id: "exampleId",
-  lastName: "exampleLastName",
+  name: "exampleName",
   password: "examplePassword",
+  provider: "exampleProvider",
   updatedAt: new Date(),
   username: "exampleUsername",
 };

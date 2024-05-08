@@ -63,7 +63,7 @@ class WorkflowTemplateUpdateInput {
   @Field(() => WorkflowTemplateStepUpdateManyWithoutWorkflowTemplatesInput, {
     nullable: true,
   })
-  workflowTemplateSteps?: WorkflowTemplateStepUpdateManyWithoutWorkflowTemplatesInput;
+  steps?: WorkflowTemplateStepUpdateManyWithoutWorkflowTemplatesInput;
 }
 
 export { WorkflowTemplateUpdateInput as WorkflowTemplateUpdateInput };

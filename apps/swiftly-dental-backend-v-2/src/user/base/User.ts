@@ -11,7 +11,13 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsString, IsOptional, ValidateNested } from "class-validator";
+import {
+  IsBoolean,
+  IsOptional,
+  IsDate,
+  IsString,
+  ValidateNested,
+} from "class-validator";
 import { Type } from "class-transformer";
 import { Practice } from "../../practice/base/Practice";
 import { IsJSONValue } from "../../validators";
@@ -20,6 +26,28 @@ import { JsonValue } from "type-fest";
 
 @ObjectType()
 class User {
+  @ApiProperty({
+    required: false,
+    type: Boolean,
+  })
+  @IsBoolean()
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  blocked!: boolean | null;
+
+  @ApiProperty({
+    required: false,
+    type: Boolean,
+  })
+  @IsBoolean()
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  confirmed!: boolean | null;
+
   @ApiProperty({
     required: true,
   })
@@ -40,17 +68,6 @@ class User {
   email!: string | null;
 
   @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  firstName!: string | null;
-
-  @ApiProperty({
     required: true,
     type: String,
   })
@@ -67,7 +84,7 @@ class User {
   @Field(() => String, {
     nullable: true,
   })
-  lastName!: string | null;
+  name!: string | null;
 
   @ApiProperty({
     required: false,
@@ -77,6 +94,17 @@ class User {
   @Type(() => Practice)
   @IsOptional()
   practices?: Array<Practice>;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  provider!: string | null;
 
   @ApiProperty({
     required: true,

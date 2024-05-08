@@ -15,7 +15,6 @@ import {
 
 import { FeaturePermissionTitle } from "../featurePermission/FeaturePermissionTitle";
 import { FormSubmissionTitle } from "../formSubmission/FormSubmissionTitle";
-import { LeadFormSubmissionTitle } from "../leadFormSubmission/LeadFormSubmissionTitle";
 import { LeadTitle } from "../lead/LeadTitle";
 import { PatientTitle } from "../patient/PatientTitle";
 import { PracticeInfoLinkTitle } from "../practiceInfoLink/PracticeInfoLinkTitle";
@@ -45,14 +44,6 @@ export const PracticeEdit = (props: EditProps): React.ReactElement => {
           <SelectArrayInput optionText={FormSubmissionTitle} />
         </ReferenceArrayInput>
         <TextInput label="Google Place Id" source="googlePlaceId" />
-        <ReferenceArrayInput
-          source="leadFormSubmissions"
-          reference="LeadFormSubmission"
-          parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
-          format={(value: any) => value && value.map((v: any) => v.id)}
-        >
-          <SelectArrayInput optionText={LeadFormSubmissionTitle} />
-        </ReferenceArrayInput>
         <ReferenceArrayInput
           source="leads"
           reference="Lead"

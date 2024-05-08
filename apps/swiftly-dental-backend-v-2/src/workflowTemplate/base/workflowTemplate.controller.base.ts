@@ -251,19 +251,19 @@ export class WorkflowTemplateControllerBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
-  @common.Get("/:id/workflowTemplateSteps")
+  @common.Get("/:id/steps")
   @ApiNestedQuery(WorkflowTemplateStepFindManyArgs)
   @nestAccessControl.UseRoles({
     resource: "WorkflowTemplateStep",
     action: "read",
     possession: "any",
   })
-  async findWorkflowTemplateSteps(
+  async findSteps(
     @common.Req() request: Request,
     @common.Param() params: WorkflowTemplateWhereUniqueInput
   ): Promise<WorkflowTemplateStep[]> {
     const query = plainToClass(WorkflowTemplateStepFindManyArgs, request.query);
-    const results = await this.service.findWorkflowTemplateSteps(params.id, {
+    const results = await this.service.findSteps(params.id, {
       ...query,
       select: {
         createdAt: true,
@@ -287,18 +287,18 @@ export class WorkflowTemplateControllerBase {
     return results;
   }
 
-  @common.Post("/:id/workflowTemplateSteps")
+  @common.Post("/:id/steps")
   @nestAccessControl.UseRoles({
     resource: "WorkflowTemplate",
     action: "update",
     possession: "any",
   })
-  async connectWorkflowTemplateSteps(
+  async connectSteps(
     @common.Param() params: WorkflowTemplateWhereUniqueInput,
     @common.Body() body: WorkflowTemplateStepWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      workflowTemplateSteps: {
+      steps: {
         connect: body,
       },
     };
@@ -309,18 +309,18 @@ export class WorkflowTemplateControllerBase {
     });
   }
 
-  @common.Patch("/:id/workflowTemplateSteps")
+  @common.Patch("/:id/steps")
   @nestAccessControl.UseRoles({
     resource: "WorkflowTemplate",
     action: "update",
     possession: "any",
   })
-  async updateWorkflowTemplateSteps(
+  async updateSteps(
     @common.Param() params: WorkflowTemplateWhereUniqueInput,
     @common.Body() body: WorkflowTemplateStepWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      workflowTemplateSteps: {
+      steps: {
         set: body,
       },
     };
@@ -331,18 +331,18 @@ export class WorkflowTemplateControllerBase {
     });
   }
 
-  @common.Delete("/:id/workflowTemplateSteps")
+  @common.Delete("/:id/steps")
   @nestAccessControl.UseRoles({
     resource: "WorkflowTemplate",
     action: "update",
     possession: "any",
   })
-  async disconnectWorkflowTemplateSteps(
+  async disconnectSteps(
     @common.Param() params: WorkflowTemplateWhereUniqueInput,
     @common.Body() body: WorkflowTemplateStepWhereUniqueInput[]
   ): Promise<void> {
     const data = {
-      workflowTemplateSteps: {
+      steps: {
         disconnect: body,
       },
     };

@@ -7,6 +7,6 @@ export type Workflow = {
   id: string;
   name: string;
   patient?: Patient;
+  steps?: Array<WorkflowStep>;
   updatedAt: Date;
-  workflowSteps?: Array<WorkflowStep>;
 };

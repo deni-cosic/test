@@ -3,7 +3,7 @@ import { PracticeWhereUniqueInput } from "../practice/PracticeWhereUniqueInput";
 import { WorkflowCreateNestedManyWithoutPatientsInput } from "./WorkflowCreateNestedManyWithoutPatientsInput";
 
 export type PatientCreateInput = {
-  dateOfBirth: string;
+  dateOfBirth: Date;
   firstName: string;
   formSubmissions?: FormSubmissionCreateNestedManyWithoutPatientsInput;
   lastName: string;

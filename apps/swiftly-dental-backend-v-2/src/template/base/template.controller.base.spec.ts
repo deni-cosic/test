@@ -18,7 +18,6 @@ import { TemplateService } from "../template.service";
 const nonExistingId = "nonExistingId";
 const existingId = "existingId";
 const CREATE_INPUT = {
-  category: "exampleCategory",
   createdAt: new Date(),
   displayName: "exampleDisplayName",
   enabled: "true",
@@ -27,7 +26,6 @@ const CREATE_INPUT = {
   updatedAt: new Date(),
 };
 const CREATE_RESULT = {
-  category: "exampleCategory",
   createdAt: new Date(),
   displayName: "exampleDisplayName",
   enabled: "true",
@@ -37,7 +35,6 @@ const CREATE_RESULT = {
 };
 const FIND_MANY_RESULT = [
   {
-    category: "exampleCategory",
     createdAt: new Date(),
     displayName: "exampleDisplayName",
     enabled: "true",
@@ -47,7 +44,6 @@ const FIND_MANY_RESULT = [
   },
 ];
 const FIND_ONE_RESULT = {
-  category: "exampleCategory",
   createdAt: new Date(),
   displayName: "exampleDisplayName",
   enabled: "true",

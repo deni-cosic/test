@@ -28,8 +28,6 @@ import { UpdatePracticeArgs } from "./UpdatePracticeArgs";
 import { DeletePracticeArgs } from "./DeletePracticeArgs";
 import { FormSubmissionFindManyArgs } from "../../formSubmission/base/FormSubmissionFindManyArgs";
 import { FormSubmission } from "../../formSubmission/base/FormSubmission";
-import { LeadFormSubmissionFindManyArgs } from "../../leadFormSubmission/base/LeadFormSubmissionFindManyArgs";
-import { LeadFormSubmission } from "../../leadFormSubmission/base/LeadFormSubmission";
 import { LeadFindManyArgs } from "../../lead/base/LeadFindManyArgs";
 import { Lead } from "../../lead/base/Lead";
 import { PatientFindManyArgs } from "../../patient/base/PatientFindManyArgs";
@@ -185,28 +183,6 @@ export class PracticeResolverBase {
     @graphql.Args() args: FormSubmissionFindManyArgs
   ): Promise<FormSubmission[]> {
     const results = await this.service.findFormSubmissions(parent.id, args);
-
-    if (!results) {
-      return [];
-    }
-
-    return results;
-  }
-
-  @common.UseInterceptors(AclFilterResponseInterceptor)
-  @graphql.ResolveField(() => [LeadFormSubmission], {
-    name: "leadFormSubmissions",
-  })
-  @nestAccessControl.UseRoles({
-    resource: "LeadFormSubmission",
-    action: "read",
-    possession: "any",
-  })
-  async findLeadFormSubmissions(
-    @graphql.Parent() parent: Practice,
-    @graphql.Args() args: LeadFormSubmissionFindManyArgs
-  ): Promise<LeadFormSubmission[]> {
-    const results = await this.service.findLeadFormSubmissions(parent.id, args);
 
     if (!results) {
       return [];

@@ -50,14 +50,14 @@ class LeadUpdateInput {
 
   @ApiProperty({
     required: false,
-    type: String,
   })
-  @IsString()
+  @IsDate()
+  @Type(() => Date)
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => Date, {
     nullable: true,
   })
-  dateOfBirth?: string;
+  dateOfBirth?: Date;
 
   @ApiProperty({
     required: false,
@@ -94,14 +94,13 @@ class LeadUpdateInput {
 
   @ApiProperty({
     required: false,
-    type: String,
   })
-  @IsString()
+  @IsJSONValue()
   @IsOptional()
-  @Field(() => String, {
+  @Field(() => GraphQLJSON, {
     nullable: true,
   })
-  interests?: string;
+  interests?: InputJsonValue;
 
   @ApiProperty({
     required: false,
@@ -190,17 +189,6 @@ class LeadUpdateInput {
     nullable: true,
   })
   practice?: PracticeWhereUniqueInput;
-
-  @ApiProperty({
-    required: false,
-    type: Boolean,
-  })
-  @IsBoolean()
-  @IsOptional()
-  @Field(() => Boolean, {
-    nullable: true,
-  })
-  smsConsented?: boolean | null;
 }
 
 export { LeadUpdateInput as LeadUpdateInput };
