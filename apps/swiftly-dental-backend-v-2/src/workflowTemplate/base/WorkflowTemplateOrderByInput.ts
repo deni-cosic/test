@@ -61,7 +61,7 @@ class WorkflowTemplateOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  praciceId?: SortOrder;
+  practiceId?: SortOrder;
 
   @ApiProperty({
     required: false,

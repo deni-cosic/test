@@ -4,7 +4,7 @@ export type WorkflowTemplateOrderByInput = {
   createdAt?: SortOrder;
   id?: SortOrder;
   name?: SortOrder;
-  praciceId?: SortOrder;
+  practiceId?: SortOrder;
   sector?: SortOrder;
   updatedAt?: SortOrder;
 };
