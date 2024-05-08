@@ -7,7 +7,7 @@ export const HelpLinkList = (props: ListProps): React.ReactElement => {
     <List
       {...props}
       bulkActionButtons={false}
-      title={"HelpLinks"}
+      title={"help-links"}
       perPage={50}
       pagination={<Pagination />}
     >
