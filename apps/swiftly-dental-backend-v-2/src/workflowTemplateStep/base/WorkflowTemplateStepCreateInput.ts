@@ -11,7 +11,7 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, IsInt, ValidateNested } from "class-validator";
+import { IsString, ValidateNested } from "class-validator";
 import { WorkflowTemplateWhereUniqueInput } from "../../workflowTemplate/base/WorkflowTemplateWhereUniqueInput";
 import { Type } from "class-transformer";
 
@@ -27,11 +27,11 @@ class WorkflowTemplateStepCreateInput {
 
   @ApiProperty({
     required: true,
-    type: Number,
+    type: String,
   })
-  @IsInt()
-  @Field(() => Number)
-  timeOffsetInSeconds!: number;
+  @IsString()
+  @Field(() => String)
+  timeOffsetInSeconds!: string;
 
   @ApiProperty({
     required: true,
