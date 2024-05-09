@@ -2,6 +2,6 @@ import { WorkflowTemplateWhereUniqueInput } from "../workflowTemplate/WorkflowTe
 
 export type WorkflowTemplateStepUpdateInput = {
   message?: string;
-  timeOffsetInSeconds?: number;
+  timeOffsetInSeconds?: string;
   workflowTemplate?: WorkflowTemplateWhereUniqueInput;
 };

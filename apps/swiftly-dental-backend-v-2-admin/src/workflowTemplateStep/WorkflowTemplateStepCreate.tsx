@@ -1,15 +1,12 @@
 import * as React from "react";
-
 import {
   Create,
   SimpleForm,
   CreateProps,
   TextInput,
-  NumberInput,
   ReferenceInput,
   SelectInput,
 } from "react-admin";
-
 import { WorkflowTemplateTitle } from "../workflowTemplate/WorkflowTemplateTitle";
 
 export const WorkflowTemplateStepCreate = (
@@ -19,8 +16,7 @@ export const WorkflowTemplateStepCreate = (
     <Create {...props}>
       <SimpleForm>
         <TextInput label="Message" source="message" />
-        <NumberInput
-          step={1}
+        <TextInput
           label="Time Offset In Seconds"
           source="timeOffsetInSeconds"
         />

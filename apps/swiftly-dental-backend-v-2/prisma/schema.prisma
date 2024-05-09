@@ -233,7 +233,7 @@ model WorkflowTemplateStep {
   createdAt           DateTime         @default(now())
   id                  String           @id @default(uuid())
   message             String
-  timeOffsetInSeconds Int
+  timeOffsetInSeconds String
   updatedAt           DateTime         @updatedAt
   workflowTemplate    WorkflowTemplate @relation(fields: [workflowTemplateId], references: [id])
   workflowTemplateId  String
