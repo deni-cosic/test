@@ -235,8 +235,8 @@ model WorkflowTemplateStep {
   message             String
   timeOffsetInSeconds Int
   updatedAt           DateTime         @updatedAt
-  workflowTemplate    WorkflowTemplate @relation(fields: [workflowTemplateId], references: [id])
-  workflowTemplateId  String
+  workflowTemplate    WorkflowTemplate @relation(fields: [workflowTemplateId], references: [id]) @relation(fields: [workflowTemplateId], references: [id], onDelete: Cascade)
+  workflowTemplateId  String           @relation(fields: [workflowTemplateId], references: [id], onDelete: Cascade)
 
   @@map("workflow_template_steps")
 }
