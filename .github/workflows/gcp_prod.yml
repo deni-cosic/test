@@ -26,13 +26,13 @@ jobs:
       - name: Build and Push Docker image
         working-directory: ./apps/swiftly-dental-backend-v-2
         run: |
-          docker build -t europe-west1-docker.pkg.dev/qrypta-reborn/qrypta-dental-backend-v2-image-repository/qrypta-dental-backend .
-          docker push europe-west1-docker.pkg.dev/qrypta-reborn/qrypta-dental-backend-v2-image-repository/qrypta-dental-backend
+          docker build -t europe-west1-docker.pkg.dev/qrypta-reborn/qrypta-dental-backend-v2-image-repository/qrypta-dental-backend-v2 .
+          docker push europe-west1-docker.pkg.dev/qrypta-reborn/qrypta-dental-backend-v2-image-repository/qrypta-dental-backend-v2
 
       - name: Deploy to Cloud Run
         uses: google-github-actions/deploy-cloudrun@v0.6.0
         with:
-          service: qrypta-dental-backend
-          image: europe-west1-docker.pkg.dev/qrypta-reborn/qrypta-dental-backend-v2-image-repository/qrypta-dental-backend
+          service: qrypta-dental-backend-v2
+          image: europe-west1-docker.pkg.dev/qrypta-reborn/qrypta-dental-backend-v2-image-repository/qrypta-dental-backend-v2
           credentials: ${{ secrets.GCP_SA_KEY }}
           region: europe-west1
