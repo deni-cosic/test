@@ -19,8 +19,9 @@ import { ApiNestedQuery } from "../../decorators/api-nested-query.decorator";
 import * as nestAccessControl from "nest-access-control";
 import * as defaultAuthGuard from "../../auth/defaultAuth.guard";
 import { FormSubmissionService } from "../formSubmission.service";
-import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
+import { Public } from "../../decorators/public.decorator";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
+import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { FormSubmissionCreateInput } from "./FormSubmissionCreateInput";
 import { FormSubmission } from "./FormSubmission";
 import { FormSubmissionFindManyArgs } from "./FormSubmissionFindManyArgs";
@@ -34,14 +35,9 @@ export class FormSubmissionControllerBase {
     protected readonly service: FormSubmissionService,
     protected readonly rolesBuilder: nestAccessControl.RolesBuilder
   ) {}
-  @common.UseInterceptors(AclValidateRequestInterceptor)
+  @Public()
   @common.Post()
   @swagger.ApiCreatedResponse({ type: FormSubmission })
-  @nestAccessControl.UseRoles({
-    resource: "FormSubmission",
-    action: "create",
-    possession: "any",
-  })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })

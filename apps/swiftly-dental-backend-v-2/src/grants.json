@@ -386,30 +386,6 @@
   {
     "role": "authenticated",
     "resource": "FormSubmission",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "manager",
-    "resource": "FormSubmission",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "practice_owner",
-    "resource": "FormSubmission",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "public",
-    "resource": "FormSubmission",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "authenticated",
-    "resource": "FormSubmission",
     "action": "update:any",
     "attributes": "*"
   },
