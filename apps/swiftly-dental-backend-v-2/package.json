@@ -2,7 +2,8 @@
   "name": "@swiftly-dental-backend-v2/server",
   "private": true,
   "scripts": {
-    "start": "nest start",
+    "start": "node ./dist/main.js",
+    "prestart": "npm run db:migrate-up",
     "start:watch": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "build": "nest build",
