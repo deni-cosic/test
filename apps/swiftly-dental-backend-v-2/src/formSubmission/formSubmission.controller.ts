@@ -3,9 +3,13 @@ import * as swagger from "@nestjs/swagger";
 import * as nestAccessControl from "nest-access-control";
 import { FormSubmissionService } from "./formSubmission.service";
 import { FormSubmissionControllerBase } from "./base/formSubmission.controller.base";
+import { FormSubmission } from "./base/FormSubmission";
+import { FormSubmissionCreateInput } from "./base/FormSubmissionCreateInput";
+import * as errors from "../errors";
+import { Public } from "src/decorators/public.decorator";
 
-@swagger.ApiTags("formSubmissions")
-@common.Controller("formSubmissions")
+@swagger.ApiTags("form-submissions")
+@common.Controller("form-submissions")
 export class FormSubmissionController extends FormSubmissionControllerBase {
   constructor(
     protected readonly service: FormSubmissionService,
@@ -13,5 +17,112 @@ export class FormSubmissionController extends FormSubmissionControllerBase {
     protected readonly rolesBuilder: nestAccessControl.RolesBuilder
   ) {
     super(service, rolesBuilder);
+  }
+  @Public()
+  @common.Post()
+  @swagger.ApiCreatedResponse({ type: FormSubmission })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  @swagger.ApiBody({
+    type: FormSubmissionCreateInput,
+  })
+  async createFormSubmission(
+    @common.Body() data: FormSubmissionCreateInput
+  ): Promise<FormSubmission> {
+    if (data.rawRequest) {
+      const submission: any = {
+        formTitle: data.formTitle,
+        requestSentId: data.requestSentId,
+        requestedBy: data.requestedBy,
+      };
+
+      const rawRequest = JSON.parse(data.rawRequest);
+      const patientKey = Object.keys(rawRequest).find((key) =>
+        key.endsWith("_p")
+      );
+      const practiceKey = Object.keys(rawRequest).find((key) =>
+        key.endsWith("_o")
+      );
+      const requestSentKey = Object.keys(rawRequest).find((key) =>
+        key.endsWith("_r")
+      );
+
+      if (patientKey) {
+        submission.patientId = rawRequest[patientKey];
+      }
+      if (practiceKey) {
+        submission.practiceId = rawRequest[practiceKey];
+      }
+      if (requestSentKey) {
+        submission.requestSentId = rawRequest[requestSentKey];
+      }
+
+      const submissionResult = (
+        await this.service.formSubmissions({
+          where: {
+            requestSentId: submission.requestSentId,
+          },
+        })
+      )[0];
+
+      // We would expect that form needs to be requested to be submitter
+      // however, this handles cases where some forms have been sent before
+      // this feature is implemented
+      if (!submissionResult) {
+        submission.submissionId = data.submissionID;
+        submission.formId = data.formID;
+        return this.service.createFormSubmission(submission);
+      }
+
+      const existingSubmission = submissionResult;
+      existingSubmission.submissionId = data.submissionID!;
+      existingSubmission.formId = data.formID!;
+
+      return await this.service.updateFormSubmission({
+        where: { id: existingSubmission.id },
+        data: existingSubmission,
+      });
+    }
+    return await this.service.createFormSubmission({
+      data: {
+        ...data,
+
+        patient: data.patient
+          ? {
+              connect: data.patient,
+            }
+          : undefined,
+
+        practice: {
+          connect: data.practice,
+        },
+      },
+      select: {
+        createdAt: true,
+        formId: true,
+        formTitle: true,
+        id: true,
+
+        patient: {
+          select: {
+            id: true,
+          },
+        },
+
+        practice: {
+          select: {
+            id: true,
+          },
+        },
+
+        receivedAt: true,
+        requestedBy: true,
+        requestSentId: true,
+        seen: true,
+        submissionId: true,
+        updatedAt: true,
+      },
+    });
   }
 }

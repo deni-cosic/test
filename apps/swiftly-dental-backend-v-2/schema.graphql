@@ -1,0 +1,1489 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input BooleanFilter {
+  equals: Boolean
+  not: Boolean
+}
+
+input BooleanNullableFilter {
+  equals: Boolean
+  not: Boolean
+}
+
+input Credentials {
+  email: String!
+  password: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input DateTimeFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: DateTime
+  notIn: [DateTime!]
+}
+
+input DateTimeNullableFilter {
+  equals: DateTime
+  gt: DateTime
+  gte: DateTime
+  in: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  not: DateTime
+  notIn: [DateTime!]
+}
+
+enum EnumFormLinkSector {
+  Dental
+  Gp
+}
+
+enum EnumLeadFormLinkSector {
+  Dental
+  Gp
+}
+
+enum EnumLinkCategory {
+  CommonHealthQuestions
+  Conditions
+  LiveWell
+  Medicines
+  Start_4Life
+  Tools
+  Video
+}
+
+enum EnumLinkSector {
+  Dental
+  Gp
+}
+
+enum EnumPracticeSector {
+  Dental
+  Gp
+}
+
+enum EnumTemplateCategory {
+  Appointment
+  Prescriptions
+  Review
+  Sample
+  TestResults
+}
+
+enum EnumTemplateSector {
+  Dental
+  Gp
+}
+
+enum EnumWorkflowTemplateSector {
+  Dental
+  Gp
+}
+
+type FeaturePermission {
+  analytics: Boolean!
+  createdAt: DateTime!
+  dentalAdviceLink: Boolean!
+  dentalSubscriptions: Boolean!
+  form: Boolean!
+  id: String!
+  leads: Boolean
+  messageTemplate: Boolean!
+  practiceInfoLink: Boolean!
+  practices(orderBy: [PracticeOrderByInput!], skip: Float, take: Float, where: PracticeWhereInput): [Practice!]!
+  requestFeedback: Boolean!
+  requestPayment: Boolean!
+  sendDocument: Boolean!
+  sendMessageToMany: Boolean
+  updatedAt: DateTime!
+  videoCall: Boolean!
+  workflows: Boolean
+}
+
+input FeaturePermissionCreateInput {
+  analytics: Boolean!
+  dentalAdviceLink: Boolean!
+  dentalSubscriptions: Boolean!
+  form: Boolean!
+  leads: Boolean
+  messageTemplate: Boolean!
+  practiceInfoLink: Boolean!
+  practices: PracticeCreateNestedManyWithoutFeaturePermissionsInput
+  requestFeedback: Boolean!
+  requestPayment: Boolean!
+  sendDocument: Boolean!
+  sendMessageToMany: Boolean
+  videoCall: Boolean!
+  workflows: Boolean
+}
+
+input FeaturePermissionOrderByInput {
+  analytics: SortOrder
+  createdAt: SortOrder
+  dentalAdviceLink: SortOrder
+  dentalSubscriptions: SortOrder
+  form: SortOrder
+  id: SortOrder
+  leads: SortOrder
+  messageTemplate: SortOrder
+  practiceInfoLink: SortOrder
+  requestFeedback: SortOrder
+  requestPayment: SortOrder
+  sendDocument: SortOrder
+  sendMessageToMany: SortOrder
+  updatedAt: SortOrder
+  videoCall: SortOrder
+  workflows: SortOrder
+}
+
+input FeaturePermissionUpdateInput {
+  analytics: Boolean
+  dentalAdviceLink: Boolean
+  dentalSubscriptions: Boolean
+  form: Boolean
+  leads: Boolean
+  messageTemplate: Boolean
+  practiceInfoLink: Boolean
+  practices: PracticeUpdateManyWithoutFeaturePermissionsInput
+  requestFeedback: Boolean
+  requestPayment: Boolean
+  sendDocument: Boolean
+  sendMessageToMany: Boolean
+  videoCall: Boolean
+  workflows: Boolean
+}
+
+input FeaturePermissionWhereInput {
+  analytics: BooleanFilter
+  createdAt: DateTimeFilter
+  dentalAdviceLink: BooleanFilter
+  dentalSubscriptions: BooleanFilter
+  form: BooleanFilter
+  id: StringFilter
+  leads: BooleanNullableFilter
+  messageTemplate: BooleanFilter
+  practiceInfoLink: BooleanFilter
+  practices: PracticeListRelationFilter
+  requestFeedback: BooleanFilter
+  requestPayment: BooleanFilter
+  sendDocument: BooleanFilter
+  sendMessageToMany: BooleanNullableFilter
+  updatedAt: DateTimeFilter
+  videoCall: BooleanFilter
+  workflows: BooleanNullableFilter
+}
+
+input FeaturePermissionWhereUniqueInput {
+  id: String!
+}
+
+type FormLink {
+  createdAt: DateTime!
+  displayName: String!
+  enabled: Boolean!
+  id: String!
+  message: String!
+  sector: EnumFormLinkSector
+  updatedAt: DateTime!
+  url: String!
+}
+
+input FormLinkCreateInput {
+  displayName: String!
+  enabled: Boolean!
+  message: String!
+  sector: EnumFormLinkSector!
+  url: String!
+}
+
+input FormLinkOrderByInput {
+  createdAt: SortOrder
+  displayName: SortOrder
+  enabled: SortOrder
+  id: SortOrder
+  message: SortOrder
+  sector: SortOrder
+  updatedAt: SortOrder
+  url: SortOrder
+}
+
+input FormLinkUpdateInput {
+  displayName: String
+  enabled: Boolean
+  message: String
+  sector: EnumFormLinkSector
+  url: String
+}
+
+input FormLinkWhereInput {
+  createdAt: DateTimeFilter
+  displayName: StringFilter
+  enabled: BooleanFilter
+  id: StringFilter
+  message: StringFilter
+  sector: EnumFormLinkSector
+  updatedAt: DateTimeFilter
+  url: StringFilter
+}
+
+input FormLinkWhereUniqueInput {
+  id: String!
+}
+
+type FormSubmission {
+  createdAt: DateTime!
+  formId: String
+  formTitle: String!
+  id: String!
+  patient: Patient
+  practice: Practice
+  receivedAt: DateTime
+  requestSentId: String
+  requestedBy: String
+  seen: Boolean
+  submissionId: String
+  updatedAt: DateTime!
+}
+
+input FormSubmissionCreateInput {
+  formID: String
+  formId: String
+  formTitle: String!
+  patient: PatientWhereUniqueInput
+  practice: PracticeWhereUniqueInput!
+  rawRequest: String!
+  receivedAt: DateTime
+  requestSentId: String
+  requestedBy: String
+  seen: Boolean
+  submissionID: String
+  submissionId: String
+}
+
+input FormSubmissionCreateNestedManyWithoutPatientsInput {
+  connect: [FormSubmissionWhereUniqueInput!]
+}
+
+input FormSubmissionCreateNestedManyWithoutPracticesInput {
+  connect: [FormSubmissionWhereUniqueInput!]
+}
+
+input FormSubmissionListRelationFilter {
+  every: FormSubmissionWhereInput
+  none: FormSubmissionWhereInput
+  some: FormSubmissionWhereInput
+}
+
+input FormSubmissionOrderByInput {
+  createdAt: SortOrder
+  formId: SortOrder
+  formTitle: SortOrder
+  id: SortOrder
+  patientId: SortOrder
+  practiceId: SortOrder
+  receivedAt: SortOrder
+  requestSentId: SortOrder
+  requestedBy: SortOrder
+  seen: SortOrder
+  submissionId: SortOrder
+  updatedAt: SortOrder
+}
+
+input FormSubmissionUpdateInput {
+  formId: String
+  formTitle: String
+  patient: PatientWhereUniqueInput
+  practice: PracticeWhereUniqueInput
+  receivedAt: DateTime
+  requestSentId: String
+  requestedBy: String
+  seen: Boolean
+  submissionId: String
+}
+
+input FormSubmissionUpdateManyWithoutPatientsInput {
+  connect: [FormSubmissionWhereUniqueInput!]
+  disconnect: [FormSubmissionWhereUniqueInput!]
+  set: [FormSubmissionWhereUniqueInput!]
+}
+
+input FormSubmissionUpdateManyWithoutPracticesInput {
+  connect: [FormSubmissionWhereUniqueInput!]
+  disconnect: [FormSubmissionWhereUniqueInput!]
+  set: [FormSubmissionWhereUniqueInput!]
+}
+
+input FormSubmissionWhereInput {
+  createdAt: DateTimeFilter
+  formId: StringNullableFilter
+  formTitle: StringFilter
+  id: StringFilter
+  patient: PatientWhereUniqueInput
+  practice: PracticeWhereUniqueInput
+  receivedAt: DateTimeNullableFilter
+  requestSentId: StringNullableFilter
+  requestedBy: StringNullableFilter
+  seen: BooleanNullableFilter
+  submissionId: StringNullableFilter
+  updatedAt: DateTimeFilter
+}
+
+input FormSubmissionWhereUniqueInput {
+  id: String!
+}
+
+type HelpLink {
+  category: String!
+  createdAt: DateTime!
+  displayName: String!
+  id: String!
+  updatedAt: DateTime!
+  url: String!
+}
+
+input HelpLinkCreateInput {
+  category: String!
+  displayName: String!
+  url: String!
+}
+
+input HelpLinkOrderByInput {
+  category: SortOrder
+  createdAt: SortOrder
+  displayName: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+  url: SortOrder
+}
+
+input HelpLinkUpdateInput {
+  category: String
+  displayName: String
+  url: String
+}
+
+input HelpLinkWhereInput {
+  category: StringFilter
+  createdAt: DateTimeFilter
+  displayName: StringFilter
+  id: StringFilter
+  updatedAt: DateTimeFilter
+  url: StringFilter
+}
+
+input HelpLinkWhereUniqueInput {
+  id: String!
+}
+
+input IntFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: Int
+  notIn: [Int!]
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+"""
+The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSONObject
+
+input JsonFilter {
+  equals: JSONObject
+  not: JSONObject
+}
+
+type Lead {
+  contacted: Boolean!
+  convertedClientId: String
+  createdAt: DateTime!
+  dateOfBirth: DateTime!
+  email: String!
+  emailConsented: Boolean
+  firstName: String!
+  id: String!
+  interests: JSON!
+  lastName: String!
+  marketingConsented: Boolean!
+  meetingDate: DateTime
+  mobileNumber: String!
+  onlyInterestsConsented: Boolean
+  otherFields: JSON
+  platformSource: String!
+  practice: Practice
+  updatedAt: DateTime!
+}
+
+input LeadCreateInput {
+  contacted: Boolean!
+  convertedClientId: String
+  dateOfBirth: DateTime!
+  email: String!
+  emailConsented: Boolean
+  firstName: String!
+  interests: JSON!
+  lastName: String!
+  marketingConsented: Boolean!
+  meetingDate: DateTime
+  mobileNumber: String!
+  onlyInterestsConsented: Boolean
+  otherFields: JSON
+  platformSource: String!
+  practice: PracticeWhereUniqueInput!
+}
+
+input LeadCreateNestedManyWithoutPracticesInput {
+  connect: [LeadWhereUniqueInput!]
+}
+
+type LeadFormLink {
+  createdAt: DateTime!
+  id: String!
+  name: String!
+  sector: EnumLeadFormLinkSector
+  updatedAt: DateTime!
+  url: String!
+}
+
+input LeadFormLinkCreateInput {
+  name: String!
+  sector: EnumLeadFormLinkSector!
+  url: String!
+}
+
+input LeadFormLinkOrderByInput {
+  createdAt: SortOrder
+  id: SortOrder
+  name: SortOrder
+  sector: SortOrder
+  updatedAt: SortOrder
+  url: SortOrder
+}
+
+input LeadFormLinkUpdateInput {
+  name: String
+  sector: EnumLeadFormLinkSector
+  url: String
+}
+
+input LeadFormLinkWhereInput {
+  createdAt: DateTimeFilter
+  id: StringFilter
+  name: StringFilter
+  sector: EnumLeadFormLinkSector
+  updatedAt: DateTimeFilter
+  url: StringFilter
+}
+
+input LeadFormLinkWhereUniqueInput {
+  id: String!
+}
+
+input LeadListRelationFilter {
+  every: LeadWhereInput
+  none: LeadWhereInput
+  some: LeadWhereInput
+}
+
+input LeadOrderByInput {
+  contacted: SortOrder
+  convertedClientId: SortOrder
+  createdAt: SortOrder
+  dateOfBirth: SortOrder
+  email: SortOrder
+  emailConsented: SortOrder
+  firstName: SortOrder
+  id: SortOrder
+  interests: SortOrder
+  lastName: SortOrder
+  marketingConsented: SortOrder
+  meetingDate: SortOrder
+  mobileNumber: SortOrder
+  onlyInterestsConsented: SortOrder
+  otherFields: SortOrder
+  platformSource: SortOrder
+  practiceId: SortOrder
+  updatedAt: SortOrder
+}
+
+input LeadUpdateInput {
+  contacted: Boolean
+  convertedClientId: String
+  dateOfBirth: DateTime
+  email: String
+  emailConsented: Boolean
+  firstName: String
+  interests: JSON
+  lastName: String
+  marketingConsented: Boolean
+  meetingDate: DateTime
+  mobileNumber: String
+  onlyInterestsConsented: Boolean
+  otherFields: JSON
+  platformSource: String
+  practice: PracticeWhereUniqueInput
+}
+
+input LeadUpdateManyWithoutPracticesInput {
+  connect: [LeadWhereUniqueInput!]
+  disconnect: [LeadWhereUniqueInput!]
+  set: [LeadWhereUniqueInput!]
+}
+
+input LeadWhereInput {
+  contacted: BooleanFilter
+  convertedClientId: StringNullableFilter
+  createdAt: DateTimeFilter
+  dateOfBirth: DateTimeFilter
+  email: StringFilter
+  emailConsented: BooleanNullableFilter
+  firstName: StringFilter
+  id: StringFilter
+  interests: JsonFilter
+  lastName: StringFilter
+  marketingConsented: BooleanFilter
+  meetingDate: DateTimeNullableFilter
+  mobileNumber: StringFilter
+  onlyInterestsConsented: BooleanNullableFilter
+  otherFields: JsonFilter
+  platformSource: StringFilter
+  practice: PracticeWhereUniqueInput
+  updatedAt: DateTimeFilter
+}
+
+input LeadWhereUniqueInput {
+  id: String!
+}
+
+type Link {
+  category: EnumLinkCategory
+  createdAt: DateTime!
+  displayName: String!
+  enabled: Boolean!
+  id: String!
+  sector: EnumLinkSector
+  updatedAt: DateTime!
+  url: String!
+}
+
+input LinkCreateInput {
+  category: EnumLinkCategory
+  displayName: String!
+  enabled: Boolean!
+  sector: EnumLinkSector!
+  url: String!
+}
+
+input LinkOrderByInput {
+  category: SortOrder
+  createdAt: SortOrder
+  displayName: SortOrder
+  enabled: SortOrder
+  id: SortOrder
+  sector: SortOrder
+  updatedAt: SortOrder
+  url: SortOrder
+}
+
+input LinkUpdateInput {
+  category: EnumLinkCategory
+  displayName: String
+  enabled: Boolean
+  sector: EnumLinkSector
+  url: String
+}
+
+input LinkWhereInput {
+  category: EnumLinkCategory
+  createdAt: DateTimeFilter
+  displayName: StringFilter
+  enabled: BooleanFilter
+  id: StringFilter
+  sector: EnumLinkSector
+  updatedAt: DateTimeFilter
+  url: StringFilter
+}
+
+input LinkWhereUniqueInput {
+  id: String!
+}
+
+type MetaQueryPayload {
+  count: Float!
+}
+
+type Mutation {
+  createFeaturePermission(data: FeaturePermissionCreateInput!): FeaturePermission!
+  createFormLink(data: FormLinkCreateInput!): FormLink!
+  createFormSubmission(data: FormSubmissionCreateInput!): FormSubmission!
+  createHelpLink(data: HelpLinkCreateInput!): HelpLink!
+  createLead(data: LeadCreateInput!): Lead!
+  createLeadFormLink(data: LeadFormLinkCreateInput!): LeadFormLink!
+  createLink(data: LinkCreateInput!): Link!
+  createPatient(data: PatientCreateInput!): Patient!
+  createPractice(data: PracticeCreateInput!): Practice!
+  createPracticeInfoLink(data: PracticeInfoLinkCreateInput!): PracticeInfoLink!
+  createTemplate(data: TemplateCreateInput!): Template!
+  createUser(data: UserCreateInput!): User!
+  createWorkflow(data: WorkflowCreateInput!): Workflow!
+  createWorkflowStep(data: WorkflowStepCreateInput!): WorkflowStep!
+  createWorkflowTemplate(data: WorkflowTemplateCreateInput!): WorkflowTemplate!
+  createWorkflowTemplateStep(data: WorkflowTemplateStepCreateInput!): WorkflowTemplateStep!
+  deleteFeaturePermission(where: FeaturePermissionWhereUniqueInput!): FeaturePermission!
+  deleteFormLink(where: FormLinkWhereUniqueInput!): FormLink!
+  deleteFormSubmission(where: FormSubmissionWhereUniqueInput!): FormSubmission!
+  deleteHelpLink(where: HelpLinkWhereUniqueInput!): HelpLink!
+  deleteLead(where: LeadWhereUniqueInput!): Lead!
+  deleteLeadFormLink(where: LeadFormLinkWhereUniqueInput!): LeadFormLink!
+  deleteLink(where: LinkWhereUniqueInput!): Link!
+  deletePatient(where: PatientWhereUniqueInput!): Patient!
+  deletePractice(where: PracticeWhereUniqueInput!): Practice!
+  deletePracticeInfoLink(where: PracticeInfoLinkWhereUniqueInput!): PracticeInfoLink!
+  deleteTemplate(where: TemplateWhereUniqueInput!): Template!
+  deleteUser(where: UserWhereUniqueInput!): User!
+  deleteWorkflow(where: WorkflowWhereUniqueInput!): Workflow!
+  deleteWorkflowStep(where: WorkflowStepWhereUniqueInput!): WorkflowStep!
+  deleteWorkflowTemplate(where: WorkflowTemplateWhereUniqueInput!): WorkflowTemplate!
+  deleteWorkflowTemplateStep(where: WorkflowTemplateStepWhereUniqueInput!): WorkflowTemplateStep!
+  login(credentials: Credentials!): UserInfo!
+  updateFeaturePermission(data: FeaturePermissionUpdateInput!, where: FeaturePermissionWhereUniqueInput!): FeaturePermission!
+  updateFormLink(data: FormLinkUpdateInput!, where: FormLinkWhereUniqueInput!): FormLink!
+  updateFormSubmission(data: FormSubmissionUpdateInput!, where: FormSubmissionWhereUniqueInput!): FormSubmission!
+  updateHelpLink(data: HelpLinkUpdateInput!, where: HelpLinkWhereUniqueInput!): HelpLink!
+  updateLead(data: LeadUpdateInput!, where: LeadWhereUniqueInput!): Lead!
+  updateLeadFormLink(data: LeadFormLinkUpdateInput!, where: LeadFormLinkWhereUniqueInput!): LeadFormLink!
+  updateLink(data: LinkUpdateInput!, where: LinkWhereUniqueInput!): Link!
+  updatePatient(data: PatientUpdateInput!, where: PatientWhereUniqueInput!): Patient!
+  updatePractice(data: PracticeUpdateInput!, where: PracticeWhereUniqueInput!): Practice!
+  updatePracticeInfoLink(data: PracticeInfoLinkUpdateInput!, where: PracticeInfoLinkWhereUniqueInput!): PracticeInfoLink!
+  updateTemplate(data: TemplateUpdateInput!, where: TemplateWhereUniqueInput!): Template!
+  updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User!
+  updateWorkflow(data: WorkflowUpdateInput!, where: WorkflowWhereUniqueInput!): Workflow!
+  updateWorkflowStep(data: WorkflowStepUpdateInput!, where: WorkflowStepWhereUniqueInput!): WorkflowStep!
+  updateWorkflowTemplate(data: WorkflowTemplateUpdateInput!, where: WorkflowTemplateWhereUniqueInput!): WorkflowTemplate!
+  updateWorkflowTemplateStep(data: WorkflowTemplateStepUpdateInput!, where: WorkflowTemplateStepWhereUniqueInput!): WorkflowTemplateStep!
+}
+
+type Patient {
+  createdAt: DateTime!
+  dateOfBirth: DateTime!
+  firstName: String!
+  formSubmissions(orderBy: [FormSubmissionOrderByInput!], skip: Float, take: Float, where: FormSubmissionWhereInput): [FormSubmission!]!
+  id: String!
+  lastName: String!
+  mobileNumber: String!
+  nhsNumber: String
+  practice: Practice
+  stripeCustomerId: String
+  updatedAt: DateTime!
+  workflows(orderBy: [WorkflowOrderByInput!], skip: Float, take: Float, where: WorkflowWhereInput): [Workflow!]!
+}
+
+input PatientCreateInput {
+  dateOfBirth: DateTime!
+  firstName: String!
+  formSubmissions: FormSubmissionCreateNestedManyWithoutPatientsInput
+  lastName: String!
+  mobileNumber: String!
+  nhsNumber: String
+  practice: PracticeWhereUniqueInput
+  stripeCustomerId: String
+  workflows: WorkflowCreateNestedManyWithoutPatientsInput
+}
+
+input PatientCreateNestedManyWithoutPracticesInput {
+  connect: [PatientWhereUniqueInput!]
+}
+
+input PatientListRelationFilter {
+  every: PatientWhereInput
+  none: PatientWhereInput
+  some: PatientWhereInput
+}
+
+input PatientOrderByInput {
+  createdAt: SortOrder
+  dateOfBirth: SortOrder
+  firstName: SortOrder
+  id: SortOrder
+  lastName: SortOrder
+  mobileNumber: SortOrder
+  nhsNumber: SortOrder
+  practiceId: SortOrder
+  stripeCustomerId: SortOrder
+  updatedAt: SortOrder
+}
+
+input PatientUpdateInput {
+  dateOfBirth: DateTime
+  firstName: String
+  formSubmissions: FormSubmissionUpdateManyWithoutPatientsInput
+  lastName: String
+  mobileNumber: String
+  nhsNumber: String
+  practice: PracticeWhereUniqueInput
+  stripeCustomerId: String
+  workflows: WorkflowUpdateManyWithoutPatientsInput
+}
+
+input PatientUpdateManyWithoutPracticesInput {
+  connect: [PatientWhereUniqueInput!]
+  disconnect: [PatientWhereUniqueInput!]
+  set: [PatientWhereUniqueInput!]
+}
+
+input PatientWhereInput {
+  createdAt: DateTimeFilter
+  dateOfBirth: DateTimeFilter
+  firstName: StringFilter
+  formSubmissions: FormSubmissionListRelationFilter
+  id: StringFilter
+  lastName: StringFilter
+  mobileNumber: StringFilter
+  nhsNumber: StringNullableFilter
+  practice: PracticeWhereUniqueInput
+  stripeCustomerId: StringNullableFilter
+  updatedAt: DateTimeFilter
+  workflows: WorkflowListRelationFilter
+}
+
+input PatientWhereUniqueInput {
+  id: String!
+}
+
+type Practice {
+  addressLine1: String
+  addressLine2: String
+  addressLine3: String
+  createdAt: DateTime!
+  featurePermission: FeaturePermission
+  formSubmissions(orderBy: [FormSubmissionOrderByInput!], skip: Float, take: Float, where: FormSubmissionWhereInput): [FormSubmission!]!
+  googlePlaceId: String
+  id: String!
+  leads(orderBy: [LeadOrderByInput!], skip: Float, take: Float, where: LeadWhereInput): [Lead!]!
+  name: String!
+  nhsReviewUrl: String
+  odsCode: String!
+  patients(orderBy: [PatientOrderByInput!], skip: Float, take: Float, where: PatientWhereInput): [Patient!]!
+  phoneNumber: String
+  postcode: String
+  practiceInfoLinks(orderBy: [PracticeInfoLinkOrderByInput!], skip: Float, take: Float, where: PracticeInfoLinkWhereInput): [PracticeInfoLink!]!
+  remindAfter: Float!
+  remindEvery: Float!
+  remindedAt: DateTime
+  sector: EnumPracticeSector
+  senderId: String
+  stripeConnectedAccountId: String
+  updatedAt: DateTime!
+  users(orderBy: [UserOrderByInput!], skip: Float, take: Float, where: UserWhereInput): [User!]!
+  website: String
+  workflowTemplates(orderBy: [WorkflowTemplateOrderByInput!], skip: Float, take: Float, where: WorkflowTemplateWhereInput): [WorkflowTemplate!]!
+}
+
+input PracticeCreateInput {
+  addressLine1: String
+  addressLine2: String
+  addressLine3: String
+  featurePermission: FeaturePermissionWhereUniqueInput
+  formSubmissions: FormSubmissionCreateNestedManyWithoutPracticesInput
+  googlePlaceId: String
+  leads: LeadCreateNestedManyWithoutPracticesInput
+  name: String!
+  nhsReviewUrl: String
+  odsCode: String!
+  patients: PatientCreateNestedManyWithoutPracticesInput
+  phoneNumber: String
+  postcode: String
+  practiceInfoLinks: PracticeInfoLinkCreateNestedManyWithoutPracticesInput
+  remindAfter: Float!
+  remindEvery: Float!
+  remindedAt: DateTime
+  sector: EnumPracticeSector!
+  senderId: String
+  stripeConnectedAccountId: String
+  users: UserCreateNestedManyWithoutPracticesInput
+  website: String
+  workflowTemplates: WorkflowTemplateCreateNestedManyWithoutPracticesInput
+}
+
+input PracticeCreateNestedManyWithoutFeaturePermissionsInput {
+  connect: [PracticeWhereUniqueInput!]
+}
+
+input PracticeCreateNestedManyWithoutUsersInput {
+  connect: [PracticeWhereUniqueInput!]
+}
+
+type PracticeInfoLink {
+  category: String!
+  createdAt: DateTime!
+  displayName: String!
+  id: String!
+  message: String
+  practice: Practice
+  updatedAt: DateTime!
+  url: String
+}
+
+input PracticeInfoLinkCreateInput {
+  category: String!
+  displayName: String!
+  message: String
+  practice: PracticeWhereUniqueInput
+  url: String
+}
+
+input PracticeInfoLinkCreateNestedManyWithoutPracticesInput {
+  connect: [PracticeInfoLinkWhereUniqueInput!]
+}
+
+input PracticeInfoLinkListRelationFilter {
+  every: PracticeInfoLinkWhereInput
+  none: PracticeInfoLinkWhereInput
+  some: PracticeInfoLinkWhereInput
+}
+
+input PracticeInfoLinkOrderByInput {
+  category: SortOrder
+  createdAt: SortOrder
+  displayName: SortOrder
+  id: SortOrder
+  message: SortOrder
+  practiceId: SortOrder
+  updatedAt: SortOrder
+  url: SortOrder
+}
+
+input PracticeInfoLinkUpdateInput {
+  category: String
+  displayName: String
+  message: String
+  practice: PracticeWhereUniqueInput
+  url: String
+}
+
+input PracticeInfoLinkUpdateManyWithoutPracticesInput {
+  connect: [PracticeInfoLinkWhereUniqueInput!]
+  disconnect: [PracticeInfoLinkWhereUniqueInput!]
+  set: [PracticeInfoLinkWhereUniqueInput!]
+}
+
+input PracticeInfoLinkWhereInput {
+  category: StringFilter
+  createdAt: DateTimeFilter
+  displayName: StringFilter
+  id: StringFilter
+  message: StringNullableFilter
+  practice: PracticeWhereUniqueInput
+  updatedAt: DateTimeFilter
+  url: StringNullableFilter
+}
+
+input PracticeInfoLinkWhereUniqueInput {
+  id: String!
+}
+
+input PracticeListRelationFilter {
+  every: PracticeWhereInput
+  none: PracticeWhereInput
+  some: PracticeWhereInput
+}
+
+input PracticeOrderByInput {
+  addressLine1: SortOrder
+  addressLine2: SortOrder
+  addressLine3: SortOrder
+  createdAt: SortOrder
+  featurePermissionId: SortOrder
+  googlePlaceId: SortOrder
+  id: SortOrder
+  name: SortOrder
+  nhsReviewUrl: SortOrder
+  odsCode: SortOrder
+  phoneNumber: SortOrder
+  postcode: SortOrder
+  remindAfter: SortOrder
+  remindEvery: SortOrder
+  remindedAt: SortOrder
+  sector: SortOrder
+  senderId: SortOrder
+  stripeConnectedAccountId: SortOrder
+  updatedAt: SortOrder
+  website: SortOrder
+}
+
+input PracticeUpdateInput {
+  addressLine1: String
+  addressLine2: String
+  addressLine3: String
+  featurePermission: FeaturePermissionWhereUniqueInput
+  formSubmissions: FormSubmissionUpdateManyWithoutPracticesInput
+  googlePlaceId: String
+  leads: LeadUpdateManyWithoutPracticesInput
+  name: String
+  nhsReviewUrl: String
+  odsCode: String
+  patients: PatientUpdateManyWithoutPracticesInput
+  phoneNumber: String
+  postcode: String
+  practiceInfoLinks: PracticeInfoLinkUpdateManyWithoutPracticesInput
+  remindAfter: Float
+  remindEvery: Float
+  remindedAt: DateTime
+  sector: EnumPracticeSector
+  senderId: String
+  stripeConnectedAccountId: String
+  users: UserUpdateManyWithoutPracticesInput
+  website: String
+  workflowTemplates: WorkflowTemplateUpdateManyWithoutPracticesInput
+}
+
+input PracticeUpdateManyWithoutFeaturePermissionsInput {
+  connect: [PracticeWhereUniqueInput!]
+  disconnect: [PracticeWhereUniqueInput!]
+  set: [PracticeWhereUniqueInput!]
+}
+
+input PracticeUpdateManyWithoutUsersInput {
+  connect: [PracticeWhereUniqueInput!]
+  disconnect: [PracticeWhereUniqueInput!]
+  set: [PracticeWhereUniqueInput!]
+}
+
+input PracticeWhereInput {
+  addressLine1: StringNullableFilter
+  addressLine2: StringNullableFilter
+  addressLine3: StringNullableFilter
+  createdAt: DateTimeFilter
+  featurePermission: FeaturePermissionWhereUniqueInput
+  formSubmissions: FormSubmissionListRelationFilter
+  googlePlaceId: StringNullableFilter
+  id: StringFilter
+  leads: LeadListRelationFilter
+  name: StringFilter
+  nhsReviewUrl: StringNullableFilter
+  odsCode: StringFilter
+  patients: PatientListRelationFilter
+  phoneNumber: StringNullableFilter
+  postcode: StringNullableFilter
+  practiceInfoLinks: PracticeInfoLinkListRelationFilter
+  remindAfter: IntFilter
+  remindEvery: IntFilter
+  remindedAt: DateTimeNullableFilter
+  sector: EnumPracticeSector
+  senderId: StringNullableFilter
+  stripeConnectedAccountId: StringNullableFilter
+  updatedAt: DateTimeFilter
+  users: UserListRelationFilter
+  website: StringNullableFilter
+  workflowTemplates: WorkflowTemplateListRelationFilter
+}
+
+input PracticeWhereUniqueInput {
+  id: String!
+}
+
+type Query {
+  _featurePermissionsMeta(where: FeaturePermissionWhereInput): MetaQueryPayload!
+  _formLinksMeta(where: FormLinkWhereInput): MetaQueryPayload!
+  _formSubmissionsMeta(where: FormSubmissionWhereInput): MetaQueryPayload!
+  _helpLinksMeta(where: HelpLinkWhereInput): MetaQueryPayload!
+  _leadFormLinksMeta(where: LeadFormLinkWhereInput): MetaQueryPayload!
+  _leadsMeta(where: LeadWhereInput): MetaQueryPayload!
+  _linksMeta(where: LinkWhereInput): MetaQueryPayload!
+  _patientsMeta(where: PatientWhereInput): MetaQueryPayload!
+  _practiceInfoLinksMeta(where: PracticeInfoLinkWhereInput): MetaQueryPayload!
+  _practicesMeta(where: PracticeWhereInput): MetaQueryPayload!
+  _templatesMeta(where: TemplateWhereInput): MetaQueryPayload!
+  _usersMeta(where: UserWhereInput): MetaQueryPayload!
+  _workflowStepsMeta(where: WorkflowStepWhereInput): MetaQueryPayload!
+  _workflowTemplateStepsMeta(where: WorkflowTemplateStepWhereInput): MetaQueryPayload!
+  _workflowTemplatesMeta(where: WorkflowTemplateWhereInput): MetaQueryPayload!
+  _workflowsMeta(where: WorkflowWhereInput): MetaQueryPayload!
+  featurePermission(where: FeaturePermissionWhereUniqueInput!): FeaturePermission
+  featurePermissions(orderBy: [FeaturePermissionOrderByInput!], skip: Float, take: Float, where: FeaturePermissionWhereInput): [FeaturePermission!]!
+  formLink(where: FormLinkWhereUniqueInput!): FormLink
+  formLinks(orderBy: [FormLinkOrderByInput!], skip: Float, take: Float, where: FormLinkWhereInput): [FormLink!]!
+  formSubmission(where: FormSubmissionWhereUniqueInput!): FormSubmission
+  formSubmissions(orderBy: [FormSubmissionOrderByInput!], skip: Float, take: Float, where: FormSubmissionWhereInput): [FormSubmission!]!
+  helpLink(where: HelpLinkWhereUniqueInput!): HelpLink
+  helpLinks(orderBy: [HelpLinkOrderByInput!], skip: Float, take: Float, where: HelpLinkWhereInput): [HelpLink!]!
+  lead(where: LeadWhereUniqueInput!): Lead
+  leadFormLink(where: LeadFormLinkWhereUniqueInput!): LeadFormLink
+  leadFormLinks(orderBy: [LeadFormLinkOrderByInput!], skip: Float, take: Float, where: LeadFormLinkWhereInput): [LeadFormLink!]!
+  leads(orderBy: [LeadOrderByInput!], skip: Float, take: Float, where: LeadWhereInput): [Lead!]!
+  link(where: LinkWhereUniqueInput!): Link
+  links(orderBy: [LinkOrderByInput!], skip: Float, take: Float, where: LinkWhereInput): [Link!]!
+  patient(where: PatientWhereUniqueInput!): Patient
+  patients(orderBy: [PatientOrderByInput!], skip: Float, take: Float, where: PatientWhereInput): [Patient!]!
+  practice(where: PracticeWhereUniqueInput!): Practice
+  practiceInfoLink(where: PracticeInfoLinkWhereUniqueInput!): PracticeInfoLink
+  practiceInfoLinks(orderBy: [PracticeInfoLinkOrderByInput!], skip: Float, take: Float, where: PracticeInfoLinkWhereInput): [PracticeInfoLink!]!
+  practices(orderBy: [PracticeOrderByInput!], skip: Float, take: Float, where: PracticeWhereInput): [Practice!]!
+  template(where: TemplateWhereUniqueInput!): Template
+  templates(orderBy: [TemplateOrderByInput!], skip: Float, take: Float, where: TemplateWhereInput): [Template!]!
+  user(where: UserWhereUniqueInput!): User
+  userInfo: UserInfo!
+  users(orderBy: [UserOrderByInput!], skip: Float, take: Float, where: UserWhereInput): [User!]!
+  workflow(where: WorkflowWhereUniqueInput!): Workflow
+  workflowStep(where: WorkflowStepWhereUniqueInput!): WorkflowStep
+  workflowSteps(orderBy: [WorkflowStepOrderByInput!], skip: Float, take: Float, where: WorkflowStepWhereInput): [WorkflowStep!]!
+  workflowTemplate(where: WorkflowTemplateWhereUniqueInput!): WorkflowTemplate
+  workflowTemplateStep(where: WorkflowTemplateStepWhereUniqueInput!): WorkflowTemplateStep
+  workflowTemplateSteps(orderBy: [WorkflowTemplateStepOrderByInput!], skip: Float, take: Float, where: WorkflowTemplateStepWhereInput): [WorkflowTemplateStep!]!
+  workflowTemplates(orderBy: [WorkflowTemplateOrderByInput!], skip: Float, take: Float, where: WorkflowTemplateWhereInput): [WorkflowTemplate!]!
+  workflows(orderBy: [WorkflowOrderByInput!], skip: Float, take: Float, where: WorkflowWhereInput): [Workflow!]!
+}
+
+enum QueryMode {
+  Default
+  Insensitive
+}
+
+enum SortOrder {
+  Asc
+  Desc
+}
+
+input StringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: String
+  notIn: [String!]
+  startsWith: String
+}
+
+input StringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: String
+  notIn: [String!]
+  startsWith: String
+}
+
+type Template {
+  category: [EnumTemplateCategory!]
+  createdAt: DateTime!
+  displayName: String!
+  enabled: Boolean!
+  id: String!
+  sector: EnumTemplateSector
+  text: String!
+  updatedAt: DateTime!
+}
+
+input TemplateCreateInput {
+  category: [EnumTemplateCategory!]
+  displayName: String!
+  enabled: Boolean!
+  sector: EnumTemplateSector!
+  text: String!
+}
+
+input TemplateOrderByInput {
+  category: SortOrder
+  createdAt: SortOrder
+  displayName: SortOrder
+  enabled: SortOrder
+  id: SortOrder
+  sector: SortOrder
+  text: SortOrder
+  updatedAt: SortOrder
+}
+
+input TemplateUpdateInput {
+  category: [EnumTemplateCategory!]
+  displayName: String
+  enabled: Boolean
+  sector: EnumTemplateSector
+  text: String
+}
+
+input TemplateWhereInput {
+  createdAt: DateTimeFilter
+  displayName: StringFilter
+  enabled: BooleanFilter
+  id: StringFilter
+  sector: EnumTemplateSector
+  text: StringFilter
+  updatedAt: DateTimeFilter
+}
+
+input TemplateWhereUniqueInput {
+  id: String!
+}
+
+type User {
+  blocked: Boolean
+  confirmed: Boolean
+  createdAt: DateTime!
+  email: String
+  id: String!
+  name: String
+  practices(orderBy: [PracticeOrderByInput!], skip: Float, take: Float, where: PracticeWhereInput): [Practice!]!
+  provider: String
+  roles: JSON!
+  updatedAt: DateTime!
+  username: String!
+}
+
+input UserCreateInput {
+  blocked: Boolean
+  confirmed: Boolean
+  email: String
+  name: String
+  password: String!
+  practices: PracticeCreateNestedManyWithoutUsersInput
+  provider: String
+  roles: JSON!
+  username: String!
+}
+
+input UserCreateNestedManyWithoutPracticesInput {
+  connect: [UserWhereUniqueInput!]
+}
+
+type UserInfo {
+  accessToken: String
+  email: String!
+  id: String!
+  roles: [String!]!
+}
+
+input UserListRelationFilter {
+  every: UserWhereInput
+  none: UserWhereInput
+  some: UserWhereInput
+}
+
+input UserOrderByInput {
+  blocked: SortOrder
+  confirmed: SortOrder
+  createdAt: SortOrder
+  email: SortOrder
+  id: SortOrder
+  name: SortOrder
+  password: SortOrder
+  provider: SortOrder
+  roles: SortOrder
+  updatedAt: SortOrder
+  username: SortOrder
+}
+
+input UserUpdateInput {
+  blocked: Boolean
+  confirmed: Boolean
+  email: String
+  name: String
+  password: String
+  practices: PracticeUpdateManyWithoutUsersInput
+  provider: String
+  roles: JSON
+  username: String
+}
+
+input UserUpdateManyWithoutPracticesInput {
+  connect: [UserWhereUniqueInput!]
+  disconnect: [UserWhereUniqueInput!]
+  set: [UserWhereUniqueInput!]
+}
+
+input UserWhereInput {
+  blocked: BooleanNullableFilter
+  confirmed: BooleanNullableFilter
+  email: StringNullableFilter
+  id: StringFilter
+  name: StringNullableFilter
+  practices: PracticeListRelationFilter
+  provider: StringNullableFilter
+  username: StringFilter
+}
+
+input UserWhereUniqueInput {
+  id: String!
+}
+
+type Workflow {
+  anchorDate: DateTime
+  createdAt: DateTime!
+  id: String!
+  name: String!
+  patient: Patient
+  steps(orderBy: [WorkflowStepOrderByInput!], skip: Float, take: Float, where: WorkflowStepWhereInput): [WorkflowStep!]!
+  updatedAt: DateTime!
+}
+
+input WorkflowCreateInput {
+  anchorDate: DateTime
+  name: String!
+  patient: PatientWhereUniqueInput!
+  steps: WorkflowStepCreateNestedManyWithoutWorkflowsInput
+}
+
+input WorkflowCreateNestedManyWithoutPatientsInput {
+  connect: [WorkflowWhereUniqueInput!]
+}
+
+input WorkflowListRelationFilter {
+  every: WorkflowWhereInput
+  none: WorkflowWhereInput
+  some: WorkflowWhereInput
+}
+
+input WorkflowOrderByInput {
+  anchorDate: SortOrder
+  createdAt: SortOrder
+  id: SortOrder
+  name: SortOrder
+  patientId: SortOrder
+  updatedAt: SortOrder
+}
+
+type WorkflowStep {
+  createdAt: DateTime!
+  executedOn: DateTime
+  executionDate: DateTime!
+  id: String!
+  message: String!
+  updatedAt: DateTime!
+  workflow: Workflow
+}
+
+input WorkflowStepCreateInput {
+  executedOn: DateTime
+  executionDate: DateTime!
+  message: String!
+  workflow: WorkflowWhereUniqueInput!
+}
+
+input WorkflowStepCreateNestedManyWithoutWorkflowsInput {
+  connect: [WorkflowStepWhereUniqueInput!]
+}
+
+input WorkflowStepListRelationFilter {
+  every: WorkflowStepWhereInput
+  none: WorkflowStepWhereInput
+  some: WorkflowStepWhereInput
+}
+
+input WorkflowStepOrderByInput {
+  createdAt: SortOrder
+  executedOn: SortOrder
+  executionDate: SortOrder
+  id: SortOrder
+  message: SortOrder
+  updatedAt: SortOrder
+  workflowId: SortOrder
+}
+
+input WorkflowStepUpdateInput {
+  executedOn: DateTime
+  executionDate: DateTime
+  message: String
+  workflow: WorkflowWhereUniqueInput
+}
+
+input WorkflowStepUpdateManyWithoutWorkflowsInput {
+  connect: [WorkflowStepWhereUniqueInput!]
+  disconnect: [WorkflowStepWhereUniqueInput!]
+  set: [WorkflowStepWhereUniqueInput!]
+}
+
+input WorkflowStepWhereInput {
+  createdAt: DateTimeFilter
+  executedOn: DateTimeNullableFilter
+  executionDate: DateTimeFilter
+  id: StringFilter
+  message: StringFilter
+  updatedAt: DateTimeFilter
+  workflow: WorkflowWhereUniqueInput
+}
+
+input WorkflowStepWhereUniqueInput {
+  id: String!
+}
+
+type WorkflowTemplate {
+  createdAt: DateTime!
+  id: String!
+  name: String!
+  practice: Practice
+  sector: EnumWorkflowTemplateSector
+  steps(orderBy: [WorkflowTemplateStepOrderByInput!], skip: Float, take: Float, where: WorkflowTemplateStepWhereInput): [WorkflowTemplateStep!]!
+  updatedAt: DateTime!
+}
+
+input WorkflowTemplateCreateInput {
+  name: String!
+  practice: PracticeWhereUniqueInput
+  sector: EnumWorkflowTemplateSector!
+  steps: WorkflowTemplateStepCreateNestedManyWithoutWorkflowTemplatesInput
+}
+
+input WorkflowTemplateCreateNestedManyWithoutPracticesInput {
+  connect: [WorkflowTemplateWhereUniqueInput!]
+}
+
+input WorkflowTemplateListRelationFilter {
+  every: WorkflowTemplateWhereInput
+  none: WorkflowTemplateWhereInput
+  some: WorkflowTemplateWhereInput
+}
+
+input WorkflowTemplateOrderByInput {
+  createdAt: SortOrder
+  id: SortOrder
+  name: SortOrder
+  practiceId: SortOrder
+  sector: SortOrder
+  updatedAt: SortOrder
+}
+
+type WorkflowTemplateStep {
+  createdAt: DateTime!
+  id: String!
+  message: String!
+  timeOffsetInSeconds: String!
+  updatedAt: DateTime!
+  workflowTemplate: WorkflowTemplate
+}
+
+input WorkflowTemplateStepCreateInput {
+  message: String!
+  timeOffsetInSeconds: String!
+  workflowTemplate: WorkflowTemplateWhereUniqueInput!
+}
+
+input WorkflowTemplateStepCreateNestedManyWithoutWorkflowTemplatesInput {
+  connect: [WorkflowTemplateStepWhereUniqueInput!]
+  create: [WorkflowTemplateStepCreateInput!]
+  update: [WorkflowTemplateStepCreateInput!]
+}
+
+input WorkflowTemplateStepListRelationFilter {
+  every: WorkflowTemplateStepWhereInput
+  none: WorkflowTemplateStepWhereInput
+  some: WorkflowTemplateStepWhereInput
+}
+
+input WorkflowTemplateStepOrderByInput {
+  createdAt: SortOrder
+  id: SortOrder
+  message: SortOrder
+  timeOffsetInSeconds: SortOrder
+  updatedAt: SortOrder
+  workflowTemplateId: SortOrder
+}
+
+input WorkflowTemplateStepUpdateInput {
+  message: String
+  timeOffsetInSeconds: String
+  workflowTemplate: WorkflowTemplateWhereUniqueInput
+}
+
+input WorkflowTemplateStepUpdateManyWithoutWorkflowTemplatesInput {
+  connect: [WorkflowTemplateStepWhereUniqueInput!]
+  disconnect: [WorkflowTemplateStepWhereUniqueInput!]
+  set: [WorkflowTemplateStepWhereUniqueInput!]
+}
+
+input WorkflowTemplateStepWhereInput {
+  createdAt: DateTimeFilter
+  id: StringFilter
+  message: StringFilter
+  timeOffsetInSeconds: StringFilter
+  updatedAt: DateTimeFilter
+  workflowTemplate: WorkflowTemplateWhereUniqueInput
+}
+
+input WorkflowTemplateStepWhereUniqueInput {
+  id: String!
+}
+
+input WorkflowTemplateUpdateInput {
+  name: String
+  practice: PracticeWhereUniqueInput
+  sector: EnumWorkflowTemplateSector
+  steps: WorkflowTemplateStepUpdateManyWithoutWorkflowTemplatesInput
+}
+
+input WorkflowTemplateUpdateManyWithoutPracticesInput {
+  connect: [WorkflowTemplateWhereUniqueInput!]
+  disconnect: [WorkflowTemplateWhereUniqueInput!]
+  set: [WorkflowTemplateWhereUniqueInput!]
+}
+
+input WorkflowTemplateWhereInput {
+  createdAt: DateTimeFilter
+  id: StringFilter
+  name: StringFilter
+  practice: PracticeWhereUniqueInput
+  sector: EnumWorkflowTemplateSector
+  steps: WorkflowTemplateStepListRelationFilter
+  updatedAt: DateTimeFilter
+}
+
+input WorkflowTemplateWhereUniqueInput {
+  id: String!
+}
+
+input WorkflowUpdateInput {
+  anchorDate: DateTime
+  name: String
+  patient: PatientWhereUniqueInput
+  steps: WorkflowStepUpdateManyWithoutWorkflowsInput
+}
+
+input WorkflowUpdateManyWithoutPatientsInput {
+  connect: [WorkflowWhereUniqueInput!]
+  disconnect: [WorkflowWhereUniqueInput!]
+  set: [WorkflowWhereUniqueInput!]
+}
+
+input WorkflowWhereInput {
+  anchorDate: DateTimeNullableFilter
+  createdAt: DateTimeFilter
+  id: StringFilter
+  name: StringFilter
+  patient: PatientWhereUniqueInput
+  steps: WorkflowStepListRelationFilter
+  updatedAt: DateTimeFilter
+}
+
+input WorkflowWhereUniqueInput {
+  id: String!
+}

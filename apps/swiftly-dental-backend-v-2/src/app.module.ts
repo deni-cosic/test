@@ -26,6 +26,8 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
 
 import { ACLModule } from "./auth/acl.module";
 import { AuthModule } from "./auth/auth.module";
+import { EventEmitterModule } from "@nestjs/event-emitter";
+import { MailerModule } from "./mailer";
 
 @Module({
   controllers: [],
@@ -51,6 +53,7 @@ import { AuthModule } from "./auth/auth.module";
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
+    MailerModule,
     ConfigModule.forRoot({ isGlobal: true }),
     ServeStaticModule.forRootAsync({
       useClass: ServeStaticOptionsService,
@@ -69,6 +72,10 @@ import { AuthModule } from "./auth/auth.module";
       },
       inject: [ConfigService],
       imports: [ConfigModule],
+    }),
+    EventEmitterModule.forRoot({
+      global: true,
+      wildcard: true,
     }),
   ],
   providers: [],

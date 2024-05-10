@@ -4,8 +4,8 @@ import * as nestAccessControl from "nest-access-control";
 import { WorkflowTemplateService } from "./workflowTemplate.service";
 import { WorkflowTemplateControllerBase } from "./base/workflowTemplate.controller.base";
 
-@swagger.ApiTags("workflowTemplates")
-@common.Controller("workflowTemplates")
+@swagger.ApiTags("workflow-templates")
+@common.Controller("workflow-templates")
 export class WorkflowTemplateController extends WorkflowTemplateControllerBase {
   constructor(
     protected readonly service: WorkflowTemplateService,

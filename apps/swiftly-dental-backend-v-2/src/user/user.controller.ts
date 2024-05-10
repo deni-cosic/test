@@ -41,9 +41,8 @@ export class UserController extends UserControllerBase {
       select: {
         createdAt: true,
         email: true,
-        firstName: true,
+        name: true,
         id: true,
-        lastName: true,
         roles: true,
         updatedAt: true,
         username: true,
