@@ -18,6 +18,7 @@ import * as gqlACGuard from "../../auth/gqlAC.guard";
 import { GqlDefaultAuthGuard } from "../../auth/gqlDefaultAuth.guard";
 import * as common from "@nestjs/common";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
+import { Public } from "../../decorators/public.decorator";
 import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { FormSubmission } from "./FormSubmission";
 import { FormSubmissionCountArgs } from "./FormSubmissionCountArgs";
@@ -82,13 +83,8 @@ export class FormSubmissionResolverBase {
     return result;
   }
 
-  @common.UseInterceptors(AclValidateRequestInterceptor)
+  @Public()
   @graphql.Mutation(() => FormSubmission)
-  @nestAccessControl.UseRoles({
-    resource: "FormSubmission",
-    action: "create",
-    possession: "any",
-  })
   async createFormSubmission(
     @graphql.Args() args: CreateFormSubmissionArgs
   ): Promise<FormSubmission> {
