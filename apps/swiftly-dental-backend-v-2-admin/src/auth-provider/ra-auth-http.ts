@@ -8,9 +8,9 @@ import { Credentials, LoginMutateResult } from "../types";
 import { apolloClient } from "../data-provider/graphqlDataProvider";
 
 const LOGIN = gql`
-  mutation login($username: String!, $password: String!) {
-    login(credentials: { username: $username, password: $password }) {
-      username
+  mutation login($email: String!, $password: String!) {
+    login(credentials: { email: $email, password: $password }) {
+      email
       roles
     }
   }
@@ -25,13 +25,10 @@ export const httpAuthProvider: AuthProvider = {
       },
     });
 
-    if (userData && userData.data?.login.username) {
+    if (userData && userData.data?.login.email) {
       localStorage.setItem(
         CREDENTIALS_LOCAL_STORAGE_ITEM,
-        createBasicAuthorizationHeader(
-          credentials.username,
-          credentials.password
-        )
+        createBasicAuthorizationHeader(credentials.email, credentials.password)
       );
       localStorage.setItem(
         USER_DATA_LOCAL_STORAGE_ITEM,
@@ -63,16 +60,16 @@ export const httpAuthProvider: AuthProvider = {
     const userData: LoginMutateResult = JSON.parse(str || "");
 
     return Promise.resolve({
-      id: userData.login.username,
-      fullName: userData.login.username,
+      id: userData.login.email,
+      fullName: userData.login.email,
       avatar: undefined,
     });
   },
 };
 
 function createBasicAuthorizationHeader(
-  username: string,
+  email: string,
   password: string
 ): string {
-  return `Basic ${btoa(`${username}:${password}`)}`;
+  return `Basic ${btoa(`${email}:${password}`)}`;
 }
