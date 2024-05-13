@@ -5,7 +5,7 @@ on:
     paths:
       - swiftly-dental-backend-v-2/**
 
-name: Deploy to Google Cloud Run (Production)
+name: Deploy Server to Google Cloud Run (Production)
 
 jobs:
   deploy:
