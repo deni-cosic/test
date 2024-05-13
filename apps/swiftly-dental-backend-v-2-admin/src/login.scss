@@ -1,17 +1,29 @@
 :root {
-  --surface: #15192c; /*dark: black100 */
-  --white: #15192c; /*dark: black100 */
+  --surface: #15192c;
+  /*dark: black100 */
+  --white: #15192c;
+  /*dark: black100 */
 
-  --black100: #ffffff; /*dark: white */
-  --black90: #b7bac7; /*dark: black10 */
-  --black80: #a3a8b8; /*dark: black20 */
-  --black60: #80869d; /*dark: black30 */
-  --black40: #686f8c; /*dark: black40 */
-  --black30: #515873; /*dark: black50 */
-  --black20: #444b66; /*dark: black60 */
-  --black10: #373d57; /*dark: black70 */
-  --black5: #2c3249; /*dark: black80 */
-  --black2: #22273c; /*dark: black90 */
+  --black100: #ffffff;
+  /*dark: white */
+  --black90: #b7bac7;
+  /*dark: black10 */
+  --black80: #a3a8b8;
+  /*dark: black20 */
+  --black60: #80869d;
+  /*dark: black30 */
+  --black40: #686f8c;
+  /*dark: black40 */
+  --black30: #515873;
+  /*dark: black50 */
+  --black20: #444b66;
+  /*dark: black60 */
+  --black10: #373d57;
+  /*dark: black70 */
+  --black5: #2c3249;
+  /*dark: black80 */
+  --black2: #22273c;
+  /*dark: black90 */
 
   --primary: #7950ed;
 }
@@ -49,6 +61,7 @@
     h2 {
       font-size: 18px;
     }
+
     img {
       width: 48px;
     }
@@ -67,6 +80,7 @@
       margin-top: 0.5rem;
       margin-bottom: 1rem;
       margin-top: auto;
+
       &:hover,
       &:active,
       &:focus {
@@ -101,6 +115,7 @@
       border-radius: var(--small-border-radius);
       width: 300px;
       color: var(--black100);
+
       &:hover,
       &:active,
       &:focus {
@@ -111,6 +126,7 @@
 
   &__read-more {
     color: var(--black80);
+
     a {
       color: var(--black100);
       text-decoration: none;
