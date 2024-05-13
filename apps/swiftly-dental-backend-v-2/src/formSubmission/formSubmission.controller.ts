@@ -8,6 +8,10 @@ import { FormSubmissionCreateInput } from "./base/FormSubmissionCreateInput";
 import * as errors from "../errors";
 import { Public } from "src/decorators/public.decorator";
 import { FileInterceptor } from "@nestjs/platform-express";
+import { FormSubmissionFindManyArgs } from "./base/FormSubmissionFindManyArgs";
+import { ApiNestedQuery } from "src/decorators/api-nested-query.decorator";
+import { plainToClass } from "class-transformer";
+import { Request } from "express";
 
 @swagger.ApiTags("form-submissions")
 @common.Controller("form-submissions")
@@ -125,6 +129,19 @@ export class FormSubmissionController extends FormSubmissionControllerBase {
         submissionId: true,
         updatedAt: true,
       },
+    });
+  }
+
+  @common.Get("count")
+  @swagger.ApiOkResponse({ type: [Number] })
+  @ApiNestedQuery(FormSubmissionFindManyArgs)
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async formSubmissionCount(@common.Req() request: Request): Promise<number> {
+    const args = plainToClass(FormSubmissionFindManyArgs, request.query);
+    return this.service.count({
+      ...args,
     });
   }
 }
