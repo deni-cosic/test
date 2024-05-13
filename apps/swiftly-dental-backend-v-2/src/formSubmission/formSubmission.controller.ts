@@ -7,6 +7,7 @@ import { FormSubmission } from "./base/FormSubmission";
 import { FormSubmissionCreateInput } from "./base/FormSubmissionCreateInput";
 import * as errors from "../errors";
 import { Public } from "src/decorators/public.decorator";
+import { FileInterceptor } from "@nestjs/platform-express";
 
 @swagger.ApiTags("form-submissions")
 @common.Controller("form-submissions")
@@ -19,6 +20,7 @@ export class FormSubmissionController extends FormSubmissionControllerBase {
     super(service, rolesBuilder);
   }
   @Public()
+  @common.UseInterceptors(FileInterceptor("file"))
   @common.Post()
   @swagger.ApiCreatedResponse({ type: FormSubmission })
   @swagger.ApiForbiddenResponse({
