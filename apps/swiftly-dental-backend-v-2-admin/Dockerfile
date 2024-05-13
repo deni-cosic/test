@@ -2,7 +2,7 @@
 FROM node:18.13.0-slim AS base
 
 # instantiate environment variable
-ARG REACT_APP_SERVER_URL=http://localhost:3000
+ARG REACT_APP_SERVER_URL=https://qrypta-dental-backend-v2-vemn3x3lfa-ew.a.run.app
 
 # set the environment variable that points to the server
 ENV REACT_APP_SERVER_URL=$REACT_APP_SERVER_URL
