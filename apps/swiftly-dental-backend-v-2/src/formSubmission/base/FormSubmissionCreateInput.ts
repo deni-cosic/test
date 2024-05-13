@@ -120,10 +120,11 @@ class FormSubmissionCreateInput {
   submissionId?: string | null;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: String,
   })
   @IsString()
+  @IsOptional()
   @Field(() => String)
   rawRequest?: string;
 
