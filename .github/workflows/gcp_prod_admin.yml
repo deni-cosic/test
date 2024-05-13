@@ -3,7 +3,7 @@ on:
     branches:
       - main
     paths:
-      - swiftly-dental-backend-v-2-admin/**
+      - apps/swiftly-dental-backend-v-2-admin/**
 
 name: Deploy Admin to Google Cloud Run (Production)
 

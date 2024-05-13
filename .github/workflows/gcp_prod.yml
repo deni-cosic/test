@@ -3,7 +3,7 @@ on:
     branches:
       - main
     paths:
-      - swiftly-dental-backend-v-2/**
+      - apps/swiftly-dental-backend-v-2/**
 
 name: Deploy Server to Google Cloud Run (Production)
 
