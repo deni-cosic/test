@@ -1,0 +1,39 @@
+on:
+  push:
+    branches:
+      - develop
+    paths:
+      - apps/swiftly-dental-backend-v-2/**
+
+name: Deploy Server to Google Cloud Run (Staging)
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Google Cloud
+        uses: google-github-actions/setup-gcloud@v0.2.0
+        with:
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          project_id: qrypta-reborn
+
+      - name: Configure Docker to use gcloud as a credential helper
+        run: gcloud auth configure-docker europe-west1-docker.pkg.dev --quiet
+
+      - name: Build and Push Docker image
+        run: |
+          docker build -t europe-west1-docker.pkg.dev/qrypta-reborn/qrypta-dental-backend-v2-image-repository/qrypta-dental-backend-v2--staging .
+          docker push europe-west1-docker.pkg.dev/qrypta-reborn/qrypta-dental-backend-v2-image-repository/qrypta-dental-backend-v2--staging
+
+      - name: Deploy to Cloud Run
+        uses: google-github-actions/deploy-cloudrun@v0.6.0
+        with:
+          service: qrypta-dental-backend-v2--staging
+          image: europe-west1-docker.pkg.dev/qrypta-reborn/qrypta-dental-backend-v2-image-repository/qrypta-dental-backend-v2--staging
+          credentials: ${{ secrets.GCP_SA_KEY }}
+          region: europe-west1
