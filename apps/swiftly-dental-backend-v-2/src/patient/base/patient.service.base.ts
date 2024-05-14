@@ -28,7 +28,7 @@ export class PatientServiceBase {
 
   async patients<T extends Prisma.PatientFindManyArgs>(
     args: Prisma.SelectSubset<T, Prisma.PatientFindManyArgs>
-  ): Promise<PrismaPatient[]> {
+  ) {
     return this.prisma.patient.findMany<Prisma.PatientFindManyArgs>(args);
   }
   async patient<T extends Prisma.PatientFindUniqueArgs>(

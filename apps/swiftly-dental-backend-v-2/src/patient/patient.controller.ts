@@ -8,6 +8,10 @@ import { PatientFindManyArgs } from "./base/PatientFindManyArgs";
 import * as errors from "../errors";
 import { plainToClass } from "class-transformer";
 import { Request } from "express";
+import { PatientLoginRequestArgs } from "./models/PatientLoginRequestArgs";
+import { Practice } from "src/practice/base/Practice";
+import { Public } from "src/decorators/public.decorator";
+import { PatientLoginAuthArgs } from "./models/PatientLoginAuthArgs";
 
 @swagger.ApiTags("patients")
 @common.Controller("patients")
@@ -31,5 +35,48 @@ export class PatientController extends PatientControllerBase {
     return this.service.count({
       ...args,
     });
+  }
+
+  @common.Post("loginRequestCode")
+  @Public()
+  @swagger.ApiOkResponse({ type: [Number] })
+  @ApiNestedQuery(PatientLoginRequestArgs)
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async patientLoginRequestCode(
+    @common.Req() request: Request
+  ): Promise<Practice[]> {
+    const args = plainToClass(PatientLoginRequestArgs, request.body);
+    return this.service.loginRequestCode(args);
+  }
+
+  @common.Post("auth")
+  @Public()
+  @swagger.ApiOkResponse({ type: [Number] })
+  @ApiNestedQuery(PatientLoginAuthArgs)
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async auth(@common.Req() request: Request) {
+    const args = plainToClass(PatientLoginAuthArgs, request.body);
+
+    return this.service.auth(args);
+  }
+
+  @common.Get("me")
+  @Public()
+  @swagger.ApiOkResponse({ type: [Number] })
+  @ApiNestedQuery(PatientLoginAuthArgs)
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async me(@common.Headers() headers: any) {
+    console.log(
+      "\x1B[31m%s\x1B[0m",
+      "patient.controller - 75 - headers",
+      headers
+    );
+    return this.service.me(headers);
   }
 }

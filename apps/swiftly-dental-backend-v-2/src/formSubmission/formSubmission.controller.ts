@@ -12,6 +12,9 @@ import { FormSubmissionFindManyArgs } from "./base/FormSubmissionFindManyArgs";
 import { ApiNestedQuery } from "src/decorators/api-nested-query.decorator";
 import { plainToClass } from "class-transformer";
 import { Request } from "express";
+import { FormSubmissionFindForPatientArgs } from "./models/FormSubmissionFindForPatientArgs";
+import { JwtService } from "@nestjs/jwt";
+import { PatientService } from "src/patient/patient.service";
 
 @swagger.ApiTags("form-submissions")
 @common.Controller("form-submissions")
@@ -19,7 +22,8 @@ export class FormSubmissionController extends FormSubmissionControllerBase {
   constructor(
     protected readonly service: FormSubmissionService,
     @nestAccessControl.InjectRolesBuilder()
-    protected readonly rolesBuilder: nestAccessControl.RolesBuilder
+    protected readonly rolesBuilder: nestAccessControl.RolesBuilder,
+    protected readonly patientService: PatientService
   ) {
     super(service, rolesBuilder);
   }
@@ -142,6 +146,25 @@ export class FormSubmissionController extends FormSubmissionControllerBase {
     const args = plainToClass(FormSubmissionFindManyArgs, request.query);
     return this.service.count({
       ...args,
+    });
+  }
+
+  @common.Get("findForPatient")
+  @Public()
+  @swagger.ApiOkResponse({ type: [Number] })
+  @ApiNestedQuery(FormSubmissionFindForPatientArgs)
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async findForPatient(
+    @common.Req() request: Request,
+    @common.Headers() headers: any
+  ) {
+    const args = plainToClass(FormSubmissionFindForPatientArgs, request.query);
+    const patient = await this.patientService.me(headers);
+    return this.service.findForPatient({
+      practiceId: args.practiceId,
+      patientId: patient?.id,
     });
   }
 }
