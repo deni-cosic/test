@@ -2,6 +2,7 @@ on:
   push:
     branches:
       - develop
+      - main
     paths:
       - apps/swiftly-dental-backend-v-2/**
       - .github/workflows/gcp_staging.yml
