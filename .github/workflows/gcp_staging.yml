@@ -4,6 +4,7 @@ on:
       - develop
     paths:
       - apps/swiftly-dental-backend-v-2/**
+      - .github/workflows/gcp_staging.yml
 
 name: Deploy Server to Google Cloud Run (Staging)
 
