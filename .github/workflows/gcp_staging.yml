@@ -28,6 +28,7 @@ jobs:
         run: gcloud auth configure-docker europe-west1-docker.pkg.dev --quiet
 
       - name: Build and Push Docker image
+        working-directory: ./apps/swiftly-dental-backend-v-2
         run: |
           docker build -t europe-west1-docker.pkg.dev/qrypta-reborn/qrypta-dental-backend-v2-image-repository/qrypta-dental-backend-v2--staging .
           docker push europe-west1-docker.pkg.dev/qrypta-reborn/qrypta-dental-backend-v2-image-repository/qrypta-dental-backend-v2--staging
