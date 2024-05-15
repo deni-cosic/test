@@ -38,7 +38,7 @@ export class AuthService {
     }
     return null;
   }
-  async login(credentials: Credentials): Promise<UserInfo> {
+  async login(credentials: Credentials, isAdmin = false): Promise<UserInfo> {
     const { email, password } = credentials;
     const user = await this.validateUser(
       credentials.email,
@@ -46,6 +46,11 @@ export class AuthService {
     );
     if (!user) {
       throw new UnauthorizedException("The passed credentials are incorrect");
+    }
+    if (isAdmin) {
+      if (!user.roles.includes("admin")) {
+        throw new UnauthorizedException("The passed credentials are incorrect");
+      }
     }
     const accessToken = await this.tokenService.createToken({
       id: user.id,

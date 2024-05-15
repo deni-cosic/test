@@ -9,11 +9,43 @@ import {
   swaggerDocumentOptions,
   swaggerSetupOptions,
 } from "./swagger";
+import bodyParser from "body-parser";
+import { UserService } from "./user/user.service";
+import { JwtService } from "@nestjs/jwt";
 
 const { PORT = 3000 } = process.env;
 
 async function main() {
   const app = await NestFactory.create(AppModule, { cors: true });
+
+  // TODO: Za kurac maknit kasnije
+  app.use(
+    "/graphql",
+    bodyParser.json(),
+    async (req: any, res: any, next: any) => {
+      if (req.method === "POST" && req.body.operationName !== "login") {
+        const token = req.headers["authorization"].split("Bearer ")[1];
+        const jwtService = app.get(JwtService);
+
+        const data = jwtService.verify(token);
+        const userService = app.get(UserService);
+        const user = await userService.user({
+          where: { id: data.sub as string },
+          select: {
+            roles: true,
+          },
+        });
+
+        if ((user?.roles as string).includes("admin")) {
+          return next();
+        } else {
+          res.status(401).send({ message: "Unauthorized" });
+        }
+      } else {
+        next();
+      }
+    }
+  );
 
   app.setGlobalPrefix("api");
   app.useGlobalPipes(
