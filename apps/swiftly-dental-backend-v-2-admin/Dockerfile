@@ -1,5 +1,5 @@
 # multi-stage: base (build)
-FROM node:18.13.0-slim AS base
+FROM node:20.12.0-slim AS base
 
 # instantiate environment variable
 ARG REACT_APP_SERVER_URL
