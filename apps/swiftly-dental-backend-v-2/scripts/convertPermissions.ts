@@ -95,7 +95,7 @@ function convertData(permissions: Permission[]): Grant[] {
       let action = actionMap[permission.action];
 
       if (!action) {
-        action = `${permission.action}:any`;
+        return acc;
       }
 
       const grant: Grant = {
