@@ -44,7 +44,7 @@ export class MailerService {
             this.configService.get(FORGOT_PASSWORD_TEMPLATE_ID)
           ),
           TemplateLanguage: true,
-          Subject: "Forgot password?",
+          Subject: "Swiftly - Reset password",
           Variables: {
             link,
           },
