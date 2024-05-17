@@ -4,8 +4,8 @@ import * as nestAccessControl from "nest-access-control";
 import { HelpLinkService } from "./helpLink.service";
 import { HelpLinkControllerBase } from "./base/helpLink.controller.base";
 
-@swagger.ApiTags("helpLinks")
-@common.Controller("helpLinks")
+@swagger.ApiTags("help-links")
+@common.Controller("help-links")
 export class HelpLinkController extends HelpLinkControllerBase {
   constructor(
     protected readonly service: HelpLinkService,

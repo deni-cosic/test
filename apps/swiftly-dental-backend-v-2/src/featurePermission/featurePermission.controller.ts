@@ -4,8 +4,8 @@ import * as nestAccessControl from "nest-access-control";
 import { FeaturePermissionService } from "./featurePermission.service";
 import { FeaturePermissionControllerBase } from "./base/featurePermission.controller.base";
 
-@swagger.ApiTags("featurePermissions")
-@common.Controller("featurePermissions")
+@swagger.ApiTags("feature-permissions")
+@common.Controller("feature-permissions")
 export class FeaturePermissionController extends FeaturePermissionControllerBase {
   constructor(
     protected readonly service: FeaturePermissionService,
