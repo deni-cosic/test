@@ -26,6 +26,7 @@ import { LeadFormLinkFindUniqueArgs } from "./LeadFormLinkFindUniqueArgs";
 import { CreateLeadFormLinkArgs } from "./CreateLeadFormLinkArgs";
 import { UpdateLeadFormLinkArgs } from "./UpdateLeadFormLinkArgs";
 import { DeleteLeadFormLinkArgs } from "./DeleteLeadFormLinkArgs";
+import { Practice } from "../../practice/base/Practice";
 import { LeadFormLinkService } from "../leadFormLink.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => LeadFormLink)
@@ -92,7 +93,15 @@ export class LeadFormLinkResolverBase {
   ): Promise<LeadFormLink> {
     return await this.service.createLeadFormLink({
       ...args,
-      data: args.data,
+      data: {
+        ...args.data,
+
+        practice: args.data.practice
+          ? {
+              connect: args.data.practice,
+            }
+          : undefined,
+      },
     });
   }
 
@@ -109,7 +118,15 @@ export class LeadFormLinkResolverBase {
     try {
       return await this.service.updateLeadFormLink({
         ...args,
-        data: args.data,
+        data: {
+          ...args.data,
+
+          practice: args.data.practice
+            ? {
+                connect: args.data.practice,
+              }
+            : undefined,
+        },
       });
     } catch (error) {
       if (isRecordNotFoundError(error)) {
@@ -140,5 +157,26 @@ export class LeadFormLinkResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => Practice, {
+    nullable: true,
+    name: "practice",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "Practice",
+    action: "read",
+    possession: "any",
+  })
+  async getPractice(
+    @graphql.Parent() parent: LeadFormLink
+  ): Promise<Practice | null> {
+    const result = await this.service.getPractice(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
   }
 }

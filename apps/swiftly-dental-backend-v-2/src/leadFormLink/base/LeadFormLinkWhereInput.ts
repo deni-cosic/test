@@ -13,8 +13,9 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { DateTimeFilter } from "../../util/DateTimeFilter";
 import { Type } from "class-transformer";
-import { IsOptional, IsEnum } from "class-validator";
+import { IsOptional, ValidateNested, IsEnum } from "class-validator";
 import { StringFilter } from "../../util/StringFilter";
+import { PracticeWhereUniqueInput } from "../../practice/base/PracticeWhereUniqueInput";
 import { EnumLeadFormLinkSector } from "./EnumLeadFormLinkSector";
 
 @InputType()
@@ -51,6 +52,18 @@ class LeadFormLinkWhereInput {
     nullable: true,
   })
   name?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => PracticeWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => PracticeWhereUniqueInput)
+  @IsOptional()
+  @Field(() => PracticeWhereUniqueInput, {
+    nullable: true,
+  })
+  practice?: PracticeWhereUniqueInput;
 
   @ApiProperty({
     required: false,

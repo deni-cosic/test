@@ -15,6 +15,7 @@ import {
 
 import { FeaturePermissionTitle } from "../featurePermission/FeaturePermissionTitle";
 import { FormSubmissionTitle } from "../formSubmission/FormSubmissionTitle";
+import { LeadFormLinkTitle } from "../leadFormLink/LeadFormLinkTitle";
 import { LeadTitle } from "../lead/LeadTitle";
 import { PatientTitle } from "../patient/PatientTitle";
 import { PracticeInfoLinkTitle } from "../practiceInfoLink/PracticeInfoLinkTitle";
@@ -44,6 +45,14 @@ export const PracticeCreate = (props: CreateProps): React.ReactElement => {
           <SelectArrayInput optionText={FormSubmissionTitle} />
         </ReferenceArrayInput>
         <TextInput label="Google Place Id" source="googlePlaceId" />
+        <ReferenceArrayInput
+          source="leadFormLinks"
+          reference="LeadFormLink"
+          parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+          format={(value: any) => value && value.map((v: any) => v.id)}
+        >
+          <SelectArrayInput optionText={LeadFormLinkTitle} />
+        </ReferenceArrayInput>
         <ReferenceArrayInput
           source="leads"
           reference="Lead"

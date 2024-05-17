@@ -29,6 +29,9 @@ import { PracticeUpdateInput } from "./PracticeUpdateInput";
 import { FormSubmissionFindManyArgs } from "../../formSubmission/base/FormSubmissionFindManyArgs";
 import { FormSubmission } from "../../formSubmission/base/FormSubmission";
 import { FormSubmissionWhereUniqueInput } from "../../formSubmission/base/FormSubmissionWhereUniqueInput";
+import { LeadFormLinkFindManyArgs } from "../../leadFormLink/base/LeadFormLinkFindManyArgs";
+import { LeadFormLink } from "../../leadFormLink/base/LeadFormLink";
+import { LeadFormLinkWhereUniqueInput } from "../../leadFormLink/base/LeadFormLinkWhereUniqueInput";
 import { LeadFindManyArgs } from "../../lead/base/LeadFindManyArgs";
 import { Lead } from "../../lead/base/Lead";
 import { LeadWhereUniqueInput } from "../../lead/base/LeadWhereUniqueInput";
@@ -434,6 +437,111 @@ export class PracticeControllerBase {
   ): Promise<void> {
     const data = {
       formSubmissions: {
+        disconnect: body,
+      },
+    };
+    await this.service.updatePractice({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/leadFormLinks")
+  @ApiNestedQuery(LeadFormLinkFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "LeadFormLink",
+    action: "read",
+    possession: "any",
+  })
+  async findLeadFormLinks(
+    @common.Req() request: Request,
+    @common.Param() params: PracticeWhereUniqueInput
+  ): Promise<LeadFormLink[]> {
+    const query = plainToClass(LeadFormLinkFindManyArgs, request.query);
+    const results = await this.service.findLeadFormLinks(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+        id: true,
+        name: true,
+
+        practice: {
+          select: {
+            id: true,
+          },
+        },
+
+        sector: true,
+        updatedAt: true,
+        url: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/leadFormLinks")
+  @nestAccessControl.UseRoles({
+    resource: "Practice",
+    action: "update",
+    possession: "any",
+  })
+  async connectLeadFormLinks(
+    @common.Param() params: PracticeWhereUniqueInput,
+    @common.Body() body: LeadFormLinkWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      leadFormLinks: {
+        connect: body,
+      },
+    };
+    await this.service.updatePractice({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/leadFormLinks")
+  @nestAccessControl.UseRoles({
+    resource: "Practice",
+    action: "update",
+    possession: "any",
+  })
+  async updateLeadFormLinks(
+    @common.Param() params: PracticeWhereUniqueInput,
+    @common.Body() body: LeadFormLinkWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      leadFormLinks: {
+        set: body,
+      },
+    };
+    await this.service.updatePractice({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/leadFormLinks")
+  @nestAccessControl.UseRoles({
+    resource: "Practice",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectLeadFormLinks(
+    @common.Param() params: PracticeWhereUniqueInput,
+    @common.Body() body: LeadFormLinkWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      leadFormLinks: {
         disconnect: body,
       },
     };

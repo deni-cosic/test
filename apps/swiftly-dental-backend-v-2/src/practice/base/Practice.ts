@@ -22,6 +22,7 @@ import {
 import { Type } from "class-transformer";
 import { FeaturePermission } from "../../featurePermission/base/FeaturePermission";
 import { FormSubmission } from "../../formSubmission/base/FormSubmission";
+import { LeadFormLink } from "../../leadFormLink/base/LeadFormLink";
 import { Lead } from "../../lead/base/Lead";
 import { Patient } from "../../patient/base/Patient";
 import { PracticeInfoLink } from "../../practiceInfoLink/base/PracticeInfoLink";
@@ -108,6 +109,15 @@ class Practice {
   @IsString()
   @Field(() => String)
   id!: string;
+
+  @ApiProperty({
+    required: false,
+    type: () => [LeadFormLink],
+  })
+  @ValidateNested()
+  @Type(() => LeadFormLink)
+  @IsOptional()
+  leadFormLinks?: Array<LeadFormLink>;
 
   @ApiProperty({
     required: false,

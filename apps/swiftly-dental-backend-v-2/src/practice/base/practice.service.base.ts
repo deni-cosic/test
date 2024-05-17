@@ -15,6 +15,7 @@ import {
   Prisma,
   Practice as PrismaPractice,
   FormSubmission as PrismaFormSubmission,
+  LeadFormLink as PrismaLeadFormLink,
   Lead as PrismaLead,
   Patient as PrismaPatient,
   PracticeInfoLink as PrismaPracticeInfoLink,
@@ -65,6 +66,17 @@ export class PracticeServiceBase {
         where: { id: parentId },
       })
       .formSubmissions(args);
+  }
+
+  async findLeadFormLinks(
+    parentId: string,
+    args: Prisma.LeadFormLinkFindManyArgs
+  ): Promise<PrismaLeadFormLink[]> {
+    return this.prisma.practice
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .leadFormLinks(args);
   }
 
   async findLeads(

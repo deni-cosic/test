@@ -11,8 +11,15 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsString, IsEnum } from "class-validator";
+import {
+  IsDate,
+  IsString,
+  ValidateNested,
+  IsOptional,
+  IsEnum,
+} from "class-validator";
 import { Type } from "class-transformer";
+import { Practice } from "../../practice/base/Practice";
 import { EnumLeadFormLinkSector } from "./EnumLeadFormLinkSector";
 
 @ObjectType()
@@ -40,6 +47,15 @@ class LeadFormLink {
   @IsString()
   @Field(() => String)
   name!: string;
+
+  @ApiProperty({
+    required: false,
+    type: () => Practice,
+  })
+  @ValidateNested()
+  @Type(() => Practice)
+  @IsOptional()
+  practice?: Practice | null;
 
   @ApiProperty({
     required: true,

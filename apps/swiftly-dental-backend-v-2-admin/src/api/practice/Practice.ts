@@ -1,5 +1,6 @@
 import { FeaturePermission } from "../featurePermission/FeaturePermission";
 import { FormSubmission } from "../formSubmission/FormSubmission";
+import { LeadFormLink } from "../leadFormLink/LeadFormLink";
 import { Lead } from "../lead/Lead";
 import { Patient } from "../patient/Patient";
 import { PracticeInfoLink } from "../practiceInfoLink/PracticeInfoLink";
@@ -15,6 +16,7 @@ export type Practice = {
   formSubmissions?: Array<FormSubmission>;
   googlePlaceId: string | null;
   id: string;
+  leadFormLinks?: Array<LeadFormLink>;
   leads?: Array<Lead>;
   name: string;
   nhsReviewUrl: string | null;

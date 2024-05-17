@@ -22,6 +22,7 @@ import {
 import { FeaturePermissionWhereUniqueInput } from "../../featurePermission/base/FeaturePermissionWhereUniqueInput";
 import { Type } from "class-transformer";
 import { FormSubmissionCreateNestedManyWithoutPracticesInput } from "./FormSubmissionCreateNestedManyWithoutPracticesInput";
+import { LeadFormLinkCreateNestedManyWithoutPracticesInput } from "./LeadFormLinkCreateNestedManyWithoutPracticesInput";
 import { LeadCreateNestedManyWithoutPracticesInput } from "./LeadCreateNestedManyWithoutPracticesInput";
 import { PatientCreateNestedManyWithoutPracticesInput } from "./PatientCreateNestedManyWithoutPracticesInput";
 import { PracticeInfoLinkCreateNestedManyWithoutPracticesInput } from "./PracticeInfoLinkCreateNestedManyWithoutPracticesInput";
@@ -98,6 +99,18 @@ class PracticeCreateInput {
     nullable: true,
   })
   googlePlaceId?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => LeadFormLinkCreateNestedManyWithoutPracticesInput,
+  })
+  @ValidateNested()
+  @Type(() => LeadFormLinkCreateNestedManyWithoutPracticesInput)
+  @IsOptional()
+  @Field(() => LeadFormLinkCreateNestedManyWithoutPracticesInput, {
+    nullable: true,
+  })
+  leadFormLinks?: LeadFormLinkCreateNestedManyWithoutPracticesInput;
 
   @ApiProperty({
     required: false,

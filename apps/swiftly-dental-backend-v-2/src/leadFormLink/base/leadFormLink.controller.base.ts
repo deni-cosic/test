@@ -52,11 +52,26 @@ export class LeadFormLinkControllerBase {
     @common.Body() data: LeadFormLinkCreateInput
   ): Promise<LeadFormLink> {
     return await this.service.createLeadFormLink({
-      data: data,
+      data: {
+        ...data,
+
+        practice: data.practice
+          ? {
+              connect: data.practice,
+            }
+          : undefined,
+      },
       select: {
         createdAt: true,
         id: true,
         name: true,
+
+        practice: {
+          select: {
+            id: true,
+          },
+        },
+
         sector: true,
         updatedAt: true,
         url: true,
@@ -84,6 +99,13 @@ export class LeadFormLinkControllerBase {
         createdAt: true,
         id: true,
         name: true,
+
+        practice: {
+          select: {
+            id: true,
+          },
+        },
+
         sector: true,
         updatedAt: true,
         url: true,
@@ -112,6 +134,13 @@ export class LeadFormLinkControllerBase {
         createdAt: true,
         id: true,
         name: true,
+
+        practice: {
+          select: {
+            id: true,
+          },
+        },
+
         sector: true,
         updatedAt: true,
         url: true,
@@ -147,11 +176,26 @@ export class LeadFormLinkControllerBase {
     try {
       return await this.service.updateLeadFormLink({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          practice: data.practice
+            ? {
+                connect: data.practice,
+              }
+            : undefined,
+        },
         select: {
           createdAt: true,
           id: true,
           name: true,
+
+          practice: {
+            select: {
+              id: true,
+            },
+          },
+
           sector: true,
           updatedAt: true,
           url: true,
@@ -188,6 +232,13 @@ export class LeadFormLinkControllerBase {
           createdAt: true,
           id: true,
           name: true,
+
+          practice: {
+            select: {
+              id: true,
+            },
+          },
+
           sector: true,
           updatedAt: true,
           url: true,

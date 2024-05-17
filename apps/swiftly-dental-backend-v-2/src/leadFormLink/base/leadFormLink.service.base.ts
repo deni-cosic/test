@@ -10,7 +10,11 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
-import { Prisma, LeadFormLink as PrismaLeadFormLink } from "@prisma/client";
+import {
+  Prisma,
+  LeadFormLink as PrismaLeadFormLink,
+  Practice as PrismaPractice,
+} from "@prisma/client";
 
 export class LeadFormLinkServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
@@ -47,5 +51,13 @@ export class LeadFormLinkServiceBase {
     args: Prisma.SelectSubset<T, Prisma.LeadFormLinkDeleteArgs>
   ): Promise<PrismaLeadFormLink> {
     return this.prisma.leadFormLink.delete(args);
+  }
+
+  async getPractice(parentId: string): Promise<PrismaPractice | null> {
+    return this.prisma.leadFormLink
+      .findUnique({
+        where: { id: parentId },
+      })
+      .practice();
   }
 }

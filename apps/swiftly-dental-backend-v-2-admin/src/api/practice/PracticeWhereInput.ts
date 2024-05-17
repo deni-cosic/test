@@ -3,6 +3,7 @@ import { DateTimeFilter } from "../../util/DateTimeFilter";
 import { FeaturePermissionWhereUniqueInput } from "../featurePermission/FeaturePermissionWhereUniqueInput";
 import { FormSubmissionListRelationFilter } from "../formSubmission/FormSubmissionListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { LeadFormLinkListRelationFilter } from "../leadFormLink/LeadFormLinkListRelationFilter";
 import { LeadListRelationFilter } from "../lead/LeadListRelationFilter";
 import { PatientListRelationFilter } from "../patient/PatientListRelationFilter";
 import { PracticeInfoLinkListRelationFilter } from "../practiceInfoLink/PracticeInfoLinkListRelationFilter";
@@ -20,6 +21,7 @@ export type PracticeWhereInput = {
   formSubmissions?: FormSubmissionListRelationFilter;
   googlePlaceId?: StringNullableFilter;
   id?: StringFilter;
+  leadFormLinks?: LeadFormLinkListRelationFilter;
   leads?: LeadListRelationFilter;
   name?: StringFilter;
   nhsReviewUrl?: StringNullableFilter;

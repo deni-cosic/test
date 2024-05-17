@@ -28,6 +28,8 @@ import { UpdatePracticeArgs } from "./UpdatePracticeArgs";
 import { DeletePracticeArgs } from "./DeletePracticeArgs";
 import { FormSubmissionFindManyArgs } from "../../formSubmission/base/FormSubmissionFindManyArgs";
 import { FormSubmission } from "../../formSubmission/base/FormSubmission";
+import { LeadFormLinkFindManyArgs } from "../../leadFormLink/base/LeadFormLinkFindManyArgs";
+import { LeadFormLink } from "../../leadFormLink/base/LeadFormLink";
 import { LeadFindManyArgs } from "../../lead/base/LeadFindManyArgs";
 import { Lead } from "../../lead/base/Lead";
 import { PatientFindManyArgs } from "../../patient/base/PatientFindManyArgs";
@@ -183,6 +185,26 @@ export class PracticeResolverBase {
     @graphql.Args() args: FormSubmissionFindManyArgs
   ): Promise<FormSubmission[]> {
     const results = await this.service.findFormSubmissions(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [LeadFormLink], { name: "leadFormLinks" })
+  @nestAccessControl.UseRoles({
+    resource: "LeadFormLink",
+    action: "read",
+    possession: "any",
+  })
+  async findLeadFormLinks(
+    @graphql.Parent() parent: Practice,
+    @graphql.Args() args: LeadFormLinkFindManyArgs
+  ): Promise<LeadFormLink[]> {
+    const results = await this.service.findLeadFormLinks(parent.id, args);
 
     if (!results) {
       return [];

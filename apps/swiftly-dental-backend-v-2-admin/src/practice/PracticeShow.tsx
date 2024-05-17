@@ -81,6 +81,27 @@ export const PracticeShow = (props: ShowProps): React.ReactElement => {
             <DateField source="updatedAt" label="Updated At" />
           </Datagrid>
         </ReferenceManyField>
+        <ReferenceManyField
+          reference="LeadFormLink"
+          target="practiceId"
+          label="LeadFormLinks"
+        >
+          <Datagrid rowClick="show">
+            <DateField source="createdAt" label="Created At" />
+            <TextField label="ID" source="id" />
+            <TextField label="Name" source="name" />
+            <ReferenceField
+              label="Practice"
+              source="practice.id"
+              reference="Practice"
+            >
+              <TextField source={PRACTICE_TITLE_FIELD} />
+            </ReferenceField>
+            <TextField label="Sector" source="sector" />
+            <DateField source="updatedAt" label="Updated At" />
+            <TextField label="Url" source="url" />
+          </Datagrid>
+        </ReferenceManyField>
         <ReferenceManyField reference="Lead" target="practiceId" label="Leads">
           <Datagrid rowClick="show">
             <BooleanField label="Contacted" source="contacted" />

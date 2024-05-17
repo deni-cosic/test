@@ -11,7 +11,9 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, IsOptional, IsEnum } from "class-validator";
+import { IsString, IsOptional, ValidateNested, IsEnum } from "class-validator";
+import { PracticeWhereUniqueInput } from "../../practice/base/PracticeWhereUniqueInput";
+import { Type } from "class-transformer";
 import { EnumLeadFormLinkSector } from "./EnumLeadFormLinkSector";
 
 @InputType()
@@ -26,6 +28,18 @@ class LeadFormLinkUpdateInput {
     nullable: true,
   })
   name?: string;
+
+  @ApiProperty({
+    required: false,
+    type: () => PracticeWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => PracticeWhereUniqueInput)
+  @IsOptional()
+  @Field(() => PracticeWhereUniqueInput, {
+    nullable: true,
+  })
+  practice?: PracticeWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,

@@ -91,12 +91,14 @@ model HelpLink {
 }
 
 model LeadFormLink {
-  createdAt DateTime               @default(now())
-  id        String                 @id @default(uuid())
-  name      String
-  sector    EnumLeadFormLinkSector
-  updatedAt DateTime               @updatedAt
-  url       String
+  createdAt  DateTime               @default(now())
+  id         String                 @id @default(uuid())
+  name       String
+  practice   Practice?              @relation(fields: [practiceId], references: [id])
+  practiceId String?
+  sector     EnumLeadFormLinkSector
+  updatedAt  DateTime               @updatedAt
+  url        String
 
   @@map("lead_form_links")
 }
@@ -181,6 +183,7 @@ model Practice {
   formSubmissions          FormSubmission[]
   googlePlaceId            String?
   id                       String             @id @default(uuid())
+  leadFormLinks            LeadFormLink[]
   leads                    Lead[]
   name                     String
   nhsReviewUrl             String?
