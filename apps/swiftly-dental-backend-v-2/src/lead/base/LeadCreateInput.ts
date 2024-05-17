@@ -159,6 +159,15 @@ class LeadCreateInput {
   @Type(() => PracticeWhereUniqueInput)
   @Field(() => PracticeWhereUniqueInput)
   practice!: PracticeWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String)
+  rawRequest!: string;
 }
 
 export { LeadCreateInput as LeadCreateInput };

@@ -450,6 +450,7 @@ input LeadCreateInput {
   otherFields: JSON
   platformSource: String!
   practice: PracticeWhereUniqueInput!
+  rawRequest: String!
 }
 
 input LeadCreateNestedManyWithoutPracticesInput {
@@ -460,6 +461,7 @@ type LeadFormLink {
   createdAt: DateTime!
   id: String!
   name: String!
+  practice: Practice
   sector: EnumLeadFormLinkSector
   updatedAt: DateTime!
   url: String!
@@ -467,14 +469,26 @@ type LeadFormLink {
 
 input LeadFormLinkCreateInput {
   name: String!
+  practice: PracticeWhereUniqueInput
   sector: EnumLeadFormLinkSector!
   url: String!
+}
+
+input LeadFormLinkCreateNestedManyWithoutPracticesInput {
+  connect: [LeadFormLinkWhereUniqueInput!]
+}
+
+input LeadFormLinkListRelationFilter {
+  every: LeadFormLinkWhereInput
+  none: LeadFormLinkWhereInput
+  some: LeadFormLinkWhereInput
 }
 
 input LeadFormLinkOrderByInput {
   createdAt: SortOrder
   id: SortOrder
   name: SortOrder
+  practiceId: SortOrder
   sector: SortOrder
   updatedAt: SortOrder
   url: SortOrder
@@ -482,14 +496,22 @@ input LeadFormLinkOrderByInput {
 
 input LeadFormLinkUpdateInput {
   name: String
+  practice: PracticeWhereUniqueInput
   sector: EnumLeadFormLinkSector
   url: String
+}
+
+input LeadFormLinkUpdateManyWithoutPracticesInput {
+  connect: [LeadFormLinkWhereUniqueInput!]
+  disconnect: [LeadFormLinkWhereUniqueInput!]
+  set: [LeadFormLinkWhereUniqueInput!]
 }
 
 input LeadFormLinkWhereInput {
   createdAt: DateTimeFilter
   id: StringFilter
   name: StringFilter
+  practice: PracticeWhereUniqueInput
   sector: EnumLeadFormLinkSector
   updatedAt: DateTimeFilter
   url: StringFilter
@@ -780,6 +802,7 @@ type Practice {
   formSubmissions(orderBy: [FormSubmissionOrderByInput!], skip: Float, take: Float, where: FormSubmissionWhereInput): [FormSubmission!]!
   googlePlaceId: String
   id: String!
+  leadFormLinks(orderBy: [LeadFormLinkOrderByInput!], skip: Float, take: Float, where: LeadFormLinkWhereInput): [LeadFormLink!]!
   leads(orderBy: [LeadOrderByInput!], skip: Float, take: Float, where: LeadWhereInput): [Lead!]!
   name: String!
   nhsReviewUrl: String
@@ -807,6 +830,7 @@ input PracticeCreateInput {
   featurePermission: FeaturePermissionWhereUniqueInput
   formSubmissions: FormSubmissionCreateNestedManyWithoutPracticesInput
   googlePlaceId: String
+  leadFormLinks: LeadFormLinkCreateNestedManyWithoutPracticesInput
   leads: LeadCreateNestedManyWithoutPracticesInput
   name: String!
   nhsReviewUrl: String
@@ -939,6 +963,7 @@ input PracticeUpdateInput {
   featurePermission: FeaturePermissionWhereUniqueInput
   formSubmissions: FormSubmissionUpdateManyWithoutPracticesInput
   googlePlaceId: String
+  leadFormLinks: LeadFormLinkUpdateManyWithoutPracticesInput
   leads: LeadUpdateManyWithoutPracticesInput
   name: String
   nhsReviewUrl: String
@@ -979,6 +1004,7 @@ input PracticeWhereInput {
   formSubmissions: FormSubmissionListRelationFilter
   googlePlaceId: StringNullableFilter
   id: StringFilter
+  leadFormLinks: LeadFormLinkListRelationFilter
   leads: LeadListRelationFilter
   name: StringFilter
   nhsReviewUrl: StringNullableFilter
