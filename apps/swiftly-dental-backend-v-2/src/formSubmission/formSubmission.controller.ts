@@ -15,6 +15,7 @@ import { Request } from "express";
 import { FormSubmissionFindForPatientArgs } from "./models/FormSubmissionFindForPatientArgs";
 import { JwtService } from "@nestjs/jwt";
 import { PatientService } from "src/patient/patient.service";
+import { AclFilterResponseInterceptor } from "src/interceptors/aclFilterResponse.interceptor";
 
 @swagger.ApiTags("form-submissions")
 @common.Controller("form-submissions")
@@ -146,6 +147,74 @@ export class FormSubmissionController extends FormSubmissionControllerBase {
     const args = plainToClass(FormSubmissionFindManyArgs, request.query);
     return this.service.count({
       ...args,
+    });
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get()
+  @swagger.ApiOkResponse({ type: [FormSubmission] })
+  @ApiNestedQuery(FormSubmissionFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "FormSubmission",
+    action: "read",
+    possession: "any",
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async formSubmissions(
+    @common.Req() request: Request
+  ): Promise<FormSubmission[]> {
+    const args = plainToClass(FormSubmissionFindManyArgs, request.query);
+
+    let nullFilters = {};
+    if (args.where?.submissionId?.not == "null") {
+      nullFilters = {
+        submissionId: {
+          not: null,
+        },
+      };
+      delete args.where?.submissionId;
+    }
+    if (args.where?.submissionId?.equals == "null") {
+      nullFilters = {
+        submissionId: {
+          equals: null,
+        },
+      };
+      delete args.where?.submissionId;
+    }
+    args.where = { ...args.where, ...nullFilters };
+
+    return this.service.formSubmissions({
+      ...args,
+      select: {
+        createdAt: true,
+        formId: true,
+        formTitle: true,
+        id: true,
+
+        patient: {
+          select: {
+            id: true,
+            firstName: true,
+            lastName: true,
+          },
+        },
+
+        practice: {
+          select: {
+            id: true,
+          },
+        },
+
+        receivedAt: true,
+        requestedBy: true,
+        requestSentId: true,
+        seen: true,
+        submissionId: true,
+        updatedAt: true,
+      },
     });
   }
 
