@@ -36,7 +36,7 @@ jobs:
       - name: Deploy to Cloud Run
         uses: google-github-actions/deploy-cloudrun@v0.6.0
         with:
-          service: qrypta-dental-backend-v2--staging
+          service: qrypta-dental-backend--staging
           image: europe-west1-docker.pkg.dev/qrypta-reborn/qrypta-dental-backend-v2-image-repository/qrypta-dental-backend-v2--staging
           credentials: ${{ secrets.GCP_SA_KEY }}
           region: europe-west1
