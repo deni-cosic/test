@@ -1,18 +1,18 @@
 import { PracticeUpdateManyWithoutFeaturePermissionsInput } from "./PracticeUpdateManyWithoutFeaturePermissionsInput";
 
 export type FeaturePermissionUpdateInput = {
-  analytics?: boolean;
-  dentalAdviceLink?: boolean;
-  dentalSubscriptions?: boolean;
-  form?: boolean;
+  analytics?: boolean | null;
+  dentalAdviceLink?: boolean | null;
+  dentalSubscriptions?: boolean | null;
+  form?: boolean | null;
   leads?: boolean | null;
-  messageTemplate?: boolean;
-  practiceInfoLink?: boolean;
+  messageTemplate?: boolean | null;
+  practiceInfoLink?: boolean | null;
   practices?: PracticeUpdateManyWithoutFeaturePermissionsInput;
-  requestFeedback?: boolean;
-  requestPayment?: boolean;
-  sendDocument?: boolean;
+  requestFeedback?: boolean | null;
+  requestPayment?: boolean | null;
+  sendDocument?: boolean | null;
   sendMessageToMany?: boolean | null;
-  videoCall?: boolean;
+  videoCall?: boolean | null;
   workflows?: boolean | null;
 };

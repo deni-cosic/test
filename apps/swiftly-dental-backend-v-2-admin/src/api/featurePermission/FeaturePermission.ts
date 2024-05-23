@@ -1,21 +1,21 @@
 import { Practice } from "../practice/Practice";
 
 export type FeaturePermission = {
-  analytics: boolean;
+  analytics: boolean | null;
   createdAt: Date;
-  dentalAdviceLink: boolean;
-  dentalSubscriptions: boolean;
-  form: boolean;
+  dentalAdviceLink: boolean | null;
+  dentalSubscriptions: boolean | null;
+  form: boolean | null;
   id: string;
   leads: boolean | null;
-  messageTemplate: boolean;
-  practiceInfoLink: boolean;
+  messageTemplate: boolean | null;
+  practiceInfoLink: boolean | null;
   practices?: Array<Practice>;
-  requestFeedback: boolean;
-  requestPayment: boolean;
-  sendDocument: boolean;
+  requestFeedback: boolean | null;
+  requestPayment: boolean | null;
+  sendDocument: boolean | null;
   sendMessageToMany: boolean | null;
   updatedAt: Date;
-  videoCall: boolean;
+  videoCall: boolean | null;
   workflows: boolean | null;
 };

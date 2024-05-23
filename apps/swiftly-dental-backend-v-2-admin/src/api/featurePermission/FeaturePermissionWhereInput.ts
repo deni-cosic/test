@@ -1,25 +1,24 @@
-import { BooleanFilter } from "../../util/BooleanFilter";
+import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
 import { DateTimeFilter } from "../../util/DateTimeFilter";
 import { StringFilter } from "../../util/StringFilter";
-import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
 import { PracticeListRelationFilter } from "../practice/PracticeListRelationFilter";
 
 export type FeaturePermissionWhereInput = {
-  analytics?: BooleanFilter;
+  analytics?: BooleanNullableFilter;
   createdAt?: DateTimeFilter;
-  dentalAdviceLink?: BooleanFilter;
-  dentalSubscriptions?: BooleanFilter;
-  form?: BooleanFilter;
+  dentalAdviceLink?: BooleanNullableFilter;
+  dentalSubscriptions?: BooleanNullableFilter;
+  form?: BooleanNullableFilter;
   id?: StringFilter;
   leads?: BooleanNullableFilter;
-  messageTemplate?: BooleanFilter;
-  practiceInfoLink?: BooleanFilter;
+  messageTemplate?: BooleanNullableFilter;
+  practiceInfoLink?: BooleanNullableFilter;
   practices?: PracticeListRelationFilter;
-  requestFeedback?: BooleanFilter;
-  requestPayment?: BooleanFilter;
-  sendDocument?: BooleanFilter;
+  requestFeedback?: BooleanNullableFilter;
+  requestPayment?: BooleanNullableFilter;
+  sendDocument?: BooleanNullableFilter;
   sendMessageToMany?: BooleanNullableFilter;
   updatedAt?: DateTimeFilter;
-  videoCall?: BooleanFilter;
+  videoCall?: BooleanNullableFilter;
   workflows?: BooleanNullableFilter;
 };

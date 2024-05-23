@@ -26,7 +26,7 @@ class FeaturePermissionUpdateInput {
   @Field(() => Boolean, {
     nullable: true,
   })
-  analytics?: boolean;
+  analytics?: boolean | null;
 
   @ApiProperty({
     required: false,
@@ -37,7 +37,7 @@ class FeaturePermissionUpdateInput {
   @Field(() => Boolean, {
     nullable: true,
   })
-  dentalAdviceLink?: boolean;
+  dentalAdviceLink?: boolean | null;
 
   @ApiProperty({
     required: false,
@@ -48,7 +48,7 @@ class FeaturePermissionUpdateInput {
   @Field(() => Boolean, {
     nullable: true,
   })
-  dentalSubscriptions?: boolean;
+  dentalSubscriptions?: boolean | null;
 
   @ApiProperty({
     required: false,
@@ -59,7 +59,7 @@ class FeaturePermissionUpdateInput {
   @Field(() => Boolean, {
     nullable: true,
   })
-  form?: boolean;
+  form?: boolean | null;
 
   @ApiProperty({
     required: false,
@@ -81,7 +81,7 @@ class FeaturePermissionUpdateInput {
   @Field(() => Boolean, {
     nullable: true,
   })
-  messageTemplate?: boolean;
+  messageTemplate?: boolean | null;
 
   @ApiProperty({
     required: false,
@@ -92,7 +92,7 @@ class FeaturePermissionUpdateInput {
   @Field(() => Boolean, {
     nullable: true,
   })
-  practiceInfoLink?: boolean;
+  practiceInfoLink?: boolean | null;
 
   @ApiProperty({
     required: false,
@@ -115,7 +115,7 @@ class FeaturePermissionUpdateInput {
   @Field(() => Boolean, {
     nullable: true,
   })
-  requestFeedback?: boolean;
+  requestFeedback?: boolean | null;
 
   @ApiProperty({
     required: false,
@@ -126,7 +126,7 @@ class FeaturePermissionUpdateInput {
   @Field(() => Boolean, {
     nullable: true,
   })
-  requestPayment?: boolean;
+  requestPayment?: boolean | null;
 
   @ApiProperty({
     required: false,
@@ -137,7 +137,7 @@ class FeaturePermissionUpdateInput {
   @Field(() => Boolean, {
     nullable: true,
   })
-  sendDocument?: boolean;
+  sendDocument?: boolean | null;
 
   @ApiProperty({
     required: false,
@@ -159,7 +159,7 @@ class FeaturePermissionUpdateInput {
   @Field(() => Boolean, {
     nullable: true,
   })
-  videoCall?: boolean;
+  videoCall?: boolean | null;
 
   @ApiProperty({
     required: false,

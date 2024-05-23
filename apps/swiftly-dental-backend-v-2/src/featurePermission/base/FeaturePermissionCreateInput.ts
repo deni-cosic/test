@@ -18,36 +18,48 @@ import { Type } from "class-transformer";
 @InputType()
 class FeaturePermissionCreateInput {
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  analytics!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  analytics?: boolean | null;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  dentalAdviceLink!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  dentalAdviceLink?: boolean | null;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  dentalSubscriptions!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  dentalSubscriptions?: boolean | null;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  form!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  form?: boolean | null;
 
   @ApiProperty({
     required: false,
@@ -61,20 +73,26 @@ class FeaturePermissionCreateInput {
   leads?: boolean | null;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  messageTemplate!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  messageTemplate?: boolean | null;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  practiceInfoLink!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  practiceInfoLink?: boolean | null;
 
   @ApiProperty({
     required: false,
@@ -89,28 +107,37 @@ class FeaturePermissionCreateInput {
   practices?: PracticeCreateNestedManyWithoutFeaturePermissionsInput;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  requestFeedback!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  requestFeedback?: boolean | null;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  requestPayment!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  requestPayment?: boolean | null;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  sendDocument!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  sendDocument?: boolean | null;
 
   @ApiProperty({
     required: false,
@@ -124,12 +151,15 @@ class FeaturePermissionCreateInput {
   sendMessageToMany?: boolean | null;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  videoCall!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  videoCall?: boolean | null;
 
   @ApiProperty({
     required: false,

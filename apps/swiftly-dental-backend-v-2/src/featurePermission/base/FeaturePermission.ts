@@ -13,9 +13,9 @@ import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import {
   IsBoolean,
+  IsOptional,
   IsDate,
   IsString,
-  IsOptional,
   ValidateNested,
 } from "class-validator";
 import { Type } from "class-transformer";
@@ -24,12 +24,15 @@ import { Practice } from "../../practice/base/Practice";
 @ObjectType()
 class FeaturePermission {
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  analytics!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  analytics!: boolean | null;
 
   @ApiProperty({
     required: true,
@@ -40,28 +43,37 @@ class FeaturePermission {
   createdAt!: Date;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  dentalAdviceLink!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  dentalAdviceLink!: boolean | null;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  dentalSubscriptions!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  dentalSubscriptions!: boolean | null;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  form!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  form!: boolean | null;
 
   @ApiProperty({
     required: true,
@@ -83,20 +95,26 @@ class FeaturePermission {
   leads!: boolean | null;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  messageTemplate!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  messageTemplate!: boolean | null;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  practiceInfoLink!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  practiceInfoLink!: boolean | null;
 
   @ApiProperty({
     required: false,
@@ -108,28 +126,37 @@ class FeaturePermission {
   practices?: Array<Practice>;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  requestFeedback!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  requestFeedback!: boolean | null;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  requestPayment!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  requestPayment!: boolean | null;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  sendDocument!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  sendDocument!: boolean | null;
 
   @ApiProperty({
     required: false,
@@ -151,12 +178,15 @@ class FeaturePermission {
   updatedAt!: Date;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: Boolean,
   })
   @IsBoolean()
-  @Field(() => Boolean)
-  videoCall!: boolean;
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  videoCall!: boolean | null;
 
   @ApiProperty({
     required: false,

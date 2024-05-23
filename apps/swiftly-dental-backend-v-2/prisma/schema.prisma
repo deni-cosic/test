@@ -25,23 +25,23 @@ model User {
 }
 
 model FeaturePermission {
-  analytics           Boolean
+  analytics           Boolean?   @default(false)
   createdAt           DateTime   @default(now())
-  dentalAdviceLink    Boolean
-  dentalSubscriptions Boolean
-  form                Boolean
+  dentalAdviceLink    Boolean?   @default(false)
+  dentalSubscriptions Boolean?   @default(false)
+  form                Boolean?   @default(false)
   id                  String     @id @default(uuid())
-  leads               Boolean?
-  messageTemplate     Boolean
-  practiceInfoLink    Boolean
+  leads               Boolean?   @default(false)
+  messageTemplate     Boolean?   @default(false)
+  practiceInfoLink    Boolean?   @default(false)
   practices           Practice[]
-  requestFeedback     Boolean
-  requestPayment      Boolean
-  sendDocument        Boolean
-  sendMessageToMany   Boolean?
+  requestFeedback     Boolean?   @default(false)
+  requestPayment      Boolean?   @default(false)
+  sendDocument        Boolean?   @default(false)
+  sendMessageToMany   Boolean?   @default(false)
   updatedAt           DateTime   @updatedAt
-  videoCall           Boolean
-  workflows           Boolean?
+  videoCall           Boolean?   @default(false)
+  workflows           Boolean?   @default(false)
 
   @@map("feature_permissions")
 }

@@ -11,26 +11,25 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { BooleanFilter } from "../../util/BooleanFilter";
+import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
 import { Type } from "class-transformer";
 import { IsOptional, ValidateNested } from "class-validator";
 import { DateTimeFilter } from "../../util/DateTimeFilter";
 import { StringFilter } from "../../util/StringFilter";
-import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
 import { PracticeListRelationFilter } from "../../practice/base/PracticeListRelationFilter";
 
 @InputType()
 class FeaturePermissionWhereInput {
   @ApiProperty({
     required: false,
-    type: BooleanFilter,
+    type: BooleanNullableFilter,
   })
-  @Type(() => BooleanFilter)
+  @Type(() => BooleanNullableFilter)
   @IsOptional()
-  @Field(() => BooleanFilter, {
+  @Field(() => BooleanNullableFilter, {
     nullable: true,
   })
-  analytics?: BooleanFilter;
+  analytics?: BooleanNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -45,36 +44,36 @@ class FeaturePermissionWhereInput {
 
   @ApiProperty({
     required: false,
-    type: BooleanFilter,
+    type: BooleanNullableFilter,
   })
-  @Type(() => BooleanFilter)
+  @Type(() => BooleanNullableFilter)
   @IsOptional()
-  @Field(() => BooleanFilter, {
+  @Field(() => BooleanNullableFilter, {
     nullable: true,
   })
-  dentalAdviceLink?: BooleanFilter;
+  dentalAdviceLink?: BooleanNullableFilter;
 
   @ApiProperty({
     required: false,
-    type: BooleanFilter,
+    type: BooleanNullableFilter,
   })
-  @Type(() => BooleanFilter)
+  @Type(() => BooleanNullableFilter)
   @IsOptional()
-  @Field(() => BooleanFilter, {
+  @Field(() => BooleanNullableFilter, {
     nullable: true,
   })
-  dentalSubscriptions?: BooleanFilter;
+  dentalSubscriptions?: BooleanNullableFilter;
 
   @ApiProperty({
     required: false,
-    type: BooleanFilter,
+    type: BooleanNullableFilter,
   })
-  @Type(() => BooleanFilter)
+  @Type(() => BooleanNullableFilter)
   @IsOptional()
-  @Field(() => BooleanFilter, {
+  @Field(() => BooleanNullableFilter, {
     nullable: true,
   })
-  form?: BooleanFilter;
+  form?: BooleanNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -100,25 +99,25 @@ class FeaturePermissionWhereInput {
 
   @ApiProperty({
     required: false,
-    type: BooleanFilter,
+    type: BooleanNullableFilter,
   })
-  @Type(() => BooleanFilter)
+  @Type(() => BooleanNullableFilter)
   @IsOptional()
-  @Field(() => BooleanFilter, {
+  @Field(() => BooleanNullableFilter, {
     nullable: true,
   })
-  messageTemplate?: BooleanFilter;
+  messageTemplate?: BooleanNullableFilter;
 
   @ApiProperty({
     required: false,
-    type: BooleanFilter,
+    type: BooleanNullableFilter,
   })
-  @Type(() => BooleanFilter)
+  @Type(() => BooleanNullableFilter)
   @IsOptional()
-  @Field(() => BooleanFilter, {
+  @Field(() => BooleanNullableFilter, {
     nullable: true,
   })
-  practiceInfoLink?: BooleanFilter;
+  practiceInfoLink?: BooleanNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -134,36 +133,36 @@ class FeaturePermissionWhereInput {
 
   @ApiProperty({
     required: false,
-    type: BooleanFilter,
+    type: BooleanNullableFilter,
   })
-  @Type(() => BooleanFilter)
+  @Type(() => BooleanNullableFilter)
   @IsOptional()
-  @Field(() => BooleanFilter, {
+  @Field(() => BooleanNullableFilter, {
     nullable: true,
   })
-  requestFeedback?: BooleanFilter;
+  requestFeedback?: BooleanNullableFilter;
 
   @ApiProperty({
     required: false,
-    type: BooleanFilter,
+    type: BooleanNullableFilter,
   })
-  @Type(() => BooleanFilter)
+  @Type(() => BooleanNullableFilter)
   @IsOptional()
-  @Field(() => BooleanFilter, {
+  @Field(() => BooleanNullableFilter, {
     nullable: true,
   })
-  requestPayment?: BooleanFilter;
+  requestPayment?: BooleanNullableFilter;
 
   @ApiProperty({
     required: false,
-    type: BooleanFilter,
+    type: BooleanNullableFilter,
   })
-  @Type(() => BooleanFilter)
+  @Type(() => BooleanNullableFilter)
   @IsOptional()
-  @Field(() => BooleanFilter, {
+  @Field(() => BooleanNullableFilter, {
     nullable: true,
   })
-  sendDocument?: BooleanFilter;
+  sendDocument?: BooleanNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -189,14 +188,14 @@ class FeaturePermissionWhereInput {
 
   @ApiProperty({
     required: false,
-    type: BooleanFilter,
+    type: BooleanNullableFilter,
   })
-  @Type(() => BooleanFilter)
+  @Type(() => BooleanNullableFilter)
   @IsOptional()
-  @Field(() => BooleanFilter, {
+  @Field(() => BooleanNullableFilter, {
     nullable: true,
   })
-  videoCall?: BooleanFilter;
+  videoCall?: BooleanNullableFilter;
 
   @ApiProperty({
     required: false,
