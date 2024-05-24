@@ -45,7 +45,7 @@ export class FormLinkController extends FormLinkControllerBase {
     );
 
     const formLinks = (await this.service.formLinks({
-      where: otherQueryParams,
+      where: { ...otherQueryParams, practiceId },
     })) as (FormLink & { isPending?: boolean })[];
 
     if (patientId && practiceId) {
@@ -74,25 +74,4 @@ export class FormLinkController extends FormLinkControllerBase {
 
     return formLinks;
   }
-  // const { patientId, practiceOdsCode, ...otherQueryParams } = ctx.query;
-  // const formLinks = await strapi.services['form-link'].find(otherQueryParams);
-
-  // if (patientId && practiceOdsCode) {
-  //   await Promise.all(
-  //     formLinks.map(async (formLink) => {
-  //       const submissionResult = await strapi.query('form-submission').find({
-  //         submissionId: { $exists: false },
-  //         patientRelation: patientId,
-  //         practiceRelation: practiceOdsCode,
-  //         formTitle: formLink.displayName,
-  //       });
-  //       if (submissionResult.length > 0) {
-  //         const submission = submissionResult[0];
-  //         formLink.isPending = dayjs(submission.createdAt).isAfter(dayjs().subtract(10, 'day'));
-  //       }
-  //     })
-  //   );
-  // }
-
-  // return formLinks.map((entity) => sanitizeEntity(entity, { model: strapi.models['form-link'] }));
 }
