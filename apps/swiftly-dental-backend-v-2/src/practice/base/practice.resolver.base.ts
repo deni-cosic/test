@@ -26,6 +26,8 @@ import { PracticeFindUniqueArgs } from "./PracticeFindUniqueArgs";
 import { CreatePracticeArgs } from "./CreatePracticeArgs";
 import { UpdatePracticeArgs } from "./UpdatePracticeArgs";
 import { DeletePracticeArgs } from "./DeletePracticeArgs";
+import { FormLinkFindManyArgs } from "../../formLink/base/FormLinkFindManyArgs";
+import { FormLink } from "../../formLink/base/FormLink";
 import { FormSubmissionFindManyArgs } from "../../formSubmission/base/FormSubmissionFindManyArgs";
 import { FormSubmission } from "../../formSubmission/base/FormSubmission";
 import { LeadFormLinkFindManyArgs } from "../../leadFormLink/base/LeadFormLinkFindManyArgs";
@@ -171,6 +173,26 @@ export class PracticeResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [FormLink], { name: "formLinks" })
+  @nestAccessControl.UseRoles({
+    resource: "FormLink",
+    action: "read",
+    possession: "any",
+  })
+  async findFormLinks(
+    @graphql.Parent() parent: Practice,
+    @graphql.Args() args: FormLinkFindManyArgs
+  ): Promise<FormLink[]> {
+    const results = await this.service.findFormLinks(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)

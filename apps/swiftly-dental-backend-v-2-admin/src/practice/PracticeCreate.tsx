@@ -14,6 +14,7 @@ import {
 } from "react-admin";
 
 import { FeaturePermissionTitle } from "../featurePermission/FeaturePermissionTitle";
+import { FormLinkTitle } from "../formLink/FormLinkTitle";
 import { FormSubmissionTitle } from "../formSubmission/FormSubmissionTitle";
 import { LeadFormLinkTitle } from "../leadFormLink/LeadFormLinkTitle";
 import { LeadTitle } from "../lead/LeadTitle";
@@ -36,6 +37,14 @@ export const PracticeCreate = (props: CreateProps): React.ReactElement => {
         >
           <SelectInput optionText={FeaturePermissionTitle} />
         </ReferenceInput>
+        <ReferenceArrayInput
+          source="formLinks"
+          reference="FormLink"
+          parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+          format={(value: any) => value && value.map((v: any) => v.id)}
+        >
+          <SelectArrayInput optionText={FormLinkTitle} />
+        </ReferenceArrayInput>
         <ReferenceArrayInput
           source="formSubmissions"
           reference="FormSubmission"

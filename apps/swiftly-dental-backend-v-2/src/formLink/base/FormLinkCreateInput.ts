@@ -11,7 +11,15 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, IsBoolean, IsEnum } from "class-validator";
+import {
+  IsString,
+  IsBoolean,
+  ValidateNested,
+  IsOptional,
+  IsEnum,
+} from "class-validator";
+import { PracticeWhereUniqueInput } from "../../practice/base/PracticeWhereUniqueInput";
+import { Type } from "class-transformer";
 import { EnumFormLinkSector } from "./EnumFormLinkSector";
 
 @InputType()
@@ -39,6 +47,18 @@ class FormLinkCreateInput {
   @IsString()
   @Field(() => String)
   message!: string;
+
+  @ApiProperty({
+    required: false,
+    type: () => PracticeWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => PracticeWhereUniqueInput)
+  @IsOptional()
+  @Field(() => PracticeWhereUniqueInput, {
+    nullable: true,
+  })
+  practice?: PracticeWhereUniqueInput | null;
 
   @ApiProperty({
     required: true,

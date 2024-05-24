@@ -26,6 +26,7 @@ import { FormLinkFindUniqueArgs } from "./FormLinkFindUniqueArgs";
 import { CreateFormLinkArgs } from "./CreateFormLinkArgs";
 import { UpdateFormLinkArgs } from "./UpdateFormLinkArgs";
 import { DeleteFormLinkArgs } from "./DeleteFormLinkArgs";
+import { Practice } from "../../practice/base/Practice";
 import { FormLinkService } from "../formLink.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => FormLink)
@@ -92,7 +93,15 @@ export class FormLinkResolverBase {
   ): Promise<FormLink> {
     return await this.service.createFormLink({
       ...args,
-      data: args.data,
+      data: {
+        ...args.data,
+
+        practice: args.data.practice
+          ? {
+              connect: args.data.practice,
+            }
+          : undefined,
+      },
     });
   }
 
@@ -109,7 +118,15 @@ export class FormLinkResolverBase {
     try {
       return await this.service.updateFormLink({
         ...args,
-        data: args.data,
+        data: {
+          ...args.data,
+
+          practice: args.data.practice
+            ? {
+                connect: args.data.practice,
+              }
+            : undefined,
+        },
       });
     } catch (error) {
       if (isRecordNotFoundError(error)) {
@@ -140,5 +157,26 @@ export class FormLinkResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => Practice, {
+    nullable: true,
+    name: "practice",
+  })
+  @nestAccessControl.UseRoles({
+    resource: "Practice",
+    action: "read",
+    possession: "any",
+  })
+  async getPractice(
+    @graphql.Parent() parent: FormLink
+  ): Promise<Practice | null> {
+    const result = await this.service.getPractice(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
   }
 }

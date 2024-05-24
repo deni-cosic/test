@@ -1,4 +1,5 @@
 import { FeaturePermissionWhereUniqueInput } from "../featurePermission/FeaturePermissionWhereUniqueInput";
+import { FormLinkCreateNestedManyWithoutPracticesInput } from "./FormLinkCreateNestedManyWithoutPracticesInput";
 import { FormSubmissionCreateNestedManyWithoutPracticesInput } from "./FormSubmissionCreateNestedManyWithoutPracticesInput";
 import { LeadFormLinkCreateNestedManyWithoutPracticesInput } from "./LeadFormLinkCreateNestedManyWithoutPracticesInput";
 import { LeadCreateNestedManyWithoutPracticesInput } from "./LeadCreateNestedManyWithoutPracticesInput";
@@ -12,6 +13,7 @@ export type PracticeCreateInput = {
   addressLine2?: string | null;
   addressLine3?: string | null;
   featurePermission?: FeaturePermissionWhereUniqueInput | null;
+  formLinks?: FormLinkCreateNestedManyWithoutPracticesInput;
   formSubmissions?: FormSubmissionCreateNestedManyWithoutPracticesInput;
   googlePlaceId?: string | null;
   leadFormLinks?: LeadFormLinkCreateNestedManyWithoutPracticesInput;

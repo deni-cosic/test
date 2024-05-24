@@ -26,6 +26,9 @@ import { Practice } from "./Practice";
 import { PracticeFindManyArgs } from "./PracticeFindManyArgs";
 import { PracticeWhereUniqueInput } from "./PracticeWhereUniqueInput";
 import { PracticeUpdateInput } from "./PracticeUpdateInput";
+import { FormLinkFindManyArgs } from "../../formLink/base/FormLinkFindManyArgs";
+import { FormLink } from "../../formLink/base/FormLink";
+import { FormLinkWhereUniqueInput } from "../../formLink/base/FormLinkWhereUniqueInput";
 import { FormSubmissionFindManyArgs } from "../../formSubmission/base/FormSubmissionFindManyArgs";
 import { FormSubmission } from "../../formSubmission/base/FormSubmission";
 import { FormSubmissionWhereUniqueInput } from "../../formSubmission/base/FormSubmissionWhereUniqueInput";
@@ -330,6 +333,113 @@ export class PracticeControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/formLinks")
+  @ApiNestedQuery(FormLinkFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "FormLink",
+    action: "read",
+    possession: "any",
+  })
+  async findFormLinks(
+    @common.Req() request: Request,
+    @common.Param() params: PracticeWhereUniqueInput
+  ): Promise<FormLink[]> {
+    const query = plainToClass(FormLinkFindManyArgs, request.query);
+    const results = await this.service.findFormLinks(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+        displayName: true,
+        enabled: true,
+        id: true,
+        message: true,
+
+        practice: {
+          select: {
+            id: true,
+          },
+        },
+
+        sector: true,
+        updatedAt: true,
+        url: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/formLinks")
+  @nestAccessControl.UseRoles({
+    resource: "Practice",
+    action: "update",
+    possession: "any",
+  })
+  async connectFormLinks(
+    @common.Param() params: PracticeWhereUniqueInput,
+    @common.Body() body: FormLinkWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      formLinks: {
+        connect: body,
+      },
+    };
+    await this.service.updatePractice({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/formLinks")
+  @nestAccessControl.UseRoles({
+    resource: "Practice",
+    action: "update",
+    possession: "any",
+  })
+  async updateFormLinks(
+    @common.Param() params: PracticeWhereUniqueInput,
+    @common.Body() body: FormLinkWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      formLinks: {
+        set: body,
+      },
+    };
+    await this.service.updatePractice({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/formLinks")
+  @nestAccessControl.UseRoles({
+    resource: "Practice",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectFormLinks(
+    @common.Param() params: PracticeWhereUniqueInput,
+    @common.Body() body: FormLinkWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      formLinks: {
+        disconnect: body,
+      },
+    };
+    await this.service.updatePractice({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)

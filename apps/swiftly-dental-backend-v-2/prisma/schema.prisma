@@ -52,6 +52,8 @@ model FormLink {
   enabled     Boolean
   id          String             @id @default(uuid())
   message     String
+  practice    Practice?          @relation(fields: [practiceId], references: [id])
+  practiceId  String?
   sector      EnumFormLinkSector
   updatedAt   DateTime           @updatedAt
   url         String
@@ -180,6 +182,7 @@ model Practice {
   createdAt                DateTime           @default(now())
   featurePermission        FeaturePermission? @relation(fields: [featurePermissionId], references: [id])
   featurePermissionId      String?
+  formLinks                FormLink[]
   formSubmissions          FormSubmission[]
   googlePlaceId            String?
   id                       String             @id @default(uuid())

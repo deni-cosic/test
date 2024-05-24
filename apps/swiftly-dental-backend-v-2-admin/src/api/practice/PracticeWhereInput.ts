@@ -1,6 +1,7 @@
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { DateTimeFilter } from "../../util/DateTimeFilter";
 import { FeaturePermissionWhereUniqueInput } from "../featurePermission/FeaturePermissionWhereUniqueInput";
+import { FormLinkListRelationFilter } from "../formLink/FormLinkListRelationFilter";
 import { FormSubmissionListRelationFilter } from "../formSubmission/FormSubmissionListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
 import { LeadFormLinkListRelationFilter } from "../leadFormLink/LeadFormLinkListRelationFilter";
@@ -18,6 +19,7 @@ export type PracticeWhereInput = {
   addressLine3?: StringNullableFilter;
   createdAt?: DateTimeFilter;
   featurePermission?: FeaturePermissionWhereUniqueInput;
+  formLinks?: FormLinkListRelationFilter;
   formSubmissions?: FormSubmissionListRelationFilter;
   googlePlaceId?: StringNullableFilter;
   id?: StringFilter;

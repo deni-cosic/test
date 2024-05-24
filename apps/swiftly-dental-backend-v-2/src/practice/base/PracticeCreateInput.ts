@@ -21,6 +21,7 @@ import {
 } from "class-validator";
 import { FeaturePermissionWhereUniqueInput } from "../../featurePermission/base/FeaturePermissionWhereUniqueInput";
 import { Type } from "class-transformer";
+import { FormLinkCreateNestedManyWithoutPracticesInput } from "./FormLinkCreateNestedManyWithoutPracticesInput";
 import { FormSubmissionCreateNestedManyWithoutPracticesInput } from "./FormSubmissionCreateNestedManyWithoutPracticesInput";
 import { LeadFormLinkCreateNestedManyWithoutPracticesInput } from "./LeadFormLinkCreateNestedManyWithoutPracticesInput";
 import { LeadCreateNestedManyWithoutPracticesInput } from "./LeadCreateNestedManyWithoutPracticesInput";
@@ -76,6 +77,18 @@ class PracticeCreateInput {
     nullable: true,
   })
   featurePermission?: FeaturePermissionWhereUniqueInput | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => FormLinkCreateNestedManyWithoutPracticesInput,
+  })
+  @ValidateNested()
+  @Type(() => FormLinkCreateNestedManyWithoutPracticesInput)
+  @IsOptional()
+  @Field(() => FormLinkCreateNestedManyWithoutPracticesInput, {
+    nullable: true,
+  })
+  formLinks?: FormLinkCreateNestedManyWithoutPracticesInput;
 
   @ApiProperty({
     required: false,

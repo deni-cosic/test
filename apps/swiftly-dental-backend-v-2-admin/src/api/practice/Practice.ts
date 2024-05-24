@@ -1,4 +1,5 @@
 import { FeaturePermission } from "../featurePermission/FeaturePermission";
+import { FormLink } from "../formLink/FormLink";
 import { FormSubmission } from "../formSubmission/FormSubmission";
 import { LeadFormLink } from "../leadFormLink/LeadFormLink";
 import { Lead } from "../lead/Lead";
@@ -13,6 +14,7 @@ export type Practice = {
   addressLine3: string | null;
   createdAt: Date;
   featurePermission?: FeaturePermission | null;
+  formLinks?: Array<FormLink>;
   formSubmissions?: Array<FormSubmission>;
   googlePlaceId: string | null;
   id: string;

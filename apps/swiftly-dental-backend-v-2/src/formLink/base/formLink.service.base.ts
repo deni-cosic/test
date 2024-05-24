@@ -10,7 +10,11 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
-import { Prisma, FormLink as PrismaFormLink } from "@prisma/client";
+import {
+  Prisma,
+  FormLink as PrismaFormLink,
+  Practice as PrismaPractice,
+} from "@prisma/client";
 
 export class FormLinkServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
@@ -43,5 +47,13 @@ export class FormLinkServiceBase {
     args: Prisma.SelectSubset<T, Prisma.FormLinkDeleteArgs>
   ): Promise<PrismaFormLink> {
     return this.prisma.formLink.delete(args);
+  }
+
+  async getPractice(parentId: string): Promise<PrismaPractice | null> {
+    return this.prisma.formLink
+      .findUnique({
+        where: { id: parentId },
+      })
+      .practice();
   }
 }

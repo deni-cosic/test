@@ -14,6 +14,7 @@ import { PrismaService } from "../../prisma/prisma.service";
 import {
   Prisma,
   Practice as PrismaPractice,
+  FormLink as PrismaFormLink,
   FormSubmission as PrismaFormSubmission,
   LeadFormLink as PrismaLeadFormLink,
   Lead as PrismaLead,
@@ -55,6 +56,17 @@ export class PracticeServiceBase {
     args: Prisma.SelectSubset<T, Prisma.PracticeDeleteArgs>
   ): Promise<PrismaPractice> {
     return this.prisma.practice.delete(args);
+  }
+
+  async findFormLinks(
+    parentId: string,
+    args: Prisma.FormLinkFindManyArgs
+  ): Promise<PrismaFormLink[]> {
+    return this.prisma.practice
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .formLinks(args);
   }
 
   async findFormSubmissions(

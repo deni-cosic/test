@@ -16,6 +16,7 @@ import { Type } from "class-transformer";
 import { IsOptional, ValidateNested, IsEnum } from "class-validator";
 import { DateTimeFilter } from "../../util/DateTimeFilter";
 import { FeaturePermissionWhereUniqueInput } from "../../featurePermission/base/FeaturePermissionWhereUniqueInput";
+import { FormLinkListRelationFilter } from "../../formLink/base/FormLinkListRelationFilter";
 import { FormSubmissionListRelationFilter } from "../../formSubmission/base/FormSubmissionListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
 import { LeadFormLinkListRelationFilter } from "../../leadFormLink/base/LeadFormLinkListRelationFilter";
@@ -85,6 +86,18 @@ class PracticeWhereInput {
     nullable: true,
   })
   featurePermission?: FeaturePermissionWhereUniqueInput;
+
+  @ApiProperty({
+    required: false,
+    type: () => FormLinkListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => FormLinkListRelationFilter)
+  @IsOptional()
+  @Field(() => FormLinkListRelationFilter, {
+    nullable: true,
+  })
+  formLinks?: FormLinkListRelationFilter;
 
   @ApiProperty({
     required: false,

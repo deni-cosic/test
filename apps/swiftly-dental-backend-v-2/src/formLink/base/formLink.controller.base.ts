@@ -52,13 +52,28 @@ export class FormLinkControllerBase {
     @common.Body() data: FormLinkCreateInput
   ): Promise<FormLink> {
     return await this.service.createFormLink({
-      data: data,
+      data: {
+        ...data,
+
+        practice: data.practice
+          ? {
+              connect: data.practice,
+            }
+          : undefined,
+      },
       select: {
         createdAt: true,
         displayName: true,
         enabled: true,
         id: true,
         message: true,
+
+        practice: {
+          select: {
+            id: true,
+          },
+        },
+
         sector: true,
         updatedAt: true,
         url: true,
@@ -88,6 +103,13 @@ export class FormLinkControllerBase {
         enabled: true,
         id: true,
         message: true,
+
+        practice: {
+          select: {
+            id: true,
+          },
+        },
+
         sector: true,
         updatedAt: true,
         url: true,
@@ -118,6 +140,13 @@ export class FormLinkControllerBase {
         enabled: true,
         id: true,
         message: true,
+
+        practice: {
+          select: {
+            id: true,
+          },
+        },
+
         sector: true,
         updatedAt: true,
         url: true,
@@ -153,13 +182,28 @@ export class FormLinkControllerBase {
     try {
       return await this.service.updateFormLink({
         where: params,
-        data: data,
+        data: {
+          ...data,
+
+          practice: data.practice
+            ? {
+                connect: data.practice,
+              }
+            : undefined,
+        },
         select: {
           createdAt: true,
           displayName: true,
           enabled: true,
           id: true,
           message: true,
+
+          practice: {
+            select: {
+              id: true,
+            },
+          },
+
           sector: true,
           updatedAt: true,
           url: true,
@@ -198,6 +242,13 @@ export class FormLinkControllerBase {
           enabled: true,
           id: true,
           message: true,
+
+          practice: {
+            select: {
+              id: true,
+            },
+          },
+
           sector: true,
           updatedAt: true,
           url: true,

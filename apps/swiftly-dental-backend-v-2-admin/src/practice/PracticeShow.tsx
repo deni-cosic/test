@@ -12,8 +12,8 @@ import {
   BooleanField,
 } from "react-admin";
 
-import { PATIENT_TITLE_FIELD } from "../patient/PatientTitle";
 import { PRACTICE_TITLE_FIELD } from "./PracticeTitle";
+import { PATIENT_TITLE_FIELD } from "../patient/PatientTitle";
 import { FEATUREPERMISSION_TITLE_FIELD } from "../featurePermission/FeaturePermissionTitle";
 
 export const PracticeShow = (props: ShowProps): React.ReactElement => {
@@ -49,6 +49,29 @@ export const PracticeShow = (props: ShowProps): React.ReactElement => {
         />
         <DateField source="updatedAt" label="Updated At" />
         <TextField label="Website" source="website" />
+        <ReferenceManyField
+          reference="FormLink"
+          target="practiceId"
+          label="FormLinks"
+        >
+          <Datagrid rowClick="show">
+            <DateField source="createdAt" label="Created At" />
+            <TextField label="Display Name" source="displayName" />
+            <BooleanField label="Enabled" source="enabled" />
+            <TextField label="ID" source="id" />
+            <TextField label="Message" source="message" />
+            <ReferenceField
+              label="Practice"
+              source="practice.id"
+              reference="Practice"
+            >
+              <TextField source={PRACTICE_TITLE_FIELD} />
+            </ReferenceField>
+            <TextField label="Sector" source="sector" />
+            <DateField source="updatedAt" label="Updated At" />
+            <TextField label="Url" source="url" />
+          </Datagrid>
+        </ReferenceManyField>
         <ReferenceManyField
           reference="FormSubmission"
           target="practiceId"

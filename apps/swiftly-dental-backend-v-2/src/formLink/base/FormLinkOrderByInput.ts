@@ -83,6 +83,17 @@ class FormLinkOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  practiceId?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   sector?: SortOrder;
 
   @ApiProperty({

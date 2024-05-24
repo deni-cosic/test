@@ -21,6 +21,7 @@ import {
 } from "class-validator";
 import { Type } from "class-transformer";
 import { FeaturePermission } from "../../featurePermission/base/FeaturePermission";
+import { FormLink } from "../../formLink/base/FormLink";
 import { FormSubmission } from "../../formSubmission/base/FormSubmission";
 import { LeadFormLink } from "../../leadFormLink/base/LeadFormLink";
 import { Lead } from "../../lead/base/Lead";
@@ -81,6 +82,15 @@ class Practice {
   @Type(() => FeaturePermission)
   @IsOptional()
   featurePermission?: FeaturePermission | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => [FormLink],
+  })
+  @ValidateNested()
+  @Type(() => FormLink)
+  @IsOptional()
+  formLinks?: Array<FormLink>;
 
   @ApiProperty({
     required: false,

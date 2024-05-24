@@ -6,6 +6,7 @@ export type FormLinkOrderByInput = {
   enabled?: SortOrder;
   id?: SortOrder;
   message?: SortOrder;
+  practiceId?: SortOrder;
   sector?: SortOrder;
   updatedAt?: SortOrder;
   url?: SortOrder;

@@ -1,4 +1,5 @@
 import { FeaturePermissionWhereUniqueInput } from "../featurePermission/FeaturePermissionWhereUniqueInput";
+import { FormLinkUpdateManyWithoutPracticesInput } from "./FormLinkUpdateManyWithoutPracticesInput";
 import { FormSubmissionUpdateManyWithoutPracticesInput } from "./FormSubmissionUpdateManyWithoutPracticesInput";
 import { LeadFormLinkUpdateManyWithoutPracticesInput } from "./LeadFormLinkUpdateManyWithoutPracticesInput";
 import { LeadUpdateManyWithoutPracticesInput } from "./LeadUpdateManyWithoutPracticesInput";
@@ -12,6 +13,7 @@ export type PracticeUpdateInput = {
   addressLine2?: string | null;
   addressLine3?: string | null;
   featurePermission?: FeaturePermissionWhereUniqueInput | null;
+  formLinks?: FormLinkUpdateManyWithoutPracticesInput;
   formSubmissions?: FormSubmissionUpdateManyWithoutPracticesInput;
   googlePlaceId?: string | null;
   leadFormLinks?: LeadFormLinkUpdateManyWithoutPracticesInput;
