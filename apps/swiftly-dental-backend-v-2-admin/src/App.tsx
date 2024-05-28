@@ -33,10 +33,6 @@ import { LeadList } from "./lead/LeadList";
 import { LeadCreate } from "./lead/LeadCreate";
 import { LeadEdit } from "./lead/LeadEdit";
 import { LeadShow } from "./lead/LeadShow";
-import { LinkList } from "./link/LinkList";
-import { LinkCreate } from "./link/LinkCreate";
-import { LinkEdit } from "./link/LinkEdit";
-import { LinkShow } from "./link/LinkShow";
 import { PatientList } from "./patient/PatientList";
 import { PatientCreate } from "./patient/PatientCreate";
 import { PatientEdit } from "./patient/PatientEdit";
@@ -49,10 +45,6 @@ import { PracticeList } from "./practice/PracticeList";
 import { PracticeCreate } from "./practice/PracticeCreate";
 import { PracticeEdit } from "./practice/PracticeEdit";
 import { PracticeShow } from "./practice/PracticeShow";
-import { TemplateList } from "./template/TemplateList";
-import { TemplateCreate } from "./template/TemplateCreate";
-import { TemplateEdit } from "./template/TemplateEdit";
-import { TemplateShow } from "./template/TemplateShow";
 import { WorkflowStepList } from "./workflowStep/WorkflowStepList";
 import { WorkflowStepCreate } from "./workflowStep/WorkflowStepCreate";
 import { WorkflowStepEdit } from "./workflowStep/WorkflowStepEdit";
@@ -145,13 +137,6 @@ const App = (): React.ReactElement => {
           show={LeadShow}
         />
         <Resource
-          name="Link"
-          list={LinkList}
-          edit={LinkEdit}
-          create={LinkCreate}
-          show={LinkShow}
-        />
-        <Resource
           name="Patient"
           list={PatientList}
           edit={PatientEdit}
@@ -171,13 +156,6 @@ const App = (): React.ReactElement => {
           edit={PracticeEdit}
           create={PracticeCreate}
           show={PracticeShow}
-        />
-        <Resource
-          name="Template"
-          list={TemplateList}
-          edit={TemplateEdit}
-          create={TemplateCreate}
-          show={TemplateShow}
         />
         <Resource
           name="WorkflowStep"
