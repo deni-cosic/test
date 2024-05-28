@@ -6,13 +6,16 @@ import { UserControllerBase } from "./base/user.controller.base";
 import { AclFilterResponseInterceptor } from "src/interceptors/aclFilterResponse.interceptor";
 import { User } from "./base/User";
 import * as errors from "../errors";
-import { UserWhereUniqueInput } from "./base/UserWhereUniqueInput";
-import { UserInfo } from "src/auth/UserInfo";
 import { JwtAuthGuard } from "src/auth/jwt/jwtAuth.guard";
 import { UserData } from "src/auth/userData.decorator";
 import { AclValidateRequestInterceptor } from "src/interceptors/aclValidateRequest.interceptor";
 import { UserCreateInput } from "./base/UserCreateInput";
 import { AuthService } from "src/auth/auth.service";
+import { plainToClass } from "class-transformer";
+import { ApiNestedQuery } from "src/decorators/api-nested-query.decorator";
+import { UserFindManyArgs } from "./base/UserFindManyArgs";
+import { Request } from "express";
+import { UserWhereUniqueInput } from "./base/UserWhereUniqueInput";
 
 @swagger.ApiTags("users")
 @common.Controller("users")
@@ -39,7 +42,7 @@ export class UserController extends UserControllerBase {
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
-  async user(@UserData() user: any): Promise<any | null> {
+  async userMe(@UserData() user: any): Promise<any | null> {
     const result = await this.service.user({
       where: { id: user.id },
       select: {
@@ -50,6 +53,7 @@ export class UserController extends UserControllerBase {
         roles: true,
         updatedAt: true,
         username: true,
+        practices: true,
       },
     });
     if (result === null) {
@@ -59,6 +63,57 @@ export class UserController extends UserControllerBase {
     }
 
     (result as any).role = (result.roles as any)[0];
+    return result;
+  }
+
+  @common.Get("count")
+  @swagger.ApiOkResponse({ type: [User] })
+  @ApiNestedQuery(UserFindManyArgs)
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async usersCount(@common.Req() request: Request): Promise<number> {
+    const args = plainToClass(UserFindManyArgs, request.query);
+    return this.service.count({
+      ...args,
+    });
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id")
+  @swagger.ApiOkResponse({ type: User })
+  @swagger.ApiNotFoundResponse({ type: errors.NotFoundException })
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "read",
+    possession: "own",
+  })
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async user(
+    @common.Param() params: UserWhereUniqueInput
+  ): Promise<User | null> {
+    const result = await this.service.user({
+      where: params,
+      select: {
+        blocked: true,
+        confirmed: true,
+        createdAt: true,
+        email: true,
+        id: true,
+        name: true,
+        provider: true,
+        roles: true,
+        updatedAt: true,
+        username: true,
+      },
+    });
+    if (result === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
     return result;
   }
 
