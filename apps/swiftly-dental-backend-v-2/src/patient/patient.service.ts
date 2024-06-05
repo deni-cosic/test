@@ -66,7 +66,7 @@ export class PatientService extends PatientServiceBase {
 
     const tempJwt = this.jwtService.sign(
       {
-        id: "5ecd18b94612c7432020e1eb",
+        id: "ca6dd2be-253f-4f8b-94b9-8d619cb3caf9",
       },
       { expiresIn: "10m" }
     );
