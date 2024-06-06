@@ -64,13 +64,15 @@ export class PatientService extends PatientServiceBase {
       practices.push(patient.practice);
     });
 
-    const tempJwt = this.jwtService.sign(
+    const tempJwt = await this.jwtService.signAsync(
       {
-        id: "ca6dd2be-253f-4f8b-94b9-8d619cb3caf9",
         sub: "ca6dd2be-253f-4f8b-94b9-8d619cb3caf9",
+        email: "admin@swiftly.agency",
       },
       { expiresIn: "10m" }
     );
+
+    console.log("\x1B[31m%s\x1B[0m", "patient.service - 75 - tempJwt", tempJwt);
 
     if (isDebug) {
       console.log(
