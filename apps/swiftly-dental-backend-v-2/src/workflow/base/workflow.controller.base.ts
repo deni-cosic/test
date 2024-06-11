@@ -106,6 +106,7 @@ export class WorkflowControllerBase {
             id: true,
           },
         },
+        steps: true,
 
         updatedAt: true,
       },
