@@ -40,7 +40,6 @@ export class UserController extends UserControllerBase {
     type: errors.ForbiddenException,
   })
   async user(@UserData() user: any): Promise<any | null> {
-    console.log("\x1B[31m%s\x1B[0m", "user.controller - 43 - user", user);
     const result = await this.service.user({
       where: { id: user.id },
       select: {
