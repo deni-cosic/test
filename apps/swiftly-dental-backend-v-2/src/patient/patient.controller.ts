@@ -72,11 +72,6 @@ export class PatientController extends PatientControllerBase {
     type: errors.ForbiddenException,
   })
   async me(@common.Headers() headers: any) {
-    console.log(
-      "\x1B[31m%s\x1B[0m",
-      "patient.controller - 75 - headers",
-      headers
-    );
     return this.service.me(headers);
   }
 }
