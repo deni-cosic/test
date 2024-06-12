@@ -106,7 +106,11 @@ export class WorkflowControllerBase {
             id: true,
           },
         },
-        steps: true,
+        steps: {
+          orderBy: {
+            executionDate: "asc",
+          },
+        },
 
         updatedAt: true,
       },
@@ -139,6 +143,11 @@ export class WorkflowControllerBase {
         patient: {
           select: {
             id: true,
+          },
+        },
+        steps: {
+          orderBy: {
+            executionDate: "asc",
           },
         },
 
