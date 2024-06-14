@@ -7,6 +7,7 @@ import { FormLink } from "./base/FormLink";
 import { Request } from "express";
 import { AclFilterResponseInterceptor } from "src/interceptors/aclFilterResponse.interceptor";
 import { FormLinkFindManyArgs } from "./models/FormLinkFindManyArgs";
+import { FormLinkFindManyArgs as BaseFormLinkFindManyArgs } from "./base/FormLinkFindManyArgs";
 import * as errors from "../errors";
 import { ApiNestedQuery } from "../decorators/api-nested-query.decorator";
 import { plainToClass } from "class-transformer";
@@ -24,19 +25,13 @@ export class FormLinkController extends FormLinkControllerBase {
     super(service, rolesBuilder);
   }
 
-  @common.UseInterceptors(AclFilterResponseInterceptor)
-  @common.Get()
+  @common.Get("/find-for-patient")
   @swagger.ApiOkResponse({ type: [FormLink] })
   @ApiNestedQuery(FormLinkFindManyArgs)
-  @nestAccessControl.UseRoles({
-    resource: "FormLink",
-    action: "read",
-    possession: "any",
-  })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
-  async formLinks(
+  async formLinksForPatient(
     @common.Req() request: Request
   ): Promise<(FormLink & { isPending?: boolean })[]> {
     const { patientId, practiceId, ...otherQueryParams } = plainToClass(
@@ -73,5 +68,17 @@ export class FormLinkController extends FormLinkControllerBase {
     }
 
     return formLinks;
+  }
+
+  @common.Get("/count")
+  @swagger.ApiOkResponse({ type: [FormLink] })
+  @ApiNestedQuery(BaseFormLinkFindManyArgs)
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async formLinksCount(@common.Req() request: Request): Promise<number> {
+    const args = plainToClass(BaseFormLinkFindManyArgs, request.query);
+
+    return this.service.count(args);
   }
 }
