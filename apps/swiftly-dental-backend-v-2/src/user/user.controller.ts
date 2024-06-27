@@ -26,7 +26,7 @@ export class UserController extends UserControllerBase {
     protected readonly rolesBuilder: nestAccessControl.RolesBuilder,
     protected readonly authService: AuthService
   ) {
-    super(service, rolesBuilder);
+    super(service, rolesBuilder, authService);
   }
 
   @common.UseGuards(JwtAuthGuard, nestAccessControl.ACGuard)

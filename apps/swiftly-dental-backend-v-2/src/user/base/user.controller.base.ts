@@ -29,14 +29,17 @@ import { UserUpdateInput } from "./UserUpdateInput";
 import { PracticeFindManyArgs } from "../../practice/base/PracticeFindManyArgs";
 import { Practice } from "../../practice/base/Practice";
 import { PracticeWhereUniqueInput } from "../../practice/base/PracticeWhereUniqueInput";
+import { AuthService } from "src/auth/auth.service";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
 export class UserControllerBase {
   constructor(
     protected readonly service: UserService,
-    protected readonly rolesBuilder: nestAccessControl.RolesBuilder
+    protected readonly rolesBuilder: nestAccessControl.RolesBuilder,
+    protected readonly authService: AuthService
   ) {}
+
   @common.UseInterceptors(AclValidateRequestInterceptor)
   @common.Post()
   @swagger.ApiCreatedResponse({ type: User })
@@ -52,7 +55,7 @@ export class UserControllerBase {
     type: UserCreateInput,
   })
   async createUser(@common.Body() data: UserCreateInput): Promise<User> {
-    return await this.service.createUser({
+    const user = await this.service.createUser({
       data: data,
       select: {
         blocked: true,
@@ -67,6 +70,9 @@ export class UserControllerBase {
         username: true,
       },
     });
+
+    this.authService.forgotPassword(user.email!);
+    return user;
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
