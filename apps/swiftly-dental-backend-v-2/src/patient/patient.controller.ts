@@ -12,6 +12,7 @@ import { PatientLoginRequestArgs } from "./models/PatientLoginRequestArgs";
 import { Practice } from "src/practice/base/Practice";
 import { Public } from "src/decorators/public.decorator";
 import { PatientLoginAuthArgs } from "./models/PatientLoginAuthArgs";
+import { PatientSearchArgs } from "./models/PatientSearchArgs";
 
 @swagger.ApiTags("patients")
 @common.Controller("patients")
@@ -73,5 +74,73 @@ export class PatientController extends PatientControllerBase {
   })
   async me(@common.Headers() headers: any) {
     return this.service.me(headers);
+  }
+
+  @common.Get("search")
+  @swagger.ApiOkResponse({ type: [Number] })
+  @ApiNestedQuery(PatientSearchArgs)
+  @swagger.ApiForbiddenResponse({
+    type: errors.ForbiddenException,
+  })
+  async search(@common.Req() request: Request) {
+    const args = plainToClass(PatientSearchArgs, request.query);
+
+    const splitQuery = args.searchTerm.split(" ");
+
+    const query = {
+      where: {
+        practiceId: args.practiceId,
+      },
+    } as any;
+    if (splitQuery.length > 1) {
+      query.where!.AND = [];
+      for (const word of splitQuery) {
+        query.where!.AND.push({
+          OR: [
+            {
+              firstName: {
+                contains: word,
+                mode: "insensitive",
+              },
+            },
+            {
+              lastName: {
+                contains: word,
+                mode: "insensitive",
+              },
+            },
+            {
+              mobileNumber: {
+                contains: word,
+                mode: "insensitive",
+              },
+            },
+          ],
+        });
+      }
+    } else {
+      query.where!.OR = [
+        {
+          firstName: {
+            contains: args.searchTerm,
+            mode: "insensitive",
+          },
+        },
+        {
+          lastName: {
+            contains: args.searchTerm,
+            mode: "insensitive",
+          },
+        },
+        {
+          mobileNumber: {
+            contains: args.searchTerm,
+            mode: "insensitive",
+          },
+        },
+      ];
+    }
+
+    return this.service.patients(query);
   }
 }
