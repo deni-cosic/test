@@ -85,12 +85,17 @@ export class PatientController extends PatientControllerBase {
   async search(@common.Req() request: Request) {
     const args = plainToClass(PatientSearchArgs, request.query);
 
+    if (!args.searchTerm) {
+      args.searchTerm = "";
+    }
+
     const splitQuery = args.searchTerm.split(" ");
 
     const query = {
       where: {
         practiceId: args.practiceId,
       },
+      take: 10,
     } as any;
     if (splitQuery.length > 1) {
       query.where!.AND = [];

@@ -9,8 +9,9 @@ class PatientSearchArgs {
     type: String,
   })
   @IsString()
+  @IsOptional()
   @Field(() => String)
-  searchTerm!: string;
+  searchTerm?: string;
 
   @ApiProperty({
     required: true,
