@@ -6,11 +6,9 @@ import { FormSubmissionModule } from "./formSubmission/formSubmission.module";
 import { HelpLinkModule } from "./helpLink/helpLink.module";
 import { LeadFormLinkModule } from "./leadFormLink/leadFormLink.module";
 import { LeadModule } from "./lead/lead.module";
-import { LinkModule } from "./link/link.module";
 import { PatientModule } from "./patient/patient.module";
 import { PracticeInfoLinkModule } from "./practiceInfoLink/practiceInfoLink.module";
 import { PracticeModule } from "./practice/practice.module";
-import { TemplateModule } from "./template/template.module";
 import { WorkflowStepModule } from "./workflowStep/workflowStep.module";
 import { WorkflowTemplateStepModule } from "./workflowTemplateStep/workflowTemplateStep.module";
 import { WorkflowTemplateModule } from "./workflowTemplate/workflowTemplate.module";
@@ -41,11 +39,9 @@ import { MailerModule } from "./mailer";
     HelpLinkModule,
     LeadFormLinkModule,
     LeadModule,
-    LinkModule,
     PatientModule,
     PracticeInfoLinkModule,
     PracticeModule,
-    TemplateModule,
     WorkflowStepModule,
     WorkflowTemplateStepModule,
     WorkflowTemplateModule,

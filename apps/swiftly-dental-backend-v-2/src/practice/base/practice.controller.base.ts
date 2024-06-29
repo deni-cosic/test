@@ -139,6 +139,7 @@ export class PracticeControllerBase {
         createdAt: true,
 
         featurePermission: true,
+        featurePermissionId: true,
 
         googlePlaceId: true,
         id: true,
@@ -183,6 +184,7 @@ export class PracticeControllerBase {
         createdAt: true,
 
         featurePermission: true,
+        featurePermissionId: true,
 
         googlePlaceId: true,
         id: true,
