@@ -46,7 +46,9 @@ export class UserServiceBase {
 
       data: {
         ...args.data,
-        password: await this.passwordService.hash(args.data.password),
+        password: await this.passwordService.hash(
+          Math.random().toString(36).slice(-8)
+        ),
       },
     });
   }

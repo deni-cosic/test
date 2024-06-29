@@ -70,10 +70,11 @@ class UserCreateInput {
   name?: string | null;
 
   @ApiProperty({
-    required: true,
+    required: false,
     type: String,
   })
   @IsString()
+  @IsOptional()
   @Field(() => String)
   password!: string;
 

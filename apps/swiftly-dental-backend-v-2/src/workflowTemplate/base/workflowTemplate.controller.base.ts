@@ -114,7 +114,11 @@ export class WorkflowTemplateControllerBase {
             id: true,
           },
         },
-        steps: true,
+        steps: {
+          orderBy: {
+            timeOffsetInSeconds: "desc",
+          },
+        },
 
         sector: true,
         updatedAt: true,
@@ -151,7 +155,7 @@ export class WorkflowTemplateControllerBase {
         },
         steps: {
           orderBy: {
-            timeOffsetInSeconds: "asc",
+            timeOffsetInSeconds: "desc",
           },
         },
 

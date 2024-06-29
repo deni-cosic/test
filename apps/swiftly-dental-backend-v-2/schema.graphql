@@ -54,35 +54,7 @@ enum EnumLeadFormLinkSector {
   Gp
 }
 
-enum EnumLinkCategory {
-  CommonHealthQuestions
-  Conditions
-  LiveWell
-  Medicines
-  Start_4Life
-  Tools
-  Video
-}
-
-enum EnumLinkSector {
-  Dental
-  Gp
-}
-
 enum EnumPracticeSector {
-  Dental
-  Gp
-}
-
-enum EnumTemplateCategory {
-  Appointment
-  Prescriptions
-  Review
-  Sample
-  TestResults
-}
-
-enum EnumTemplateSector {
   Dental
   Gp
 }
@@ -93,39 +65,39 @@ enum EnumWorkflowTemplateSector {
 }
 
 type FeaturePermission {
-  analytics: Boolean!
+  analytics: Boolean
   createdAt: DateTime!
-  dentalAdviceLink: Boolean!
-  dentalSubscriptions: Boolean!
-  form: Boolean!
+  dentalAdviceLink: Boolean
+  dentalSubscriptions: Boolean
+  form: Boolean
   id: String!
   leads: Boolean
-  messageTemplate: Boolean!
-  practiceInfoLink: Boolean!
+  messageTemplate: Boolean
+  practiceInfoLink: Boolean
   practices(orderBy: [PracticeOrderByInput!], skip: Float, take: Float, where: PracticeWhereInput): [Practice!]!
-  requestFeedback: Boolean!
-  requestPayment: Boolean!
-  sendDocument: Boolean!
+  requestFeedback: Boolean
+  requestPayment: Boolean
+  sendDocument: Boolean
   sendMessageToMany: Boolean
   updatedAt: DateTime!
-  videoCall: Boolean!
+  videoCall: Boolean
   workflows: Boolean
 }
 
 input FeaturePermissionCreateInput {
-  analytics: Boolean!
-  dentalAdviceLink: Boolean!
-  dentalSubscriptions: Boolean!
-  form: Boolean!
+  analytics: Boolean
+  dentalAdviceLink: Boolean
+  dentalSubscriptions: Boolean
+  form: Boolean
   leads: Boolean
-  messageTemplate: Boolean!
-  practiceInfoLink: Boolean!
+  messageTemplate: Boolean
+  practiceInfoLink: Boolean
   practices: PracticeCreateNestedManyWithoutFeaturePermissionsInput
-  requestFeedback: Boolean!
-  requestPayment: Boolean!
-  sendDocument: Boolean!
+  requestFeedback: Boolean
+  requestPayment: Boolean
+  sendDocument: Boolean
   sendMessageToMany: Boolean
-  videoCall: Boolean!
+  videoCall: Boolean
   workflows: Boolean
 }
 
@@ -166,22 +138,22 @@ input FeaturePermissionUpdateInput {
 }
 
 input FeaturePermissionWhereInput {
-  analytics: BooleanFilter
+  analytics: BooleanNullableFilter
   createdAt: DateTimeFilter
-  dentalAdviceLink: BooleanFilter
-  dentalSubscriptions: BooleanFilter
-  form: BooleanFilter
+  dentalAdviceLink: BooleanNullableFilter
+  dentalSubscriptions: BooleanNullableFilter
+  form: BooleanNullableFilter
   id: StringFilter
   leads: BooleanNullableFilter
-  messageTemplate: BooleanFilter
-  practiceInfoLink: BooleanFilter
+  messageTemplate: BooleanNullableFilter
+  practiceInfoLink: BooleanNullableFilter
   practices: PracticeListRelationFilter
-  requestFeedback: BooleanFilter
-  requestPayment: BooleanFilter
-  sendDocument: BooleanFilter
+  requestFeedback: BooleanNullableFilter
+  requestPayment: BooleanNullableFilter
+  sendDocument: BooleanNullableFilter
   sendMessageToMany: BooleanNullableFilter
   updatedAt: DateTimeFilter
-  videoCall: BooleanFilter
+  videoCall: BooleanNullableFilter
   workflows: BooleanNullableFilter
 }
 
@@ -195,6 +167,7 @@ type FormLink {
   enabled: Boolean!
   id: String!
   message: String!
+  practice: Practice
   sector: EnumFormLinkSector
   updatedAt: DateTime!
   url: String!
@@ -204,8 +177,19 @@ input FormLinkCreateInput {
   displayName: String!
   enabled: Boolean!
   message: String!
+  practice: PracticeWhereUniqueInput
   sector: EnumFormLinkSector!
   url: String!
+}
+
+input FormLinkCreateNestedManyWithoutPracticesInput {
+  connect: [FormLinkWhereUniqueInput!]
+}
+
+input FormLinkListRelationFilter {
+  every: FormLinkWhereInput
+  none: FormLinkWhereInput
+  some: FormLinkWhereInput
 }
 
 input FormLinkOrderByInput {
@@ -214,6 +198,7 @@ input FormLinkOrderByInput {
   enabled: SortOrder
   id: SortOrder
   message: SortOrder
+  practiceId: SortOrder
   sector: SortOrder
   updatedAt: SortOrder
   url: SortOrder
@@ -223,8 +208,15 @@ input FormLinkUpdateInput {
   displayName: String
   enabled: Boolean
   message: String
+  practice: PracticeWhereUniqueInput
   sector: EnumFormLinkSector
   url: String
+}
+
+input FormLinkUpdateManyWithoutPracticesInput {
+  connect: [FormLinkWhereUniqueInput!]
+  disconnect: [FormLinkWhereUniqueInput!]
+  set: [FormLinkWhereUniqueInput!]
 }
 
 input FormLinkWhereInput {
@@ -233,6 +225,7 @@ input FormLinkWhereInput {
   enabled: BooleanFilter
   id: StringFilter
   message: StringFilter
+  practice: PracticeWhereUniqueInput
   sector: EnumFormLinkSector
   updatedAt: DateTimeFilter
   url: StringFilter
@@ -597,59 +590,6 @@ input LeadWhereUniqueInput {
   id: String!
 }
 
-type Link {
-  category: EnumLinkCategory
-  createdAt: DateTime!
-  displayName: String!
-  enabled: Boolean!
-  id: String!
-  sector: EnumLinkSector
-  updatedAt: DateTime!
-  url: String!
-}
-
-input LinkCreateInput {
-  category: EnumLinkCategory
-  displayName: String!
-  enabled: Boolean!
-  sector: EnumLinkSector!
-  url: String!
-}
-
-input LinkOrderByInput {
-  category: SortOrder
-  createdAt: SortOrder
-  displayName: SortOrder
-  enabled: SortOrder
-  id: SortOrder
-  sector: SortOrder
-  updatedAt: SortOrder
-  url: SortOrder
-}
-
-input LinkUpdateInput {
-  category: EnumLinkCategory
-  displayName: String
-  enabled: Boolean
-  sector: EnumLinkSector
-  url: String
-}
-
-input LinkWhereInput {
-  category: EnumLinkCategory
-  createdAt: DateTimeFilter
-  displayName: StringFilter
-  enabled: BooleanFilter
-  id: StringFilter
-  sector: EnumLinkSector
-  updatedAt: DateTimeFilter
-  url: StringFilter
-}
-
-input LinkWhereUniqueInput {
-  id: String!
-}
-
 type MetaQueryPayload {
   count: Float!
 }
@@ -661,11 +601,9 @@ type Mutation {
   createHelpLink(data: HelpLinkCreateInput!): HelpLink!
   createLead(data: LeadCreateInput!): Lead!
   createLeadFormLink(data: LeadFormLinkCreateInput!): LeadFormLink!
-  createLink(data: LinkCreateInput!): Link!
   createPatient(data: PatientCreateInput!): Patient!
   createPractice(data: PracticeCreateInput!): Practice!
   createPracticeInfoLink(data: PracticeInfoLinkCreateInput!): PracticeInfoLink!
-  createTemplate(data: TemplateCreateInput!): Template!
   createUser(data: UserCreateInput!): User!
   createWorkflow(data: WorkflowCreateInput!): Workflow!
   createWorkflowStep(data: WorkflowStepCreateInput!): WorkflowStep!
@@ -677,11 +615,9 @@ type Mutation {
   deleteHelpLink(where: HelpLinkWhereUniqueInput!): HelpLink!
   deleteLead(where: LeadWhereUniqueInput!): Lead!
   deleteLeadFormLink(where: LeadFormLinkWhereUniqueInput!): LeadFormLink!
-  deleteLink(where: LinkWhereUniqueInput!): Link!
   deletePatient(where: PatientWhereUniqueInput!): Patient!
   deletePractice(where: PracticeWhereUniqueInput!): Practice!
   deletePracticeInfoLink(where: PracticeInfoLinkWhereUniqueInput!): PracticeInfoLink!
-  deleteTemplate(where: TemplateWhereUniqueInput!): Template!
   deleteUser(where: UserWhereUniqueInput!): User!
   deleteWorkflow(where: WorkflowWhereUniqueInput!): Workflow!
   deleteWorkflowStep(where: WorkflowStepWhereUniqueInput!): WorkflowStep!
@@ -694,11 +630,9 @@ type Mutation {
   updateHelpLink(data: HelpLinkUpdateInput!, where: HelpLinkWhereUniqueInput!): HelpLink!
   updateLead(data: LeadUpdateInput!, where: LeadWhereUniqueInput!): Lead!
   updateLeadFormLink(data: LeadFormLinkUpdateInput!, where: LeadFormLinkWhereUniqueInput!): LeadFormLink!
-  updateLink(data: LinkUpdateInput!, where: LinkWhereUniqueInput!): Link!
   updatePatient(data: PatientUpdateInput!, where: PatientWhereUniqueInput!): Patient!
   updatePractice(data: PracticeUpdateInput!, where: PracticeWhereUniqueInput!): Practice!
   updatePracticeInfoLink(data: PracticeInfoLinkUpdateInput!, where: PracticeInfoLinkWhereUniqueInput!): PracticeInfoLink!
-  updateTemplate(data: TemplateUpdateInput!, where: TemplateWhereUniqueInput!): Template!
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User!
   updateWorkflow(data: WorkflowUpdateInput!, where: WorkflowWhereUniqueInput!): Workflow!
   updateWorkflowStep(data: WorkflowStepUpdateInput!, where: WorkflowStepWhereUniqueInput!): WorkflowStep!
@@ -799,6 +733,7 @@ type Practice {
   addressLine3: String
   createdAt: DateTime!
   featurePermission: FeaturePermission
+  formLinks(orderBy: [FormLinkOrderByInput!], skip: Float, take: Float, where: FormLinkWhereInput): [FormLink!]!
   formSubmissions(orderBy: [FormSubmissionOrderByInput!], skip: Float, take: Float, where: FormSubmissionWhereInput): [FormSubmission!]!
   googlePlaceId: String
   id: String!
@@ -828,6 +763,7 @@ input PracticeCreateInput {
   addressLine2: String
   addressLine3: String
   featurePermission: FeaturePermissionWhereUniqueInput
+  formLinks: FormLinkCreateNestedManyWithoutPracticesInput
   formSubmissions: FormSubmissionCreateNestedManyWithoutPracticesInput
   googlePlaceId: String
   leadFormLinks: LeadFormLinkCreateNestedManyWithoutPracticesInput
@@ -961,6 +897,7 @@ input PracticeUpdateInput {
   addressLine2: String
   addressLine3: String
   featurePermission: FeaturePermissionWhereUniqueInput
+  formLinks: FormLinkUpdateManyWithoutPracticesInput
   formSubmissions: FormSubmissionUpdateManyWithoutPracticesInput
   googlePlaceId: String
   leadFormLinks: LeadFormLinkUpdateManyWithoutPracticesInput
@@ -1001,6 +938,7 @@ input PracticeWhereInput {
   addressLine3: StringNullableFilter
   createdAt: DateTimeFilter
   featurePermission: FeaturePermissionWhereUniqueInput
+  formLinks: FormLinkListRelationFilter
   formSubmissions: FormSubmissionListRelationFilter
   googlePlaceId: StringNullableFilter
   id: StringFilter
@@ -1036,11 +974,9 @@ type Query {
   _helpLinksMeta(where: HelpLinkWhereInput): MetaQueryPayload!
   _leadFormLinksMeta(where: LeadFormLinkWhereInput): MetaQueryPayload!
   _leadsMeta(where: LeadWhereInput): MetaQueryPayload!
-  _linksMeta(where: LinkWhereInput): MetaQueryPayload!
   _patientsMeta(where: PatientWhereInput): MetaQueryPayload!
   _practiceInfoLinksMeta(where: PracticeInfoLinkWhereInput): MetaQueryPayload!
   _practicesMeta(where: PracticeWhereInput): MetaQueryPayload!
-  _templatesMeta(where: TemplateWhereInput): MetaQueryPayload!
   _usersMeta(where: UserWhereInput): MetaQueryPayload!
   _workflowStepsMeta(where: WorkflowStepWhereInput): MetaQueryPayload!
   _workflowTemplateStepsMeta(where: WorkflowTemplateStepWhereInput): MetaQueryPayload!
@@ -1058,16 +994,12 @@ type Query {
   leadFormLink(where: LeadFormLinkWhereUniqueInput!): LeadFormLink
   leadFormLinks(orderBy: [LeadFormLinkOrderByInput!], skip: Float, take: Float, where: LeadFormLinkWhereInput): [LeadFormLink!]!
   leads(orderBy: [LeadOrderByInput!], skip: Float, take: Float, where: LeadWhereInput): [Lead!]!
-  link(where: LinkWhereUniqueInput!): Link
-  links(orderBy: [LinkOrderByInput!], skip: Float, take: Float, where: LinkWhereInput): [Link!]!
   patient(where: PatientWhereUniqueInput!): Patient
   patients(orderBy: [PatientOrderByInput!], skip: Float, take: Float, where: PatientWhereInput): [Patient!]!
   practice(where: PracticeWhereUniqueInput!): Practice
   practiceInfoLink(where: PracticeInfoLinkWhereUniqueInput!): PracticeInfoLink
   practiceInfoLinks(orderBy: [PracticeInfoLinkOrderByInput!], skip: Float, take: Float, where: PracticeInfoLinkWhereInput): [PracticeInfoLink!]!
   practices(orderBy: [PracticeOrderByInput!], skip: Float, take: Float, where: PracticeWhereInput): [Practice!]!
-  template(where: TemplateWhereUniqueInput!): Template
-  templates(orderBy: [TemplateOrderByInput!], skip: Float, take: Float, where: TemplateWhereInput): [Template!]!
   user(where: UserWhereUniqueInput!): User
   userInfo: UserInfo!
   users(orderBy: [UserOrderByInput!], skip: Float, take: Float, where: UserWhereInput): [User!]!
@@ -1119,58 +1051,6 @@ input StringNullableFilter {
   not: String
   notIn: [String!]
   startsWith: String
-}
-
-type Template {
-  category: [EnumTemplateCategory!]
-  createdAt: DateTime!
-  displayName: String!
-  enabled: Boolean!
-  id: String!
-  sector: EnumTemplateSector
-  text: String!
-  updatedAt: DateTime!
-}
-
-input TemplateCreateInput {
-  category: [EnumTemplateCategory!]
-  displayName: String!
-  enabled: Boolean!
-  sector: EnumTemplateSector!
-  text: String!
-}
-
-input TemplateOrderByInput {
-  category: SortOrder
-  createdAt: SortOrder
-  displayName: SortOrder
-  enabled: SortOrder
-  id: SortOrder
-  sector: SortOrder
-  text: SortOrder
-  updatedAt: SortOrder
-}
-
-input TemplateUpdateInput {
-  category: [EnumTemplateCategory!]
-  displayName: String
-  enabled: Boolean
-  sector: EnumTemplateSector
-  text: String
-}
-
-input TemplateWhereInput {
-  createdAt: DateTimeFilter
-  displayName: StringFilter
-  enabled: BooleanFilter
-  id: StringFilter
-  sector: EnumTemplateSector
-  text: StringFilter
-  updatedAt: DateTimeFilter
-}
-
-input TemplateWhereUniqueInput {
-  id: String!
 }
 
 type User {

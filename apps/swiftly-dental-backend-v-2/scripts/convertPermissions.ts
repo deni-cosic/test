@@ -58,8 +58,6 @@ function logTypes(permissions: Permission[]) {
   permissions.forEach((permission) => {
     uniqueTypes.add(permission.type);
   });
-
-  console.log(uniqueTypes);
 }
 
 function logActions(permissions: Permission[]) {
@@ -68,8 +66,6 @@ function logActions(permissions: Permission[]) {
   permissions.forEach((permission) => {
     uniqueActions.add(permission.action);
   });
-
-  console.log(uniqueActions);
 }
 
 function filterPermissions(permissions: Permission[], types: string[]) {

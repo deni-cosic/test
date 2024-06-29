@@ -129,19 +129,6 @@ model Lead {
   @@map("leads")
 }
 
-model Link {
-  category    EnumLinkCategory?
-  createdAt   DateTime          @default(now())
-  displayName String
-  enabled     Boolean
-  id          String            @id @default(uuid())
-  sector      EnumLinkSector
-  updatedAt   DateTime          @updatedAt
-  url         String
-
-  @@map("links")
-}
-
 model Patient {
   createdAt        DateTime         @default(now())
   dateOfBirth      DateTime
@@ -209,19 +196,6 @@ model Practice {
   @@map("practices")
 }
 
-model Template {
-  category    EnumTemplateCategory[]
-  createdAt   DateTime               @default(now())
-  displayName String
-  enabled     Boolean
-  id          String                 @id @default(uuid())
-  sector      EnumTemplateSector
-  text        String
-  updatedAt   DateTime               @updatedAt
-
-  @@map("templates")
-}
-
 model WorkflowStep {
   createdAt     DateTime  @default(now())
   executedOn    DateTime?
@@ -283,35 +257,7 @@ enum EnumLeadFormLinkSector {
   GP
 }
 
-enum EnumLinkCategory {
-  conditions
-  live_well
-  Tools
-  video
-  common_health_questions
-  start_4_life
-  Medicines
-}
-
-enum EnumLinkSector {
-  Dental
-  GP
-}
-
 enum EnumPracticeSector {
-  Dental
-  GP
-}
-
-enum EnumTemplateCategory {
-  appointment
-  prescriptions
-  review
-  sample
-  test_results
-}
-
-enum EnumTemplateSector {
   Dental
   GP
 }
