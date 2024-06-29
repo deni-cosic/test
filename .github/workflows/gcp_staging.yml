@@ -3,7 +3,6 @@ on:
     branches:
       - develop
       - main
-      - SW-37-migrate-frontend-to-v2
     paths:
       - apps/swiftly-dental-backend-v-2/**
       - .github/workflows/gcp_staging.yml
