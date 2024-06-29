@@ -20,28 +20,32 @@ async function main() {
 
   app.use(async (req: Request, res: Response, next: NextFunction) => {
     if (req.path === "/graphql" && req.method === "POST") {
-      const parser = bodyParser.json();
-      await new Promise((resolve) => parser(req, res, resolve));
+      try {
+        const parser = bodyParser.json();
+        await new Promise((resolve) => parser(req, res, resolve));
 
-      if (req.body.operationName === "login") {
-        return next();
-      }
+        if (req.body.operationName === "login") {
+          return next();
+        }
 
-      const token = req.headers["authorization"]?.split("Bearer ")[1];
-      const jwtService = app.get(JwtService);
+        const token = req.headers["authorization"]?.split("Bearer ")[1];
+        const jwtService = app.get(JwtService);
 
-      const data = jwtService.verify(token ?? "");
-      const userService = app.get(UserService);
-      const user = await userService.user({
-        where: { id: data.sub as string },
-        select: {
-          roles: true,
-        },
-      });
+        const data = jwtService.verify(token ?? "");
+        const userService = app.get(UserService);
+        const user = await userService.user({
+          where: { id: data.sub as string },
+          select: {
+            roles: true,
+          },
+        });
 
-      if ((user?.roles as string).includes("admin")) {
-        return next();
-      } else {
+        if ((user?.roles as string).includes("admin")) {
+          return next();
+        } else {
+          res.status(401).send({ message: "Unauthorized" });
+        }
+      } catch (error) {
         res.status(401).send({ message: "Unauthorized" });
       }
     } else {
