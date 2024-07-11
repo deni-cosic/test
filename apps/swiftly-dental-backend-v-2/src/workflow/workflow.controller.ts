@@ -71,7 +71,7 @@ export class WorkflowController extends WorkflowControllerBase {
   async sendMessages() {
     const tempJwt = this.jwtService.sign(
       {
-        id: "5ecd18b94612c7432020e1eb",
+        id: "f14fbd37-9639-4bdc-89c1-ccb41f432b7a",
       },
       { expiresIn: "10m" }
     );
