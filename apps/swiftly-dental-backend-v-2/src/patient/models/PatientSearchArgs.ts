@@ -1,6 +1,7 @@
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsOptional, IsString } from "class-validator";
+import { Type } from "class-transformer";
+import { IsInt, IsOptional, IsString } from "class-validator";
 
 @InputType()
 class PatientSearchArgs {
@@ -20,6 +21,26 @@ class PatientSearchArgs {
   @IsString()
   @Field(() => String)
   practiceId!: string;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsOptional()
+  @IsInt()
+  @Field(() => Number, { nullable: true })
+  @Type(() => Number)
+  skip?: number;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsOptional()
+  @IsInt()
+  @Field(() => Number, { nullable: true })
+  @Type(() => Number)
+  take?: number;
 }
 
 export { PatientSearchArgs as PatientSearchArgs };
