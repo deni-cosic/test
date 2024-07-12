@@ -95,7 +95,8 @@ export class PatientController extends PatientControllerBase {
       where: {
         practiceId: args.practiceId,
       },
-      take: 10,
+      take: args.take || 10,
+      skip: args.skip || 0,
     } as any;
     if (splitQuery.length > 1) {
       query.where!.AND = [];
