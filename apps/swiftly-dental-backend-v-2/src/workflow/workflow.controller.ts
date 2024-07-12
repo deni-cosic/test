@@ -71,7 +71,8 @@ export class WorkflowController extends WorkflowControllerBase {
   async sendMessages() {
     const tempJwt = this.jwtService.sign(
       {
-        id: "5ecd18b94612c7432020e1eb",
+        sub: "ca6dd2be-253f-4f8b-94b9-8d619cb3caf9",
+        email: "admin@swiftly.agency",
       },
       { expiresIn: "10m" }
     );
