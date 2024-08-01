@@ -20,6 +20,7 @@ model User {
   roles     Json
   updatedAt DateTime   @updatedAt
   username  String     @unique
+  message   Message[]
 
   @@map("users")
 }
@@ -143,6 +144,7 @@ model Patient {
   stripeCustomerId String?
   updatedAt        DateTime         @updatedAt
   workflows        Workflow[]
+  message          Message[]
 
   @@unique([practiceId, firstName, lastName, dateOfBirth])
   @@map("patients")
@@ -192,6 +194,7 @@ model Practice {
   users                    User[]
   website                  String?
   workflowTemplates        WorkflowTemplate[]
+  message                  Message[]
 
   @@map("practices")
 }
@@ -265,4 +268,52 @@ enum EnumPracticeSector {
 enum EnumWorkflowTemplateSector {
   Dental
   GP
+}
+
+enum EnumMessageType {
+  Instant
+  Delayed
+}
+
+enum EnumMessageStatus {
+  Pending
+  Delivered
+  Failed
+}
+
+model Message {
+  id          String             @id @default(uuid())
+  content     String
+  provider    String?
+  providerId  String?
+  queueItemId String?
+  messageType EnumMessageType
+  status      EnumMessageStatus?
+  sentOn      DateTime?
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+  patientId   String
+  practiceId  String
+  sentById    String
+  smsCount    Int
+
+  patient    Patient      @relation(fields: [patientId], references: [id])
+  practice   Practice     @relation(fields: [practiceId], references: [id])
+  sentBy     User         @relation(fields: [sentById], references: [id])
+  messageLog MessageLog[]
+
+  @@map("message")
+}
+
+model MessageLog {
+  id           String    @id @default(uuid())
+  mobileNumber String
+  content      String
+  senderId     String?
+  sentOn       DateTime?
+  messageId    String
+
+  message Message @relation(fields: [messageId], references: [id])
+
+  @@map("message_log")
 }
