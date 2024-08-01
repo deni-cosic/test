@@ -26,6 +26,8 @@ import { ACLModule } from "./auth/acl.module";
 import { AuthModule } from "./auth/auth.module";
 import { EventEmitterModule } from "@nestjs/event-emitter";
 import { MailerModule } from "./mailer";
+import { MessageModule } from "./sms/message.module";
+import { PubSubModule } from "./pubsub/pubusb.module";
 
 @Module({
   controllers: [],
@@ -73,7 +75,7 @@ import { MailerModule } from "./mailer";
       global: true,
       wildcard: true,
     }),
+    MessageModule,
   ],
-  providers: [],
 })
 export class AppModule {}
