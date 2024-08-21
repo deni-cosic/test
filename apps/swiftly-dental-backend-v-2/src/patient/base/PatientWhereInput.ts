@@ -16,6 +16,7 @@ import { Type } from "class-transformer";
 import { IsOptional, ValidateNested } from "class-validator";
 import { StringFilter } from "../../util/StringFilter";
 import { FormSubmissionListRelationFilter } from "../../formSubmission/base/FormSubmissionListRelationFilter";
+import { MessageListRelationFilter } from "../../message/base/MessageListRelationFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { PracticeWhereUniqueInput } from "../../practice/base/PracticeWhereUniqueInput";
 import { WorkflowListRelationFilter } from "../../workflow/base/WorkflowListRelationFilter";
@@ -88,6 +89,18 @@ class PatientWhereInput {
     nullable: true,
   })
   lastName?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => MessageListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => MessageListRelationFilter)
+  @IsOptional()
+  @Field(() => MessageListRelationFilter, {
+    nullable: true,
+  })
+  message?: MessageListRelationFilter;
 
   @ApiProperty({
     required: false,

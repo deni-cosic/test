@@ -13,6 +13,8 @@ import { WorkflowStepModule } from "./workflowStep/workflowStep.module";
 import { WorkflowTemplateStepModule } from "./workflowTemplateStep/workflowTemplateStep.module";
 import { WorkflowTemplateModule } from "./workflowTemplate/workflowTemplate.module";
 import { WorkflowModule } from "./workflow/workflow.module";
+import { MessageModule } from "./message/message.module";
+import { MessageLogModule } from "./messageLog/messageLog.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -24,10 +26,6 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
 
 import { ACLModule } from "./auth/acl.module";
 import { AuthModule } from "./auth/auth.module";
-import { EventEmitterModule } from "@nestjs/event-emitter";
-import { MailerModule } from "./mailer";
-import { MessageModule } from "./sms/message.module";
-import { PubSubModule } from "./pubsub/pubusb.module";
 
 @Module({
   controllers: [],
@@ -48,10 +46,11 @@ import { PubSubModule } from "./pubsub/pubusb.module";
     WorkflowTemplateStepModule,
     WorkflowTemplateModule,
     WorkflowModule,
+    MessageModule,
+    MessageLogModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,
-    MailerModule,
     ConfigModule.forRoot({ isGlobal: true }),
     ServeStaticModule.forRootAsync({
       useClass: ServeStaticOptionsService,
@@ -71,11 +70,7 @@ import { PubSubModule } from "./pubsub/pubusb.module";
       inject: [ConfigService],
       imports: [ConfigModule],
     }),
-    EventEmitterModule.forRoot({
-      global: true,
-      wildcard: true,
-    }),
-    MessageModule,
   ],
+  providers: [],
 })
 export class AppModule {}

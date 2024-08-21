@@ -11,20 +11,25 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
+
 import {
   IsString,
+  MaxLength,
   IsOptional,
   ValidateNested,
   IsInt,
+  Max,
   IsDate,
   IsEnum,
 } from "class-validator";
+
 import { FeaturePermissionWhereUniqueInput } from "../../featurePermission/base/FeaturePermissionWhereUniqueInput";
 import { Type } from "class-transformer";
 import { FormLinkUpdateManyWithoutPracticesInput } from "./FormLinkUpdateManyWithoutPracticesInput";
 import { FormSubmissionUpdateManyWithoutPracticesInput } from "./FormSubmissionUpdateManyWithoutPracticesInput";
 import { LeadFormLinkUpdateManyWithoutPracticesInput } from "./LeadFormLinkUpdateManyWithoutPracticesInput";
 import { LeadUpdateManyWithoutPracticesInput } from "./LeadUpdateManyWithoutPracticesInput";
+import { MessageUpdateManyWithoutPracticesInput } from "./MessageUpdateManyWithoutPracticesInput";
 import { PatientUpdateManyWithoutPracticesInput } from "./PatientUpdateManyWithoutPracticesInput";
 import { PracticeInfoLinkUpdateManyWithoutPracticesInput } from "./PracticeInfoLinkUpdateManyWithoutPracticesInput";
 import { EnumPracticeSector } from "./EnumPracticeSector";
@@ -38,6 +43,7 @@ class PracticeUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -49,6 +55,7 @@ class PracticeUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -60,6 +67,7 @@ class PracticeUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -107,6 +115,7 @@ class PracticeUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -139,9 +148,22 @@ class PracticeUpdateInput {
 
   @ApiProperty({
     required: false,
+    type: () => MessageUpdateManyWithoutPracticesInput,
+  })
+  @ValidateNested()
+  @Type(() => MessageUpdateManyWithoutPracticesInput)
+  @IsOptional()
+  @Field(() => MessageUpdateManyWithoutPracticesInput, {
+    nullable: true,
+  })
+  message?: MessageUpdateManyWithoutPracticesInput;
+
+  @ApiProperty({
+    required: false,
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -153,6 +175,7 @@ class PracticeUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -164,6 +187,7 @@ class PracticeUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -187,6 +211,7 @@ class PracticeUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -198,6 +223,7 @@ class PracticeUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -221,11 +247,24 @@ class PracticeUpdateInput {
     type: Number,
   })
   @IsInt()
+  @Max(99999999999)
   @IsOptional()
   @Field(() => Number, {
     nullable: true,
   })
   remindAfter?: number;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsInt()
+  @Max(99999999999)
+  @IsOptional()
+  @Field(() => Number, {
+    nullable: true,
+  })
+  remindEvery?: number;
 
   @ApiProperty({
     required: false,
@@ -237,17 +276,6 @@ class PracticeUpdateInput {
     nullable: true,
   })
   remindedAt?: Date | null;
-
-  @ApiProperty({
-    required: false,
-    type: Number,
-  })
-  @IsInt()
-  @IsOptional()
-  @Field(() => Number, {
-    nullable: true,
-  })
-  remindEvery?: number;
 
   @ApiProperty({
     required: false,
@@ -265,6 +293,7 @@ class PracticeUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -276,6 +305,7 @@ class PracticeUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -299,6 +329,7 @@ class PracticeUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,

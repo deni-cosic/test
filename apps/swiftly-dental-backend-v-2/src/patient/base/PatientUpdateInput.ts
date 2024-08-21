@@ -11,9 +11,16 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsOptional, IsString, ValidateNested } from "class-validator";
+import {
+  IsDate,
+  IsOptional,
+  IsString,
+  MaxLength,
+  ValidateNested,
+} from "class-validator";
 import { Type } from "class-transformer";
 import { FormSubmissionUpdateManyWithoutPatientsInput } from "./FormSubmissionUpdateManyWithoutPatientsInput";
+import { MessageUpdateManyWithoutPatientsInput } from "./MessageUpdateManyWithoutPatientsInput";
 import { PracticeWhereUniqueInput } from "../../practice/base/PracticeWhereUniqueInput";
 import { WorkflowUpdateManyWithoutPatientsInput } from "./WorkflowUpdateManyWithoutPatientsInput";
 
@@ -35,6 +42,7 @@ class PatientUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -58,6 +66,7 @@ class PatientUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -66,9 +75,22 @@ class PatientUpdateInput {
 
   @ApiProperty({
     required: false,
+    type: () => MessageUpdateManyWithoutPatientsInput,
+  })
+  @ValidateNested()
+  @Type(() => MessageUpdateManyWithoutPatientsInput)
+  @IsOptional()
+  @Field(() => MessageUpdateManyWithoutPatientsInput, {
+    nullable: true,
+  })
+  message?: MessageUpdateManyWithoutPatientsInput;
+
+  @ApiProperty({
+    required: false,
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -80,6 +102,7 @@ class PatientUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -103,6 +126,7 @@ class PatientUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,

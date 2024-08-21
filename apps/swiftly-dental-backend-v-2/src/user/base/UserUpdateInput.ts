@@ -16,9 +16,11 @@ import {
   IsOptional,
   IsString,
   ValidateNested,
+  MaxLength,
 } from "class-validator";
-import { PracticeUpdateManyWithoutUsersInput } from "./PracticeUpdateManyWithoutUsersInput";
+import { MessageUpdateManyWithoutUsersInput } from "./MessageUpdateManyWithoutUsersInput";
 import { Type } from "class-transformer";
+import { PracticeUpdateManyWithoutUsersInput } from "./PracticeUpdateManyWithoutUsersInput";
 import { IsJSONValue } from "../../validators";
 import { GraphQLJSON } from "graphql-type-json";
 import { InputJsonValue } from "../../types";
@@ -60,9 +62,22 @@ class UserUpdateInput {
 
   @ApiProperty({
     required: false,
+    type: () => MessageUpdateManyWithoutUsersInput,
+  })
+  @ValidateNested()
+  @Type(() => MessageUpdateManyWithoutUsersInput)
+  @IsOptional()
+  @Field(() => MessageUpdateManyWithoutUsersInput, {
+    nullable: true,
+  })
+  messages?: MessageUpdateManyWithoutUsersInput;
+
+  @ApiProperty({
+    required: false,
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -97,6 +112,7 @@ class UserUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(1000)
   @IsOptional()
   @Field(() => String, {
     nullable: true,

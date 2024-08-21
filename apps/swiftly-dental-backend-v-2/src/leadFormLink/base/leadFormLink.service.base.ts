@@ -25,30 +25,28 @@ export class LeadFormLinkServiceBase {
     return this.prisma.leadFormLink.count(args);
   }
 
-  async leadFormLinks<T extends Prisma.LeadFormLinkFindManyArgs>(
-    args: Prisma.SelectSubset<T, Prisma.LeadFormLinkFindManyArgs>
+  async leadFormLinks(
+    args: Prisma.LeadFormLinkFindManyArgs
   ): Promise<PrismaLeadFormLink[]> {
-    return this.prisma.leadFormLink.findMany<Prisma.LeadFormLinkFindManyArgs>(
-      args
-    );
+    return this.prisma.leadFormLink.findMany(args);
   }
-  async leadFormLink<T extends Prisma.LeadFormLinkFindUniqueArgs>(
-    args: Prisma.SelectSubset<T, Prisma.LeadFormLinkFindUniqueArgs>
+  async leadFormLink(
+    args: Prisma.LeadFormLinkFindUniqueArgs
   ): Promise<PrismaLeadFormLink | null> {
     return this.prisma.leadFormLink.findUnique(args);
   }
-  async createLeadFormLink<T extends Prisma.LeadFormLinkCreateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.LeadFormLinkCreateArgs>
+  async createLeadFormLink(
+    args: Prisma.LeadFormLinkCreateArgs
   ): Promise<PrismaLeadFormLink> {
-    return this.prisma.leadFormLink.create<T>(args);
+    return this.prisma.leadFormLink.create(args);
   }
-  async updateLeadFormLink<T extends Prisma.LeadFormLinkUpdateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.LeadFormLinkUpdateArgs>
+  async updateLeadFormLink(
+    args: Prisma.LeadFormLinkUpdateArgs
   ): Promise<PrismaLeadFormLink> {
-    return this.prisma.leadFormLink.update<T>(args);
+    return this.prisma.leadFormLink.update(args);
   }
-  async deleteLeadFormLink<T extends Prisma.LeadFormLinkDeleteArgs>(
-    args: Prisma.SelectSubset<T, Prisma.LeadFormLinkDeleteArgs>
+  async deleteLeadFormLink(
+    args: Prisma.LeadFormLinkDeleteArgs
   ): Promise<PrismaLeadFormLink> {
     return this.prisma.leadFormLink.delete(args);
   }

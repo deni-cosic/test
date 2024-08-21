@@ -1,12 +1,12 @@
 import { JsonValue } from "type-fest";
 
 export type Credentials = {
-  email: string;
+  username: string;
   password: string;
 };
 export type LoginMutateResult = {
   login: {
-    email: string;
+    username: string;
     accessToken: string;
   };
 };
