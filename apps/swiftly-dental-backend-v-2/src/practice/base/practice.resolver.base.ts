@@ -34,6 +34,8 @@ import { LeadFormLinkFindManyArgs } from "../../leadFormLink/base/LeadFormLinkFi
 import { LeadFormLink } from "../../leadFormLink/base/LeadFormLink";
 import { LeadFindManyArgs } from "../../lead/base/LeadFindManyArgs";
 import { Lead } from "../../lead/base/Lead";
+import { MessageFindManyArgs } from "../../message/base/MessageFindManyArgs";
+import { Message } from "../../message/base/Message";
 import { PatientFindManyArgs } from "../../patient/base/PatientFindManyArgs";
 import { Patient } from "../../patient/base/Patient";
 import { PracticeInfoLinkFindManyArgs } from "../../practiceInfoLink/base/PracticeInfoLinkFindManyArgs";
@@ -247,6 +249,26 @@ export class PracticeResolverBase {
     @graphql.Args() args: LeadFindManyArgs
   ): Promise<Lead[]> {
     const results = await this.service.findLeads(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [Message], { name: "message" })
+  @nestAccessControl.UseRoles({
+    resource: "Message",
+    action: "read",
+    possession: "any",
+  })
+  async findMessage(
+    @graphql.Parent() parent: Practice,
+    @graphql.Args() args: MessageFindManyArgs
+  ): Promise<Message[]> {
+    const results = await this.service.findMessage(parent.id, args);
 
     if (!results) {
       return [];

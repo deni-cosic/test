@@ -11,7 +11,7 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString } from "class-validator";
+import { IsString, MaxLength } from "class-validator";
 
 @InputType()
 class HelpLinkCreateInput {
@@ -20,6 +20,7 @@ class HelpLinkCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   category!: string;
 
@@ -28,6 +29,7 @@ class HelpLinkCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   displayName!: string;
 
@@ -36,6 +38,7 @@ class HelpLinkCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   url!: string;
 }

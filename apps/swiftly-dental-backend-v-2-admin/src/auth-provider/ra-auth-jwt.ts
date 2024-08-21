@@ -8,9 +8,9 @@ import { Credentials, LoginMutateResult } from "../types";
 import { apolloClient } from "../data-provider/graphqlDataProvider";
 
 const LOGIN = gql`
-  mutation login($email: String!, $password: String!) {
-    login(credentials: { email: $email, password: $password }) {
-      email
+  mutation login($username: String!, $password: String!) {
+    login(credentials: { username: $username, password: $password }) {
+      username
       accessToken
     }
   }
@@ -25,7 +25,7 @@ export const jwtAuthProvider: AuthProvider = {
       },
     });
 
-    if (userData && userData.data?.login.email) {
+    if (userData && userData.data?.login.username) {
       localStorage.setItem(
         CREDENTIALS_LOCAL_STORAGE_ITEM,
         createBearerAuthorizationHeader(userData.data.login?.accessToken)
@@ -60,8 +60,8 @@ export const jwtAuthProvider: AuthProvider = {
     const userData: LoginMutateResult = JSON.parse(str || "");
 
     return Promise.resolve({
-      id: userData.login.email,
-      fullName: userData.login.email,
+      id: userData.login.username,
+      fullName: userData.login.username,
       avatar: undefined,
     });
   },

@@ -7,23 +7,4 @@ export class FormSubmissionService extends FormSubmissionServiceBase {
   constructor(protected readonly prisma: PrismaService) {
     super(prisma);
   }
-
-  async findForPatient({
-    practiceId,
-    patientId,
-  }: {
-    practiceId: string;
-    patientId?: string;
-  }) {
-    return super.formSubmissions({
-      where: {
-        practiceId,
-        patientId,
-      },
-      include: {
-        patient: true,
-        practice: true,
-      },
-    });
-  }
 }

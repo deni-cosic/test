@@ -39,8 +39,8 @@ export const PracticeShow = (props: ShowProps): React.ReactElement => {
         <TextField label="Phone Number" source="phoneNumber" />
         <TextField label="Postcode" source="postcode" />
         <TextField label="Remind After" source="remindAfter" />
-        <TextField label="Reminded At" source="remindedAt" />
         <TextField label="Remind Every" source="remindEvery" />
+        <TextField label="Reminded At" source="remindedAt" />
         <TextField label="Sector" source="sector" />
         <TextField label="Sender Id" source="senderId" />
         <TextField
@@ -97,8 +97,8 @@ export const PracticeShow = (props: ShowProps): React.ReactElement => {
               <TextField source={PRACTICE_TITLE_FIELD} />
             </ReferenceField>
             <TextField label="Received At" source="receivedAt" />
-            <TextField label="Requested By" source="requestedBy" />
             <TextField label="Request Sent Id" source="requestSentId" />
+            <TextField label="Requested By" source="requestedBy" />
             <BooleanField label="Seen" source="seen" />
             <TextField label="Submission Id" source="submissionId" />
             <DateField source="updatedAt" label="Updated At" />
@@ -156,6 +156,40 @@ export const PracticeShow = (props: ShowProps): React.ReactElement => {
             >
               <TextField source={PRACTICE_TITLE_FIELD} />
             </ReferenceField>
+            <DateField source="updatedAt" label="Updated At" />
+          </Datagrid>
+        </ReferenceManyField>
+        <ReferenceManyField
+          reference="Message"
+          target="practiceId"
+          label="Messages"
+        >
+          <Datagrid rowClick="show">
+            <TextField label="Content" source="content" />
+            <DateField source="createdAt" label="Created At" />
+            <TextField label="ID" source="id" />
+            <TextField label="Message Type" source="messageType" />
+            <ReferenceField
+              label="Patient"
+              source="patient.id"
+              reference="Patient"
+            >
+              <TextField source={PATIENT_TITLE_FIELD} />
+            </ReferenceField>
+            <ReferenceField
+              label="Practice"
+              source="practice.id"
+              reference="Practice"
+            >
+              <TextField source={PRACTICE_TITLE_FIELD} />
+            </ReferenceField>
+            <TextField label="Provider" source="provider" />
+            <TextField label="Provider Id" source="providerId" />
+            <TextField label="Queue Item Id" source="queueItemId" />
+            <TextField label="Sent By Id" source="sentById" />
+            <TextField label="Sent On" source="sentOn" />
+            <TextField label="Sms Count" source="smsCount" />
+            <TextField label="Status" source="status" />
             <DateField source="updatedAt" label="Updated At" />
           </Datagrid>
         </ReferenceManyField>

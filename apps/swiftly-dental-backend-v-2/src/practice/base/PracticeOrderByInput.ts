@@ -171,7 +171,7 @@ class PracticeOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  remindedAt?: SortOrder;
+  remindEvery?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -182,7 +182,7 @@ class PracticeOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  remindEvery?: SortOrder;
+  remindedAt?: SortOrder;
 
   @ApiProperty({
     required: false,

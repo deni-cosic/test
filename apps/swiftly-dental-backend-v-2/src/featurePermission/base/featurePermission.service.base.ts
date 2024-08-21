@@ -26,30 +26,28 @@ export class FeaturePermissionServiceBase {
     return this.prisma.featurePermission.count(args);
   }
 
-  async featurePermissions<T extends Prisma.FeaturePermissionFindManyArgs>(
-    args: Prisma.SelectSubset<T, Prisma.FeaturePermissionFindManyArgs>
+  async featurePermissions(
+    args: Prisma.FeaturePermissionFindManyArgs
   ): Promise<PrismaFeaturePermission[]> {
-    return this.prisma.featurePermission.findMany<Prisma.FeaturePermissionFindManyArgs>(
-      args
-    );
+    return this.prisma.featurePermission.findMany(args);
   }
-  async featurePermission<T extends Prisma.FeaturePermissionFindUniqueArgs>(
-    args: Prisma.SelectSubset<T, Prisma.FeaturePermissionFindUniqueArgs>
+  async featurePermission(
+    args: Prisma.FeaturePermissionFindUniqueArgs
   ): Promise<PrismaFeaturePermission | null> {
     return this.prisma.featurePermission.findUnique(args);
   }
-  async createFeaturePermission<T extends Prisma.FeaturePermissionCreateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.FeaturePermissionCreateArgs>
+  async createFeaturePermission(
+    args: Prisma.FeaturePermissionCreateArgs
   ): Promise<PrismaFeaturePermission> {
-    return this.prisma.featurePermission.create<T>(args);
+    return this.prisma.featurePermission.create(args);
   }
-  async updateFeaturePermission<T extends Prisma.FeaturePermissionUpdateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.FeaturePermissionUpdateArgs>
+  async updateFeaturePermission(
+    args: Prisma.FeaturePermissionUpdateArgs
   ): Promise<PrismaFeaturePermission> {
-    return this.prisma.featurePermission.update<T>(args);
+    return this.prisma.featurePermission.update(args);
   }
-  async deleteFeaturePermission<T extends Prisma.FeaturePermissionDeleteArgs>(
-    args: Prisma.SelectSubset<T, Prisma.FeaturePermissionDeleteArgs>
+  async deleteFeaturePermission(
+    args: Prisma.FeaturePermissionDeleteArgs
   ): Promise<PrismaFeaturePermission> {
     return this.prisma.featurePermission.delete(args);
   }
