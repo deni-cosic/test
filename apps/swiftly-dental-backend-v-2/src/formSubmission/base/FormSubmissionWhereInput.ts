@@ -111,7 +111,7 @@ class FormSubmissionWhereInput {
   @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  requestedBy?: StringNullableFilter;
+  requestSentId?: StringNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -122,7 +122,7 @@ class FormSubmissionWhereInput {
   @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  requestSentId?: StringNullableFilter;
+  requestedBy?: StringNullableFilter;
 
   @ApiProperty({
     required: false,

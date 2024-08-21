@@ -7,8 +7,8 @@ export type FormSubmissionCreateInput = {
   patient?: PatientWhereUniqueInput | null;
   practice: PracticeWhereUniqueInput;
   receivedAt?: Date | null;
-  requestedBy?: string | null;
   requestSentId?: string | null;
+  requestedBy?: string | null;
   seen?: boolean | null;
   submissionId?: string | null;
 };

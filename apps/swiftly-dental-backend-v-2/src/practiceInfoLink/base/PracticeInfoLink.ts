@@ -11,7 +11,13 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, IsDate, IsOptional, ValidateNested } from "class-validator";
+import {
+  IsString,
+  MaxLength,
+  IsDate,
+  IsOptional,
+  ValidateNested,
+} from "class-validator";
 import { Type } from "class-transformer";
 import { Practice } from "../../practice/base/Practice";
 
@@ -22,6 +28,7 @@ class PracticeInfoLink {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   category!: string;
 
@@ -38,6 +45,7 @@ class PracticeInfoLink {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   displayName!: string;
 
@@ -54,6 +62,7 @@ class PracticeInfoLink {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -82,6 +91,7 @@ class PracticeInfoLink {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,

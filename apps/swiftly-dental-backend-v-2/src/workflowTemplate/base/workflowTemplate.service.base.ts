@@ -27,30 +27,28 @@ export class WorkflowTemplateServiceBase {
     return this.prisma.workflowTemplate.count(args);
   }
 
-  async workflowTemplates<T extends Prisma.WorkflowTemplateFindManyArgs>(
-    args: Prisma.SelectSubset<T, Prisma.WorkflowTemplateFindManyArgs>
+  async workflowTemplates(
+    args: Prisma.WorkflowTemplateFindManyArgs
   ): Promise<PrismaWorkflowTemplate[]> {
-    return this.prisma.workflowTemplate.findMany<Prisma.WorkflowTemplateFindManyArgs>(
-      args
-    );
+    return this.prisma.workflowTemplate.findMany(args);
   }
-  async workflowTemplate<T extends Prisma.WorkflowTemplateFindUniqueArgs>(
-    args: Prisma.SelectSubset<T, Prisma.WorkflowTemplateFindUniqueArgs>
+  async workflowTemplate(
+    args: Prisma.WorkflowTemplateFindUniqueArgs
   ): Promise<PrismaWorkflowTemplate | null> {
     return this.prisma.workflowTemplate.findUnique(args);
   }
-  async createWorkflowTemplate<T extends Prisma.WorkflowTemplateCreateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.WorkflowTemplateCreateArgs>
+  async createWorkflowTemplate(
+    args: Prisma.WorkflowTemplateCreateArgs
   ): Promise<PrismaWorkflowTemplate> {
-    return this.prisma.workflowTemplate.create<T>(args);
+    return this.prisma.workflowTemplate.create(args);
   }
-  async updateWorkflowTemplate<T extends Prisma.WorkflowTemplateUpdateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.WorkflowTemplateUpdateArgs>
+  async updateWorkflowTemplate(
+    args: Prisma.WorkflowTemplateUpdateArgs
   ): Promise<PrismaWorkflowTemplate> {
-    return this.prisma.workflowTemplate.update<T>(args);
+    return this.prisma.workflowTemplate.update(args);
   }
-  async deleteWorkflowTemplate<T extends Prisma.WorkflowTemplateDeleteArgs>(
-    args: Prisma.SelectSubset<T, Prisma.WorkflowTemplateDeleteArgs>
+  async deleteWorkflowTemplate(
+    args: Prisma.WorkflowTemplateDeleteArgs
   ): Promise<PrismaWorkflowTemplate> {
     return this.prisma.workflowTemplate.delete(args);
   }

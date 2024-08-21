@@ -29,6 +29,9 @@ import { PatientUpdateInput } from "./PatientUpdateInput";
 import { FormSubmissionFindManyArgs } from "../../formSubmission/base/FormSubmissionFindManyArgs";
 import { FormSubmission } from "../../formSubmission/base/FormSubmission";
 import { FormSubmissionWhereUniqueInput } from "../../formSubmission/base/FormSubmissionWhereUniqueInput";
+import { MessageFindManyArgs } from "../../message/base/MessageFindManyArgs";
+import { Message } from "../../message/base/Message";
+import { MessageWhereUniqueInput } from "../../message/base/MessageWhereUniqueInput";
 import { WorkflowFindManyArgs } from "../../workflow/base/WorkflowFindManyArgs";
 import { Workflow } from "../../workflow/base/Workflow";
 import { WorkflowWhereUniqueInput } from "../../workflow/base/WorkflowWhereUniqueInput";
@@ -309,8 +312,8 @@ export class PatientControllerBase {
         },
 
         receivedAt: true,
-        requestedBy: true,
         requestSentId: true,
+        requestedBy: true,
         seen: true,
         submissionId: true,
         updatedAt: true,
@@ -380,6 +383,129 @@ export class PatientControllerBase {
   ): Promise<void> {
     const data = {
       formSubmissions: {
+        disconnect: body,
+      },
+    };
+    await this.service.updatePatient({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/message")
+  @ApiNestedQuery(MessageFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "Message",
+    action: "read",
+    possession: "any",
+  })
+  async findMessage(
+    @common.Req() request: Request,
+    @common.Param() params: PatientWhereUniqueInput
+  ): Promise<Message[]> {
+    const query = plainToClass(MessageFindManyArgs, request.query);
+    const results = await this.service.findMessage(params.id, {
+      ...query,
+      select: {
+        content: true,
+        createdAt: true,
+        id: true,
+        messageType: true,
+
+        patient: {
+          select: {
+            id: true,
+          },
+        },
+
+        practice: {
+          select: {
+            id: true,
+          },
+        },
+
+        provider: true,
+        providerId: true,
+        queueItemId: true,
+        sentById: true,
+        sentOn: true,
+        smsCount: true,
+        status: true,
+        updatedAt: true,
+
+        user: {
+          select: {
+            id: true,
+          },
+        },
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/message")
+  @nestAccessControl.UseRoles({
+    resource: "Patient",
+    action: "update",
+    possession: "any",
+  })
+  async connectMessage(
+    @common.Param() params: PatientWhereUniqueInput,
+    @common.Body() body: MessageWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      message: {
+        connect: body,
+      },
+    };
+    await this.service.updatePatient({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/message")
+  @nestAccessControl.UseRoles({
+    resource: "Patient",
+    action: "update",
+    possession: "any",
+  })
+  async updateMessage(
+    @common.Param() params: PatientWhereUniqueInput,
+    @common.Body() body: MessageWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      message: {
+        set: body,
+      },
+    };
+    await this.service.updatePatient({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/message")
+  @nestAccessControl.UseRoles({
+    resource: "Patient",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectMessage(
+    @common.Param() params: PatientWhereUniqueInput,
+    @common.Body() body: MessageWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      message: {
         disconnect: body,
       },
     };

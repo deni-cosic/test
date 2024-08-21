@@ -23,29 +23,19 @@ export class LeadServiceBase {
     return this.prisma.lead.count(args);
   }
 
-  async leads<T extends Prisma.LeadFindManyArgs>(
-    args: Prisma.SelectSubset<T, Prisma.LeadFindManyArgs>
-  ): Promise<PrismaLead[]> {
-    return this.prisma.lead.findMany<Prisma.LeadFindManyArgs>(args);
+  async leads(args: Prisma.LeadFindManyArgs): Promise<PrismaLead[]> {
+    return this.prisma.lead.findMany(args);
   }
-  async lead<T extends Prisma.LeadFindUniqueArgs>(
-    args: Prisma.SelectSubset<T, Prisma.LeadFindUniqueArgs>
-  ): Promise<PrismaLead | null> {
+  async lead(args: Prisma.LeadFindUniqueArgs): Promise<PrismaLead | null> {
     return this.prisma.lead.findUnique(args);
   }
-  async createLead<T extends Prisma.LeadCreateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.LeadCreateArgs>
-  ): Promise<PrismaLead> {
-    return this.prisma.lead.create<T>(args);
+  async createLead(args: Prisma.LeadCreateArgs): Promise<PrismaLead> {
+    return this.prisma.lead.create(args);
   }
-  async updateLead<T extends Prisma.LeadUpdateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.LeadUpdateArgs>
-  ): Promise<PrismaLead> {
-    return this.prisma.lead.update<T>(args);
+  async updateLead(args: Prisma.LeadUpdateArgs): Promise<PrismaLead> {
+    return this.prisma.lead.update(args);
   }
-  async deleteLead<T extends Prisma.LeadDeleteArgs>(
-    args: Prisma.SelectSubset<T, Prisma.LeadDeleteArgs>
-  ): Promise<PrismaLead> {
+  async deleteLead(args: Prisma.LeadDeleteArgs): Promise<PrismaLead> {
     return this.prisma.lead.delete(args);
   }
 

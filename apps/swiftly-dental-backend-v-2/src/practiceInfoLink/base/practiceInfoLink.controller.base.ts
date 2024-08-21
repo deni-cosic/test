@@ -67,7 +67,13 @@ export class PracticeInfoLinkControllerBase {
         displayName: true,
         id: true,
         message: true,
-        practiceId: true,
+
+        practice: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
         url: true,
       },
@@ -134,7 +140,13 @@ export class PracticeInfoLinkControllerBase {
         displayName: true,
         id: true,
         message: true,
-        practiceId: true,
+
+        practice: {
+          select: {
+            id: true,
+          },
+        },
+
         updatedAt: true,
         url: true,
       },

@@ -11,20 +11,25 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
+
 import {
   IsString,
+  MaxLength,
   IsOptional,
   IsDate,
   ValidateNested,
   IsInt,
+  Max,
   IsEnum,
 } from "class-validator";
+
 import { Type } from "class-transformer";
 import { FeaturePermission } from "../../featurePermission/base/FeaturePermission";
 import { FormLink } from "../../formLink/base/FormLink";
 import { FormSubmission } from "../../formSubmission/base/FormSubmission";
 import { LeadFormLink } from "../../leadFormLink/base/LeadFormLink";
 import { Lead } from "../../lead/base/Lead";
+import { Message } from "../../message/base/Message";
 import { Patient } from "../../patient/base/Patient";
 import { PracticeInfoLink } from "../../practiceInfoLink/base/PracticeInfoLink";
 import { EnumPracticeSector } from "./EnumPracticeSector";
@@ -38,6 +43,7 @@ class Practice {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -49,6 +55,7 @@ class Practice {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -60,6 +67,7 @@ class Practice {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -106,6 +114,7 @@ class Practice {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -139,10 +148,20 @@ class Practice {
   leads?: Array<Lead>;
 
   @ApiProperty({
+    required: false,
+    type: () => [Message],
+  })
+  @ValidateNested()
+  @Type(() => Message)
+  @IsOptional()
+  message?: Array<Message>;
+
+  @ApiProperty({
     required: true,
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   name!: string;
 
@@ -151,6 +170,7 @@ class Practice {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -162,6 +182,7 @@ class Practice {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   odsCode!: string;
 
@@ -179,6 +200,7 @@ class Practice {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -190,6 +212,7 @@ class Practice {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -210,8 +233,18 @@ class Practice {
     type: Number,
   })
   @IsInt()
+  @Max(99999999999)
   @Field(() => Number)
   remindAfter!: number;
+
+  @ApiProperty({
+    required: true,
+    type: Number,
+  })
+  @IsInt()
+  @Max(99999999999)
+  @Field(() => Number)
+  remindEvery!: number;
 
   @ApiProperty({
     required: false,
@@ -223,14 +256,6 @@ class Practice {
     nullable: true,
   })
   remindedAt!: Date | null;
-
-  @ApiProperty({
-    required: true,
-    type: Number,
-  })
-  @IsInt()
-  @Field(() => Number)
-  remindEvery!: number;
 
   @ApiProperty({
     required: true,
@@ -247,6 +272,7 @@ class Practice {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -258,6 +284,7 @@ class Practice {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -286,6 +313,7 @@ class Practice {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,

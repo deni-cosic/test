@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import {
   IsDate,
   IsString,
+  MaxLength,
   ValidateNested,
   IsOptional,
   IsEnum,
@@ -46,6 +47,7 @@ class WorkflowTemplate {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   name!: string;
 

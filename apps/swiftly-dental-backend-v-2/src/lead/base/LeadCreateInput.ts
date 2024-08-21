@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import {
   IsBoolean,
   IsString,
+  MaxLength,
   IsOptional,
   IsDate,
   ValidateNested,
@@ -39,6 +40,7 @@ class LeadCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -58,6 +60,7 @@ class LeadCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   email!: string;
 
@@ -77,6 +80,7 @@ class LeadCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   firstName!: string;
 
@@ -92,6 +96,7 @@ class LeadCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   lastName!: string;
 
@@ -119,6 +124,7 @@ class LeadCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   mobileNumber!: string;
 
@@ -148,6 +154,7 @@ class LeadCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   platformSource!: string;
 
@@ -159,15 +166,6 @@ class LeadCreateInput {
   @Type(() => PracticeWhereUniqueInput)
   @Field(() => PracticeWhereUniqueInput)
   practice!: PracticeWhereUniqueInput;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @IsOptional()
-  @Field(() => String)
-  rawRequest!: string;
 }
 
 export { LeadCreateInput as LeadCreateInput };

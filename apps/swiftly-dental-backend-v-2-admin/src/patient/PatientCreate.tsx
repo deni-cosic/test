@@ -4,7 +4,7 @@ import {
   Create,
   SimpleForm,
   CreateProps,
-  DateInput,
+  DateTimeInput,
   TextInput,
   ReferenceArrayInput,
   SelectArrayInput,
@@ -13,6 +13,7 @@ import {
 } from "react-admin";
 
 import { FormSubmissionTitle } from "../formSubmission/FormSubmissionTitle";
+import { MessageTitle } from "../message/MessageTitle";
 import { PracticeTitle } from "../practice/PracticeTitle";
 import { WorkflowTitle } from "../workflow/WorkflowTitle";
 
@@ -20,7 +21,7 @@ export const PatientCreate = (props: CreateProps): React.ReactElement => {
   return (
     <Create {...props}>
       <SimpleForm>
-        <DateInput label="Date Of Birth" source="dateOfBirth" />
+        <DateTimeInput label="Date Of Birth" source="dateOfBirth" />
         <TextInput label="First Name" source="firstName" />
         <ReferenceArrayInput
           source="formSubmissions"
@@ -31,6 +32,14 @@ export const PatientCreate = (props: CreateProps): React.ReactElement => {
           <SelectArrayInput optionText={FormSubmissionTitle} />
         </ReferenceArrayInput>
         <TextInput label="Last Name" source="lastName" />
+        <ReferenceArrayInput
+          source="message"
+          reference="Message"
+          parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+          format={(value: any) => value && value.map((v: any) => v.id)}
+        >
+          <SelectArrayInput optionText={MessageTitle} />
+        </ReferenceArrayInput>
         <TextInput label="Mobile Number" source="mobileNumber" />
         <TextInput label="Nhs Number" source="nhsNumber" />
         <ReferenceInput

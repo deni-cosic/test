@@ -97,11 +97,6 @@ export class WorkflowTemplateControllerBase {
     @common.Req() request: Request
   ): Promise<WorkflowTemplate[]> {
     const args = plainToClass(WorkflowTemplateFindManyArgs, request.query);
-
-    if ((args.where as any)?.practiceId === "null") {
-      (args.where as any).practiceId = { equals: null };
-    }
-
     return this.service.workflowTemplates({
       ...args,
       select: {
@@ -112,11 +107,6 @@ export class WorkflowTemplateControllerBase {
         practice: {
           select: {
             id: true,
-          },
-        },
-        steps: {
-          orderBy: {
-            timeOffsetInSeconds: "desc",
           },
         },
 
@@ -151,11 +141,6 @@ export class WorkflowTemplateControllerBase {
         practice: {
           select: {
             id: true,
-          },
-        },
-        steps: {
-          orderBy: {
-            timeOffsetInSeconds: "desc",
           },
         },
 

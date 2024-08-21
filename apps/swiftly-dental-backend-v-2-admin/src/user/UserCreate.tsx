@@ -6,11 +6,12 @@ import {
   CreateProps,
   BooleanInput,
   TextInput,
-  PasswordInput,
   ReferenceArrayInput,
   SelectArrayInput,
+  PasswordInput,
 } from "react-admin";
 
+import { MessageTitle } from "../message/MessageTitle";
 import { PracticeTitle } from "../practice/PracticeTitle";
 import { ROLES_OPTIONS } from "../user/RolesOptions";
 
@@ -21,6 +22,14 @@ export const UserCreate = (props: CreateProps): React.ReactElement => {
         <BooleanInput label="Blocked" source="blocked" />
         <BooleanInput label="Confirmed" source="confirmed" />
         <TextInput label="Email" source="email" type="email" />
+        <ReferenceArrayInput
+          source="messages"
+          reference="Message"
+          parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+          format={(value: any) => value && value.map((v: any) => v.id)}
+        >
+          <SelectArrayInput optionText={MessageTitle} />
+        </ReferenceArrayInput>
         <TextInput label="Name" source="name" />
         <PasswordInput label="Password" source="password" />
         <ReferenceArrayInput

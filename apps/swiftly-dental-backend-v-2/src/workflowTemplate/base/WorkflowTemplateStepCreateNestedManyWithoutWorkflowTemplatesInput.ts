@@ -12,8 +12,6 @@ https://docs.amplication.com/how-to/custom-code
 import { InputType, Field } from "@nestjs/graphql";
 import { WorkflowTemplateStepWhereUniqueInput } from "../../workflowTemplateStep/base/WorkflowTemplateStepWhereUniqueInput";
 import { ApiProperty } from "@nestjs/swagger";
-import { WorkflowTemplateStepUpdateInput } from "src/workflowTemplateStep/base/WorkflowTemplateStepUpdateInput";
-import { WorkflowTemplateStepCreateInput } from "src/workflowTemplateStep/base/WorkflowTemplateStepCreateInput";
 
 @InputType()
 class WorkflowTemplateStepCreateNestedManyWithoutWorkflowTemplatesInput {
@@ -25,24 +23,6 @@ class WorkflowTemplateStepCreateNestedManyWithoutWorkflowTemplatesInput {
     type: () => [WorkflowTemplateStepWhereUniqueInput],
   })
   connect?: Array<WorkflowTemplateStepWhereUniqueInput>;
-
-  @Field(() => [WorkflowTemplateStepCreateInput], {
-    nullable: true,
-  })
-  @ApiProperty({
-    required: false,
-    type: () => [WorkflowTemplateStepCreateInput],
-  })
-  create?: Array<WorkflowTemplateStepCreateInput>;
-
-  @Field(() => [WorkflowTemplateStepCreateInput], {
-    nullable: true,
-  })
-  @ApiProperty({
-    required: false,
-    type: () => [WorkflowTemplateStepCreateInput],
-  })
-  update?: Array<WorkflowTemplateStepCreateInput>;
 }
 
 export { WorkflowTemplateStepCreateNestedManyWithoutWorkflowTemplatesInput as WorkflowTemplateStepCreateNestedManyWithoutWorkflowTemplatesInput };

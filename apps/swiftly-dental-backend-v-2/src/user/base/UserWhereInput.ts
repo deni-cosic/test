@@ -16,6 +16,7 @@ import { Type } from "class-transformer";
 import { IsOptional, ValidateNested } from "class-validator";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
+import { MessageListRelationFilter } from "../../message/base/MessageListRelationFilter";
 import { PracticeListRelationFilter } from "../../practice/base/PracticeListRelationFilter";
 
 @InputType()
@@ -63,6 +64,18 @@ class UserWhereInput {
     nullable: true,
   })
   id?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => MessageListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => MessageListRelationFilter)
+  @IsOptional()
+  @Field(() => MessageListRelationFilter, {
+    nullable: true,
+  })
+  messages?: MessageListRelationFilter;
 
   @ApiProperty({
     required: false,
