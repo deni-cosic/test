@@ -21,6 +21,7 @@ import { FormSubmissionListRelationFilter } from "../../formSubmission/base/Form
 import { StringFilter } from "../../util/StringFilter";
 import { LeadFormLinkListRelationFilter } from "../../leadFormLink/base/LeadFormLinkListRelationFilter";
 import { LeadListRelationFilter } from "../../lead/base/LeadListRelationFilter";
+import { MessageListRelationFilter } from "../../message/base/MessageListRelationFilter";
 import { PatientListRelationFilter } from "../../patient/base/PatientListRelationFilter";
 import { PracticeInfoLinkListRelationFilter } from "../../practiceInfoLink/base/PracticeInfoLinkListRelationFilter";
 import { IntFilter } from "../../util/IntFilter";
@@ -159,6 +160,18 @@ class PracticeWhereInput {
 
   @ApiProperty({
     required: false,
+    type: () => MessageListRelationFilter,
+  })
+  @ValidateNested()
+  @Type(() => MessageListRelationFilter)
+  @IsOptional()
+  @Field(() => MessageListRelationFilter, {
+    nullable: true,
+  })
+  messages?: MessageListRelationFilter;
+
+  @ApiProperty({
+    required: false,
     type: StringFilter,
   })
   @Type(() => StringFilter)
@@ -249,17 +262,6 @@ class PracticeWhereInput {
 
   @ApiProperty({
     required: false,
-    type: DateTimeNullableFilter,
-  })
-  @Type(() => DateTimeNullableFilter)
-  @IsOptional()
-  @Field(() => DateTimeNullableFilter, {
-    nullable: true,
-  })
-  remindedAt?: DateTimeNullableFilter;
-
-  @ApiProperty({
-    required: false,
     type: IntFilter,
   })
   @Type(() => IntFilter)
@@ -268,6 +270,17 @@ class PracticeWhereInput {
     nullable: true,
   })
   remindEvery?: IntFilter;
+
+  @ApiProperty({
+    required: false,
+    type: DateTimeNullableFilter,
+  })
+  @Type(() => DateTimeNullableFilter)
+  @IsOptional()
+  @Field(() => DateTimeNullableFilter, {
+    nullable: true,
+  })
+  remindedAt?: DateTimeNullableFilter;
 
   @ApiProperty({
     required: false,

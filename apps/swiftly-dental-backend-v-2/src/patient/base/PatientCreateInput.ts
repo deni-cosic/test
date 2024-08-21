@@ -11,9 +11,16 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsString, ValidateNested, IsOptional } from "class-validator";
+import {
+  IsDate,
+  IsString,
+  MaxLength,
+  ValidateNested,
+  IsOptional,
+} from "class-validator";
 import { Type } from "class-transformer";
 import { FormSubmissionCreateNestedManyWithoutPatientsInput } from "./FormSubmissionCreateNestedManyWithoutPatientsInput";
+import { MessageCreateNestedManyWithoutPatientsInput } from "./MessageCreateNestedManyWithoutPatientsInput";
 import { PracticeWhereUniqueInput } from "../../practice/base/PracticeWhereUniqueInput";
 import { WorkflowCreateNestedManyWithoutPatientsInput } from "./WorkflowCreateNestedManyWithoutPatientsInput";
 
@@ -32,6 +39,7 @@ class PatientCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   firstName!: string;
 
@@ -52,14 +60,28 @@ class PatientCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   lastName!: string;
+
+  @ApiProperty({
+    required: false,
+    type: () => MessageCreateNestedManyWithoutPatientsInput,
+  })
+  @ValidateNested()
+  @Type(() => MessageCreateNestedManyWithoutPatientsInput)
+  @IsOptional()
+  @Field(() => MessageCreateNestedManyWithoutPatientsInput, {
+    nullable: true,
+  })
+  messages?: MessageCreateNestedManyWithoutPatientsInput;
 
   @ApiProperty({
     required: true,
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   mobileNumber!: string;
 
@@ -68,6 +90,7 @@ class PatientCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -91,6 +114,7 @@ class PatientCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,

@@ -1,7 +1,7 @@
 export enum EnumRoles {
-  Admin = "admin",
+  Public = "public",
   PracticeUser = "authenticated",
   PracticeManager = "manager",
   PracticeOwner = "practice_owner",
-  Public = "public",
+  Admin = "admin",
 }

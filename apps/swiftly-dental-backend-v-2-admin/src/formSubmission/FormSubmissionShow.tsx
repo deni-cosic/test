@@ -32,8 +32,8 @@ export const FormSubmissionShow = (props: ShowProps): React.ReactElement => {
           <TextField source={PRACTICE_TITLE_FIELD} />
         </ReferenceField>
         <TextField label="Received At" source="receivedAt" />
-        <TextField label="Requested By" source="requestedBy" />
         <TextField label="Request Sent Id" source="requestSentId" />
+        <TextField label="Requested By" source="requestedBy" />
         <BooleanField label="Seen" source="seen" />
         <TextField label="Submission Id" source="submissionId" />
         <DateField source="updatedAt" label="Updated At" />

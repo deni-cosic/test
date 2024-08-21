@@ -13,6 +13,7 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import {
   IsString,
+  MaxLength,
   IsBoolean,
   ValidateNested,
   IsOptional,
@@ -29,6 +30,7 @@ class FormLinkCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   displayName!: string;
 
@@ -45,6 +47,7 @@ class FormLinkCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   message!: string;
 
@@ -73,6 +76,7 @@ class FormLinkCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   url!: string;
 }

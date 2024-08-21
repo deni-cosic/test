@@ -11,7 +11,7 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, ValidateNested } from "class-validator";
+import { IsString, MaxLength, ValidateNested } from "class-validator";
 import { WorkflowTemplateWhereUniqueInput } from "../../workflowTemplate/base/WorkflowTemplateWhereUniqueInput";
 import { Type } from "class-transformer";
 
@@ -22,6 +22,7 @@ class WorkflowTemplateStepCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   message!: string;
 
@@ -30,6 +31,7 @@ class WorkflowTemplateStepCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   timeOffsetInSeconds!: string;
 

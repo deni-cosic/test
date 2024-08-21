@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import {
   IsDate,
   IsString,
+  MaxLength,
   IsBoolean,
   ValidateNested,
   IsOptional,
@@ -38,6 +39,7 @@ class FormLink {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   displayName!: string;
 
@@ -62,6 +64,7 @@ class FormLink {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   message!: string;
 
@@ -97,6 +100,7 @@ class FormLink {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   url!: string;
 }

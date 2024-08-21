@@ -26,6 +26,8 @@ import { UserFindUniqueArgs } from "./UserFindUniqueArgs";
 import { CreateUserArgs } from "./CreateUserArgs";
 import { UpdateUserArgs } from "./UpdateUserArgs";
 import { DeleteUserArgs } from "./DeleteUserArgs";
+import { MessageFindManyArgs } from "../../message/base/MessageFindManyArgs";
+import { Message } from "../../message/base/Message";
 import { PracticeFindManyArgs } from "../../practice/base/PracticeFindManyArgs";
 import { Practice } from "../../practice/base/Practice";
 import { UserService } from "../user.service";
@@ -132,6 +134,26 @@ export class UserResolverBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [Message], { name: "messages" })
+  @nestAccessControl.UseRoles({
+    resource: "Message",
+    action: "read",
+    possession: "any",
+  })
+  async findMessages(
+    @graphql.Parent() parent: User,
+    @graphql.Args() args: MessageFindManyArgs
+  ): Promise<Message[]> {
+    const results = await this.service.findMessages(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
