@@ -11,7 +11,13 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, IsOptional, ValidateNested, IsEnum } from "class-validator";
+import {
+  IsString,
+  MaxLength,
+  IsOptional,
+  ValidateNested,
+  IsEnum,
+} from "class-validator";
 import { PracticeWhereUniqueInput } from "../../practice/base/PracticeWhereUniqueInput";
 import { Type } from "class-transformer";
 import { EnumWorkflowTemplateSector } from "./EnumWorkflowTemplateSector";
@@ -24,6 +30,7 @@ class WorkflowTemplateUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,

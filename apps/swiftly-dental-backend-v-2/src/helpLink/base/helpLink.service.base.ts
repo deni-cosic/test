@@ -19,28 +19,28 @@ export class HelpLinkServiceBase {
     return this.prisma.helpLink.count(args);
   }
 
-  async helpLinks<T extends Prisma.HelpLinkFindManyArgs>(
-    args: Prisma.SelectSubset<T, Prisma.HelpLinkFindManyArgs>
+  async helpLinks(
+    args: Prisma.HelpLinkFindManyArgs
   ): Promise<PrismaHelpLink[]> {
-    return this.prisma.helpLink.findMany<Prisma.HelpLinkFindManyArgs>(args);
+    return this.prisma.helpLink.findMany(args);
   }
-  async helpLink<T extends Prisma.HelpLinkFindUniqueArgs>(
-    args: Prisma.SelectSubset<T, Prisma.HelpLinkFindUniqueArgs>
+  async helpLink(
+    args: Prisma.HelpLinkFindUniqueArgs
   ): Promise<PrismaHelpLink | null> {
     return this.prisma.helpLink.findUnique(args);
   }
-  async createHelpLink<T extends Prisma.HelpLinkCreateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.HelpLinkCreateArgs>
+  async createHelpLink(
+    args: Prisma.HelpLinkCreateArgs
   ): Promise<PrismaHelpLink> {
-    return this.prisma.helpLink.create<T>(args);
+    return this.prisma.helpLink.create(args);
   }
-  async updateHelpLink<T extends Prisma.HelpLinkUpdateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.HelpLinkUpdateArgs>
+  async updateHelpLink(
+    args: Prisma.HelpLinkUpdateArgs
   ): Promise<PrismaHelpLink> {
-    return this.prisma.helpLink.update<T>(args);
+    return this.prisma.helpLink.update(args);
   }
-  async deleteHelpLink<T extends Prisma.HelpLinkDeleteArgs>(
-    args: Prisma.SelectSubset<T, Prisma.HelpLinkDeleteArgs>
+  async deleteHelpLink(
+    args: Prisma.HelpLinkDeleteArgs
   ): Promise<PrismaHelpLink> {
     return this.prisma.helpLink.delete(args);
   }

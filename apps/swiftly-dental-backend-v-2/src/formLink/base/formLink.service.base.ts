@@ -23,28 +23,28 @@ export class FormLinkServiceBase {
     return this.prisma.formLink.count(args);
   }
 
-  async formLinks<T extends Prisma.FormLinkFindManyArgs>(
-    args: Prisma.SelectSubset<T, Prisma.FormLinkFindManyArgs>
+  async formLinks(
+    args: Prisma.FormLinkFindManyArgs
   ): Promise<PrismaFormLink[]> {
-    return this.prisma.formLink.findMany<Prisma.FormLinkFindManyArgs>(args);
+    return this.prisma.formLink.findMany(args);
   }
-  async formLink<T extends Prisma.FormLinkFindUniqueArgs>(
-    args: Prisma.SelectSubset<T, Prisma.FormLinkFindUniqueArgs>
+  async formLink(
+    args: Prisma.FormLinkFindUniqueArgs
   ): Promise<PrismaFormLink | null> {
     return this.prisma.formLink.findUnique(args);
   }
-  async createFormLink<T extends Prisma.FormLinkCreateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.FormLinkCreateArgs>
+  async createFormLink(
+    args: Prisma.FormLinkCreateArgs
   ): Promise<PrismaFormLink> {
-    return this.prisma.formLink.create<T>(args);
+    return this.prisma.formLink.create(args);
   }
-  async updateFormLink<T extends Prisma.FormLinkUpdateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.FormLinkUpdateArgs>
+  async updateFormLink(
+    args: Prisma.FormLinkUpdateArgs
   ): Promise<PrismaFormLink> {
-    return this.prisma.formLink.update<T>(args);
+    return this.prisma.formLink.update(args);
   }
-  async deleteFormLink<T extends Prisma.FormLinkDeleteArgs>(
-    args: Prisma.SelectSubset<T, Prisma.FormLinkDeleteArgs>
+  async deleteFormLink(
+    args: Prisma.FormLinkDeleteArgs
   ): Promise<PrismaFormLink> {
     return this.prisma.formLink.delete(args);
   }

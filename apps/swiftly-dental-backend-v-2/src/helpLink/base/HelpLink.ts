@@ -11,7 +11,7 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, IsDate } from "class-validator";
+import { IsString, MaxLength, IsDate } from "class-validator";
 import { Type } from "class-transformer";
 
 @ObjectType()
@@ -21,6 +21,7 @@ class HelpLink {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   category!: string;
 
@@ -37,6 +38,7 @@ class HelpLink {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   displayName!: string;
 
@@ -61,6 +63,7 @@ class HelpLink {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   url!: string;
 }

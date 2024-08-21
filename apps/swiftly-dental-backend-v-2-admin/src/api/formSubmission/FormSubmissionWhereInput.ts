@@ -14,8 +14,8 @@ export type FormSubmissionWhereInput = {
   patient?: PatientWhereUniqueInput;
   practice?: PracticeWhereUniqueInput;
   receivedAt?: DateTimeNullableFilter;
-  requestedBy?: StringNullableFilter;
   requestSentId?: StringNullableFilter;
+  requestedBy?: StringNullableFilter;
   seen?: BooleanNullableFilter;
   submissionId?: StringNullableFilter;
   updatedAt?: DateTimeFilter;

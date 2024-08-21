@@ -13,6 +13,7 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import {
   IsString,
+  MaxLength,
   IsOptional,
   ValidateNested,
   IsDate,
@@ -29,6 +30,7 @@ class FormSubmissionUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -40,6 +42,7 @@ class FormSubmissionUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -86,22 +89,24 @@ class FormSubmissionUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
   })
-  requestedBy?: string | null;
+  requestSentId?: string | null;
 
   @ApiProperty({
     required: false,
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
   })
-  requestSentId?: string | null;
+  requestedBy?: string | null;
 
   @ApiProperty({
     required: false,
@@ -119,6 +124,7 @@ class FormSubmissionUpdateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,

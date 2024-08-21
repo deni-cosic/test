@@ -3,6 +3,7 @@ import { FormLinkCreateNestedManyWithoutPracticesInput } from "./FormLinkCreateN
 import { FormSubmissionCreateNestedManyWithoutPracticesInput } from "./FormSubmissionCreateNestedManyWithoutPracticesInput";
 import { LeadFormLinkCreateNestedManyWithoutPracticesInput } from "./LeadFormLinkCreateNestedManyWithoutPracticesInput";
 import { LeadCreateNestedManyWithoutPracticesInput } from "./LeadCreateNestedManyWithoutPracticesInput";
+import { MessageCreateNestedManyWithoutPracticesInput } from "./MessageCreateNestedManyWithoutPracticesInput";
 import { PatientCreateNestedManyWithoutPracticesInput } from "./PatientCreateNestedManyWithoutPracticesInput";
 import { PracticeInfoLinkCreateNestedManyWithoutPracticesInput } from "./PracticeInfoLinkCreateNestedManyWithoutPracticesInput";
 import { UserCreateNestedManyWithoutPracticesInput } from "./UserCreateNestedManyWithoutPracticesInput";
@@ -18,6 +19,7 @@ export type PracticeCreateInput = {
   googlePlaceId?: string | null;
   leadFormLinks?: LeadFormLinkCreateNestedManyWithoutPracticesInput;
   leads?: LeadCreateNestedManyWithoutPracticesInput;
+  messages?: MessageCreateNestedManyWithoutPracticesInput;
   name: string;
   nhsReviewUrl?: string | null;
   odsCode: string;
@@ -26,8 +28,8 @@ export type PracticeCreateInput = {
   postcode?: string | null;
   practiceInfoLinks?: PracticeInfoLinkCreateNestedManyWithoutPracticesInput;
   remindAfter: number;
-  remindedAt?: Date | null;
   remindEvery: number;
+  remindedAt?: Date | null;
   sector: "Dental" | "GP";
   senderId?: string | null;
   stripeConnectedAccountId?: string | null;

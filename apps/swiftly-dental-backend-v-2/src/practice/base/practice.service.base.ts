@@ -18,6 +18,7 @@ import {
   FormSubmission as PrismaFormSubmission,
   LeadFormLink as PrismaLeadFormLink,
   Lead as PrismaLead,
+  Message as PrismaMessage,
   Patient as PrismaPatient,
   PracticeInfoLink as PrismaPracticeInfoLink,
   User as PrismaUser,
@@ -32,28 +33,28 @@ export class PracticeServiceBase {
     return this.prisma.practice.count(args);
   }
 
-  async practices<T extends Prisma.PracticeFindManyArgs>(
-    args: Prisma.SelectSubset<T, Prisma.PracticeFindManyArgs>
+  async practices(
+    args: Prisma.PracticeFindManyArgs
   ): Promise<PrismaPractice[]> {
-    return this.prisma.practice.findMany<Prisma.PracticeFindManyArgs>(args);
+    return this.prisma.practice.findMany(args);
   }
-  async practice<T extends Prisma.PracticeFindUniqueArgs>(
-    args: Prisma.SelectSubset<T, Prisma.PracticeFindUniqueArgs>
+  async practice(
+    args: Prisma.PracticeFindUniqueArgs
   ): Promise<PrismaPractice | null> {
     return this.prisma.practice.findUnique(args);
   }
-  async createPractice<T extends Prisma.PracticeCreateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.PracticeCreateArgs>
+  async createPractice(
+    args: Prisma.PracticeCreateArgs
   ): Promise<PrismaPractice> {
-    return this.prisma.practice.create<T>(args);
+    return this.prisma.practice.create(args);
   }
-  async updatePractice<T extends Prisma.PracticeUpdateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.PracticeUpdateArgs>
+  async updatePractice(
+    args: Prisma.PracticeUpdateArgs
   ): Promise<PrismaPractice> {
-    return this.prisma.practice.update<T>(args);
+    return this.prisma.practice.update(args);
   }
-  async deletePractice<T extends Prisma.PracticeDeleteArgs>(
-    args: Prisma.SelectSubset<T, Prisma.PracticeDeleteArgs>
+  async deletePractice(
+    args: Prisma.PracticeDeleteArgs
   ): Promise<PrismaPractice> {
     return this.prisma.practice.delete(args);
   }
@@ -100,6 +101,17 @@ export class PracticeServiceBase {
         where: { id: parentId },
       })
       .leads(args);
+  }
+
+  async findMessages(
+    parentId: string,
+    args: Prisma.MessageFindManyArgs
+  ): Promise<PrismaMessage[]> {
+    return this.prisma.practice
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .messages(args);
   }
 
   async findPatients(

@@ -11,7 +11,12 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsString, IsOptional, ValidateNested } from "class-validator";
+import {
+  IsString,
+  MaxLength,
+  IsOptional,
+  ValidateNested,
+} from "class-validator";
 import { PracticeWhereUniqueInput } from "../../practice/base/PracticeWhereUniqueInput";
 import { Type } from "class-transformer";
 
@@ -22,6 +27,7 @@ class PracticeInfoLinkCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   category!: string;
 
@@ -30,6 +36,7 @@ class PracticeInfoLinkCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   displayName!: string;
 
@@ -38,6 +45,7 @@ class PracticeInfoLinkCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -61,6 +69,7 @@ class PracticeInfoLinkCreateInput {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,

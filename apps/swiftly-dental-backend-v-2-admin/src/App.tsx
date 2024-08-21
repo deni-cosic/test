@@ -61,6 +61,14 @@ import { WorkflowList } from "./workflow/WorkflowList";
 import { WorkflowCreate } from "./workflow/WorkflowCreate";
 import { WorkflowEdit } from "./workflow/WorkflowEdit";
 import { WorkflowShow } from "./workflow/WorkflowShow";
+import { MessageList } from "./message/MessageList";
+import { MessageCreate } from "./message/MessageCreate";
+import { MessageEdit } from "./message/MessageEdit";
+import { MessageShow } from "./message/MessageShow";
+import { MessageLogList } from "./messageLog/MessageLogList";
+import { MessageLogCreate } from "./messageLog/MessageLogCreate";
+import { MessageLogEdit } from "./messageLog/MessageLogEdit";
+import { MessageLogShow } from "./messageLog/MessageLogShow";
 import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
 
 const App = (): React.ReactElement => {
@@ -184,6 +192,20 @@ const App = (): React.ReactElement => {
           edit={WorkflowEdit}
           create={WorkflowCreate}
           show={WorkflowShow}
+        />
+        <Resource
+          name="Message"
+          list={MessageList}
+          edit={MessageEdit}
+          create={MessageCreate}
+          show={MessageShow}
+        />
+        <Resource
+          name="MessageLog"
+          list={MessageLogList}
+          edit={MessageLogEdit}
+          create={MessageLogCreate}
+          show={MessageLogShow}
         />
       </Admin>
     </div>
