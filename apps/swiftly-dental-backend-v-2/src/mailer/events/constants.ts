@@ -1,0 +1,6 @@
+export const FORGOT_PASSWORD_EMAIL = 'email.forgot-password'
+export const ONBOARD_EMAIL = 'email.onboard'
+export const FEEDBACK_CREATED_EMAIL = 'email.feedback-created'
+export const MOBILE_USER_DELETE_REQUEST = 'email.mobile-user-delete-request'
+export const SEND_PURCHASE_LINKS = 'email.send-purchase-links'
+export const PURCHASE_PROCESS_ERROR = 'email.purchase-process-error'
