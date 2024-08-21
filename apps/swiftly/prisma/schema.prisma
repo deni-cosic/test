@@ -1,0 +1,309 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  createdAt DateTime @default(now())
+  email     String?  @unique
+  firstName String?
+  id        String   @id @default(cuid())
+  lastName  String?
+  password  String
+  roles     Json
+  updatedAt DateTime @updatedAt
+  username  String   @unique
+}
+
+model FeaturePermission {
+  analytics           Boolean?   @default(false)
+  createdAt           DateTime   @default(now())
+  dentalAdviceLink    Boolean?   @default(false)
+  dentalSubscriptions Boolean?   @default(false)
+  form                Boolean?   @default(false)
+  id                  String     @id @default(uuid())
+  leads               Boolean?   @default(false)
+  messageTemplate     Boolean?   @default(false)
+  practiceInfoLink    Boolean?   @default(false)
+  practices           Practice[]
+  requestFeedback     Boolean?   @default(false)
+  requestPayment      Boolean?   @default(false)
+  sendDocument        Boolean?   @default(false)
+  sendMessageToMany   Boolean?   @default(false)
+  updatedAt           DateTime   @updatedAt
+  videoCall           Boolean?   @default(false)
+  workflows           Boolean?   @default(false)
+
+  @@map("feature_permissions")
+}
+
+model FormLink {
+  createdAt   DateTime           @default(now())
+  displayName String
+  enabled     Boolean
+  id          String             @id @default(uuid())
+  message     String
+  practice    Practice?          @relation(fields: [practiceId], references: [id])
+  practiceId  String?
+  sector      EnumFormLinkSector
+  updatedAt   DateTime           @updatedAt
+  url         String
+
+  @@map("form_links")
+}
+
+model FormSubmission {
+  createdAt     DateTime  @default(now())
+  formId        String?
+  formTitle     String
+  id            String    @id @default(uuid())
+  patient       Patient?  @relation(fields: [patientId], references: [id])
+  patientId     String?
+  practice      Practice  @relation(fields: [practiceId], references: [id])
+  practiceId    String
+  receivedAt    DateTime?
+  requestSentId String?
+  requestedBy   String?
+  seen          Boolean?
+  submissionId  String?
+  updatedAt     DateTime  @updatedAt
+
+  @@index([submissionId], map: "submissionId_1")
+  @@map("form_submissions")
+}
+
+model HelpLink {
+  category    String
+  createdAt   DateTime @default(now())
+  displayName String
+  id          String   @id @default(uuid())
+  updatedAt   DateTime @updatedAt
+  url         String
+
+  @@map("help_links")
+}
+
+model LeadFormLink {
+  createdAt  DateTime               @default(now())
+  id         String                 @id @default(uuid())
+  name       String
+  practice   Practice?              @relation(fields: [practiceId], references: [id])
+  practiceId String?
+  sector     EnumLeadFormLinkSector
+  updatedAt  DateTime               @updatedAt
+  url        String
+
+  @@map("lead_form_links")
+}
+
+model Lead {
+  contacted              Boolean
+  convertedClientId      String?
+  createdAt              DateTime  @default(now())
+  dateOfBirth            DateTime
+  email                  String
+  emailConsented         Boolean?
+  firstName              String
+  id                     String    @id @default(uuid())
+  interests              Json
+  lastName               String
+  marketingConsented     Boolean
+  meetingDate            DateTime?
+  mobileNumber           String
+  onlyInterestsConsented Boolean?
+  otherFields            Json?
+  platformSource         String
+  practice               Practice  @relation(fields: [practiceId], references: [id])
+  practiceId             String
+  updatedAt              DateTime  @updatedAt
+
+  @@map("leads")
+}
+
+model Patient {
+  createdAt        DateTime         @default(now())
+  dateOfBirth      DateTime
+  firstName        String
+  formSubmissions  FormSubmission[]
+  id               String           @id @default(uuid())
+  lastName         String
+  message          Message[]
+  mobileNumber     String
+  nhsNumber        String?
+  practice         Practice?        @relation(fields: [practiceId], references: [id])
+  practiceId       String?
+  stripeCustomerId String?
+  updatedAt        DateTime         @updatedAt
+  workflows        Workflow[]
+
+  @@unique([practiceId, firstName, lastName, dateOfBirth])
+  @@map("patients")
+}
+
+model PracticeInfoLink {
+  category    String
+  createdAt   DateTime  @default(now())
+  displayName String
+  id          String    @id @default(uuid())
+  message     String?
+  practice    Practice? @relation(fields: [practiceId], references: [id])
+  practiceId  String?
+  updatedAt   DateTime  @updatedAt
+  url         String?
+
+  @@map("practice_info_links")
+}
+
+model Practice {
+  addressLine1             String?
+  addressLine2             String?
+  addressLine3             String?
+  createdAt                DateTime           @default(now())
+  featurePermission        FeaturePermission? @relation(fields: [featurePermissionId], references: [id])
+  featurePermissionId      String?
+  formLinks                FormLink[]
+  formSubmissions          FormSubmission[]
+  googlePlaceId            String?
+  id                       String             @id @default(uuid())
+  leadFormLinks            LeadFormLink[]
+  leads                    Lead[]
+  message                  Message[]
+  name                     String
+  nhsReviewUrl             String?
+  odsCode                  String             @unique
+  patients                 Patient[]
+  phoneNumber              String?
+  postcode                 String?
+  practiceInfoLinks        PracticeInfoLink[]
+  remindAfter              Int                @default(10)
+  remindEvery              Int                @default(3)
+  remindedAt               DateTime?
+  sector                   EnumPracticeSector
+  senderId                 String?
+  stripeConnectedAccountId String?
+  updatedAt                DateTime           @updatedAt
+  website                  String?
+  workflowTemplates        WorkflowTemplate[]
+
+  @@map("practices")
+}
+
+model WorkflowStep {
+  createdAt     DateTime  @default(now())
+  executedOn    DateTime?
+  executionDate DateTime
+  id            String    @id @default(uuid())
+  message       String
+  updatedAt     DateTime  @updatedAt
+  workflow      Workflow  @relation(fields: [workflowId], references: [id])
+  workflowId    String
+
+  @@map("workflow_steps")
+}
+
+model WorkflowTemplateStep {
+  createdAt           DateTime         @default(now())
+  id                  String           @id @default(uuid())
+  message             String
+  timeOffsetInSeconds String
+  updatedAt           DateTime         @updatedAt
+  workflowTemplate    WorkflowTemplate @relation(fields: [workflowTemplateId], references: [id])
+  workflowTemplateId  String
+
+  @@map("workflow_template_steps")
+}
+
+model WorkflowTemplate {
+  createdAt  DateTime                   @default(now())
+  id         String                     @id @default(uuid())
+  name       String
+  practice   Practice?                  @relation(fields: [practiceId], references: [id])
+  practiceId String?
+  sector     EnumWorkflowTemplateSector
+  steps      WorkflowTemplateStep[]
+  updatedAt  DateTime                   @updatedAt
+
+  @@map("workflow_templates")
+}
+
+model Workflow {
+  anchorDate DateTime?
+  createdAt  DateTime       @default(now())
+  id         String         @id @default(uuid())
+  name       String
+  patient    Patient        @relation(fields: [patientId], references: [id])
+  patientId  String
+  steps      WorkflowStep[]
+  updatedAt  DateTime       @updatedAt
+
+  @@map("workflows")
+}
+
+model Message {
+  content     String
+  createdAt   DateTime               @default(now())
+  id          String                 @id @default(uuid())
+  messageLog  MessageLog[]
+  messageType EnumMessageMessageType
+  patient     Patient                @relation(fields: [patientId], references: [id])
+  patientId   String
+  practice    Practice               @relation(fields: [practiceId], references: [id])
+  practiceId  String
+  provider    String?
+  providerId  String?
+  queueItemId String?
+  sentById    String?
+  sentOn      DateTime?
+  smsCount    Int
+  status      EnumMessageStatus?
+  updatedAt   DateTime               @updatedAt
+
+  @@map("message")
+}
+
+model MessageLog {
+  content      String
+  id           String    @id @default(uuid())
+  message      Message   @relation(fields: [messageId], references: [id])
+  messageId    String
+  mobileNumber String
+  senderId     String?
+  sentOn       DateTime?
+
+  @@map("message_log")
+}
+
+enum EnumFormLinkSector {
+  Dental
+  GP
+}
+
+enum EnumLeadFormLinkSector {
+  Dental
+  GP
+}
+
+enum EnumPracticeSector {
+  Dental
+  GP
+}
+
+enum EnumWorkflowTemplateSector {
+  Dental
+  GP
+}
+
+enum EnumMessageMessageType {
+  Instant
+  Delayed
+}
+
+enum EnumMessageStatus {
+  Pending
+  Delivered
+  Failed
+}
