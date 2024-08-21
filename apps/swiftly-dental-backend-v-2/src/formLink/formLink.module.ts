@@ -4,14 +4,9 @@ import { FormLinkModuleBase } from "./base/formLink.module.base";
 import { FormLinkService } from "./formLink.service";
 import { FormLinkController } from "./formLink.controller";
 import { FormLinkResolver } from "./formLink.resolver";
-import { FormSubmissionModule } from "src/formSubmission/formSubmission.module";
 
 @Module({
-  imports: [
-    FormLinkModuleBase,
-    forwardRef(() => AuthModule),
-    FormSubmissionModule,
-  ],
+  imports: [FormLinkModuleBase, forwardRef(() => AuthModule)],
   controllers: [FormLinkController],
   providers: [FormLinkService, FormLinkResolver],
   exports: [FormLinkService],

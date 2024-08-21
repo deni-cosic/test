@@ -38,6 +38,9 @@ import { LeadFormLinkWhereUniqueInput } from "../../leadFormLink/base/LeadFormLi
 import { LeadFindManyArgs } from "../../lead/base/LeadFindManyArgs";
 import { Lead } from "../../lead/base/Lead";
 import { LeadWhereUniqueInput } from "../../lead/base/LeadWhereUniqueInput";
+import { MessageFindManyArgs } from "../../message/base/MessageFindManyArgs";
+import { Message } from "../../message/base/Message";
+import { MessageWhereUniqueInput } from "../../message/base/MessageWhereUniqueInput";
 import { PatientFindManyArgs } from "../../patient/base/PatientFindManyArgs";
 import { Patient } from "../../patient/base/Patient";
 import { PatientWhereUniqueInput } from "../../patient/base/PatientWhereUniqueInput";
@@ -105,8 +108,8 @@ export class PracticeControllerBase {
         phoneNumber: true,
         postcode: true,
         remindAfter: true,
-        remindedAt: true,
         remindEvery: true,
+        remindedAt: true,
         sector: true,
         senderId: true,
         stripeConnectedAccountId: true,
@@ -138,8 +141,11 @@ export class PracticeControllerBase {
         addressLine3: true,
         createdAt: true,
 
-        featurePermission: true,
-        featurePermissionId: true,
+        featurePermission: {
+          select: {
+            id: true,
+          },
+        },
 
         googlePlaceId: true,
         id: true,
@@ -149,8 +155,8 @@ export class PracticeControllerBase {
         phoneNumber: true,
         postcode: true,
         remindAfter: true,
-        remindedAt: true,
         remindEvery: true,
+        remindedAt: true,
         sector: true,
         senderId: true,
         stripeConnectedAccountId: true,
@@ -183,8 +189,11 @@ export class PracticeControllerBase {
         addressLine3: true,
         createdAt: true,
 
-        featurePermission: true,
-        featurePermissionId: true,
+        featurePermission: {
+          select: {
+            id: true,
+          },
+        },
 
         googlePlaceId: true,
         id: true,
@@ -194,8 +203,8 @@ export class PracticeControllerBase {
         phoneNumber: true,
         postcode: true,
         remindAfter: true,
-        remindedAt: true,
         remindEvery: true,
+        remindedAt: true,
         sector: true,
         senderId: true,
         stripeConnectedAccountId: true,
@@ -262,8 +271,8 @@ export class PracticeControllerBase {
           phoneNumber: true,
           postcode: true,
           remindAfter: true,
-          remindedAt: true,
           remindEvery: true,
+          remindedAt: true,
           sector: true,
           senderId: true,
           stripeConnectedAccountId: true,
@@ -318,8 +327,8 @@ export class PracticeControllerBase {
           phoneNumber: true,
           postcode: true,
           remindAfter: true,
-          remindedAt: true,
           remindEvery: true,
+          remindedAt: true,
           sector: true,
           senderId: true,
           stripeConnectedAccountId: true,
@@ -478,8 +487,8 @@ export class PracticeControllerBase {
         },
 
         receivedAt: true,
-        requestedBy: true,
         requestSentId: true,
+        requestedBy: true,
         seen: true,
         submissionId: true,
         updatedAt: true,
@@ -770,6 +779,123 @@ export class PracticeControllerBase {
   ): Promise<void> {
     const data = {
       leads: {
+        disconnect: body,
+      },
+    };
+    await this.service.updatePractice({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/message")
+  @ApiNestedQuery(MessageFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "Message",
+    action: "read",
+    possession: "any",
+  })
+  async findMessage(
+    @common.Req() request: Request,
+    @common.Param() params: PracticeWhereUniqueInput
+  ): Promise<Message[]> {
+    const query = plainToClass(MessageFindManyArgs, request.query);
+    const results = await this.service.findMessage(params.id, {
+      ...query,
+      select: {
+        content: true,
+        createdAt: true,
+        id: true,
+        messageType: true,
+
+        patient: {
+          select: {
+            id: true,
+          },
+        },
+
+        practice: {
+          select: {
+            id: true,
+          },
+        },
+
+        provider: true,
+        providerId: true,
+        queueItemId: true,
+        sentById: true,
+        sentOn: true,
+        smsCount: true,
+        status: true,
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/message")
+  @nestAccessControl.UseRoles({
+    resource: "Practice",
+    action: "update",
+    possession: "any",
+  })
+  async connectMessage(
+    @common.Param() params: PracticeWhereUniqueInput,
+    @common.Body() body: MessageWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      message: {
+        connect: body,
+      },
+    };
+    await this.service.updatePractice({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/message")
+  @nestAccessControl.UseRoles({
+    resource: "Practice",
+    action: "update",
+    possession: "any",
+  })
+  async updateMessage(
+    @common.Param() params: PracticeWhereUniqueInput,
+    @common.Body() body: MessageWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      message: {
+        set: body,
+      },
+    };
+    await this.service.updatePractice({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/message")
+  @nestAccessControl.UseRoles({
+    resource: "Practice",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectMessage(
+    @common.Param() params: PracticeWhereUniqueInput,
+    @common.Body() body: MessageWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      message: {
         disconnect: body,
       },
     };

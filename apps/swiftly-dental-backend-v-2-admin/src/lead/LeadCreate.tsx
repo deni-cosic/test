@@ -6,7 +6,6 @@ import {
   CreateProps,
   BooleanInput,
   TextInput,
-  DateInput,
   DateTimeInput,
   ReferenceInput,
   SelectInput,
@@ -20,8 +19,8 @@ export const LeadCreate = (props: CreateProps): React.ReactElement => {
       <SimpleForm>
         <BooleanInput label="Contacted" source="contacted" />
         <TextInput label="Converted Client Id" source="convertedClientId" />
-        <DateInput label="Date Of Birth" source="dateOfBirth" />
-        <TextInput label="Email" source="email" type="email" />
+        <DateTimeInput label="Date Of Birth" source="dateOfBirth" />
+        <TextInput label="Email" source="email" />
         <BooleanInput label="Email Consented" source="emailConsented" />
         <TextInput label="First Name" source="firstName" />
         <div />

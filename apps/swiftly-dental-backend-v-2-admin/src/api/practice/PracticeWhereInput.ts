@@ -6,6 +6,7 @@ import { FormSubmissionListRelationFilter } from "../formSubmission/FormSubmissi
 import { StringFilter } from "../../util/StringFilter";
 import { LeadFormLinkListRelationFilter } from "../leadFormLink/LeadFormLinkListRelationFilter";
 import { LeadListRelationFilter } from "../lead/LeadListRelationFilter";
+import { MessageListRelationFilter } from "../message/MessageListRelationFilter";
 import { PatientListRelationFilter } from "../patient/PatientListRelationFilter";
 import { PracticeInfoLinkListRelationFilter } from "../practiceInfoLink/PracticeInfoLinkListRelationFilter";
 import { IntFilter } from "../../util/IntFilter";
@@ -25,6 +26,7 @@ export type PracticeWhereInput = {
   id?: StringFilter;
   leadFormLinks?: LeadFormLinkListRelationFilter;
   leads?: LeadListRelationFilter;
+  message?: MessageListRelationFilter;
   name?: StringFilter;
   nhsReviewUrl?: StringNullableFilter;
   odsCode?: StringFilter;
@@ -33,8 +35,8 @@ export type PracticeWhereInput = {
   postcode?: StringNullableFilter;
   practiceInfoLinks?: PracticeInfoLinkListRelationFilter;
   remindAfter?: IntFilter;
-  remindedAt?: DateTimeNullableFilter;
   remindEvery?: IntFilter;
+  remindedAt?: DateTimeNullableFilter;
   sector?: "Dental" | "GP";
   senderId?: StringNullableFilter;
   stripeConnectedAccountId?: StringNullableFilter;

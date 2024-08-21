@@ -1,4 +1,5 @@
 import { FormSubmissionUpdateManyWithoutPatientsInput } from "./FormSubmissionUpdateManyWithoutPatientsInput";
+import { MessageUpdateManyWithoutPatientsInput } from "./MessageUpdateManyWithoutPatientsInput";
 import { PracticeWhereUniqueInput } from "../practice/PracticeWhereUniqueInput";
 import { WorkflowUpdateManyWithoutPatientsInput } from "./WorkflowUpdateManyWithoutPatientsInput";
 
@@ -7,6 +8,7 @@ export type PatientUpdateInput = {
   firstName?: string;
   formSubmissions?: FormSubmissionUpdateManyWithoutPatientsInput;
   lastName?: string;
+  message?: MessageUpdateManyWithoutPatientsInput;
   mobileNumber?: string;
   nhsNumber?: string | null;
   practice?: PracticeWhereUniqueInput | null;

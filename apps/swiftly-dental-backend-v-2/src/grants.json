@@ -1,2311 +1,481 @@
 [
   {
-    "action": "create:any",
-    "role": "practice_owner",
-    "resource": "User",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "public",
-    "resource": "User",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "manager",
-    "resource": "User",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "authenticated",
-    "resource": "User",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "authenticated",
-    "resource": "User",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "manager",
-    "resource": "User",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "practice_owner",
-    "resource": "User",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "practice_owner",
-    "resource": "User",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "public",
-    "resource": "User",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "public",
-    "resource": "User",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "manager",
-    "resource": "User",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "authenticated",
-    "resource": "User",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "practice_owner",
-    "resource": "User",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "manager",
-    "resource": "User",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "authenticated",
-    "resource": "User",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "public",
-    "resource": "User",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "public",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "practice_owner",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "public",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "manager",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "manager",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "public",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "manager",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "practice_owner",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "practice_owner",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "authenticated",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "authenticated",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "authenticated",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "public",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "practice_owner",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "authenticated",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "public",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "manager",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "manager",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "authenticated",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "practice_owner",
-    "resource": "FeaturePermissions",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "manager",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "public",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "authenticated",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "authenticated",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "practice_owner",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "practice_owner",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "manager",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "authenticated",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "public",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "public",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "public",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "practice_owner",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "practice_owner",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "manager",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "manager",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "public",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "authenticated",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "practice_owner",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "authenticated",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "manager",
-    "resource": "FormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "practice_owner",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "practice_owner",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "manager",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "public",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "authenticated",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "authenticated",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "manager",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "manager",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "public",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "authenticated",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "practice_owner",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "authenticated",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "public",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "manager",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "manager",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "practice_owner",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "authenticated",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "public",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "practice_owner",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "public",
-    "resource": "FormSubmission",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "manager",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "authenticated",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "public",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "practice_owner",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "authenticated",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "authenticated",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "public",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "manager",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "manager",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "authenticated",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "public",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "manager",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "public",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "practice_owner",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "authenticated",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "public",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "manager",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "practice_owner",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "practice_owner",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "practice_owner",
-    "resource": "HelpLink",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "public",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "authenticated",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "practice_owner",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "public",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "authenticated",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "practice_owner",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "authenticated",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "practice_owner",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "manager",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "practice_owner",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "authenticated",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "manager",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "public",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "manager",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "practice_owner",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "public",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "authenticated",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "public",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "manager",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "manager",
-    "resource": "Lead",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "manager",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "authenticated",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "manager",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "authenticated",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "public",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "public",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "authenticated",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "practice_owner",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "manager",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "authenticated",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "practice_owner",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "manager",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "authenticated",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "practice_owner",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "practice_owner",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "practice_owner",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "manager",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "public",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "public",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "public",
-    "resource": "LeadFormLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "authenticated",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "manager",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "authenticated",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "manager",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "public",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "authenticated",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "practice_owner",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "practice_owner",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "manager",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "public",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "authenticated",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "public",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "public",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "authenticated",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "public",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "manager",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "manager",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "practice_owner",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "practice_owner",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "practice_owner",
-    "resource": "Link",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "public",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "public",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "public",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "authenticated",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "authenticated",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "manager",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "manager",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "practice_owner",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "manager",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "authenticated",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "authenticated",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "public",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "authenticated",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "manager",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "practice_owner",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "practice_owner",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "public",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "manager",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "practice_owner",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "practice_owner",
-    "resource": "Patient",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "public",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "authenticated",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "public",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "authenticated",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "public",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "practice_owner",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "practice_owner",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "manager",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "authenticated",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "authenticated",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "practice_owner",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "practice_owner",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "public",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "authenticated",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "manager",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "public",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "practice_owner",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "manager",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "manager",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "manager",
-    "resource": "Practice",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "public",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "public",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "public",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "practice_owner",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "public",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "manager",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "manager",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "authenticated",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "authenticated",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "practice_owner",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "manager",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "public",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "manager",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "authenticated",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "manager",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "practice_owner",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "practice_owner",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "authenticated",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "authenticated",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "practice_owner",
-    "resource": "PracticeInfoLink",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "manager",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "public",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "authenticated",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "manager",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "practice_owner",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "practice_owner",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "practice_owner",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "manager",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "authenticated",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "public",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "authenticated",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "manager",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "public",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "manager",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "public",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "public",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "authenticated",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "practice_owner",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "authenticated",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "practice_owner",
-    "resource": "Template",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "authenticated",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "public",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "public",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "manager",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "practice_owner",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "practice_owner",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "authenticated",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "practice_owner",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "manager",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "manager",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "practice_owner",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "authenticated",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "authenticated",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "public",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "manager",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "practice_owner",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "authenticated",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "public",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "manager",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "public",
-    "resource": "Workflow",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "manager",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "practice_owner",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "public",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "public",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "practice_owner",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "authenticated",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "practice_owner",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "authenticated",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "manager",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "manager",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "public",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "manager",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "authenticated",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "authenticated",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "public",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "authenticated",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "manager",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "practice_owner",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "public",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "practice_owner",
-    "resource": "WorkflowStep",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "manager",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "public",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "authenticated",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "manager",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "public",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "manager",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "authenticated",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "practice_owner",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "public",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "practice_owner",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "practice_owner",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "manager",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "practice_owner",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "practice_owner",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "public",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "public",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "authenticated",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "authenticated",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "authenticated",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "manager",
-    "resource": "WorkflowTemplate",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "practice_owner",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "manager",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "authenticated",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "manager",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "practice_owner",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "public",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "manager",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "authenticated",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "practice_owner",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "practice_owner",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "practice_owner",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "authenticated",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "action": "read:own",
-    "role": "public",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "action": "create:any",
-    "role": "public",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "authenticated",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "public",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "action": "update:any",
-    "role": "manager",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "authenticated",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "action": "delete:any",
-    "role": "public",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "action": "read:any",
-    "role": "manager",
-    "resource": "WorkflowTemplateStep",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
+    "role": "user",
     "resource": "User",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "User",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "User",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "User",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "User",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "FeaturePermission",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "FeaturePermission",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "FeaturePermission",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "FeaturePermission",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "FeaturePermission",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "FormLink",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "FormLink",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "FormLink",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "FormLink",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "FormLink",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "FormSubmission",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
+    "resource": "FormSubmission",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
     "resource": "FormSubmission",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "FormSubmission",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "FormSubmission",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "HelpLink",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "HelpLink",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "HelpLink",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "HelpLink",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "HelpLink",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "LeadFormLink",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "LeadFormLink",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "LeadFormLink",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "LeadFormLink",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "LeadFormLink",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Lead",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Lead",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Lead",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Lead",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Lead",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Patient",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Patient",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Patient",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Patient",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Patient",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "PracticeInfoLink",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "PracticeInfoLink",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "PracticeInfoLink",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "PracticeInfoLink",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "PracticeInfoLink",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Practice",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Practice",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Practice",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Practice",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Practice",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "WorkflowStep",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "WorkflowStep",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "WorkflowStep",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "WorkflowStep",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "WorkflowStep",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "WorkflowTemplateStep",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "WorkflowTemplateStep",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "WorkflowTemplateStep",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "WorkflowTemplateStep",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "WorkflowTemplateStep",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "WorkflowTemplate",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "WorkflowTemplate",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "WorkflowTemplate",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "WorkflowTemplate",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "WorkflowTemplate",
     "action": "read:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Workflow",
     "action": "read:own",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Workflow",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Workflow",
     "action": "update:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Workflow",
     "action": "delete:any",
     "attributes": "*"
   },
   {
-    "role": "admin",
+    "role": "user",
     "resource": "Workflow",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Message",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Message",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Message",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Message",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "Message",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "MessageLog",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "MessageLog",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "MessageLog",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "MessageLog",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "user",
+    "resource": "MessageLog",
     "action": "read:any",
     "attributes": "*"
   }

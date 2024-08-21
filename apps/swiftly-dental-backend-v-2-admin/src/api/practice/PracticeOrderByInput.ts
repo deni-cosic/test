@@ -14,8 +14,8 @@ export type PracticeOrderByInput = {
   phoneNumber?: SortOrder;
   postcode?: SortOrder;
   remindAfter?: SortOrder;
-  remindedAt?: SortOrder;
   remindEvery?: SortOrder;
+  remindedAt?: SortOrder;
   sector?: SortOrder;
   senderId?: SortOrder;
   stripeConnectedAccountId?: SortOrder;

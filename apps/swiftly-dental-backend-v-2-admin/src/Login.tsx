@@ -16,7 +16,7 @@ const Login = ({ theme }: any) => {
   const BASE_URI = process.env.REACT_APP_SERVER_URL;
   const submit = (e: any) => {
     e.preventDefault();
-    login({ email: username, password }).catch(() =>
+    login({ username, password }).catch(() =>
       notify("Invalid username or password")
     );
   };
