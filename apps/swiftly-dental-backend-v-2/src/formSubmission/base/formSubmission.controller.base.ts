@@ -19,9 +19,8 @@ import { ApiNestedQuery } from "../../decorators/api-nested-query.decorator";
 import * as nestAccessControl from "nest-access-control";
 import * as defaultAuthGuard from "../../auth/defaultAuth.guard";
 import { FormSubmissionService } from "../formSubmission.service";
-import { Public } from "../../decorators/public.decorator";
-import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
 import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
+import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
 import { FormSubmissionCreateInput } from "./FormSubmissionCreateInput";
 import { FormSubmission } from "./FormSubmission";
 import { FormSubmissionFindManyArgs } from "./FormSubmissionFindManyArgs";
@@ -35,9 +34,14 @@ export class FormSubmissionControllerBase {
     protected readonly service: FormSubmissionService,
     protected readonly rolesBuilder: nestAccessControl.RolesBuilder
   ) {}
-  @Public()
+  @common.UseInterceptors(AclValidateRequestInterceptor)
   @common.Post()
   @swagger.ApiCreatedResponse({ type: FormSubmission })
+  @nestAccessControl.UseRoles({
+    resource: "FormSubmission",
+    action: "create",
+    possession: "any",
+  })
   @swagger.ApiForbiddenResponse({
     type: errors.ForbiddenException,
   })
@@ -80,8 +84,8 @@ export class FormSubmissionControllerBase {
         },
 
         receivedAt: true,
-        requestedBy: true,
         requestSentId: true,
+        requestedBy: true,
         seen: true,
         submissionId: true,
         updatedAt: true,
@@ -126,8 +130,8 @@ export class FormSubmissionControllerBase {
         },
 
         receivedAt: true,
-        requestedBy: true,
         requestSentId: true,
+        requestedBy: true,
         seen: true,
         submissionId: true,
         updatedAt: true,
@@ -171,8 +175,8 @@ export class FormSubmissionControllerBase {
         },
 
         receivedAt: true,
-        requestedBy: true,
         requestSentId: true,
+        requestedBy: true,
         seen: true,
         submissionId: true,
         updatedAt: true,
@@ -240,8 +244,8 @@ export class FormSubmissionControllerBase {
           },
 
           receivedAt: true,
-          requestedBy: true,
           requestSentId: true,
+          requestedBy: true,
           seen: true,
           submissionId: true,
           updatedAt: true,
@@ -293,8 +297,8 @@ export class FormSubmissionControllerBase {
           },
 
           receivedAt: true,
-          requestedBy: true,
           requestSentId: true,
+          requestedBy: true,
           seen: true,
           submissionId: true,
           updatedAt: true,

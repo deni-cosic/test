@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import {
   IsBoolean,
   IsString,
+  MaxLength,
   IsOptional,
   IsDate,
   ValidateNested,
@@ -39,6 +40,7 @@ class Lead {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -66,6 +68,7 @@ class Lead {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   email!: string;
 
@@ -85,6 +88,7 @@ class Lead {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   firstName!: string;
 
@@ -108,6 +112,7 @@ class Lead {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   lastName!: string;
 
@@ -135,6 +140,7 @@ class Lead {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   mobileNumber!: string;
 
@@ -164,6 +170,7 @@ class Lead {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   platformSource!: string;
 

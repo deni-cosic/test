@@ -27,30 +27,28 @@ export class FormSubmissionServiceBase {
     return this.prisma.formSubmission.count(args);
   }
 
-  async formSubmissions<T extends Prisma.FormSubmissionFindManyArgs>(
-    args: Prisma.SelectSubset<T, Prisma.FormSubmissionFindManyArgs>
+  async formSubmissions(
+    args: Prisma.FormSubmissionFindManyArgs
   ): Promise<PrismaFormSubmission[]> {
-    return this.prisma.formSubmission.findMany<Prisma.FormSubmissionFindManyArgs>(
-      args
-    );
+    return this.prisma.formSubmission.findMany(args);
   }
-  async formSubmission<T extends Prisma.FormSubmissionFindUniqueArgs>(
-    args: Prisma.SelectSubset<T, Prisma.FormSubmissionFindUniqueArgs>
+  async formSubmission(
+    args: Prisma.FormSubmissionFindUniqueArgs
   ): Promise<PrismaFormSubmission | null> {
     return this.prisma.formSubmission.findUnique(args);
   }
-  async createFormSubmission<T extends Prisma.FormSubmissionCreateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.FormSubmissionCreateArgs>
+  async createFormSubmission(
+    args: Prisma.FormSubmissionCreateArgs
   ): Promise<PrismaFormSubmission> {
-    return this.prisma.formSubmission.create<T>(args);
+    return this.prisma.formSubmission.create(args);
   }
-  async updateFormSubmission<T extends Prisma.FormSubmissionUpdateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.FormSubmissionUpdateArgs>
+  async updateFormSubmission(
+    args: Prisma.FormSubmissionUpdateArgs
   ): Promise<PrismaFormSubmission> {
-    return this.prisma.formSubmission.update<T>(args);
+    return this.prisma.formSubmission.update(args);
   }
-  async deleteFormSubmission<T extends Prisma.FormSubmissionDeleteArgs>(
-    args: Prisma.SelectSubset<T, Prisma.FormSubmissionDeleteArgs>
+  async deleteFormSubmission(
+    args: Prisma.FormSubmissionDeleteArgs
   ): Promise<PrismaFormSubmission> {
     return this.prisma.formSubmission.delete(args);
   }

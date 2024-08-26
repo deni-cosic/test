@@ -3,6 +3,7 @@ import { FormLink } from "../formLink/FormLink";
 import { FormSubmission } from "../formSubmission/FormSubmission";
 import { LeadFormLink } from "../leadFormLink/LeadFormLink";
 import { Lead } from "../lead/Lead";
+import { Message } from "../message/Message";
 import { Patient } from "../patient/Patient";
 import { PracticeInfoLink } from "../practiceInfoLink/PracticeInfoLink";
 import { User } from "../user/User";
@@ -20,6 +21,7 @@ export type Practice = {
   id: string;
   leadFormLinks?: Array<LeadFormLink>;
   leads?: Array<Lead>;
+  messages?: Array<Message>;
   name: string;
   nhsReviewUrl: string | null;
   odsCode: string;
@@ -28,8 +30,8 @@ export type Practice = {
   postcode: string | null;
   practiceInfoLinks?: Array<PracticeInfoLink>;
   remindAfter: number;
-  remindedAt: Date | null;
   remindEvery: number;
+  remindedAt: Date | null;
   sector?: "Dental" | "GP";
   senderId: string | null;
   stripeConnectedAccountId: string | null;

@@ -8,8 +8,8 @@ export type FormSubmissionOrderByInput = {
   patientId?: SortOrder;
   practiceId?: SortOrder;
   receivedAt?: SortOrder;
-  requestedBy?: SortOrder;
   requestSentId?: SortOrder;
+  requestedBy?: SortOrder;
   seen?: SortOrder;
   submissionId?: SortOrder;
   updatedAt?: SortOrder;

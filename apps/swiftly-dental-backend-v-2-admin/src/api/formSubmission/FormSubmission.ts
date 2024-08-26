@@ -9,8 +9,8 @@ export type FormSubmission = {
   patient?: Patient | null;
   practice?: Practice;
   receivedAt: Date | null;
-  requestedBy: string | null;
   requestSentId: string | null;
+  requestedBy: string | null;
   seen: boolean | null;
   submissionId: string | null;
   updatedAt: Date;

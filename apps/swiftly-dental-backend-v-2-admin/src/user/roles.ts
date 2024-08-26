@@ -1,7 +1,7 @@
 export const ROLES = [
   {
-    name: "admin",
-    displayName: "Admin",
+    name: "public",
+    displayName: "Public",
   },
   {
     name: "authenticated",
@@ -16,7 +16,7 @@ export const ROLES = [
     displayName: "Practice Owner",
   },
   {
-    name: "public",
-    displayName: "Public",
+    name: "admin",
+    displayName: "Admin",
   },
 ];

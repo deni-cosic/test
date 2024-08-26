@@ -26,20 +26,20 @@ import { User } from "./User";
 import { UserFindManyArgs } from "./UserFindManyArgs";
 import { UserWhereUniqueInput } from "./UserWhereUniqueInput";
 import { UserUpdateInput } from "./UserUpdateInput";
+import { MessageFindManyArgs } from "../../message/base/MessageFindManyArgs";
+import { Message } from "../../message/base/Message";
+import { MessageWhereUniqueInput } from "../../message/base/MessageWhereUniqueInput";
 import { PracticeFindManyArgs } from "../../practice/base/PracticeFindManyArgs";
 import { Practice } from "../../practice/base/Practice";
 import { PracticeWhereUniqueInput } from "../../practice/base/PracticeWhereUniqueInput";
-import { AuthService } from "src/auth/auth.service";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
 export class UserControllerBase {
   constructor(
     protected readonly service: UserService,
-    protected readonly rolesBuilder: nestAccessControl.RolesBuilder,
-    protected readonly authService: AuthService
+    protected readonly rolesBuilder: nestAccessControl.RolesBuilder
   ) {}
-
   @common.UseInterceptors(AclValidateRequestInterceptor)
   @common.Post()
   @swagger.ApiCreatedResponse({ type: User })
@@ -55,7 +55,7 @@ export class UserControllerBase {
     type: UserCreateInput,
   })
   async createUser(@common.Body() data: UserCreateInput): Promise<User> {
-    const user = await this.service.createUser({
+    return await this.service.createUser({
       data: data,
       select: {
         blocked: true,
@@ -70,9 +70,6 @@ export class UserControllerBase {
         username: true,
       },
     });
-
-    this.authService.forgotPassword(user.email!);
-    return user;
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
@@ -231,6 +228,129 @@ export class UserControllerBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/messages")
+  @ApiNestedQuery(MessageFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "Message",
+    action: "read",
+    possession: "any",
+  })
+  async findMessages(
+    @common.Req() request: Request,
+    @common.Param() params: UserWhereUniqueInput
+  ): Promise<Message[]> {
+    const query = plainToClass(MessageFindManyArgs, request.query);
+    const results = await this.service.findMessages(params.id, {
+      ...query,
+      select: {
+        content: true,
+        createdAt: true,
+        id: true,
+        messageType: true,
+
+        patient: {
+          select: {
+            id: true,
+          },
+        },
+
+        practice: {
+          select: {
+            id: true,
+          },
+        },
+
+        provider: true,
+        providerId: true,
+        queueItemId: true,
+
+        sentBy: {
+          select: {
+            id: true,
+          },
+        },
+
+        sentOn: true,
+        smsCount: true,
+        status: true,
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/messages")
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "update",
+    possession: "any",
+  })
+  async connectMessages(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: MessageWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      messages: {
+        connect: body,
+      },
+    };
+    await this.service.updateUser({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/messages")
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "update",
+    possession: "any",
+  })
+  async updateMessages(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: MessageWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      messages: {
+        set: body,
+      },
+    };
+    await this.service.updateUser({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/messages")
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectMessages(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: MessageWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      messages: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateUser({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
   @common.Get("/:id/practices")
   @ApiNestedQuery(PracticeFindManyArgs)
   @nestAccessControl.UseRoles({
@@ -265,8 +385,8 @@ export class UserControllerBase {
         phoneNumber: true,
         postcode: true,
         remindAfter: true,
-        remindedAt: true,
         remindEvery: true,
+        remindedAt: true,
         sector: true,
         senderId: true,
         stripeConnectedAccountId: true,

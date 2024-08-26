@@ -26,30 +26,28 @@ export class PracticeInfoLinkServiceBase {
     return this.prisma.practiceInfoLink.count(args);
   }
 
-  async practiceInfoLinks<T extends Prisma.PracticeInfoLinkFindManyArgs>(
-    args: Prisma.SelectSubset<T, Prisma.PracticeInfoLinkFindManyArgs>
+  async practiceInfoLinks(
+    args: Prisma.PracticeInfoLinkFindManyArgs
   ): Promise<PrismaPracticeInfoLink[]> {
-    return this.prisma.practiceInfoLink.findMany<Prisma.PracticeInfoLinkFindManyArgs>(
-      args
-    );
+    return this.prisma.practiceInfoLink.findMany(args);
   }
-  async practiceInfoLink<T extends Prisma.PracticeInfoLinkFindUniqueArgs>(
-    args: Prisma.SelectSubset<T, Prisma.PracticeInfoLinkFindUniqueArgs>
+  async practiceInfoLink(
+    args: Prisma.PracticeInfoLinkFindUniqueArgs
   ): Promise<PrismaPracticeInfoLink | null> {
     return this.prisma.practiceInfoLink.findUnique(args);
   }
-  async createPracticeInfoLink<T extends Prisma.PracticeInfoLinkCreateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.PracticeInfoLinkCreateArgs>
+  async createPracticeInfoLink(
+    args: Prisma.PracticeInfoLinkCreateArgs
   ): Promise<PrismaPracticeInfoLink> {
-    return this.prisma.practiceInfoLink.create<T>(args);
+    return this.prisma.practiceInfoLink.create(args);
   }
-  async updatePracticeInfoLink<T extends Prisma.PracticeInfoLinkUpdateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.PracticeInfoLinkUpdateArgs>
+  async updatePracticeInfoLink(
+    args: Prisma.PracticeInfoLinkUpdateArgs
   ): Promise<PrismaPracticeInfoLink> {
-    return this.prisma.practiceInfoLink.update<T>(args);
+    return this.prisma.practiceInfoLink.update(args);
   }
-  async deletePracticeInfoLink<T extends Prisma.PracticeInfoLinkDeleteArgs>(
-    args: Prisma.SelectSubset<T, Prisma.PracticeInfoLinkDeleteArgs>
+  async deletePracticeInfoLink(
+    args: Prisma.PracticeInfoLinkDeleteArgs
   ): Promise<PrismaPracticeInfoLink> {
     return this.prisma.practiceInfoLink.delete(args);
   }

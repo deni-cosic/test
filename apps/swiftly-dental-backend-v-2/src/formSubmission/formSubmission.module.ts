@@ -4,14 +4,9 @@ import { FormSubmissionModuleBase } from "./base/formSubmission.module.base";
 import { FormSubmissionService } from "./formSubmission.service";
 import { FormSubmissionController } from "./formSubmission.controller";
 import { FormSubmissionResolver } from "./formSubmission.resolver";
-import { PatientModule } from "src/patient/patient.module";
 
 @Module({
-  imports: [
-    FormSubmissionModuleBase,
-    forwardRef(() => AuthModule),
-    PatientModule,
-  ],
+  imports: [FormSubmissionModuleBase, forwardRef(() => AuthModule)],
   controllers: [FormSubmissionController],
   providers: [FormSubmissionService, FormSubmissionResolver],
   exports: [FormSubmissionService],
