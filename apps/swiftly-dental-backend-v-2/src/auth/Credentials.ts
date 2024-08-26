@@ -10,7 +10,7 @@ export class Credentials {
   })
   @IsString()
   @Field(() => String, { nullable: false })
-  email!: string;
+  username!: string;
   @ApiProperty({
     required: true,
     type: String,

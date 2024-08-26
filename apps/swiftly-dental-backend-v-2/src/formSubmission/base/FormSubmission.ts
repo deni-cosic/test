@@ -14,6 +14,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import {
   IsDate,
   IsString,
+  MaxLength,
   IsOptional,
   ValidateNested,
   IsBoolean,
@@ -37,6 +38,7 @@ class FormSubmission {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -48,6 +50,7 @@ class FormSubmission {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   formTitle!: string;
 
@@ -92,22 +95,24 @@ class FormSubmission {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
   })
-  requestedBy!: string | null;
+  requestSentId!: string | null;
 
   @ApiProperty({
     required: false,
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
   })
-  requestSentId!: string | null;
+  requestedBy!: string | null;
 
   @ApiProperty({
     required: false,
@@ -125,6 +130,7 @@ class FormSubmission {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,

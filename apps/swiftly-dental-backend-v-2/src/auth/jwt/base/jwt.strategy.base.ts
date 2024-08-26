@@ -21,9 +21,9 @@ export class JwtStrategyBase
   }
 
   async validate(payload: UserInfo): Promise<UserInfo> {
-    const { email } = payload;
+    const { username } = payload;
     const user = await this.userService.user({
-      where: { email },
+      where: { username },
     });
     if (!user) {
       throw new UnauthorizedException();
@@ -35,6 +35,6 @@ export class JwtStrategyBase
     ) {
       throw new Error("User roles is not a valid value");
     }
-    return { ...user, email: user.email!, roles: user.roles as string[] };
+    return { ...user, roles: user.roles as string[] };
   }
 }

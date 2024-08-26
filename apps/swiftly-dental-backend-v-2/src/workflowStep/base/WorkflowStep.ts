@@ -11,7 +11,13 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsOptional, IsString, ValidateNested } from "class-validator";
+import {
+  IsDate,
+  IsOptional,
+  IsString,
+  MaxLength,
+  ValidateNested,
+} from "class-validator";
 import { Type } from "class-transformer";
 import { Workflow } from "../../workflow/base/Workflow";
 
@@ -57,6 +63,7 @@ class WorkflowStep {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   message!: string;
 

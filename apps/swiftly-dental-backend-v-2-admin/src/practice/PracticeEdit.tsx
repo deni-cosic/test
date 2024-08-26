@@ -18,6 +18,7 @@ import { FormLinkTitle } from "../formLink/FormLinkTitle";
 import { FormSubmissionTitle } from "../formSubmission/FormSubmissionTitle";
 import { LeadFormLinkTitle } from "../leadFormLink/LeadFormLinkTitle";
 import { LeadTitle } from "../lead/LeadTitle";
+import { MessageTitle } from "../message/MessageTitle";
 import { PatientTitle } from "../patient/PatientTitle";
 import { PracticeInfoLinkTitle } from "../practiceInfoLink/PracticeInfoLinkTitle";
 import { UserTitle } from "../user/UserTitle";
@@ -70,6 +71,14 @@ export const PracticeEdit = (props: EditProps): React.ReactElement => {
         >
           <SelectArrayInput optionText={LeadTitle} />
         </ReferenceArrayInput>
+        <ReferenceArrayInput
+          source="messages"
+          reference="Message"
+          parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+          format={(value: any) => value && value.map((v: any) => v.id)}
+        >
+          <SelectArrayInput optionText={MessageTitle} />
+        </ReferenceArrayInput>
         <TextInput label="Name" source="name" />
         <TextInput label="Nhs Review Url" source="nhsReviewUrl" />
         <TextInput label="Ods Code" source="odsCode" />
@@ -92,8 +101,8 @@ export const PracticeEdit = (props: EditProps): React.ReactElement => {
           <SelectArrayInput optionText={PracticeInfoLinkTitle} />
         </ReferenceArrayInput>
         <NumberInput step={1} label="Remind After" source="remindAfter" />
-        <DateTimeInput label="Reminded At" source="remindedAt" />
         <NumberInput step={1} label="Remind Every" source="remindEvery" />
+        <DateTimeInput label="Reminded At" source="remindedAt" />
         <SelectInput
           source="sector"
           label="Sector"

@@ -26,40 +26,28 @@ export class WorkflowTemplateStepServiceBase {
     return this.prisma.workflowTemplateStep.count(args);
   }
 
-  async workflowTemplateSteps<
-    T extends Prisma.WorkflowTemplateStepFindManyArgs
-  >(
-    args: Prisma.SelectSubset<T, Prisma.WorkflowTemplateStepFindManyArgs>
+  async workflowTemplateSteps(
+    args: Prisma.WorkflowTemplateStepFindManyArgs
   ): Promise<PrismaWorkflowTemplateStep[]> {
-    return this.prisma.workflowTemplateStep.findMany<Prisma.WorkflowTemplateStepFindManyArgs>(
-      args
-    );
+    return this.prisma.workflowTemplateStep.findMany(args);
   }
-  async workflowTemplateStep<
-    T extends Prisma.WorkflowTemplateStepFindUniqueArgs
-  >(
-    args: Prisma.SelectSubset<T, Prisma.WorkflowTemplateStepFindUniqueArgs>
+  async workflowTemplateStep(
+    args: Prisma.WorkflowTemplateStepFindUniqueArgs
   ): Promise<PrismaWorkflowTemplateStep | null> {
     return this.prisma.workflowTemplateStep.findUnique(args);
   }
-  async createWorkflowTemplateStep<
-    T extends Prisma.WorkflowTemplateStepCreateArgs
-  >(
-    args: Prisma.SelectSubset<T, Prisma.WorkflowTemplateStepCreateArgs>
+  async createWorkflowTemplateStep(
+    args: Prisma.WorkflowTemplateStepCreateArgs
   ): Promise<PrismaWorkflowTemplateStep> {
-    return this.prisma.workflowTemplateStep.create<T>(args);
+    return this.prisma.workflowTemplateStep.create(args);
   }
-  async updateWorkflowTemplateStep<
-    T extends Prisma.WorkflowTemplateStepUpdateArgs
-  >(
-    args: Prisma.SelectSubset<T, Prisma.WorkflowTemplateStepUpdateArgs>
+  async updateWorkflowTemplateStep(
+    args: Prisma.WorkflowTemplateStepUpdateArgs
   ): Promise<PrismaWorkflowTemplateStep> {
-    return this.prisma.workflowTemplateStep.update<T>(args);
+    return this.prisma.workflowTemplateStep.update(args);
   }
-  async deleteWorkflowTemplateStep<
-    T extends Prisma.WorkflowTemplateStepDeleteArgs
-  >(
-    args: Prisma.SelectSubset<T, Prisma.WorkflowTemplateStepDeleteArgs>
+  async deleteWorkflowTemplateStep(
+    args: Prisma.WorkflowTemplateStepDeleteArgs
   ): Promise<PrismaWorkflowTemplateStep> {
     return this.prisma.workflowTemplateStep.delete(args);
   }

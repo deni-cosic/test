@@ -12,7 +12,7 @@ export class AuthResolver {
   constructor(private readonly authService: AuthService) {}
   @Mutation(() => UserInfo)
   async login(@Args() args: LoginArgs): Promise<UserInfo> {
-    return this.authService.login(args.credentials, true);
+    return this.authService.login(args.credentials);
   }
 
   @Query(() => UserInfo)

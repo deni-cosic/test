@@ -6,14 +6,14 @@ export const VALID_ID = "1";
 export const TEST_USER: UserInfo = {
   id: "cl7qmjh4h0000tothyjqapgj5",
   roles: ["User"],
-  email: "ofek",
+  username: "ofek",
 };
 export const SIGN_TOKEN = "SIGN_TOKEN";
 export const VALID_CREDENTIALS: Credentials = {
-  email: "Valid User",
+  username: "Valid User",
   password: "Valid User Password",
 };
 export const INVALID_CREDENTIALS: Credentials = {
-  email: "Invalid User",
+  username: "Invalid User",
   password: "Invalid User Password",
 };

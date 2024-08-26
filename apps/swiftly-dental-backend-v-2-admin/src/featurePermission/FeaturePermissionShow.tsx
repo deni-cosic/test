@@ -62,8 +62,8 @@ export const FeaturePermissionShow = (props: ShowProps): React.ReactElement => {
             <TextField label="Phone Number" source="phoneNumber" />
             <TextField label="Postcode" source="postcode" />
             <TextField label="Remind After" source="remindAfter" />
-            <TextField label="Reminded At" source="remindedAt" />
             <TextField label="Remind Every" source="remindEvery" />
+            <TextField label="Reminded At" source="remindedAt" />
             <TextField label="Sector" source="sector" />
             <TextField label="Sender Id" source="senderId" />
             <TextField

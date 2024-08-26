@@ -25,30 +25,28 @@ export class WorkflowStepServiceBase {
     return this.prisma.workflowStep.count(args);
   }
 
-  async workflowSteps<T extends Prisma.WorkflowStepFindManyArgs>(
-    args: Prisma.SelectSubset<T, Prisma.WorkflowStepFindManyArgs>
+  async workflowSteps(
+    args: Prisma.WorkflowStepFindManyArgs
   ): Promise<PrismaWorkflowStep[]> {
-    return this.prisma.workflowStep.findMany<Prisma.WorkflowStepFindManyArgs>(
-      args
-    );
+    return this.prisma.workflowStep.findMany(args);
   }
-  async workflowStep<T extends Prisma.WorkflowStepFindUniqueArgs>(
-    args: Prisma.SelectSubset<T, Prisma.WorkflowStepFindUniqueArgs>
+  async workflowStep(
+    args: Prisma.WorkflowStepFindUniqueArgs
   ): Promise<PrismaWorkflowStep | null> {
     return this.prisma.workflowStep.findUnique(args);
   }
-  async createWorkflowStep<T extends Prisma.WorkflowStepCreateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.WorkflowStepCreateArgs>
+  async createWorkflowStep(
+    args: Prisma.WorkflowStepCreateArgs
   ): Promise<PrismaWorkflowStep> {
-    return this.prisma.workflowStep.create<T>(args);
+    return this.prisma.workflowStep.create(args);
   }
-  async updateWorkflowStep<T extends Prisma.WorkflowStepUpdateArgs>(
-    args: Prisma.SelectSubset<T, Prisma.WorkflowStepUpdateArgs>
+  async updateWorkflowStep(
+    args: Prisma.WorkflowStepUpdateArgs
   ): Promise<PrismaWorkflowStep> {
-    return this.prisma.workflowStep.update<T>(args);
+    return this.prisma.workflowStep.update(args);
   }
-  async deleteWorkflowStep<T extends Prisma.WorkflowStepDeleteArgs>(
-    args: Prisma.SelectSubset<T, Prisma.WorkflowStepDeleteArgs>
+  async deleteWorkflowStep(
+    args: Prisma.WorkflowStepDeleteArgs
   ): Promise<PrismaWorkflowStep> {
     return this.prisma.workflowStep.delete(args);
   }

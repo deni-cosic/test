@@ -105,7 +105,7 @@ class FormSubmissionOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  requestedBy?: SortOrder;
+  requestSentId?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -116,7 +116,7 @@ class FormSubmissionOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  requestSentId?: SortOrder;
+  requestedBy?: SortOrder;
 
   @ApiProperty({
     required: false,

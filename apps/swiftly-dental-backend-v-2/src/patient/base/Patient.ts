@@ -11,9 +11,16 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsString, ValidateNested, IsOptional } from "class-validator";
+import {
+  IsDate,
+  IsString,
+  MaxLength,
+  ValidateNested,
+  IsOptional,
+} from "class-validator";
 import { Type } from "class-transformer";
 import { FormSubmission } from "../../formSubmission/base/FormSubmission";
+import { Message } from "../../message/base/Message";
 import { Practice } from "../../practice/base/Practice";
 import { Workflow } from "../../workflow/base/Workflow";
 
@@ -40,6 +47,7 @@ class Patient {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   firstName!: string;
 
@@ -65,14 +73,25 @@ class Patient {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   lastName!: string;
+
+  @ApiProperty({
+    required: false,
+    type: () => [Message],
+  })
+  @ValidateNested()
+  @Type(() => Message)
+  @IsOptional()
+  messages?: Array<Message>;
 
   @ApiProperty({
     required: true,
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @Field(() => String)
   mobileNumber!: string;
 
@@ -81,6 +100,7 @@ class Patient {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,
@@ -101,6 +121,7 @@ class Patient {
     type: String,
   })
   @IsString()
+  @MaxLength(256)
   @IsOptional()
   @Field(() => String, {
     nullable: true,

@@ -3,6 +3,7 @@ import { FormLinkUpdateManyWithoutPracticesInput } from "./FormLinkUpdateManyWit
 import { FormSubmissionUpdateManyWithoutPracticesInput } from "./FormSubmissionUpdateManyWithoutPracticesInput";
 import { LeadFormLinkUpdateManyWithoutPracticesInput } from "./LeadFormLinkUpdateManyWithoutPracticesInput";
 import { LeadUpdateManyWithoutPracticesInput } from "./LeadUpdateManyWithoutPracticesInput";
+import { MessageUpdateManyWithoutPracticesInput } from "./MessageUpdateManyWithoutPracticesInput";
 import { PatientUpdateManyWithoutPracticesInput } from "./PatientUpdateManyWithoutPracticesInput";
 import { PracticeInfoLinkUpdateManyWithoutPracticesInput } from "./PracticeInfoLinkUpdateManyWithoutPracticesInput";
 import { UserUpdateManyWithoutPracticesInput } from "./UserUpdateManyWithoutPracticesInput";
@@ -18,6 +19,7 @@ export type PracticeUpdateInput = {
   googlePlaceId?: string | null;
   leadFormLinks?: LeadFormLinkUpdateManyWithoutPracticesInput;
   leads?: LeadUpdateManyWithoutPracticesInput;
+  messages?: MessageUpdateManyWithoutPracticesInput;
   name?: string;
   nhsReviewUrl?: string | null;
   odsCode?: string;
@@ -26,8 +28,8 @@ export type PracticeUpdateInput = {
   postcode?: string | null;
   practiceInfoLinks?: PracticeInfoLinkUpdateManyWithoutPracticesInput;
   remindAfter?: number;
-  remindedAt?: Date | null;
   remindEvery?: number;
+  remindedAt?: Date | null;
   sector?: "Dental" | "GP";
   senderId?: string | null;
   stripeConnectedAccountId?: string | null;
